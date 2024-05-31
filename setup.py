@@ -20,7 +20,7 @@ from setuptools import setup, find_packages  # noqa: H301
 #
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
-NAME = "openapi-client"
+NAME = "python-core-api-sdk"
 VERSION = "0.0.9"
 PYTHON_REQUIRES = ">=3.7"
 REQUIRES = [
@@ -45,5 +45,5 @@ setup(
     long_description="""\
     Api principal do sistema Sofia.
     """,  # noqa: E501
-    package_data={"openapi_client": ["py.typed"]},
+    package_data={"python_core_api_sdk": ["py.typed"]},
 )

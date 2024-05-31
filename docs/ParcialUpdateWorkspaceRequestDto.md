@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.parcial_update_workspace_request_dto import ParcialUpdateWorkspaceRequestDto
+from python_core_api_sdk.models.parcial_update_workspace_request_dto import ParcialUpdateWorkspaceRequestDto
 
 # TODO update the JSON string below
 json = "{}"

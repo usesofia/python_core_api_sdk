@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.update_bank_transaction_request_dto import UpdateBankTransactionRequestDto
+from python_core_api_sdk.models.update_bank_transaction_request_dto import UpdateBankTransactionRequestDto
 
 # TODO update the JSON string below
 json = "{}"

@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.dre_line_outcome_result_entity import DreLineOutcomeResultEntity
+from python_core_api_sdk.models.dre_line_outcome_result_entity import DreLineOutcomeResultEntity
 
 # TODO update the JSON string below
 json = "{}"

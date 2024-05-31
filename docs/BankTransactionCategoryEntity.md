@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.bank_transaction_category_entity import BankTransactionCategoryEntity
+from python_core_api_sdk.models.bank_transaction_category_entity import BankTransactionCategoryEntity
 
 # TODO update the JSON string below
 json = "{}"

@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.payments_manager_product_price_entity import PaymentsManagerProductPriceEntity
+from python_core_api_sdk.models.payments_manager_product_price_entity import PaymentsManagerProductPriceEntity
 
 # TODO update the JSON string below
 json = "{}"

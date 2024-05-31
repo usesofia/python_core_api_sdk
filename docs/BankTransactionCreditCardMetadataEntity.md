@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.bank_transaction_credit_card_metadata_entity import BankTransactionCreditCardMetadataEntity
+from python_core_api_sdk.models.bank_transaction_credit_card_metadata_entity import BankTransactionCreditCardMetadataEntity
 
 # TODO update the JSON string below
 json = "{}"

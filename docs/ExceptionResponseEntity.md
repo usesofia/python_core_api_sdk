@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.exception_response_entity import ExceptionResponseEntity
+from python_core_api_sdk.models.exception_response_entity import ExceptionResponseEntity
 
 # TODO update the JSON string below
 json = "{}"

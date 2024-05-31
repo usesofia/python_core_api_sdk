@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.send_email_verification_code_request_dto import SendEmailVerificationCodeRequestDto
+from python_core_api_sdk.models.send_email_verification_code_request_dto import SendEmailVerificationCodeRequestDto
 
 # TODO update the JSON string below
 json = "{}"

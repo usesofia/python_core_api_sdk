@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.error_entity import ErrorEntity
+from python_core_api_sdk.models.error_entity import ErrorEntity
 
 # TODO update the JSON string below
 json = "{}"

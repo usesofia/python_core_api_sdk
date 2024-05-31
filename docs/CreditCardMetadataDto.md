@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.credit_card_metadata_dto import CreditCardMetadataDto
+from python_core_api_sdk.models.credit_card_metadata_dto import CreditCardMetadataDto
 
 # TODO update the JSON string below
 json = "{}"

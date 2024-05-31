@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.mean_result_subcategory_item_entity import MeanResultSubcategoryItemEntity
+from python_core_api_sdk.models.mean_result_subcategory_item_entity import MeanResultSubcategoryItemEntity
 
 # TODO update the JSON string below
 json = "{}"

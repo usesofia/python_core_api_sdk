@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.create_profile_request_dto import CreateProfileRequestDto
+from python_core_api_sdk.models.create_profile_request_dto import CreateProfileRequestDto
 
 # TODO update the JSON string below
 json = "{}"

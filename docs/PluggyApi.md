@@ -1,4 +1,4 @@
-# openapi_client.PluggyApi
+# python_core_api_sdk.PluggyApi
 
 All URIs are relative to *http://localhost*
 
@@ -17,24 +17,24 @@ Method | HTTP request | Description
 
 
 ```python
-import openapi_client
-from openapi_client.models.create_pluggy_connect_token_request_dto import CreatePluggyConnectTokenRequestDto
-from openapi_client.models.pluggy_connect_token_entity import PluggyConnectTokenEntity
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.create_pluggy_connect_token_request_dto import CreatePluggyConnectTokenRequestDto
+from python_core_api_sdk.models.pluggy_connect_token_entity import PluggyConnectTokenEntity
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.PluggyApi(api_client)
-    create_pluggy_connect_token_request_dto = openapi_client.CreatePluggyConnectTokenRequestDto() # CreatePluggyConnectTokenRequestDto | 
+    api_instance = python_core_api_sdk.PluggyApi(api_client)
+    create_pluggy_connect_token_request_dto = python_core_api_sdk.CreatePluggyConnectTokenRequestDto() # CreatePluggyConnectTokenRequestDto | 
 
     try:
         api_response = api_instance.pluggy_controller_create(create_pluggy_connect_token_request_dto)
@@ -84,21 +84,21 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.PluggyApi(api_client)
+    api_instance = python_core_api_sdk.PluggyApi(api_client)
 
     try:
         api_instance.pluggy_controller_webhook()

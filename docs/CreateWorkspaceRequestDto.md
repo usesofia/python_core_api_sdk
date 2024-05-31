@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.create_workspace_request_dto import CreateWorkspaceRequestDto
+from python_core_api_sdk.models.create_workspace_request_dto import CreateWorkspaceRequestDto
 
 # TODO update the JSON string below
 json = "{}"

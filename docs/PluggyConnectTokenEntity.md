@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.pluggy_connect_token_entity import PluggyConnectTokenEntity
+from python_core_api_sdk.models.pluggy_connect_token_entity import PluggyConnectTokenEntity
 
 # TODO update the JSON string below
 json = "{}"

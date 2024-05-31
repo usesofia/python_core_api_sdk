@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.credentials_entity import CredentialsEntity
+from python_core_api_sdk.models.credentials_entity import CredentialsEntity
 
 # TODO update the JSON string below
 json = "{}"

@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.profile_entity import ProfileEntity
+from python_core_api_sdk.models.profile_entity import ProfileEntity
 
 # TODO update the JSON string below
 json = "{}"

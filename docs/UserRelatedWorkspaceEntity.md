@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.user_related_workspace_entity import UserRelatedWorkspaceEntity
+from python_core_api_sdk.models.user_related_workspace_entity import UserRelatedWorkspaceEntity
 
 # TODO update the JSON string below
 json = "{}"

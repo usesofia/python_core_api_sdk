@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.financial_transactions_feature_specification_entity import FinancialTransactionsFeatureSpecificationEntity
+from python_core_api_sdk.models.financial_transactions_feature_specification_entity import FinancialTransactionsFeatureSpecificationEntity
 
 # TODO update the JSON string below
 json = "{}"

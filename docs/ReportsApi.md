@@ -1,4 +1,4 @@
-# openapi_client.ReportsApi
+# python_core_api_sdk.ReportsApi
 
 All URIs are relative to *http://localhost*
 
@@ -22,22 +22,22 @@ Method | HTTP request | Description
 
 
 ```python
-import openapi_client
-from openapi_client.models.cash_flow_by_category_report_entity import CashFlowByCategoryReportEntity
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.cash_flow_by_category_report_entity import CashFlowByCategoryReportEntity
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ReportsApi(api_client)
+    api_instance = python_core_api_sdk.ReportsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
     account_ids = 'account_ids_example' # str |  (optional)
     tag_ids = 'tag_ids_example' # str |  (optional)
@@ -108,22 +108,22 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.cash_flow_by_category_report_entity import CashFlowByCategoryReportEntity
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.cash_flow_by_category_report_entity import CashFlowByCategoryReportEntity
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ReportsApi(api_client)
+    api_instance = python_core_api_sdk.ReportsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
     account_ids = 'account_ids_example' # str |  (optional)
     tag_ids = 'tag_ids_example' # str |  (optional)
@@ -194,22 +194,22 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.bank_transaction_indicator_entity import BankTransactionIndicatorEntity
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.bank_transaction_indicator_entity import BankTransactionIndicatorEntity
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ReportsApi(api_client)
+    api_instance = python_core_api_sdk.ReportsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
     account_ids = 'account_ids_example' # str |  (optional)
     tag_ids = 'tag_ids_example' # str |  (optional)
@@ -274,22 +274,22 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.cash_flow_report_entity import CashFlowReportEntity
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.cash_flow_report_entity import CashFlowReportEntity
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ReportsApi(api_client)
+    api_instance = python_core_api_sdk.ReportsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
     account_ids = 'account_ids_example' # str |  (optional)
     category_ids = 'category_ids_example' # str |  (optional)
@@ -352,22 +352,22 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.cash_flow_by_category_report_entity import CashFlowByCategoryReportEntity
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.cash_flow_by_category_report_entity import CashFlowByCategoryReportEntity
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ReportsApi(api_client)
+    api_instance = python_core_api_sdk.ReportsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
     account_ids = 'account_ids_example' # str |  (optional)
     tag_ids = 'tag_ids_example' # str |  (optional)
@@ -436,22 +436,22 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.cash_flow_report_entity import CashFlowReportEntity
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.cash_flow_report_entity import CashFlowReportEntity
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ReportsApi(api_client)
+    api_instance = python_core_api_sdk.ReportsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
     account_ids = 'account_ids_example' # str |  (optional)
     category_ids = 'category_ids_example' # str |  (optional)
@@ -516,22 +516,22 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.financial_statement_report import FinancialStatementReport
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.financial_statement_report import FinancialStatementReport
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.ReportsApi(api_client)
+    api_instance = python_core_api_sdk.ReportsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
     account_ids = 'account_ids_example' # str |  (optional)
     tag_ids = 'tag_ids_example' # str |  (optional)

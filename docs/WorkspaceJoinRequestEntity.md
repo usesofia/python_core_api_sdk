@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.workspace_join_request_entity import WorkspaceJoinRequestEntity
+from python_core_api_sdk.models.workspace_join_request_entity import WorkspaceJoinRequestEntity
 
 # TODO update the JSON string below
 json = "{}"

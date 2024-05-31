@@ -1,4 +1,4 @@
-# openapi_client.MessageTokensApi
+# python_core_api_sdk.MessageTokensApi
 
 All URIs are relative to *http://localhost*
 
@@ -17,25 +17,25 @@ Method | HTTP request | Description
 
 
 ```python
-import openapi_client
-from openapi_client.models.create_or_update_message_token_request_dto import CreateOrUpdateMessageTokenRequestDto
-from openapi_client.models.message_token_entity import MessageTokenEntity
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.create_or_update_message_token_request_dto import CreateOrUpdateMessageTokenRequestDto
+from python_core_api_sdk.models.message_token_entity import MessageTokenEntity
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.MessageTokensApi(api_client)
+    api_instance = python_core_api_sdk.MessageTokensApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    create_or_update_message_token_request_dto = openapi_client.CreateOrUpdateMessageTokenRequestDto() # CreateOrUpdateMessageTokenRequestDto | 
+    create_or_update_message_token_request_dto = python_core_api_sdk.CreateOrUpdateMessageTokenRequestDto() # CreateOrUpdateMessageTokenRequestDto | 
 
     try:
         api_response = api_instance.message_tokens_controller_create_or_update_message_token(workspace_id, create_or_update_message_token_request_dto)
@@ -86,22 +86,22 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.message_token_entity import MessageTokenEntity
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.message_token_entity import MessageTokenEntity
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.MessageTokensApi(api_client)
+    api_instance = python_core_api_sdk.MessageTokensApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
 
     try:

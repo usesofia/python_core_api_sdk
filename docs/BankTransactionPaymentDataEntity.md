@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.bank_transaction_payment_data_entity import BankTransactionPaymentDataEntity
+from python_core_api_sdk.models.bank_transaction_payment_data_entity import BankTransactionPaymentDataEntity
 
 # TODO update the JSON string below
 json = "{}"

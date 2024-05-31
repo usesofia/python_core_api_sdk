@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.refresh_request_dto import RefreshRequestDto
+from python_core_api_sdk.models.refresh_request_dto import RefreshRequestDto
 
 # TODO update the JSON string below
 json = "{}"

@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.create_stripe_checkout_session_request_dto import CreateStripeCheckoutSessionRequestDto
+from python_core_api_sdk.models.create_stripe_checkout_session_request_dto import CreateStripeCheckoutSessionRequestDto
 
 # TODO update the JSON string below
 json = "{}"

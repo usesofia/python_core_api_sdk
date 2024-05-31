@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.ai_chat_feature_specification_entity import AiChatFeatureSpecificationEntity
+from python_core_api_sdk.models.ai_chat_feature_specification_entity import AiChatFeatureSpecificationEntity
 
 # TODO update the JSON string below
 json = "{}"

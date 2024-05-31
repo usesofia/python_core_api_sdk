@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.financial_statement_outlfows_category_data import FinancialStatementOutlfowsCategoryData
+from python_core_api_sdk.models.financial_statement_outlfows_category_data import FinancialStatementOutlfowsCategoryData
 
 # TODO update the JSON string below
 json = "{}"

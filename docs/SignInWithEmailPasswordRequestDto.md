@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.sign_in_with_email_password_request_dto import SignInWithEmailPasswordRequestDto
+from python_core_api_sdk.models.sign_in_with_email_password_request_dto import SignInWithEmailPasswordRequestDto
 
 # TODO update the JSON string below
 json = "{}"

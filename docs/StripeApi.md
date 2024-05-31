@@ -1,4 +1,4 @@
-# openapi_client.StripeApi
+# python_core_api_sdk.StripeApi
 
 All URIs are relative to *http://localhost*
 
@@ -17,24 +17,24 @@ Method | HTTP request | Description
 
 
 ```python
-import openapi_client
-from openapi_client.models.checkout_session_entity import CheckoutSessionEntity
-from openapi_client.models.create_stripe_checkout_session_request_dto import CreateStripeCheckoutSessionRequestDto
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.checkout_session_entity import CheckoutSessionEntity
+from python_core_api_sdk.models.create_stripe_checkout_session_request_dto import CreateStripeCheckoutSessionRequestDto
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.StripeApi(api_client)
-    create_stripe_checkout_session_request_dto = openapi_client.CreateStripeCheckoutSessionRequestDto() # CreateStripeCheckoutSessionRequestDto | 
+    api_instance = python_core_api_sdk.StripeApi(api_client)
+    create_stripe_checkout_session_request_dto = python_core_api_sdk.CreateStripeCheckoutSessionRequestDto() # CreateStripeCheckoutSessionRequestDto | 
 
     try:
         api_response = api_instance.stripe_controller_create_checkout_session_for_stripe(create_stripe_checkout_session_request_dto)
@@ -84,21 +84,21 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.StripeApi(api_client)
+    api_instance = python_core_api_sdk.StripeApi(api_client)
     stripe_signature = 'stripe_signature_example' # str | 
 
     try:

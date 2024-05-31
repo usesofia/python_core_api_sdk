@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.financial_statement_outcome_report_data_entity import FinancialStatementOutcomeReportDataEntity
+from python_core_api_sdk.models.financial_statement_outcome_report_data_entity import FinancialStatementOutcomeReportDataEntity
 
 # TODO update the JSON string below
 json = "{}"

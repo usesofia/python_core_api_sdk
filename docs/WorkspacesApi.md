@@ -1,4 +1,4 @@
-# openapi_client.WorkspacesApi
+# python_core_api_sdk.WorkspacesApi
 
 All URIs are relative to *http://localhost*
 
@@ -19,24 +19,24 @@ Method | HTTP request | Description
 
 
 ```python
-import openapi_client
-from openapi_client.models.create_workspace_request_dto import CreateWorkspaceRequestDto
-from openapi_client.models.workspace_entity import WorkspaceEntity
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.create_workspace_request_dto import CreateWorkspaceRequestDto
+from python_core_api_sdk.models.workspace_entity import WorkspaceEntity
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.WorkspacesApi(api_client)
-    create_workspace_request_dto = openapi_client.CreateWorkspaceRequestDto() # CreateWorkspaceRequestDto | 
+    api_instance = python_core_api_sdk.WorkspacesApi(api_client)
+    create_workspace_request_dto = python_core_api_sdk.CreateWorkspaceRequestDto() # CreateWorkspaceRequestDto | 
 
     try:
         api_response = api_instance.workspaces_controller_create(create_workspace_request_dto)
@@ -86,22 +86,22 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.user_related_workspace_entity import UserRelatedWorkspaceEntity
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.user_related_workspace_entity import UserRelatedWorkspaceEntity
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.WorkspacesApi(api_client)
+    api_instance = python_core_api_sdk.WorkspacesApi(api_client)
 
     try:
         api_response = api_instance.workspaces_controller_fetch_user_related_workspaces()
@@ -148,22 +148,22 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.workspace_entity import WorkspaceEntity
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.workspace_entity import WorkspaceEntity
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.WorkspacesApi(api_client)
+    api_instance = python_core_api_sdk.WorkspacesApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
 
     try:
@@ -214,25 +214,25 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.parcial_update_workspace_request_dto import ParcialUpdateWorkspaceRequestDto
-from openapi_client.models.workspace_entity import WorkspaceEntity
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.parcial_update_workspace_request_dto import ParcialUpdateWorkspaceRequestDto
+from python_core_api_sdk.models.workspace_entity import WorkspaceEntity
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.WorkspacesApi(api_client)
+    api_instance = python_core_api_sdk.WorkspacesApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    parcial_update_workspace_request_dto = openapi_client.ParcialUpdateWorkspaceRequestDto() # ParcialUpdateWorkspaceRequestDto | 
+    parcial_update_workspace_request_dto = python_core_api_sdk.ParcialUpdateWorkspaceRequestDto() # ParcialUpdateWorkspaceRequestDto | 
 
     try:
         api_response = api_instance.workspaces_controller_parcial_update(workspace_id, parcial_update_workspace_request_dto)

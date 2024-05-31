@@ -1,4 +1,4 @@
-# openapi_client.BankConnectionsApi
+# python_core_api_sdk.BankConnectionsApi
 
 All URIs are relative to *http://localhost*
 
@@ -20,22 +20,22 @@ Method | HTTP request | Description
 
 
 ```python
-import openapi_client
-from openapi_client.models.bank_connection_entity import BankConnectionEntity
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.bank_connection_entity import BankConnectionEntity
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.BankConnectionsApi(api_client)
+    api_instance = python_core_api_sdk.BankConnectionsApi(api_client)
     bank_connection_id = 'bank_connection_id_example' # str | 
 
     try:
@@ -86,25 +86,25 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.bank_connection_entity import BankConnectionEntity
-from openapi_client.models.create_or_update_bank_connection_request_dto import CreateOrUpdateBankConnectionRequestDto
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.bank_connection_entity import BankConnectionEntity
+from python_core_api_sdk.models.create_or_update_bank_connection_request_dto import CreateOrUpdateBankConnectionRequestDto
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.BankConnectionsApi(api_client)
+    api_instance = python_core_api_sdk.BankConnectionsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
-    create_or_update_bank_connection_request_dto = openapi_client.CreateOrUpdateBankConnectionRequestDto() # CreateOrUpdateBankConnectionRequestDto | 
+    create_or_update_bank_connection_request_dto = python_core_api_sdk.CreateOrUpdateBankConnectionRequestDto() # CreateOrUpdateBankConnectionRequestDto | 
 
     try:
         api_response = api_instance.bank_connections_controller_create_or_update_bank_connection(workspace_id, create_or_update_bank_connection_request_dto)
@@ -155,22 +155,22 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.bank_connection_entity import BankConnectionEntity
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.bank_connection_entity import BankConnectionEntity
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.BankConnectionsApi(api_client)
+    api_instance = python_core_api_sdk.BankConnectionsApi(api_client)
     bank_connection_id = 'bank_connection_id_example' # str | 
 
     try:
@@ -221,22 +221,22 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.bank_connection_with_accounts_entity import BankConnectionWithAccountsEntity
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.bank_connection_with_accounts_entity import BankConnectionWithAccountsEntity
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.BankConnectionsApi(api_client)
+    api_instance = python_core_api_sdk.BankConnectionsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
     enabled = True # bool |  (optional)
 
@@ -289,22 +289,22 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.bank_connection_with_accounts_entity import BankConnectionWithAccountsEntity
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.bank_connection_with_accounts_entity import BankConnectionWithAccountsEntity
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.BankConnectionsApi(api_client)
+    api_instance = python_core_api_sdk.BankConnectionsApi(api_client)
     bank_connection_id = 'bank_connection_id_example' # str | 
 
     try:

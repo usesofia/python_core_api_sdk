@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.subscription_product_entity import SubscriptionProductEntity
+from python_core_api_sdk.models.subscription_product_entity import SubscriptionProductEntity
 
 # TODO update the JSON string below
 json = "{}"

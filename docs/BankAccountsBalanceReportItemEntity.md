@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.bank_accounts_balance_report_item_entity import BankAccountsBalanceReportItemEntity
+from python_core_api_sdk.models.bank_accounts_balance_report_item_entity import BankAccountsBalanceReportItemEntity
 
 # TODO update the JSON string below
 json = "{}"

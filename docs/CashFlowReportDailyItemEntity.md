@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.cash_flow_report_daily_item_entity import CashFlowReportDailyItemEntity
+from python_core_api_sdk.models.cash_flow_report_daily_item_entity import CashFlowReportDailyItemEntity
 
 # TODO update the JSON string below
 json = "{}"

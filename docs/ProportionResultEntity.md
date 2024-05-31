@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.proportion_result_entity import ProportionResultEntity
+from python_core_api_sdk.models.proportion_result_entity import ProportionResultEntity
 
 # TODO update the JSON string below
 json = "{}"

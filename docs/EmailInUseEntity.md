@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.email_in_use_entity import EmailInUseEntity
+from python_core_api_sdk.models.email_in_use_entity import EmailInUseEntity
 
 # TODO update the JSON string below
 json = "{}"

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.create_bank_transaction_tag_request_dto import CreateBankTransactionTagRequestDto
+from python_core_api_sdk.models.create_bank_transaction_tag_request_dto import CreateBankTransactionTagRequestDto
 
 # TODO update the JSON string below
 json = "{}"

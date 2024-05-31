@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.create_or_update_message_token_request_dto import CreateOrUpdateMessageTokenRequestDto
+from python_core_api_sdk.models.create_or_update_message_token_request_dto import CreateOrUpdateMessageTokenRequestDto
 
 # TODO update the JSON string below
 json = "{}"

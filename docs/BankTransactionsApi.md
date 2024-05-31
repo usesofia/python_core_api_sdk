@@ -1,4 +1,4 @@
-# openapi_client.BankTransactionsApi
+# python_core_api_sdk.BankTransactionsApi
 
 All URIs are relative to *http://localhost*
 
@@ -23,24 +23,24 @@ Method | HTTP request | Description
 
 
 ```python
-import openapi_client
-from openapi_client.models.bank_transaction_entity import BankTransactionEntity
-from openapi_client.models.create_or_update_bank_transactions_in_bulk_request_dto import CreateOrUpdateBankTransactionsInBulkRequestDto
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.bank_transaction_entity import BankTransactionEntity
+from python_core_api_sdk.models.create_or_update_bank_transactions_in_bulk_request_dto import CreateOrUpdateBankTransactionsInBulkRequestDto
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.BankTransactionsApi(api_client)
-    create_or_update_bank_transactions_in_bulk_request_dto = openapi_client.CreateOrUpdateBankTransactionsInBulkRequestDto() # CreateOrUpdateBankTransactionsInBulkRequestDto | 
+    api_instance = python_core_api_sdk.BankTransactionsApi(api_client)
+    create_or_update_bank_transactions_in_bulk_request_dto = python_core_api_sdk.CreateOrUpdateBankTransactionsInBulkRequestDto() # CreateOrUpdateBankTransactionsInBulkRequestDto | 
 
     try:
         api_response = api_instance.bank_transactions_controller_create_or_update_bank_transactions_in_bulk(create_or_update_bank_transactions_in_bulk_request_dto)
@@ -90,22 +90,22 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.bank_transactions_page_entity import BankTransactionsPageEntity
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.bank_transactions_page_entity import BankTransactionsPageEntity
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.BankTransactionsApi(api_client)
+    api_instance = python_core_api_sdk.BankTransactionsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
     page_index = 3.4 # float |  (optional)
     page_size = 3.4 # float |  (optional)
@@ -186,22 +186,22 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.bank_transactions_page_entity import BankTransactionsPageEntity
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.bank_transactions_page_entity import BankTransactionsPageEntity
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.BankTransactionsApi(api_client)
+    api_instance = python_core_api_sdk.BankTransactionsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
     page_index = 3.4 # float |  (optional)
     page_size = 3.4 # float |  (optional)
@@ -256,22 +256,22 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.bank_transactions_page_entity import BankTransactionsPageEntity
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.bank_transactions_page_entity import BankTransactionsPageEntity
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.BankTransactionsApi(api_client)
+    api_instance = python_core_api_sdk.BankTransactionsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
     page_index = 3.4 # float |  (optional)
     page_size = 3.4 # float |  (optional)
@@ -328,22 +328,22 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.bank_transactions_page_entity import BankTransactionsPageEntity
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.bank_transactions_page_entity import BankTransactionsPageEntity
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.BankTransactionsApi(api_client)
+    api_instance = python_core_api_sdk.BankTransactionsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
     account_ids = 'account_ids_example' # str |  (optional)
     category_ids = 'category_ids_example' # str |  (optional)
@@ -420,22 +420,22 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.bank_transaction_entity import BankTransactionEntity
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.bank_transaction_entity import BankTransactionEntity
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.BankTransactionsApi(api_client)
+    api_instance = python_core_api_sdk.BankTransactionsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
 
     try:
@@ -486,22 +486,22 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.bank_transaction_entity import BankTransactionEntity
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.bank_transaction_entity import BankTransactionEntity
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.BankTransactionsApi(api_client)
+    api_instance = python_core_api_sdk.BankTransactionsApi(api_client)
     bank_transaction_id = 'bank_transaction_id_example' # str | 
 
     try:
@@ -552,25 +552,25 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.bank_transaction_entity import BankTransactionEntity
-from openapi_client.models.update_bank_transaction_request_dto import UpdateBankTransactionRequestDto
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.bank_transaction_entity import BankTransactionEntity
+from python_core_api_sdk.models.update_bank_transaction_request_dto import UpdateBankTransactionRequestDto
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.BankTransactionsApi(api_client)
+    api_instance = python_core_api_sdk.BankTransactionsApi(api_client)
     bank_transaction_id = 'bank_transaction_id_example' # str | 
-    update_bank_transaction_request_dto = openapi_client.UpdateBankTransactionRequestDto() # UpdateBankTransactionRequestDto | 
+    update_bank_transaction_request_dto = python_core_api_sdk.UpdateBankTransactionRequestDto() # UpdateBankTransactionRequestDto | 
 
     try:
         api_response = api_instance.bank_transactions_controller_update_transaction(bank_transaction_id, update_bank_transaction_request_dto)

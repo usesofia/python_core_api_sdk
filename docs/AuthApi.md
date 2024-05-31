@@ -1,4 +1,4 @@
-# openapi_client.AuthApi
+# python_core_api_sdk.AuthApi
 
 All URIs are relative to *http://localhost*
 
@@ -20,24 +20,24 @@ Method | HTTP request | Description
 
 
 ```python
-import openapi_client
-from openapi_client.models.check_email_in_use_request_dto import CheckEmailInUseRequestDto
-from openapi_client.models.email_in_use_entity import EmailInUseEntity
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.check_email_in_use_request_dto import CheckEmailInUseRequestDto
+from python_core_api_sdk.models.email_in_use_entity import EmailInUseEntity
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AuthApi(api_client)
-    check_email_in_use_request_dto = openapi_client.CheckEmailInUseRequestDto() # CheckEmailInUseRequestDto | 
+    api_instance = python_core_api_sdk.AuthApi(api_client)
+    check_email_in_use_request_dto = python_core_api_sdk.CheckEmailInUseRequestDto() # CheckEmailInUseRequestDto | 
 
     try:
         api_response = api_instance.auth_controller_check_email_in_use(check_email_in_use_request_dto)
@@ -87,24 +87,24 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.credentials_entity import CredentialsEntity
-from openapi_client.models.refresh_request_dto import RefreshRequestDto
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.credentials_entity import CredentialsEntity
+from python_core_api_sdk.models.refresh_request_dto import RefreshRequestDto
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AuthApi(api_client)
-    refresh_request_dto = openapi_client.RefreshRequestDto() # RefreshRequestDto | 
+    api_instance = python_core_api_sdk.AuthApi(api_client)
+    refresh_request_dto = python_core_api_sdk.RefreshRequestDto() # RefreshRequestDto | 
 
     try:
         api_response = api_instance.auth_controller_refresh(refresh_request_dto)
@@ -154,23 +154,23 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.send_email_verification_code_request_dto import SendEmailVerificationCodeRequestDto
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.send_email_verification_code_request_dto import SendEmailVerificationCodeRequestDto
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AuthApi(api_client)
-    send_email_verification_code_request_dto = openapi_client.SendEmailVerificationCodeRequestDto() # SendEmailVerificationCodeRequestDto | 
+    api_instance = python_core_api_sdk.AuthApi(api_client)
+    send_email_verification_code_request_dto = python_core_api_sdk.SendEmailVerificationCodeRequestDto() # SendEmailVerificationCodeRequestDto | 
 
     try:
         api_instance.auth_controller_send_email_verification_code(send_email_verification_code_request_dto)
@@ -218,24 +218,24 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.credentials_entity import CredentialsEntity
-from openapi_client.models.sign_in_with_email_password_request_dto import SignInWithEmailPasswordRequestDto
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.credentials_entity import CredentialsEntity
+from python_core_api_sdk.models.sign_in_with_email_password_request_dto import SignInWithEmailPasswordRequestDto
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AuthApi(api_client)
-    sign_in_with_email_password_request_dto = openapi_client.SignInWithEmailPasswordRequestDto() # SignInWithEmailPasswordRequestDto | 
+    api_instance = python_core_api_sdk.AuthApi(api_client)
+    sign_in_with_email_password_request_dto = python_core_api_sdk.SignInWithEmailPasswordRequestDto() # SignInWithEmailPasswordRequestDto | 
 
     try:
         api_response = api_instance.auth_controller_sign_in_with_email_password(sign_in_with_email_password_request_dto)
@@ -285,24 +285,24 @@ No authorization required
 
 
 ```python
-import openapi_client
-from openapi_client.models.sign_up_with_email_password_request_dto import SignUpWithEmailPasswordRequestDto
-from openapi_client.models.user_entity import UserEntity
-from openapi_client.rest import ApiException
+import python_core_api_sdk
+from python_core_api_sdk.models.sign_up_with_email_password_request_dto import SignUpWithEmailPasswordRequestDto
+from python_core_api_sdk.models.user_entity import UserEntity
+from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = python_core_api_sdk.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = openapi_client.AuthApi(api_client)
-    sign_up_with_email_password_request_dto = openapi_client.SignUpWithEmailPasswordRequestDto() # SignUpWithEmailPasswordRequestDto | 
+    api_instance = python_core_api_sdk.AuthApi(api_client)
+    sign_up_with_email_password_request_dto = python_core_api_sdk.SignUpWithEmailPasswordRequestDto() # SignUpWithEmailPasswordRequestDto | 
 
     try:
         api_response = api_instance.auth_controller_sign_up_with_email_password(sign_up_with_email_password_request_dto)

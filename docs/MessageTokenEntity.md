@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.message_token_entity import MessageTokenEntity
+from python_core_api_sdk.models.message_token_entity import MessageTokenEntity
 
 # TODO update the JSON string below
 json = "{}"

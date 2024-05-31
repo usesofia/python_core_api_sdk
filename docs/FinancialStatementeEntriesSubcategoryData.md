@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.financial_statemente_entries_subcategory_data import FinancialStatementeEntriesSubcategoryData
+from python_core_api_sdk.models.financial_statemente_entries_subcategory_data import FinancialStatementeEntriesSubcategoryData
 
 # TODO update the JSON string below
 json = "{}"
