@@ -1,0 +1,5647 @@
+openapi: 3.0.0
+info:
+  contact: {}
+  description: Api principal do sistema Sofia.
+  title: Sofia Api
+  version: 0.0.9
+servers:
+- url: /
+paths:
+  /auth/check-email-in-use:
+    post:
+      operationId: auth_controller_check_email_in_use
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CheckEmailInUseRequestDto'
+        required: true
+        x-body-name: body
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmailInUseEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Auth
+      x-openapi-router-controller: python_core_api_sdk.controllers.auth_controller
+      x-codegen-request-body-name: body
+  /auth/refresh:
+    post:
+      operationId: auth_controller_refresh
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RefreshRequestDto'
+        required: true
+        x-body-name: body
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CredentialsEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Auth
+      x-openapi-router-controller: python_core_api_sdk.controllers.auth_controller
+      x-codegen-request-body-name: body
+  /auth/sign-in/email-password:
+    post:
+      operationId: auth_controller_sign_in_with_email_password
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignInWithEmailPasswordRequestDto'
+        required: true
+        x-body-name: body
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CredentialsEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Auth
+      x-openapi-router-controller: python_core_api_sdk.controllers.auth_controller
+      x-codegen-request-body-name: body
+  /auth/sign-up/email-password:
+    post:
+      operationId: auth_controller_sign_up_with_email_password
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignUpWithEmailPasswordRequestDto'
+        required: true
+        x-body-name: body
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Auth
+      x-openapi-router-controller: python_core_api_sdk.controllers.auth_controller
+      x-codegen-request-body-name: body
+  /auth/sign-up/email-verification-code:
+    post:
+      operationId: auth_controller_send_email_verification_code
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendEmailVerificationCodeRequestDto'
+        required: true
+        x-body-name: body
+      responses:
+        "201":
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Auth
+      x-openapi-router-controller: python_core_api_sdk.controllers.auth_controller
+      x-codegen-request-body-name: body
+  /bank/accounts/{bankAccountId}:
+    get:
+      operationId: bank_accounts_controller_get_bank_account_details
+      parameters:
+      - explode: false
+        in: path
+        name: bankAccountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankAccountEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Bank Accounts
+      x-openapi-router-controller: python_core_api_sdk.controllers.bank_accounts_controller
+  /bank/accounts/{bankAccountId}/activate:
+    post:
+      operationId: bank_accounts_controller_activate_bank_account
+      parameters:
+      - explode: false
+        in: path
+        name: bankAccountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankAccountEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Bank Accounts
+      x-openapi-router-controller: python_core_api_sdk.controllers.bank_accounts_controller
+  /bank/accounts/{bankAccountId}/disable:
+    post:
+      operationId: bank_accounts_controller_disable_bank_account
+      parameters:
+      - explode: false
+        in: path
+        name: bankAccountId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankAccountEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Bank Accounts
+      x-openapi-router-controller: python_core_api_sdk.controllers.bank_accounts_controller
+  /bank/connections/{bankConnectionId}:
+    get:
+      operationId: bank_connections_controller_get_bank_connection_details
+      parameters:
+      - explode: false
+        in: path
+        name: bankConnectionId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankConnectionWithAccountsEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Bank Connections
+      x-openapi-router-controller: python_core_api_sdk.controllers.bank_connections_controller
+  /bank/connections/{bankConnectionId}/activate:
+    post:
+      operationId: bank_connections_controller_activate_bank_connection
+      parameters:
+      - explode: false
+        in: path
+        name: bankConnectionId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankConnectionEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Bank Connections
+      x-openapi-router-controller: python_core_api_sdk.controllers.bank_connections_controller
+  /bank/connections/{bankConnectionId}/disable:
+    post:
+      operationId: bank_connections_controller_disable_bank_connection
+      parameters:
+      - explode: false
+        in: path
+        name: bankConnectionId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankConnectionEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Bank Connections
+      x-openapi-router-controller: python_core_api_sdk.controllers.bank_connections_controller
+  /bank/transactions/bulk:
+    put:
+      operationId: bank_transactions_controller_create_or_update_bank_transactions_in_bulk
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateBankTransactionsInBulkRequestDto'
+        required: true
+        x-body-name: body
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/BankTransactionEntity'
+                type: array
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Bank Transactions
+      x-openapi-router-controller: python_core_api_sdk.controllers.bank_transactions_controller
+      x-codegen-request-body-name: body
+  /bank/transactions/{bankTransactionId}:
+    get:
+      operationId: bank_transactions_controller_get_transaction_details
+      parameters:
+      - explode: false
+        in: path
+        name: bankTransactionId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankTransactionEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Bank Transactions
+      x-openapi-router-controller: python_core_api_sdk.controllers.bank_transactions_controller
+    patch:
+      operationId: bank_transactions_controller_update_transaction
+      parameters:
+      - explode: false
+        in: path
+        name: bankTransactionId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateBankTransactionRequestDto'
+        required: true
+        x-body-name: body
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankTransactionEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Bank Transactions
+      x-openapi-router-controller: python_core_api_sdk.controllers.bank_transactions_controller
+      x-codegen-request-body-name: body
+  /pluggy/connect-token:
+    post:
+      operationId: pluggy_controller_create
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreatePluggyConnectTokenRequestDto'
+        required: true
+        x-body-name: body
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PluggyConnectTokenEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Pluggy
+      x-openapi-router-controller: python_core_api_sdk.controllers.pluggy_controller
+      x-codegen-request-body-name: body
+  /pluggy/webhook:
+    post:
+      operationId: pluggy_controller_webhook
+      parameters: []
+      responses:
+        "200":
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Pluggy
+      x-openapi-router-controller: python_core_api_sdk.controllers.pluggy_controller
+  /profiles:
+    post:
+      operationId: profiles_controller_create
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateProfileRequestDto'
+        required: true
+        x-body-name: body
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfileEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Profiles
+      x-openapi-router-controller: python_core_api_sdk.controllers.profiles_controller
+      x-codegen-request-body-name: body
+  /profiles/me:
+    get:
+      operationId: profiles_controller_get_my
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfileEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Profiles
+      x-openapi-router-controller: python_core_api_sdk.controllers.profiles_controller
+    patch:
+      operationId: profiles_controller_parcial_update
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ParcialUpdateProfileRequestDto'
+        required: true
+        x-body-name: body
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfileEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Profiles
+      x-openapi-router-controller: python_core_api_sdk.controllers.profiles_controller
+      x-codegen-request-body-name: body
+  /stripe/checkout-session:
+    post:
+      operationId: stripe_controller_create_checkout_session_for_stripe
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateStripeCheckoutSessionRequestDto'
+        required: true
+        x-body-name: body
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CheckoutSessionEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Stripe
+      x-openapi-router-controller: python_core_api_sdk.controllers.stripe_controller
+      x-codegen-request-body-name: body
+  /stripe/webhook:
+    post:
+      operationId: stripe_controller_stripe_webhook
+      parameters:
+      - explode: false
+        in: header
+        name: stripe-signature
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "201":
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Stripe
+      x-openapi-router-controller: python_core_api_sdk.controllers.stripe_controller
+  /workspaces:
+    post:
+      operationId: workspaces_controller_create
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateWorkspaceRequestDto'
+        required: true
+        x-body-name: body
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkspaceEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Workspaces
+      x-openapi-router-controller: python_core_api_sdk.controllers.workspaces_controller
+      x-codegen-request-body-name: body
+  /workspaces/related-to-me:
+    get:
+      operationId: workspaces_controller_fetch_user_related_workspaces
+      parameters: []
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/UserRelatedWorkspaceEntity'
+                type: array
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Workspaces
+      x-openapi-router-controller: python_core_api_sdk.controllers.workspaces_controller
+  /workspaces/{workspaceId}:
+    get:
+      operationId: workspaces_controller_get
+      parameters:
+      - explode: false
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkspaceEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Workspaces
+      x-openapi-router-controller: python_core_api_sdk.controllers.workspaces_controller
+    patch:
+      operationId: workspaces_controller_parcial_update
+      parameters:
+      - explode: false
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ParcialUpdateWorkspaceRequestDto'
+        required: true
+        x-body-name: body
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkspaceEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Workspaces
+      x-openapi-router-controller: python_core_api_sdk.controllers.workspaces_controller
+      x-codegen-request-body-name: body
+  /workspaces/{workspaceId}/bank/accounts:
+    get:
+      operationId: bank_accounts_controller_fetch_workspace_bank_accounts
+      parameters:
+      - explode: false
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: enabled
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: types
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/BankAccountEntity'
+                type: array
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Bank Accounts
+      x-openapi-router-controller: python_core_api_sdk.controllers.bank_accounts_controller
+    put:
+      operationId: bank_accounts_controller_create_or_update_bank_account
+      parameters:
+      - explode: false
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateBankAccountRequestDto'
+        required: true
+        x-body-name: body
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankAccountEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Bank Accounts
+      x-openapi-router-controller: python_core_api_sdk.controllers.bank_accounts_controller
+      x-codegen-request-body-name: body
+  /workspaces/{workspaceId}/bank/accounts/balance-report:
+    post:
+      operationId: bank_accounts_controller_create_workspace_bank_accounts_balance_report
+      parameters:
+      - explode: false
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: enabled
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: types
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankAccountsBalanceReportEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Bank Accounts
+      x-openapi-router-controller: python_core_api_sdk.controllers.bank_accounts_controller
+  /workspaces/{workspaceId}/bank/connections:
+    get:
+      operationId: bank_connections_controller_fetch_user_bank_connections
+      parameters:
+      - explode: false
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: enabled
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/BankConnectionWithAccountsEntity'
+                type: array
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Bank Connections
+      x-openapi-router-controller: python_core_api_sdk.controllers.bank_connections_controller
+    put:
+      operationId: bank_connections_controller_create_or_update_bank_connection
+      parameters:
+      - explode: false
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateBankConnectionRequestDto'
+        required: true
+        x-body-name: body
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankConnectionEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Bank Connections
+      x-openapi-router-controller: python_core_api_sdk.controllers.bank_connections_controller
+      x-codegen-request-body-name: body
+  /workspaces/{workspaceId}/bank/connections/{bankConnectionId}/accounts:
+    get:
+      operationId: bank_accounts_controller_fetch_connection_bank_accounts
+      parameters:
+      - explode: false
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: bankConnectionId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: enabled
+        required: true
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: types
+        required: true
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/BankAccountEntity'
+                type: array
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Bank Accounts
+      x-openapi-router-controller: python_core_api_sdk.controllers.bank_accounts_controller
+  /workspaces/{workspaceId}/bank/transactions:
+    get:
+      operationId: bank_transactions_controller_get_bank_transactions
+      parameters:
+      - explode: false
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: pageIndex
+        required: false
+        schema:
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: accountIds
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: categoryIds
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: tagIds
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: legalNatures
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: types
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: minPostedDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: maxPostedDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: minCompetencyDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: maxCompetencyDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: showIgnored
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: ignoreAutomaticApplicationRelated
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: ignoreInternalTransfers
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: ignoreInvoiceRelated
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankTransactionsPageEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Bank Transactions
+      x-openapi-router-controller: python_core_api_sdk.controllers.bank_transactions_controller
+  /workspaces/{workspaceId}/bank/transactions/categories:
+    get:
+      operationId: bank_transaction_categories_controller_get_bank_transaction_categories
+      parameters:
+      - explode: true
+        in: query
+        name: onlyLeafs
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: false
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: transactionNatures
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: legalNatures
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/BankTransactionCategoryEntity'
+                type: array
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Bank Transaction Categories
+      x-openapi-router-controller: python_core_api_sdk.controllers.bank_transaction_categories_controller
+  /workspaces/{workspaceId}/bank/transactions/confirmed-today-by-me:
+    get:
+      operationId: bank_transactions_controller_get_bank_transactions_confirmed_today_by_me
+      parameters:
+      - explode: false
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: pageIndex
+        required: false
+        schema:
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankTransactionsPageEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Bank Transactions
+      x-openapi-router-controller: python_core_api_sdk.controllers.bank_transactions_controller
+  /workspaces/{workspaceId}/bank/transactions/most-recent:
+    get:
+      operationId: bank_transactions_controller_get_recent
+      parameters:
+      - explode: false
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/BankTransactionEntity'
+                type: array
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Bank Transactions
+      x-openapi-router-controller: python_core_api_sdk.controllers.bank_transactions_controller
+  /workspaces/{workspaceId}/bank/transactions/not-confirmed:
+    get:
+      operationId: bank_transactions_controller_get_bank_transactions_not_confirmed
+      parameters:
+      - explode: false
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: pageIndex
+        required: false
+        schema:
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: considerIgnored
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankTransactionsPageEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Bank Transactions
+      x-openapi-router-controller: python_core_api_sdk.controllers.bank_transactions_controller
+  /workspaces/{workspaceId}/bank/transactions/tags:
+    get:
+      operationId: bank_transaction_tags_controller_list_tags
+      parameters:
+      - explode: false
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/BankTransactionTagEntity'
+                type: array
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Bank Transaction Tags
+      x-openapi-router-controller: python_core_api_sdk.controllers.bank_transaction_tags_controller
+    post:
+      operationId: bank_transaction_tags_controller_create_tag
+      parameters:
+      - explode: false
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateBankTransactionTagRequestDto'
+        required: true
+        x-body-name: body
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankTransactionTagEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Bank Transaction Tags
+      x-openapi-router-controller: python_core_api_sdk.controllers.bank_transaction_tags_controller
+      x-codegen-request-body-name: body
+  /workspaces/{workspaceId}/bank/transactions/totals:
+    get:
+      operationId: bank_transactions_controller_get_bank_transactions_totals
+      parameters:
+      - explode: false
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: accountIds
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: categoryIds
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: tagIds
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: legalNatures
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: minPostedDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: maxPostedDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: minCompetencyDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: maxCompetencyDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: showIgnored
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: ignoreAutomaticApplicationRelated
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: ignoreInternalTransfers
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: ignoreInvoiceRelated
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: types
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BankTransactionsPageEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Bank Transactions
+      x-openapi-router-controller: python_core_api_sdk.controllers.bank_transactions_controller
+  /workspaces/{workspaceId}/join-requests:
+    post:
+      operationId: workspace_join_requests_controller_create_new_pending_or_return_current
+      parameters:
+      - explode: false
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "201":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkspaceJoinRequestEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Workspace Join Requests
+      x-openapi-router-controller: python_core_api_sdk.controllers.workspace_join_requests_controller
+  /workspaces/{workspaceId}/message-tokens:
+    get:
+      operationId: message_tokens_controller_get_workspace_message_tokens
+      parameters:
+      - explode: false
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/MessageTokenEntity'
+                type: array
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Message Tokens
+      x-openapi-router-controller: python_core_api_sdk.controllers.message_tokens_controller
+    put:
+      operationId: message_tokens_controller_create_or_update_message_token
+      parameters:
+      - explode: false
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateOrUpdateMessageTokenRequestDto'
+        required: true
+        x-body-name: body
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MessageTokenEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Message Tokens
+      x-openapi-router-controller: python_core_api_sdk.controllers.message_tokens_controller
+      x-codegen-request-body-name: body
+  /workspaces/{workspaceId}/reports/accounts/cash-flow:
+    get:
+      operationId: reports_controller_get_cash_flow_report
+      parameters:
+      - explode: false
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: accountIds
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: categoryIds
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: tagIds
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: legalNatures
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: considerIgnored
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: ignoreInternalTransfers
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: ignoreAutomaticApplicationRelated
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CashFlowReportEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Reports
+      x-openapi-router-controller: python_core_api_sdk.controllers.reports_controller
+  /workspaces/{workspaceId}/reports/accounts/entries-by-category:
+    get:
+      operationId: reports_controller_get_accounts_entries_by_category_report
+      parameters:
+      - explode: false
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: accountIds
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: tagIds
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: legalNatures
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: considerIgnored
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: ignoreInternalTransfers
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: ignoreAutomaticApplicationRelated
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: minPostedDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: maxPostedDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: minCompetencyDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: maxCompetencyDate
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CashFlowByCategoryReportEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Reports
+      x-openapi-router-controller: python_core_api_sdk.controllers.reports_controller
+  /workspaces/{workspaceId}/reports/accounts/outputs-by-category:
+    get:
+      operationId: reports_controller_get_accounts_outputs_by_category_report
+      parameters:
+      - explode: false
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: accountIds
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: tagIds
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: legalNatures
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: considerIgnored
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: ignoreInternalTransfers
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: ignoreAutomaticApplicationRelated
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: minPostedDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: maxPostedDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: minCompetencyDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: maxCompetencyDate
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CashFlowByCategoryReportEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Reports
+      x-openapi-router-controller: python_core_api_sdk.controllers.reports_controller
+  /workspaces/{workspaceId}/reports/cards/cash-flow:
+    get:
+      operationId: reports_controller_get_cards_cash_flow_report
+      parameters:
+      - explode: false
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: accountIds
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: categoryIds
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: tagIds
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: legalNatures
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: considerIgnored
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: ignoreInvoiceRelated
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CashFlowReportEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Reports
+      x-openapi-router-controller: python_core_api_sdk.controllers.reports_controller
+  /workspaces/{workspaceId}/reports/cards/outputs-by-category:
+    get:
+      operationId: reports_controller_get_cards_outputs_by_category_report
+      parameters:
+      - explode: false
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: accountIds
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: tagIds
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: legalNatures
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: considerIgnored
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: minPostedDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: maxPostedDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: minCompetencyDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: maxCompetencyDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: ignoreInvoiceRelated
+        required: false
+        schema:
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CashFlowByCategoryReportEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Reports
+      x-openapi-router-controller: python_core_api_sdk.controllers.reports_controller
+  /workspaces/{workspaceId}/reports/financial-statement:
+    get:
+      operationId: reports_controller_get_financial_statement_report
+      parameters:
+      - explode: false
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: accountIds
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: tagIds
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: legalNatures
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: considerIgnored
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: minPostedDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: maxPostedDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: minCompetencyDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: maxCompetencyDate
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FinancialStatementReport'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Reports
+      x-openapi-router-controller: python_core_api_sdk.controllers.reports_controller
+  /workspaces/{workspaceId}/reports/indicators/business:
+    get:
+      operationId: reports_controller_get_business_indicators
+      parameters:
+      - explode: false
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: accountIds
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: tagIds
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: considerIgnored
+        required: false
+        schema:
+          type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: minPostedDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: maxPostedDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: minCompetencyDate
+        required: false
+        schema:
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: maxCompetencyDate
+        required: false
+        schema:
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/BankTransactionIndicatorEntity'
+                type: array
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Reports
+      x-openapi-router-controller: python_core_api_sdk.controllers.reports_controller
+  /workspaces/{workspaceId}/subscription:
+    get:
+      operationId: workspace_subscriptions_controller_get
+      parameters:
+      - explode: false
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkspaceSubscriptionEntity'
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Workspace Subscriptions
+      x-openapi-router-controller: python_core_api_sdk.controllers.workspace_subscriptions_controller
+  /workspaces/{workspaceId}/subscription-products:
+    get:
+      operationId: subscription_products_controller_list
+      parameters:
+      - explode: false
+        in: path
+        name: workspaceId
+        required: true
+        schema:
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/SubscriptionProductEntity'
+                type: array
+          description: ""
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExceptionResponseEntity'
+          description: ""
+      tags:
+      - Subscription Products
+      x-openapi-router-controller: python_core_api_sdk.controllers.subscription_products_controller
+components:
+  schemas:
+    ErrorEntity:
+      example:
+        messages:
+        - messages
+        - messages
+        fieldId: fieldId
+      properties:
+        fieldId:
+          title: fieldId
+          type: string
+        messages:
+          items:
+            type: string
+          title: messages
+          type: array
+      required:
+      - fieldId
+      - messages
+      title: ErrorEntity
+      type: object
+    ExceptionResponseEntity:
+      example:
+        message: message
+        errors:
+        - messages:
+          - messages
+          - messages
+          fieldId: fieldId
+        - messages:
+          - messages
+          - messages
+          fieldId: fieldId
+        statusCode: 0.8008281904610115
+      properties:
+        statusCode:
+          title: statusCode
+          type: number
+        message:
+          title: message
+          type: string
+        errors:
+          items:
+            $ref: '#/components/schemas/ErrorEntity'
+          title: errors
+          type: array
+      required:
+      - errors
+      - message
+      - statusCode
+      title: ExceptionResponseEntity
+      type: object
+    SignUpWithEmailPasswordRequestDto:
+      example:
+        password: password
+        email: email
+        emailVerificationCode: emailVerificationCode
+      properties:
+        email:
+          title: email
+          type: string
+        password:
+          title: password
+          type: string
+        emailVerificationCode:
+          title: emailVerificationCode
+          type: string
+      required:
+      - email
+      - emailVerificationCode
+      - password
+      title: SignUpWithEmailPasswordRequestDto
+      type: object
+    UserEntity:
+      example:
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        id: id
+        email: email
+        passwordHash: passwordHash
+      properties:
+        id:
+          title: id
+          type: string
+        email:
+          title: email
+          type: string
+        createdAt:
+          format: date-time
+          title: createdAt
+          type: string
+        passwordHash:
+          title: passwordHash
+          type: string
+      required:
+      - createdAt
+      - email
+      - id
+      title: UserEntity
+      type: object
+    SendEmailVerificationCodeRequestDto:
+      example:
+        email: email
+      properties:
+        email:
+          title: email
+          type: string
+      required:
+      - email
+      title: SendEmailVerificationCodeRequestDto
+      type: object
+    SignInWithEmailPasswordRequestDto:
+      example:
+        password: password
+        clientId: clientId
+        email: email
+      properties:
+        email:
+          title: email
+          type: string
+        password:
+          title: password
+          type: string
+        clientId:
+          title: clientId
+          type: string
+      required:
+      - clientId
+      - email
+      - password
+      title: SignInWithEmailPasswordRequestDto
+      type: object
+    CredentialsEntity:
+      example:
+        accessToken: accessToken
+        userId: userId
+        refreshToken: refreshToken
+      properties:
+        userId:
+          title: userId
+          type: string
+        accessToken:
+          title: accessToken
+          type: string
+        refreshToken:
+          title: refreshToken
+          type: string
+      required:
+      - accessToken
+      - refreshToken
+      - userId
+      title: CredentialsEntity
+      type: object
+    RefreshRequestDto:
+      example:
+        clientId: clientId
+      properties:
+        clientId:
+          title: clientId
+          type: string
+      required:
+      - clientId
+      title: RefreshRequestDto
+      type: object
+    CheckEmailInUseRequestDto:
+      example:
+        email: email
+      properties:
+        email:
+          title: email
+          type: string
+      required:
+      - email
+      title: CheckEmailInUseRequestDto
+      type: object
+    EmailInUseEntity:
+      example:
+        inUse: true
+        email: email
+      properties:
+        email:
+          title: email
+          type: string
+        inUse:
+          title: inUse
+          type: boolean
+      required:
+      - email
+      - inUse
+      title: EmailInUseEntity
+      type: object
+    CreateWorkspaceRequestDto:
+      example:
+        businessSegment: businessSegment
+        name: name
+        type: type
+        prettyId: prettyId
+        otherDescription: otherDescription
+      properties:
+        prettyId:
+          title: prettyId
+          type: string
+        name:
+          title: name
+          type: string
+        type:
+          title: type
+          type: string
+        businessSegment:
+          title: businessSegment
+          type: string
+        otherDescription:
+          title: otherDescription
+          type: string
+      required:
+      - name
+      - prettyId
+      title: CreateWorkspaceRequestDto
+      type: object
+    WorkspaceEntity:
+      example:
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        creatorUserId: creatorUserId
+        selectedPersonalCategoryTreeId: selectedPersonalCategoryTreeId
+        selectedBusinessCategoryTreeId: selectedBusinessCategoryTreeId
+        name: name
+        id: id
+        type: type
+        prettyId: prettyId
+      properties:
+        id:
+          title: id
+          type: string
+        prettyId:
+          title: prettyId
+          type: string
+        name:
+          title: name
+          type: string
+        type:
+          title: type
+          type: string
+        creatorUserId:
+          title: creatorUserId
+          type: string
+        createdAt:
+          format: date-time
+          title: createdAt
+          type: string
+        selectedPersonalCategoryTreeId:
+          title: selectedPersonalCategoryTreeId
+          type: string
+        selectedBusinessCategoryTreeId:
+          title: selectedBusinessCategoryTreeId
+          type: string
+      required:
+      - createdAt
+      - creatorUserId
+      - id
+      - name
+      - prettyId
+      - type
+      title: WorkspaceEntity
+      type: object
+    ParcialUpdateWorkspaceRequestDto:
+      example:
+        name: name
+      properties:
+        name:
+          title: name
+          type: string
+      required:
+      - name
+      title: ParcialUpdateWorkspaceRequestDto
+      type: object
+    UserRelatedWorkspaceEntity:
+      example:
+        relationType: relationType
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        creatorUserId: creatorUserId
+        name: name
+        id: id
+        type: type
+        prettyId: prettyId
+      properties:
+        id:
+          title: id
+          type: string
+        prettyId:
+          title: prettyId
+          type: string
+        name:
+          title: name
+          type: string
+        type:
+          title: type
+          type: string
+        creatorUserId:
+          title: creatorUserId
+          type: string
+        createdAt:
+          format: date-time
+          title: createdAt
+          type: string
+        relationType:
+          title: relationType
+          type: string
+      required:
+      - createdAt
+      - creatorUserId
+      - id
+      - name
+      - prettyId
+      - relationType
+      - type
+      title: UserRelatedWorkspaceEntity
+      type: object
+    ProfileEntity:
+      example:
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        phone: phone
+        fullName: fullName
+        id: id
+        birthDate: 2000-01-23T04:56:07.000+00:00
+        userId: userId
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          title: id
+          type: string
+        fullName:
+          title: fullName
+          type: string
+        phone:
+          title: phone
+          type: string
+        birthDate:
+          format: date-time
+          title: birthDate
+          type: string
+        userId:
+          title: userId
+          type: string
+        createdAt:
+          format: date-time
+          title: createdAt
+          type: string
+        updatedAt:
+          format: date-time
+          title: updatedAt
+          type: string
+      required:
+      - birthDate
+      - createdAt
+      - fullName
+      - id
+      - phone
+      - updatedAt
+      - userId
+      title: ProfileEntity
+      type: object
+    CreateProfileRequestDto:
+      example:
+        phone: phone
+        fullName: fullName
+        birthDate: 2000-01-23T04:56:07.000+00:00
+      properties:
+        fullName:
+          title: fullName
+          type: string
+        phone:
+          title: phone
+          type: string
+        birthDate:
+          format: date-time
+          title: birthDate
+          type: string
+      required:
+      - birthDate
+      - fullName
+      - phone
+      title: CreateProfileRequestDto
+      type: object
+    ParcialUpdateProfileRequestDto:
+      example:
+        phone: phone
+        fullName: fullName
+        birthDate: 2000-01-23T04:56:07.000+00:00
+      properties:
+        fullName:
+          title: fullName
+          type: string
+        phone:
+          title: phone
+          type: string
+        birthDate:
+          format: date-time
+          title: birthDate
+          type: string
+      title: ParcialUpdateProfileRequestDto
+      type: object
+    WorkspaceJoinRequestEntity:
+      example:
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        id: id
+        userId: userId
+        status: status
+        workspaceId: workspaceId
+      properties:
+        id:
+          title: id
+          type: string
+        status:
+          title: status
+          type: string
+        workspaceId:
+          title: workspaceId
+          type: string
+        userId:
+          title: userId
+          type: string
+        createdAt:
+          format: date-time
+          title: createdAt
+          type: string
+      required:
+      - createdAt
+      - id
+      - status
+      - userId
+      - workspaceId
+      title: WorkspaceJoinRequestEntity
+      type: object
+    ConnectionFeatureSpecificationEntity:
+      example:
+        max: 6.027456183070403
+        unlimited: true
+        id: id
+        subscriptionProductId: subscriptionProductId
+      properties:
+        id:
+          title: id
+          type: string
+        unlimited:
+          title: unlimited
+          type: boolean
+        max:
+          title: max
+          type: number
+        subscriptionProductId:
+          title: subscriptionProductId
+          type: string
+      required:
+      - id
+      - subscriptionProductId
+      - unlimited
+      title: ConnectionFeatureSpecificationEntity
+      type: object
+    FinancialTransactionsFeatureSpecificationEntity:
+      example:
+        maxPerMonth: 1.4658129805029452
+        unlimited: true
+        id: id
+        subscriptionProductId: subscriptionProductId
+      properties:
+        id:
+          title: id
+          type: string
+        unlimited:
+          title: unlimited
+          type: boolean
+        maxPerMonth:
+          title: maxPerMonth
+          type: number
+        subscriptionProductId:
+          title: subscriptionProductId
+          type: string
+      required:
+      - id
+      - subscriptionProductId
+      - unlimited
+      title: FinancialTransactionsFeatureSpecificationEntity
+      type: object
+    AiChatFeatureSpecificationEntity:
+      example:
+        id: id
+        subscriptionProductId: subscriptionProductId
+        enabled: true
+      properties:
+        id:
+          title: id
+          type: string
+        enabled:
+          title: enabled
+          type: boolean
+        subscriptionProductId:
+          title: subscriptionProductId
+          type: string
+      required:
+      - enabled
+      - id
+      - subscriptionProductId
+      title: AiChatFeatureSpecificationEntity
+      type: object
+    PaymentsManagerProductPriceEntity:
+      example:
+        active: true
+        unitAmount: 5.962133916683182
+        interval: interval
+        id: id
+      properties:
+        id:
+          title: id
+          type: string
+        active:
+          title: active
+          type: boolean
+        unitAmount:
+          title: unitAmount
+          type: number
+        interval:
+          title: interval
+          type: string
+      required:
+      - active
+      - id
+      - interval
+      - unitAmount
+      title: PaymentsManagerProductPriceEntity
+      type: object
+    PaymentsManagerProductDataEntity:
+      example:
+        name: name
+        description: description
+        id: id
+        prices:
+        - active: true
+          unitAmount: 5.962133916683182
+          interval: interval
+          id: id
+        - active: true
+          unitAmount: 5.962133916683182
+          interval: interval
+          id: id
+      properties:
+        id:
+          title: id
+          type: string
+        name:
+          title: name
+          type: string
+        description:
+          title: description
+          type: string
+        prices:
+          items:
+            $ref: '#/components/schemas/PaymentsManagerProductPriceEntity'
+          title: prices
+          type: array
+      required:
+      - description
+      - id
+      - name
+      - prices
+      title: PaymentsManagerProductDataEntity
+      type: object
+    SubscriptionProductEntity:
+      example:
+        paymentSystem: paymentSystem
+        paymentsManagerData:
+          name: name
+          description: description
+          id: id
+          prices:
+          - active: true
+            unitAmount: 5.962133916683182
+            interval: interval
+            id: id
+          - active: true
+            unitAmount: 5.962133916683182
+            interval: interval
+            id: id
+        trialPeriodInDays: 0.8008281904610115
+        paymentSystemProductId: paymentSystemProductId
+        workspaceType: workspaceType
+        trialAlreadyUsed: true
+        financialTransactionsFeatureSpecification:
+          maxPerMonth: 1.4658129805029452
+          unlimited: true
+          id: id
+          subscriptionProductId: subscriptionProductId
+        id: id
+        connectionFeatureSpecification:
+          max: 6.027456183070403
+          unlimited: true
+          id: id
+          subscriptionProductId: subscriptionProductId
+        aiChatFeatureSpecification:
+          id: id
+          subscriptionProductId: subscriptionProductId
+          enabled: true
+      properties:
+        id:
+          title: id
+          type: string
+        paymentSystem:
+          title: paymentSystem
+          type: string
+        paymentSystemProductId:
+          title: paymentSystemProductId
+          type: string
+        workspaceType:
+          title: workspaceType
+          type: string
+        trialPeriodInDays:
+          title: trialPeriodInDays
+          type: number
+        trialAlreadyUsed:
+          title: trialAlreadyUsed
+          type: boolean
+        connectionFeatureSpecification:
+          $ref: '#/components/schemas/ConnectionFeatureSpecificationEntity'
+        financialTransactionsFeatureSpecification:
+          $ref: '#/components/schemas/FinancialTransactionsFeatureSpecificationEntity'
+        aiChatFeatureSpecification:
+          $ref: '#/components/schemas/AiChatFeatureSpecificationEntity'
+        paymentsManagerData:
+          $ref: '#/components/schemas/PaymentsManagerProductDataEntity'
+      required:
+      - aiChatFeatureSpecification
+      - connectionFeatureSpecification
+      - financialTransactionsFeatureSpecification
+      - id
+      - paymentSystem
+      - paymentSystemProductId
+      - paymentsManagerData
+      - workspaceType
+      title: SubscriptionProductEntity
+      type: object
+    WorkspaceSubscriptionEntity:
+      example:
+        paymentSystem: STRIPE
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        paymentSystemSubscriptionId: paymentSystemSubscriptionId
+        id: id
+        subscriptionProductId: subscriptionProductId
+        subscriptionProduct:
+          paymentSystem: paymentSystem
+          paymentsManagerData:
+            name: name
+            description: description
+            id: id
+            prices:
+            - active: true
+              unitAmount: 5.962133916683182
+              interval: interval
+              id: id
+            - active: true
+              unitAmount: 5.962133916683182
+              interval: interval
+              id: id
+          trialPeriodInDays: 0.8008281904610115
+          paymentSystemProductId: paymentSystemProductId
+          workspaceType: workspaceType
+          trialAlreadyUsed: true
+          financialTransactionsFeatureSpecification:
+            maxPerMonth: 1.4658129805029452
+            unlimited: true
+            id: id
+            subscriptionProductId: subscriptionProductId
+          id: id
+          connectionFeatureSpecification:
+            max: 6.027456183070403
+            unlimited: true
+            id: id
+            subscriptionProductId: subscriptionProductId
+          aiChatFeatureSpecification:
+            id: id
+            subscriptionProductId: subscriptionProductId
+            enabled: true
+        workspaceId: workspaceId
+        status: ACTIVE
+      properties:
+        id:
+          title: id
+          type: string
+        workspaceId:
+          title: workspaceId
+          type: string
+        subscriptionProductId:
+          title: subscriptionProductId
+          type: string
+        subscriptionProduct:
+          $ref: '#/components/schemas/SubscriptionProductEntity'
+        status:
+          enum:
+          - ACTIVE
+          - NOT_ACTIVE
+          - TRIAL
+          title: status
+          type: string
+        paymentSystem:
+          enum:
+          - STRIPE
+          title: paymentSystem
+          type: string
+        paymentSystemSubscriptionId:
+          title: paymentSystemSubscriptionId
+          type: string
+        createdAt:
+          format: date-time
+          title: createdAt
+          type: string
+      required:
+      - createdAt
+      - id
+      - paymentSystem
+      - paymentSystemSubscriptionId
+      - status
+      - subscriptionProduct
+      - subscriptionProductId
+      - workspaceId
+      title: WorkspaceSubscriptionEntity
+      type: object
+    CreateStripeCheckoutSessionRequestDto:
+      example:
+        priceId: priceId
+        isTrial: true
+        workspaceId: workspaceId
+      properties:
+        workspaceId:
+          title: workspaceId
+          type: string
+        priceId:
+          title: priceId
+          type: string
+        isTrial:
+          title: isTrial
+          type: boolean
+      required:
+      - isTrial
+      - priceId
+      - workspaceId
+      title: CreateStripeCheckoutSessionRequestDto
+      type: object
+    CheckoutSessionEntity:
+      example:
+        url: url
+      properties:
+        url:
+          title: url
+          type: string
+      required:
+      - url
+      title: CheckoutSessionEntity
+      type: object
+    CreatePluggyConnectTokenRequestDto:
+      example:
+        itemId: itemId
+        historyRange: historyRange
+        workspaceId: workspaceId
+      properties:
+        itemId:
+          title: itemId
+          type: string
+        workspaceId:
+          title: workspaceId
+          type: string
+        historyRange:
+          title: historyRange
+          type: string
+      required:
+      - historyRange
+      - workspaceId
+      title: CreatePluggyConnectTokenRequestDto
+      type: object
+    PluggyConnectTokenEntity:
+      example:
+        accessToken: accessToken
+      properties:
+        accessToken:
+          title: accessToken
+          type: string
+      required:
+      - accessToken
+      title: PluggyConnectTokenEntity
+      type: object
+    PlainBankAccountEntity:
+      example:
+        number: number
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        bankConnectionId: bankConnectionId
+        balance: 0.8008281904610115
+        provider: provider
+        providerAccountId: providerAccountId
+        name: name
+        id: id
+        type: type
+        currencyCode: currencyCode
+        enabled: true
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          title: id
+          type: string
+        bankConnectionId:
+          title: bankConnectionId
+          type: string
+        provider:
+          title: provider
+          type: string
+        providerAccountId:
+          title: providerAccountId
+          type: string
+        type:
+          title: type
+          type: string
+        enabled:
+          title: enabled
+          type: boolean
+        number:
+          title: number
+          type: string
+        balance:
+          title: balance
+          type: number
+        currencyCode:
+          title: currencyCode
+          type: string
+        name:
+          title: name
+          type: string
+        createdAt:
+          format: date-time
+          title: createdAt
+          type: string
+        updatedAt:
+          format: date-time
+          title: updatedAt
+          type: string
+      required:
+      - balance
+      - bankConnectionId
+      - createdAt
+      - currencyCode
+      - enabled
+      - id
+      - name
+      - number
+      - provider
+      - providerAccountId
+      - type
+      - updatedAt
+      title: PlainBankAccountEntity
+      type: object
+    BankConnectorEntity:
+      example:
+        country: country
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        provider: provider
+        imageUrl: imageUrl
+        name: name
+        primaryColor: primaryColor
+        institutionUrl: institutionUrl
+        id: id
+        type: type
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          title: id
+          type: string
+        provider:
+          title: provider
+          type: string
+        name:
+          title: name
+          type: string
+        institutionUrl:
+          title: institutionUrl
+          type: string
+        imageUrl:
+          title: imageUrl
+          type: string
+        primaryColor:
+          title: primaryColor
+          type: string
+        type:
+          title: type
+          type: string
+        country:
+          title: country
+          type: string
+        createdAt:
+          format: date-time
+          title: createdAt
+          type: string
+        updatedAt:
+          format: date-time
+          title: updatedAt
+          type: string
+      required:
+      - country
+      - createdAt
+      - id
+      - imageUrl
+      - institutionUrl
+      - name
+      - primaryColor
+      - provider
+      - type
+      - updatedAt
+      title: BankConnectorEntity
+      type: object
+    BankConnectionWithAccountsEntity:
+      example:
+        createdByUserId: createdByUserId
+        providerItemId: providerItemId
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        historyRange: historyRange
+        connector:
+          country: country
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          provider: provider
+          imageUrl: imageUrl
+          name: name
+          primaryColor: primaryColor
+          institutionUrl: institutionUrl
+          id: id
+          type: type
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        provider: provider
+        connectorId: connectorId
+        id: id
+        accounts:
+        - number: number
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          bankConnectionId: bankConnectionId
+          balance: 0.8008281904610115
+          provider: provider
+          providerAccountId: providerAccountId
+          name: name
+          id: id
+          type: type
+          currencyCode: currencyCode
+          enabled: true
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        - number: number
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          bankConnectionId: bankConnectionId
+          balance: 0.8008281904610115
+          provider: provider
+          providerAccountId: providerAccountId
+          name: name
+          id: id
+          type: type
+          currencyCode: currencyCode
+          enabled: true
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        enabled: true
+        workspaceId: workspaceId
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          title: id
+          type: string
+        createdByUserId:
+          title: createdByUserId
+          type: string
+        workspaceId:
+          title: workspaceId
+          type: string
+        accounts:
+          items:
+            $ref: '#/components/schemas/PlainBankAccountEntity'
+          title: accounts
+          type: array
+        enabled:
+          title: enabled
+          type: boolean
+        provider:
+          title: provider
+          type: string
+        providerItemId:
+          title: providerItemId
+          type: string
+        historyRange:
+          title: historyRange
+          type: string
+        connectorId:
+          title: connectorId
+          type: string
+        connector:
+          $ref: '#/components/schemas/BankConnectorEntity'
+        createdAt:
+          format: date-time
+          title: createdAt
+          type: string
+        updatedAt:
+          format: date-time
+          title: updatedAt
+          type: string
+      required:
+      - accounts
+      - connector
+      - connectorId
+      - createdAt
+      - createdByUserId
+      - enabled
+      - historyRange
+      - id
+      - provider
+      - providerItemId
+      - updatedAt
+      - workspaceId
+      title: BankConnectionWithAccountsEntity
+      type: object
+    CreateOrUpdateBankConnectionRequestDto:
+      example:
+        createdByUserId: createdByUserId
+        providerItemId: providerItemId
+        historyRange: historyRange
+        provider: provider
+        providerConnectorId: providerConnectorId
+      properties:
+        createdByUserId:
+          title: createdByUserId
+          type: string
+        provider:
+          title: provider
+          type: string
+        providerItemId:
+          title: providerItemId
+          type: string
+        providerConnectorId:
+          title: providerConnectorId
+          type: string
+        historyRange:
+          title: historyRange
+          type: string
+      required:
+      - createdByUserId
+      - historyRange
+      - provider
+      - providerConnectorId
+      - providerItemId
+      title: CreateOrUpdateBankConnectionRequestDto
+      type: object
+    BankConnectionEntity:
+      example:
+        createdByUserId: createdByUserId
+        providerItemId: providerItemId
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        historyRange: historyRange
+        connector:
+          country: country
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          provider: provider
+          imageUrl: imageUrl
+          name: name
+          primaryColor: primaryColor
+          institutionUrl: institutionUrl
+          id: id
+          type: type
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        provider: provider
+        connectorId: connectorId
+        id: id
+        enabled: true
+        workspaceId: workspaceId
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          title: id
+          type: string
+        createdByUserId:
+          title: createdByUserId
+          type: string
+        workspaceId:
+          title: workspaceId
+          type: string
+        enabled:
+          title: enabled
+          type: boolean
+        provider:
+          title: provider
+          type: string
+        providerItemId:
+          title: providerItemId
+          type: string
+        historyRange:
+          title: historyRange
+          type: string
+        connectorId:
+          title: connectorId
+          type: string
+        connector:
+          $ref: '#/components/schemas/BankConnectorEntity'
+        createdAt:
+          format: date-time
+          title: createdAt
+          type: string
+        updatedAt:
+          format: date-time
+          title: updatedAt
+          type: string
+      required:
+      - connector
+      - connectorId
+      - createdAt
+      - createdByUserId
+      - enabled
+      - historyRange
+      - id
+      - provider
+      - providerItemId
+      - updatedAt
+      - workspaceId
+      title: BankConnectionEntity
+      type: object
+    BankAccountEntity:
+      example:
+        bankConnectionId: bankConnectionId
+        type: type
+        enabled: true
+        number: number
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        bankConnection:
+          createdByUserId: createdByUserId
+          providerItemId: providerItemId
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          historyRange: historyRange
+          connector:
+            country: country
+            createdAt: 2000-01-23T04:56:07.000+00:00
+            provider: provider
+            imageUrl: imageUrl
+            name: name
+            primaryColor: primaryColor
+            institutionUrl: institutionUrl
+            id: id
+            type: type
+            updatedAt: 2000-01-23T04:56:07.000+00:00
+          provider: provider
+          connectorId: connectorId
+          id: id
+          enabled: true
+          workspaceId: workspaceId
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        balance: 0.8008281904610115
+        provider: provider
+        providerAccountId: providerAccountId
+        name: name
+        id: id
+        currencyCode: currencyCode
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          title: id
+          type: string
+        bankConnectionId:
+          title: bankConnectionId
+          type: string
+        bankConnection:
+          $ref: '#/components/schemas/BankConnectionEntity'
+        provider:
+          title: provider
+          type: string
+        providerAccountId:
+          title: providerAccountId
+          type: string
+        type:
+          title: type
+          type: string
+        enabled:
+          title: enabled
+          type: boolean
+        number:
+          title: number
+          type: string
+        balance:
+          title: balance
+          type: number
+        currencyCode:
+          title: currencyCode
+          type: string
+        name:
+          title: name
+          type: string
+        createdAt:
+          format: date-time
+          title: createdAt
+          type: string
+        updatedAt:
+          format: date-time
+          title: updatedAt
+          type: string
+      required:
+      - balance
+      - bankConnection
+      - bankConnectionId
+      - createdAt
+      - currencyCode
+      - enabled
+      - id
+      - name
+      - number
+      - provider
+      - providerAccountId
+      - type
+      - updatedAt
+      title: BankAccountEntity
+      type: object
+    BankTransactionCategoryPlainEntity:
+      example:
+        nature: nature
+        name: name
+        id: id
+        parentId: parentId
+      properties:
+        id:
+          title: id
+          type: string
+        name:
+          title: name
+          type: string
+        nature:
+          title: nature
+          type: string
+        parentId:
+          title: parentId
+          type: string
+      required:
+      - id
+      - name
+      - nature
+      title: BankTransactionCategoryPlainEntity
+      type: object
+    BankTransactionTagEntity:
+      example:
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        name: name
+        id: id
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          title: id
+          type: string
+        name:
+          title: name
+          type: string
+        createdAt:
+          format: date-time
+          title: createdAt
+          type: string
+        updatedAt:
+          format: date-time
+          title: updatedAt
+          type: string
+      required:
+      - createdAt
+      - id
+      - name
+      - updatedAt
+      title: BankTransactionTagEntity
+      type: object
+    BankTransactionPaymentDataEntity:
+      example:
+        payerRoutingNumberISPB: payerRoutingNumberISPB
+        reason: reason
+        payeerName: payeerName
+        receiverDocumentNumberValue: receiverDocumentNumberValue
+        receiverRoutingNumber: receiverRoutingNumber
+        receiverName: receiverName
+        transactionId: transactionId
+        payerRoutingNumber: payerRoutingNumber
+        payerDocumentNumberType: payerDocumentNumberType
+        payerAccountNumber: payerAccountNumber
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        receiverReferenceId: receiverReferenceId
+        payerDocumentNumberValue: payerDocumentNumberValue
+        referenceNumber: referenceNumber
+        receiverAccountNumber: receiverAccountNumber
+        receiverDocumentNumberType: receiverDocumentNumberType
+        receiverBranchNumber: receiverBranchNumber
+        paymentMethod: paymentMethod
+        id: id
+        receiverRoutingNumberISPB: receiverRoutingNumberISPB
+        payerBranchNumber: payerBranchNumber
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          title: id
+          type: string
+        transactionId:
+          title: transactionId
+          type: string
+        payeerName:
+          title: payeerName
+          type: string
+        payerBranchNumber:
+          title: payerBranchNumber
+          type: string
+        payerAccountNumber:
+          title: payerAccountNumber
+          type: string
+        payerRoutingNumber:
+          title: payerRoutingNumber
+          type: string
+        payerRoutingNumberISPB:
+          title: payerRoutingNumberISPB
+          type: string
+        payerDocumentNumberType:
+          title: payerDocumentNumberType
+          type: string
+        payerDocumentNumberValue:
+          title: payerDocumentNumberValue
+          type: string
+        reason:
+          title: reason
+          type: string
+        receiverName:
+          title: receiverName
+          type: string
+        receiverBranchNumber:
+          title: receiverBranchNumber
+          type: string
+        receiverAccountNumber:
+          title: receiverAccountNumber
+          type: string
+        receiverRoutingNumber:
+          title: receiverRoutingNumber
+          type: string
+        receiverRoutingNumberISPB:
+          title: receiverRoutingNumberISPB
+          type: string
+        receiverDocumentNumberType:
+          title: receiverDocumentNumberType
+          type: string
+        receiverDocumentNumberValue:
+          title: receiverDocumentNumberValue
+          type: string
+        paymentMethod:
+          title: paymentMethod
+          type: string
+        referenceNumber:
+          title: referenceNumber
+          type: string
+        receiverReferenceId:
+          title: receiverReferenceId
+          type: string
+        createdAt:
+          format: date-time
+          title: createdAt
+          type: string
+        updatedAt:
+          format: date-time
+          title: updatedAt
+          type: string
+      required:
+      - createdAt
+      - id
+      - transactionId
+      - updatedAt
+      title: BankTransactionPaymentDataEntity
+      type: object
+    BankTransactionCreditCardMetadataEntity:
+      example:
+        installmentNumber: 6.027456183070403
+        totalInstallments: 1.4658129805029452
+        totalAmount: 5.962133916683182
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        billId: billId
+        id: id
+        payeeMCC: 5.637376656633329
+        transactionId: transactionId
+        cardNumber: cardNumber
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          title: id
+          type: string
+        transactionId:
+          title: transactionId
+          type: string
+        installmentNumber:
+          title: installmentNumber
+          type: number
+        totalInstallments:
+          title: totalInstallments
+          type: number
+        totalAmount:
+          title: totalAmount
+          type: number
+        payeeMCC:
+          title: payeeMCC
+          type: number
+        cardNumber:
+          title: cardNumber
+          type: string
+        billId:
+          title: billId
+          type: string
+        createdAt:
+          format: date-time
+          title: createdAt
+          type: string
+        updatedAt:
+          format: date-time
+          title: updatedAt
+          type: string
+      required:
+      - createdAt
+      - id
+      - transactionId
+      - updatedAt
+      title: BankTransactionCreditCardMetadataEntity
+      type: object
+    BankTransactionEntity:
+      example:
+        providerTransactionId: providerTransactionId
+        description: description
+        type: DEBIT
+        providerCategoryId: providerCategoryId
+        postedDate: 2000-01-23T04:56:07.000+00:00
+        bestGuessCategory:
+          nature: nature
+          name: name
+          id: id
+          parentId: parentId
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        ignoredAt: 2000-01-23T04:56:07.000+00:00
+        competencyDate: 2000-01-23T04:56:07.000+00:00
+        provider: PLUGGY
+        bestGuessCategoryId: bestGuessCategoryId
+        legalNature: PERSONAL
+        id: id
+        originalDescription: originalDescription
+        workspaceId: workspaceId
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+        paymentDataId: paymentDataId
+        amount: 0.8008281904610115
+        tags:
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          name: name
+          id: id
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        - createdAt: 2000-01-23T04:56:07.000+00:00
+          name: name
+          id: id
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        accountId: accountId
+        providerCategoryName: providerCategoryName
+        paymentData:
+          payerRoutingNumberISPB: payerRoutingNumberISPB
+          reason: reason
+          payeerName: payeerName
+          receiverDocumentNumberValue: receiverDocumentNumberValue
+          receiverRoutingNumber: receiverRoutingNumber
+          receiverName: receiverName
+          transactionId: transactionId
+          payerRoutingNumber: payerRoutingNumber
+          payerDocumentNumberType: payerDocumentNumberType
+          payerAccountNumber: payerAccountNumber
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          receiverReferenceId: receiverReferenceId
+          payerDocumentNumberValue: payerDocumentNumberValue
+          referenceNumber: referenceNumber
+          receiverAccountNumber: receiverAccountNumber
+          receiverDocumentNumberType: receiverDocumentNumberType
+          receiverBranchNumber: receiverBranchNumber
+          paymentMethod: paymentMethod
+          id: id
+          receiverRoutingNumberISPB: receiverRoutingNumberISPB
+          payerBranchNumber: payerBranchNumber
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        category:
+          nature: nature
+          name: name
+          id: id
+          parentId: parentId
+        confirmedAt: 2000-01-23T04:56:07.000+00:00
+        creditCardMetadataId: creditCardMetadataId
+        creditCardMetadata:
+          installmentNumber: 6.027456183070403
+          totalInstallments: 1.4658129805029452
+          totalAmount: 5.962133916683182
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          billId: billId
+          id: id
+          payeeMCC: 5.637376656633329
+          transactionId: transactionId
+          cardNumber: cardNumber
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        account:
+          bankConnectionId: bankConnectionId
+          type: type
+          enabled: true
+          number: number
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          bankConnection:
+            createdByUserId: createdByUserId
+            providerItemId: providerItemId
+            createdAt: 2000-01-23T04:56:07.000+00:00
+            historyRange: historyRange
+            connector:
+              country: country
+              createdAt: 2000-01-23T04:56:07.000+00:00
+              provider: provider
+              imageUrl: imageUrl
+              name: name
+              primaryColor: primaryColor
+              institutionUrl: institutionUrl
+              id: id
+              type: type
+              updatedAt: 2000-01-23T04:56:07.000+00:00
+            provider: provider
+            connectorId: connectorId
+            id: id
+            enabled: true
+            workspaceId: workspaceId
+            updatedAt: 2000-01-23T04:56:07.000+00:00
+          balance: 0.8008281904610115
+          provider: provider
+          providerAccountId: providerAccountId
+          name: name
+          id: id
+          currencyCode: currencyCode
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        categoryId: categoryId
+        status: PENDING
+      properties:
+        id:
+          title: id
+          type: string
+        accountId:
+          title: accountId
+          type: string
+        account:
+          $ref: '#/components/schemas/BankAccountEntity'
+        workspaceId:
+          title: workspaceId
+          type: string
+        provider:
+          enum:
+          - PLUGGY
+          - SOFIA
+          title: provider
+          type: string
+        providerTransactionId:
+          title: providerTransactionId
+          type: string
+        originalDescription:
+          title: originalDescription
+          type: string
+        description:
+          title: description
+          type: string
+        postedDate:
+          format: date-time
+          title: postedDate
+          type: string
+        competencyDate:
+          format: date-time
+          title: competencyDate
+          type: string
+        amount:
+          title: amount
+          type: number
+        type:
+          enum:
+          - DEBIT
+          - CREDIT
+          title: type
+          type: string
+        status:
+          enum:
+          - PENDING
+          - POSTED
+          title: status
+          type: string
+        legalNature:
+          enum:
+          - PERSONAL
+          - BUSINESS
+          title: legalNature
+          type: string
+        providerCategoryId:
+          title: providerCategoryId
+          type: string
+        providerCategoryName:
+          title: providerCategoryName
+          type: string
+        categoryId:
+          title: categoryId
+          type: string
+        category:
+          $ref: '#/components/schemas/BankTransactionCategoryPlainEntity'
+        tags:
+          items:
+            $ref: '#/components/schemas/BankTransactionTagEntity'
+          title: tags
+          type: array
+        paymentDataId:
+          title: paymentDataId
+          type: string
+        paymentData:
+          $ref: '#/components/schemas/BankTransactionPaymentDataEntity'
+        creditCardMetadataId:
+          title: creditCardMetadataId
+          type: string
+        creditCardMetadata:
+          $ref: '#/components/schemas/BankTransactionCreditCardMetadataEntity'
+        bestGuessCategoryId:
+          title: bestGuessCategoryId
+          type: string
+        bestGuessCategory:
+          $ref: '#/components/schemas/BankTransactionCategoryPlainEntity'
+        ignoredAt:
+          format: date-time
+          title: ignoredAt
+          type: string
+        confirmedAt:
+          format: date-time
+          title: confirmedAt
+          type: string
+        createdAt:
+          format: date-time
+          title: createdAt
+          type: string
+        updatedAt:
+          format: date-time
+          title: updatedAt
+          type: string
+      required:
+      - account
+      - accountId
+      - amount
+      - competencyDate
+      - createdAt
+      - description
+      - id
+      - legalNature
+      - originalDescription
+      - postedDate
+      - provider
+      - providerTransactionId
+      - status
+      - tags
+      - type
+      - updatedAt
+      - workspaceId
+      title: BankTransactionEntity
+      type: object
+    BankTransactionsPageEntity:
+      example:
+        totalItems: 1.4658129805029452
+        pageIndex: 0.8008281904610115
+        totalPages: 5.962133916683182
+        pageSize: 6.027456183070403
+        items:
+        - providerTransactionId: providerTransactionId
+          description: description
+          type: DEBIT
+          providerCategoryId: providerCategoryId
+          postedDate: 2000-01-23T04:56:07.000+00:00
+          bestGuessCategory:
+            nature: nature
+            name: name
+            id: id
+            parentId: parentId
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          ignoredAt: 2000-01-23T04:56:07.000+00:00
+          competencyDate: 2000-01-23T04:56:07.000+00:00
+          provider: PLUGGY
+          bestGuessCategoryId: bestGuessCategoryId
+          legalNature: PERSONAL
+          id: id
+          originalDescription: originalDescription
+          workspaceId: workspaceId
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+          paymentDataId: paymentDataId
+          amount: 0.8008281904610115
+          tags:
+          - createdAt: 2000-01-23T04:56:07.000+00:00
+            name: name
+            id: id
+            updatedAt: 2000-01-23T04:56:07.000+00:00
+          - createdAt: 2000-01-23T04:56:07.000+00:00
+            name: name
+            id: id
+            updatedAt: 2000-01-23T04:56:07.000+00:00
+          accountId: accountId
+          providerCategoryName: providerCategoryName
+          paymentData:
+            payerRoutingNumberISPB: payerRoutingNumberISPB
+            reason: reason
+            payeerName: payeerName
+            receiverDocumentNumberValue: receiverDocumentNumberValue
+            receiverRoutingNumber: receiverRoutingNumber
+            receiverName: receiverName
+            transactionId: transactionId
+            payerRoutingNumber: payerRoutingNumber
+            payerDocumentNumberType: payerDocumentNumberType
+            payerAccountNumber: payerAccountNumber
+            createdAt: 2000-01-23T04:56:07.000+00:00
+            receiverReferenceId: receiverReferenceId
+            payerDocumentNumberValue: payerDocumentNumberValue
+            referenceNumber: referenceNumber
+            receiverAccountNumber: receiverAccountNumber
+            receiverDocumentNumberType: receiverDocumentNumberType
+            receiverBranchNumber: receiverBranchNumber
+            paymentMethod: paymentMethod
+            id: id
+            receiverRoutingNumberISPB: receiverRoutingNumberISPB
+            payerBranchNumber: payerBranchNumber
+            updatedAt: 2000-01-23T04:56:07.000+00:00
+          category:
+            nature: nature
+            name: name
+            id: id
+            parentId: parentId
+          confirmedAt: 2000-01-23T04:56:07.000+00:00
+          creditCardMetadataId: creditCardMetadataId
+          creditCardMetadata:
+            installmentNumber: 6.027456183070403
+            totalInstallments: 1.4658129805029452
+            totalAmount: 5.962133916683182
+            createdAt: 2000-01-23T04:56:07.000+00:00
+            billId: billId
+            id: id
+            payeeMCC: 5.637376656633329
+            transactionId: transactionId
+            cardNumber: cardNumber
+            updatedAt: 2000-01-23T04:56:07.000+00:00
+          account:
+            bankConnectionId: bankConnectionId
+            type: type
+            enabled: true
+            number: number
+            createdAt: 2000-01-23T04:56:07.000+00:00
+            bankConnection:
+              createdByUserId: createdByUserId
+              providerItemId: providerItemId
+              createdAt: 2000-01-23T04:56:07.000+00:00
+              historyRange: historyRange
+              connector:
+                country: country
+                createdAt: 2000-01-23T04:56:07.000+00:00
+                provider: provider
+                imageUrl: imageUrl
+                name: name
+                primaryColor: primaryColor
+                institutionUrl: institutionUrl
+                id: id
+                type: type
+                updatedAt: 2000-01-23T04:56:07.000+00:00
+              provider: provider
+              connectorId: connectorId
+              id: id
+              enabled: true
+              workspaceId: workspaceId
+              updatedAt: 2000-01-23T04:56:07.000+00:00
+            balance: 0.8008281904610115
+            provider: provider
+            providerAccountId: providerAccountId
+            name: name
+            id: id
+            currencyCode: currencyCode
+            updatedAt: 2000-01-23T04:56:07.000+00:00
+          categoryId: categoryId
+          status: PENDING
+        - providerTransactionId: providerTransactionId
+          description: description
+          type: DEBIT
+          providerCategoryId: providerCategoryId
+          postedDate: 2000-01-23T04:56:07.000+00:00
+          bestGuessCategory:
+            nature: nature
+            name: name
+            id: id
+            parentId: parentId
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          ignoredAt: 2000-01-23T04:56:07.000+00:00
+          competencyDate: 2000-01-23T04:56:07.000+00:00
+          provider: PLUGGY
+          bestGuessCategoryId: bestGuessCategoryId
+          legalNature: PERSONAL
+          id: id
+          originalDescription: originalDescription
+          workspaceId: workspaceId
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+          paymentDataId: paymentDataId
+          amount: 0.8008281904610115
+          tags:
+          - createdAt: 2000-01-23T04:56:07.000+00:00
+            name: name
+            id: id
+            updatedAt: 2000-01-23T04:56:07.000+00:00
+          - createdAt: 2000-01-23T04:56:07.000+00:00
+            name: name
+            id: id
+            updatedAt: 2000-01-23T04:56:07.000+00:00
+          accountId: accountId
+          providerCategoryName: providerCategoryName
+          paymentData:
+            payerRoutingNumberISPB: payerRoutingNumberISPB
+            reason: reason
+            payeerName: payeerName
+            receiverDocumentNumberValue: receiverDocumentNumberValue
+            receiverRoutingNumber: receiverRoutingNumber
+            receiverName: receiverName
+            transactionId: transactionId
+            payerRoutingNumber: payerRoutingNumber
+            payerDocumentNumberType: payerDocumentNumberType
+            payerAccountNumber: payerAccountNumber
+            createdAt: 2000-01-23T04:56:07.000+00:00
+            receiverReferenceId: receiverReferenceId
+            payerDocumentNumberValue: payerDocumentNumberValue
+            referenceNumber: referenceNumber
+            receiverAccountNumber: receiverAccountNumber
+            receiverDocumentNumberType: receiverDocumentNumberType
+            receiverBranchNumber: receiverBranchNumber
+            paymentMethod: paymentMethod
+            id: id
+            receiverRoutingNumberISPB: receiverRoutingNumberISPB
+            payerBranchNumber: payerBranchNumber
+            updatedAt: 2000-01-23T04:56:07.000+00:00
+          category:
+            nature: nature
+            name: name
+            id: id
+            parentId: parentId
+          confirmedAt: 2000-01-23T04:56:07.000+00:00
+          creditCardMetadataId: creditCardMetadataId
+          creditCardMetadata:
+            installmentNumber: 6.027456183070403
+            totalInstallments: 1.4658129805029452
+            totalAmount: 5.962133916683182
+            createdAt: 2000-01-23T04:56:07.000+00:00
+            billId: billId
+            id: id
+            payeeMCC: 5.637376656633329
+            transactionId: transactionId
+            cardNumber: cardNumber
+            updatedAt: 2000-01-23T04:56:07.000+00:00
+          account:
+            bankConnectionId: bankConnectionId
+            type: type
+            enabled: true
+            number: number
+            createdAt: 2000-01-23T04:56:07.000+00:00
+            bankConnection:
+              createdByUserId: createdByUserId
+              providerItemId: providerItemId
+              createdAt: 2000-01-23T04:56:07.000+00:00
+              historyRange: historyRange
+              connector:
+                country: country
+                createdAt: 2000-01-23T04:56:07.000+00:00
+                provider: provider
+                imageUrl: imageUrl
+                name: name
+                primaryColor: primaryColor
+                institutionUrl: institutionUrl
+                id: id
+                type: type
+                updatedAt: 2000-01-23T04:56:07.000+00:00
+              provider: provider
+              connectorId: connectorId
+              id: id
+              enabled: true
+              workspaceId: workspaceId
+              updatedAt: 2000-01-23T04:56:07.000+00:00
+            balance: 0.8008281904610115
+            provider: provider
+            providerAccountId: providerAccountId
+            name: name
+            id: id
+            currencyCode: currencyCode
+            updatedAt: 2000-01-23T04:56:07.000+00:00
+          categoryId: categoryId
+          status: PENDING
+      properties:
+        pageIndex:
+          title: pageIndex
+          type: number
+        pageSize:
+          title: pageSize
+          type: number
+        totalItems:
+          title: totalItems
+          type: number
+        totalPages:
+          title: totalPages
+          type: number
+        items:
+          items:
+            $ref: '#/components/schemas/BankTransactionEntity'
+          title: items
+          type: array
+      required:
+      - items
+      - pageIndex
+      - pageSize
+      - totalItems
+      - totalPages
+      title: BankTransactionsPageEntity
+      type: object
+    UpdateBankTransactionRequestDto:
+      example:
+        confirm: true
+        competencyDate: 2000-01-23T04:56:07.000+00:00
+        tagIds:
+        - tagIds
+        - tagIds
+        legalNature: legalNature
+        description: description
+        ignore: true
+        categoryId: categoryId
+      properties:
+        description:
+          title: description
+          type: string
+        categoryId:
+          title: categoryId
+          type: string
+        competencyDate:
+          format: date-time
+          title: competencyDate
+          type: string
+        ignore:
+          title: ignore
+          type: boolean
+        confirm:
+          title: confirm
+          type: boolean
+        tagIds:
+          items:
+            type: string
+          title: tagIds
+          type: array
+        legalNature:
+          title: legalNature
+          type: string
+      title: UpdateBankTransactionRequestDto
+      type: object
+    PaymentDataDto:
+      example:
+        payerRoutingNumberISPB: payerRoutingNumberISPB
+        reason: reason
+        receiverDocumentNumberValue: receiverDocumentNumberValue
+        receiverRoutingNumber: receiverRoutingNumber
+        receiverName: receiverName
+        payerRoutingNumber: payerRoutingNumber
+        payerDocumentNumberType: payerDocumentNumberType
+        payerAccountNumber: payerAccountNumber
+        receiverReferenceId: receiverReferenceId
+        payerDocumentNumberValue: payerDocumentNumberValue
+        referenceNumber: referenceNumber
+        receiverAccountNumber: receiverAccountNumber
+        receiverDocumentNumberType: receiverDocumentNumberType
+        payerName: payerName
+        receiverBranchNumber: receiverBranchNumber
+        paymentMethod: paymentMethod
+        receiverRoutingNumberISPB: receiverRoutingNumberISPB
+        payerBranchNumber: payerBranchNumber
+      properties:
+        payerName:
+          title: payerName
+          type: string
+        payerBranchNumber:
+          title: payerBranchNumber
+          type: string
+        payerAccountNumber:
+          title: payerAccountNumber
+          type: string
+        payerRoutingNumber:
+          title: payerRoutingNumber
+          type: string
+        payerRoutingNumberISPB:
+          title: payerRoutingNumberISPB
+          type: string
+        payerDocumentNumberType:
+          title: payerDocumentNumberType
+          type: string
+        payerDocumentNumberValue:
+          title: payerDocumentNumberValue
+          type: string
+        reason:
+          title: reason
+          type: string
+        receiverName:
+          title: receiverName
+          type: string
+        receiverBranchNumber:
+          title: receiverBranchNumber
+          type: string
+        receiverAccountNumber:
+          title: receiverAccountNumber
+          type: string
+        receiverRoutingNumber:
+          title: receiverRoutingNumber
+          type: string
+        receiverRoutingNumberISPB:
+          title: receiverRoutingNumberISPB
+          type: string
+        receiverDocumentNumberType:
+          title: receiverDocumentNumberType
+          type: string
+        receiverDocumentNumberValue:
+          title: receiverDocumentNumberValue
+          type: string
+        paymentMethod:
+          title: paymentMethod
+          type: string
+        referenceNumber:
+          title: referenceNumber
+          type: string
+        receiverReferenceId:
+          title: receiverReferenceId
+          type: string
+      title: PaymentDataDto
+      type: object
+    CreditCardMetadataDto:
+      example:
+        installmentNumber: 6.027456183070403
+        totalInstallments: 1.4658129805029452
+        totalAmount: 5.962133916683182
+        billId: billId
+        payeeMCC: 5.637376656633329
+        cardNumber: cardNumber
+      properties:
+        installmentNumber:
+          title: installmentNumber
+          type: number
+        totalInstallments:
+          title: totalInstallments
+          type: number
+        totalAmount:
+          title: totalAmount
+          type: number
+        payeeMCC:
+          title: payeeMCC
+          type: number
+        cardNumber:
+          title: cardNumber
+          type: string
+        billId:
+          title: billId
+          type: string
+      title: CreditCardMetadataDto
+      type: object
+    CategoryGuessDto:
+      example:
+        score: 2.3021358869347655
+        origin: origin
+        name: name
+        categoryId: categoryId
+      properties:
+        categoryId:
+          title: categoryId
+          type: string
+        name:
+          title: name
+          type: string
+        score:
+          title: score
+          type: number
+        origin:
+          title: origin
+          type: string
+      required:
+      - categoryId
+      - name
+      - origin
+      - score
+      title: CategoryGuessDto
+      type: object
+    CreateOrUpdateBankTransactionsInBulkItemDto:
+      example:
+        amount: 0.8008281904610115
+        categoryGuesses:
+        - score: 2.3021358869347655
+          origin: origin
+          name: name
+          categoryId: categoryId
+        - score: 2.3021358869347655
+          origin: origin
+          name: name
+          categoryId: categoryId
+        providerTransactionId: providerTransactionId
+        description: description
+        type: type
+        providerCategoryId: providerCategoryId
+        postedDate: 2000-01-23T04:56:07.000+00:00
+        accountId: accountId
+        competencyDate: 2000-01-23T04:56:07.000+00:00
+        provider: provider
+        providerCategoryName: providerCategoryName
+        bestGuessCategoryId: bestGuessCategoryId
+        legalNature: legalNature
+        paymentData:
+          payerRoutingNumberISPB: payerRoutingNumberISPB
+          reason: reason
+          receiverDocumentNumberValue: receiverDocumentNumberValue
+          receiverRoutingNumber: receiverRoutingNumber
+          receiverName: receiverName
+          payerRoutingNumber: payerRoutingNumber
+          payerDocumentNumberType: payerDocumentNumberType
+          payerAccountNumber: payerAccountNumber
+          receiverReferenceId: receiverReferenceId
+          payerDocumentNumberValue: payerDocumentNumberValue
+          referenceNumber: referenceNumber
+          receiverAccountNumber: receiverAccountNumber
+          receiverDocumentNumberType: receiverDocumentNumberType
+          payerName: payerName
+          receiverBranchNumber: receiverBranchNumber
+          paymentMethod: paymentMethod
+          receiverRoutingNumberISPB: receiverRoutingNumberISPB
+          payerBranchNumber: payerBranchNumber
+        creditCardMetadata:
+          installmentNumber: 6.027456183070403
+          totalInstallments: 1.4658129805029452
+          totalAmount: 5.962133916683182
+          billId: billId
+          payeeMCC: 5.637376656633329
+          cardNumber: cardNumber
+        categoryId: categoryId
+        workspaceId: workspaceId
+        status: status
+      properties:
+        accountId:
+          title: accountId
+          type: string
+        provider:
+          title: provider
+          type: string
+        workspaceId:
+          title: workspaceId
+          type: string
+        providerTransactionId:
+          title: providerTransactionId
+          type: string
+        description:
+          title: description
+          type: string
+        postedDate:
+          format: date-time
+          title: postedDate
+          type: string
+        competencyDate:
+          format: date-time
+          title: competencyDate
+          type: string
+        amount:
+          title: amount
+          type: number
+        type:
+          title: type
+          type: string
+        status:
+          title: status
+          type: string
+        legalNature:
+          title: legalNature
+          type: string
+        providerCategoryId:
+          title: providerCategoryId
+          type: string
+        providerCategoryName:
+          title: providerCategoryName
+          type: string
+        categoryId:
+          title: categoryId
+          type: string
+        paymentData:
+          $ref: '#/components/schemas/PaymentDataDto'
+        creditCardMetadata:
+          $ref: '#/components/schemas/CreditCardMetadataDto'
+        categoryGuesses:
+          items:
+            $ref: '#/components/schemas/CategoryGuessDto'
+          title: categoryGuesses
+          type: array
+        bestGuessCategoryId:
+          title: bestGuessCategoryId
+          type: string
+      required:
+      - accountId
+      - amount
+      - bestGuessCategoryId
+      - categoryGuesses
+      - categoryId
+      - competencyDate
+      - creditCardMetadata
+      - description
+      - legalNature
+      - paymentData
+      - postedDate
+      - provider
+      - providerTransactionId
+      - status
+      - type
+      - workspaceId
+      title: CreateOrUpdateBankTransactionsInBulkItemDto
+      type: object
+    CreateOrUpdateBankTransactionsInBulkRequestDto:
+      example:
+        items:
+        - amount: 0.8008281904610115
+          categoryGuesses:
+          - score: 2.3021358869347655
+            origin: origin
+            name: name
+            categoryId: categoryId
+          - score: 2.3021358869347655
+            origin: origin
+            name: name
+            categoryId: categoryId
+          providerTransactionId: providerTransactionId
+          description: description
+          type: type
+          providerCategoryId: providerCategoryId
+          postedDate: 2000-01-23T04:56:07.000+00:00
+          accountId: accountId
+          competencyDate: 2000-01-23T04:56:07.000+00:00
+          provider: provider
+          providerCategoryName: providerCategoryName
+          bestGuessCategoryId: bestGuessCategoryId
+          legalNature: legalNature
+          paymentData:
+            payerRoutingNumberISPB: payerRoutingNumberISPB
+            reason: reason
+            receiverDocumentNumberValue: receiverDocumentNumberValue
+            receiverRoutingNumber: receiverRoutingNumber
+            receiverName: receiverName
+            payerRoutingNumber: payerRoutingNumber
+            payerDocumentNumberType: payerDocumentNumberType
+            payerAccountNumber: payerAccountNumber
+            receiverReferenceId: receiverReferenceId
+            payerDocumentNumberValue: payerDocumentNumberValue
+            referenceNumber: referenceNumber
+            receiverAccountNumber: receiverAccountNumber
+            receiverDocumentNumberType: receiverDocumentNumberType
+            payerName: payerName
+            receiverBranchNumber: receiverBranchNumber
+            paymentMethod: paymentMethod
+            receiverRoutingNumberISPB: receiverRoutingNumberISPB
+            payerBranchNumber: payerBranchNumber
+          creditCardMetadata:
+            installmentNumber: 6.027456183070403
+            totalInstallments: 1.4658129805029452
+            totalAmount: 5.962133916683182
+            billId: billId
+            payeeMCC: 5.637376656633329
+            cardNumber: cardNumber
+          categoryId: categoryId
+          workspaceId: workspaceId
+          status: status
+        - amount: 0.8008281904610115
+          categoryGuesses:
+          - score: 2.3021358869347655
+            origin: origin
+            name: name
+            categoryId: categoryId
+          - score: 2.3021358869347655
+            origin: origin
+            name: name
+            categoryId: categoryId
+          providerTransactionId: providerTransactionId
+          description: description
+          type: type
+          providerCategoryId: providerCategoryId
+          postedDate: 2000-01-23T04:56:07.000+00:00
+          accountId: accountId
+          competencyDate: 2000-01-23T04:56:07.000+00:00
+          provider: provider
+          providerCategoryName: providerCategoryName
+          bestGuessCategoryId: bestGuessCategoryId
+          legalNature: legalNature
+          paymentData:
+            payerRoutingNumberISPB: payerRoutingNumberISPB
+            reason: reason
+            receiverDocumentNumberValue: receiverDocumentNumberValue
+            receiverRoutingNumber: receiverRoutingNumber
+            receiverName: receiverName
+            payerRoutingNumber: payerRoutingNumber
+            payerDocumentNumberType: payerDocumentNumberType
+            payerAccountNumber: payerAccountNumber
+            receiverReferenceId: receiverReferenceId
+            payerDocumentNumberValue: payerDocumentNumberValue
+            referenceNumber: referenceNumber
+            receiverAccountNumber: receiverAccountNumber
+            receiverDocumentNumberType: receiverDocumentNumberType
+            payerName: payerName
+            receiverBranchNumber: receiverBranchNumber
+            paymentMethod: paymentMethod
+            receiverRoutingNumberISPB: receiverRoutingNumberISPB
+            payerBranchNumber: payerBranchNumber
+          creditCardMetadata:
+            installmentNumber: 6.027456183070403
+            totalInstallments: 1.4658129805029452
+            totalAmount: 5.962133916683182
+            billId: billId
+            payeeMCC: 5.637376656633329
+            cardNumber: cardNumber
+          categoryId: categoryId
+          workspaceId: workspaceId
+          status: status
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/CreateOrUpdateBankTransactionsInBulkItemDto'
+          title: items
+          type: array
+      required:
+      - items
+      title: CreateOrUpdateBankTransactionsInBulkRequestDto
+      type: object
+    CreateOrUpdateBankAccountRequestDto:
+      example:
+        number: number
+        bankConnectionId: bankConnectionId
+        balance: 0.8008281904610115
+        provider: provider
+        providerAccountId: providerAccountId
+        name: name
+        type: type
+        currencyCode: currencyCode
+      properties:
+        bankConnectionId:
+          title: bankConnectionId
+          type: string
+        provider:
+          title: provider
+          type: string
+        providerAccountId:
+          title: providerAccountId
+          type: string
+        type:
+          title: type
+          type: string
+        number:
+          title: number
+          type: string
+        balance:
+          title: balance
+          type: number
+        currencyCode:
+          title: currencyCode
+          type: string
+        name:
+          title: name
+          type: string
+      required:
+      - balance
+      - bankConnectionId
+      - currencyCode
+      - name
+      - number
+      - provider
+      - providerAccountId
+      - type
+      title: CreateOrUpdateBankAccountRequestDto
+      type: object
+    BankAccountsBalanceReportItemEntity:
+      example:
+        totalBalance: 0.8008281904610115
+        currencyCode: currencyCode
+      properties:
+        totalBalance:
+          title: totalBalance
+          type: number
+        currencyCode:
+          title: currencyCode
+          type: string
+      required:
+      - currencyCode
+      - totalBalance
+      title: BankAccountsBalanceReportItemEntity
+      type: object
+    BankAccountsBalanceReportEntity:
+      example:
+        bankAccounts:
+        - bankConnectionId: bankConnectionId
+          type: type
+          enabled: true
+          number: number
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          bankConnection:
+            createdByUserId: createdByUserId
+            providerItemId: providerItemId
+            createdAt: 2000-01-23T04:56:07.000+00:00
+            historyRange: historyRange
+            connector:
+              country: country
+              createdAt: 2000-01-23T04:56:07.000+00:00
+              provider: provider
+              imageUrl: imageUrl
+              name: name
+              primaryColor: primaryColor
+              institutionUrl: institutionUrl
+              id: id
+              type: type
+              updatedAt: 2000-01-23T04:56:07.000+00:00
+            provider: provider
+            connectorId: connectorId
+            id: id
+            enabled: true
+            workspaceId: workspaceId
+            updatedAt: 2000-01-23T04:56:07.000+00:00
+          balance: 0.8008281904610115
+          provider: provider
+          providerAccountId: providerAccountId
+          name: name
+          id: id
+          currencyCode: currencyCode
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        - bankConnectionId: bankConnectionId
+          type: type
+          enabled: true
+          number: number
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          bankConnection:
+            createdByUserId: createdByUserId
+            providerItemId: providerItemId
+            createdAt: 2000-01-23T04:56:07.000+00:00
+            historyRange: historyRange
+            connector:
+              country: country
+              createdAt: 2000-01-23T04:56:07.000+00:00
+              provider: provider
+              imageUrl: imageUrl
+              name: name
+              primaryColor: primaryColor
+              institutionUrl: institutionUrl
+              id: id
+              type: type
+              updatedAt: 2000-01-23T04:56:07.000+00:00
+            provider: provider
+            connectorId: connectorId
+            id: id
+            enabled: true
+            workspaceId: workspaceId
+            updatedAt: 2000-01-23T04:56:07.000+00:00
+          balance: 0.8008281904610115
+          provider: provider
+          providerAccountId: providerAccountId
+          name: name
+          id: id
+          currencyCode: currencyCode
+          updatedAt: 2000-01-23T04:56:07.000+00:00
+        items:
+        - totalBalance: 0.8008281904610115
+          currencyCode: currencyCode
+        - totalBalance: 0.8008281904610115
+          currencyCode: currencyCode
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/BankAccountsBalanceReportItemEntity'
+          title: items
+          type: array
+        bankAccounts:
+          items:
+            $ref: '#/components/schemas/BankAccountEntity'
+          title: bankAccounts
+          type: array
+      required:
+      - bankAccounts
+      - items
+      title: BankAccountsBalanceReportEntity
+      type: object
+    BankTransactionCategoryEntity:
+      example:
+        path:
+        - nature: nature
+          name: name
+          id: id
+          parentId: parentId
+        - nature: nature
+          name: name
+          id: id
+          parentId: parentId
+        nature: nature
+        children:
+        - nature: nature
+          name: name
+          id: id
+          parentId: parentId
+        - nature: nature
+          name: name
+          id: id
+          parentId: parentId
+        name: name
+        id: id
+        parentId: parentId
+      properties:
+        id:
+          title: id
+          type: string
+        name:
+          title: name
+          type: string
+        nature:
+          title: nature
+          type: string
+        parentId:
+          title: parentId
+          type: string
+        path:
+          items:
+            $ref: '#/components/schemas/BankTransactionCategoryPlainEntity'
+          title: path
+          type: array
+        children:
+          items:
+            $ref: '#/components/schemas/BankTransactionCategoryPlainEntity'
+          title: children
+          type: array
+      required:
+      - children
+      - id
+      - name
+      - nature
+      - path
+      title: BankTransactionCategoryEntity
+      type: object
+    CashFlowReportDailyItemEntity:
+      example:
+        date: 2000-01-23T04:56:07.000+00:00
+        minDate: 2000-01-23T04:56:07.000+00:00
+        dayOfYear: 6.027456183070403
+        index: 0.8008281904610115
+        maxDate: 2000-01-23T04:56:07.000+00:00
+        label: label
+        value: 1.4658129805029452
+      properties:
+        index:
+          title: index
+          type: number
+        date:
+          format: date-time
+          title: date
+          type: string
+        dayOfYear:
+          title: dayOfYear
+          type: number
+        label:
+          title: label
+          type: string
+        minDate:
+          format: date-time
+          title: minDate
+          type: string
+        maxDate:
+          format: date-time
+          title: maxDate
+          type: string
+        value:
+          title: value
+          type: number
+      required:
+      - date
+      - dayOfYear
+      - index
+      - label
+      - maxDate
+      - minDate
+      title: CashFlowReportDailyItemEntity
+      type: object
+    CashFlowReportWeeklyItemEntity:
+      example:
+        date: 2000-01-23T04:56:07.000+00:00
+        minDate: 2000-01-23T04:56:07.000+00:00
+        week: 5.637376656633329
+        index: 5.962133916683182
+        maxDate: 2000-01-23T04:56:07.000+00:00
+        label: label
+        value: 2.3021358869347655
+      properties:
+        index:
+          title: index
+          type: number
+        date:
+          format: date-time
+          title: date
+          type: string
+        week:
+          title: week
+          type: number
+        label:
+          title: label
+          type: string
+        minDate:
+          format: date-time
+          title: minDate
+          type: string
+        maxDate:
+          format: date-time
+          title: maxDate
+          type: string
+        value:
+          title: value
+          type: number
+      required:
+      - date
+      - index
+      - label
+      - maxDate
+      - minDate
+      - week
+      title: CashFlowReportWeeklyItemEntity
+      type: object
+    CashFlowReportMonthlyItemEntity:
+      example:
+        date: 2000-01-23T04:56:07.000+00:00
+        minDate: 2000-01-23T04:56:07.000+00:00
+        month: 9.301444243932576
+        index: 7.061401241503109
+        maxDate: 2000-01-23T04:56:07.000+00:00
+        label: label
+        value: 3.616076749251911
+      properties:
+        index:
+          title: index
+          type: number
+        date:
+          format: date-time
+          title: date
+          type: string
+        month:
+          title: month
+          type: number
+        label:
+          title: label
+          type: string
+        minDate:
+          format: date-time
+          title: minDate
+          type: string
+        maxDate:
+          format: date-time
+          title: maxDate
+          type: string
+        value:
+          title: value
+          type: number
+      required:
+      - date
+      - index
+      - label
+      - maxDate
+      - minDate
+      - month
+      title: CashFlowReportMonthlyItemEntity
+      type: object
+    CashFlowReportEntity:
+      example:
+        dailyCompetencyIncomeItems:
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          dayOfYear: 6.027456183070403
+          index: 0.8008281904610115
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 1.4658129805029452
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          dayOfYear: 6.027456183070403
+          index: 0.8008281904610115
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 1.4658129805029452
+        dailyPostedIncomeItems:
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          dayOfYear: 6.027456183070403
+          index: 0.8008281904610115
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 1.4658129805029452
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          dayOfYear: 6.027456183070403
+          index: 0.8008281904610115
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 1.4658129805029452
+        dailyBalanceItems:
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          dayOfYear: 6.027456183070403
+          index: 0.8008281904610115
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 1.4658129805029452
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          dayOfYear: 6.027456183070403
+          index: 0.8008281904610115
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 1.4658129805029452
+        dailyPostedOutcomeItems:
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          dayOfYear: 6.027456183070403
+          index: 0.8008281904610115
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 1.4658129805029452
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          dayOfYear: 6.027456183070403
+          index: 0.8008281904610115
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 1.4658129805029452
+        monthlyCompetencyOutcomeItems:
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          month: 9.301444243932576
+          index: 7.061401241503109
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 3.616076749251911
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          month: 9.301444243932576
+          index: 7.061401241503109
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 3.616076749251911
+        weeklyPostedIncomeItems:
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          week: 5.637376656633329
+          index: 5.962133916683182
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 2.3021358869347655
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          week: 5.637376656633329
+          index: 5.962133916683182
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 2.3021358869347655
+        weeklyPostedOutcomeItems:
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          week: 5.637376656633329
+          index: 5.962133916683182
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 2.3021358869347655
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          week: 5.637376656633329
+          index: 5.962133916683182
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 2.3021358869347655
+        monthlyBalanceItems:
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          month: 9.301444243932576
+          index: 7.061401241503109
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 3.616076749251911
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          month: 9.301444243932576
+          index: 7.061401241503109
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 3.616076749251911
+        monthlyPostedIncomeItems:
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          month: 9.301444243932576
+          index: 7.061401241503109
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 3.616076749251911
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          month: 9.301444243932576
+          index: 7.061401241503109
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 3.616076749251911
+        monthlyCompetencyIncomeItems:
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          month: 9.301444243932576
+          index: 7.061401241503109
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 3.616076749251911
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          month: 9.301444243932576
+          index: 7.061401241503109
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 3.616076749251911
+        monthlyPostedOutcomeItems:
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          month: 9.301444243932576
+          index: 7.061401241503109
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 3.616076749251911
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          month: 9.301444243932576
+          index: 7.061401241503109
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 3.616076749251911
+        dailyCompetencyOutcomeItems:
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          dayOfYear: 6.027456183070403
+          index: 0.8008281904610115
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 1.4658129805029452
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          dayOfYear: 6.027456183070403
+          index: 0.8008281904610115
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 1.4658129805029452
+        weeklyBalanceItems:
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          week: 5.637376656633329
+          index: 5.962133916683182
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 2.3021358869347655
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          week: 5.637376656633329
+          index: 5.962133916683182
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 2.3021358869347655
+        weeklyCompetencyIncomeItems:
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          week: 5.637376656633329
+          index: 5.962133916683182
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 2.3021358869347655
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          week: 5.637376656633329
+          index: 5.962133916683182
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 2.3021358869347655
+        weeklyCompetencyOutcomeItems:
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          week: 5.637376656633329
+          index: 5.962133916683182
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 2.3021358869347655
+        - date: 2000-01-23T04:56:07.000+00:00
+          minDate: 2000-01-23T04:56:07.000+00:00
+          week: 5.637376656633329
+          index: 5.962133916683182
+          maxDate: 2000-01-23T04:56:07.000+00:00
+          label: label
+          value: 2.3021358869347655
+      properties:
+        dailyBalanceItems:
+          items:
+            $ref: '#/components/schemas/CashFlowReportDailyItemEntity'
+          title: dailyBalanceItems
+          type: array
+        dailyPostedIncomeItems:
+          items:
+            $ref: '#/components/schemas/CashFlowReportDailyItemEntity'
+          title: dailyPostedIncomeItems
+          type: array
+        dailyCompetencyIncomeItems:
+          items:
+            $ref: '#/components/schemas/CashFlowReportDailyItemEntity'
+          title: dailyCompetencyIncomeItems
+          type: array
+        dailyPostedOutcomeItems:
+          items:
+            $ref: '#/components/schemas/CashFlowReportDailyItemEntity'
+          title: dailyPostedOutcomeItems
+          type: array
+        dailyCompetencyOutcomeItems:
+          items:
+            $ref: '#/components/schemas/CashFlowReportDailyItemEntity'
+          title: dailyCompetencyOutcomeItems
+          type: array
+        weeklyBalanceItems:
+          items:
+            $ref: '#/components/schemas/CashFlowReportWeeklyItemEntity'
+          title: weeklyBalanceItems
+          type: array
+        weeklyPostedIncomeItems:
+          items:
+            $ref: '#/components/schemas/CashFlowReportWeeklyItemEntity'
+          title: weeklyPostedIncomeItems
+          type: array
+        weeklyCompetencyIncomeItems:
+          items:
+            $ref: '#/components/schemas/CashFlowReportWeeklyItemEntity'
+          title: weeklyCompetencyIncomeItems
+          type: array
+        weeklyPostedOutcomeItems:
+          items:
+            $ref: '#/components/schemas/CashFlowReportWeeklyItemEntity'
+          title: weeklyPostedOutcomeItems
+          type: array
+        weeklyCompetencyOutcomeItems:
+          items:
+            $ref: '#/components/schemas/CashFlowReportWeeklyItemEntity'
+          title: weeklyCompetencyOutcomeItems
+          type: array
+        monthlyBalanceItems:
+          items:
+            $ref: '#/components/schemas/CashFlowReportMonthlyItemEntity'
+          title: monthlyBalanceItems
+          type: array
+        monthlyPostedIncomeItems:
+          items:
+            $ref: '#/components/schemas/CashFlowReportMonthlyItemEntity'
+          title: monthlyPostedIncomeItems
+          type: array
+        monthlyCompetencyIncomeItems:
+          items:
+            $ref: '#/components/schemas/CashFlowReportMonthlyItemEntity'
+          title: monthlyCompetencyIncomeItems
+          type: array
+        monthlyPostedOutcomeItems:
+          items:
+            $ref: '#/components/schemas/CashFlowReportMonthlyItemEntity'
+          title: monthlyPostedOutcomeItems
+          type: array
+        monthlyCompetencyOutcomeItems:
+          items:
+            $ref: '#/components/schemas/CashFlowReportMonthlyItemEntity'
+          title: monthlyCompetencyOutcomeItems
+          type: array
+      required:
+      - dailyBalanceItems
+      - dailyCompetencyIncomeItems
+      - dailyCompetencyOutcomeItems
+      - dailyPostedIncomeItems
+      - dailyPostedOutcomeItems
+      - monthlyBalanceItems
+      - monthlyCompetencyIncomeItems
+      - monthlyCompetencyOutcomeItems
+      - monthlyPostedIncomeItems
+      - monthlyPostedOutcomeItems
+      - weeklyBalanceItems
+      - weeklyCompetencyIncomeItems
+      - weeklyCompetencyOutcomeItems
+      - weeklyPostedIncomeItems
+      - weeklyPostedOutcomeItems
+      title: CashFlowReportEntity
+      type: object
+    CashFlowByCategoryReportItemEntity:
+      example:
+        absoluteValue: 0.8008281904610115
+        percentage: 6.027456183070403
+        categoryName: categoryName
+        categoryId: categoryId
+      properties:
+        categoryId:
+          title: categoryId
+          type: string
+        categoryName:
+          title: categoryName
+          type: string
+        absoluteValue:
+          title: absoluteValue
+          type: number
+        percentage:
+          title: percentage
+          type: number
+      required:
+      - absoluteValue
+      - categoryId
+      - categoryName
+      - percentage
+      title: CashFlowByCategoryReportItemEntity
+      type: object
+    CashFlowByCategoryReportEntity:
+      example:
+        items:
+        - absoluteValue: 0.8008281904610115
+          percentage: 6.027456183070403
+          categoryName: categoryName
+          categoryId: categoryId
+        - absoluteValue: 0.8008281904610115
+          percentage: 6.027456183070403
+          categoryName: categoryName
+          categoryId: categoryId
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/CashFlowByCategoryReportItemEntity'
+          title: items
+          type: array
+      required:
+      - items
+      title: CashFlowByCategoryReportEntity
+      type: object
+    FinancialStatementeEntriesSubcategoryData:
+      example:
+        subcategoryName: subcategoryName
+        subcategoryId: subcategoryId
+        outcome: 6.027456183070403
+      properties:
+        subcategoryId:
+          title: subcategoryId
+          type: string
+        subcategoryName:
+          title: subcategoryName
+          type: string
+        outcome:
+          title: outcome
+          type: number
+      required:
+      - outcome
+      - subcategoryId
+      - subcategoryName
+      title: FinancialStatementeEntriesSubcategoryData
+      type: object
+    FinancialStatementeEntriesCategoryData:
+      example:
+        subcategories:
+        - subcategoryName: subcategoryName
+          subcategoryId: subcategoryId
+          outcome: 6.027456183070403
+        - subcategoryName: subcategoryName
+          subcategoryId: subcategoryId
+          outcome: 6.027456183070403
+        categoryName: categoryName
+        categoryId: categoryId
+        outcome: 0.8008281904610115
+      properties:
+        categoryId:
+          title: categoryId
+          type: string
+        categoryName:
+          title: categoryName
+          type: string
+        outcome:
+          title: outcome
+          type: number
+        subcategories:
+          items:
+            $ref: '#/components/schemas/FinancialStatementeEntriesSubcategoryData'
+          title: subcategories
+          type: array
+      required:
+      - categoryId
+      - categoryName
+      - outcome
+      - subcategories
+      title: FinancialStatementeEntriesCategoryData
+      type: object
+    FinancialStatementOutflowsSubcategoryData:
+      example:
+        subcategoryName: subcategoryName
+        subcategoryId: subcategoryId
+        outcome: 5.962133916683182
+      properties:
+        subcategoryId:
+          title: subcategoryId
+          type: string
+        subcategoryName:
+          title: subcategoryName
+          type: string
+        outcome:
+          title: outcome
+          type: number
+      required:
+      - outcome
+      - subcategoryId
+      - subcategoryName
+      title: FinancialStatementOutflowsSubcategoryData
+      type: object
+    FinancialStatementOutlfowsCategoryData:
+      example:
+        subcategories:
+        - subcategoryName: subcategoryName
+          subcategoryId: subcategoryId
+          outcome: 5.962133916683182
+        - subcategoryName: subcategoryName
+          subcategoryId: subcategoryId
+          outcome: 5.962133916683182
+        categoryName: categoryName
+        categoryId: categoryId
+        outcome: 1.4658129805029452
+      properties:
+        categoryId:
+          title: categoryId
+          type: string
+        categoryName:
+          title: categoryName
+          type: string
+        outcome:
+          title: outcome
+          type: number
+        subcategories:
+          items:
+            $ref: '#/components/schemas/FinancialStatementOutflowsSubcategoryData'
+          title: subcategories
+          type: array
+      required:
+      - categoryId
+      - categoryName
+      - outcome
+      - subcategories
+      title: FinancialStatementOutlfowsCategoryData
+      type: object
+    FinancialStatementOutcomeReportDataEntity:
+      example:
+        percentage: 2.3021358869347655
+        name: name
+        outcome: 5.637376656633329
+      properties:
+        name:
+          title: name
+          type: string
+        outcome:
+          title: outcome
+          type: number
+        percentage:
+          title: percentage
+          type: number
+      required:
+      - name
+      - outcome
+      title: FinancialStatementOutcomeReportDataEntity
+      type: object
+    FinancialStatementReportItemEntity:
+      example:
+        entriesCategoryData:
+          subcategories:
+          - subcategoryName: subcategoryName
+            subcategoryId: subcategoryId
+            outcome: 6.027456183070403
+          - subcategoryName: subcategoryName
+            subcategoryId: subcategoryId
+            outcome: 6.027456183070403
+          categoryName: categoryName
+          categoryId: categoryId
+          outcome: 0.8008281904610115
+        outcomeData:
+          percentage: 2.3021358869347655
+          name: name
+          outcome: 5.637376656633329
+        type: type
+        outflowsCategoryData:
+          subcategories:
+          - subcategoryName: subcategoryName
+            subcategoryId: subcategoryId
+            outcome: 5.962133916683182
+          - subcategoryName: subcategoryName
+            subcategoryId: subcategoryId
+            outcome: 5.962133916683182
+          categoryName: categoryName
+          categoryId: categoryId
+          outcome: 1.4658129805029452
+      properties:
+        type:
+          title: type
+          type: string
+        entriesCategoryData:
+          $ref: '#/components/schemas/FinancialStatementeEntriesCategoryData'
+        outflowsCategoryData:
+          $ref: '#/components/schemas/FinancialStatementOutlfowsCategoryData'
+        outcomeData:
+          $ref: '#/components/schemas/FinancialStatementOutcomeReportDataEntity'
+      required:
+      - type
+      title: FinancialStatementReportItemEntity
+      type: object
+    FinancialStatementReport:
+      example:
+        items:
+        - entriesCategoryData:
+            subcategories:
+            - subcategoryName: subcategoryName
+              subcategoryId: subcategoryId
+              outcome: 6.027456183070403
+            - subcategoryName: subcategoryName
+              subcategoryId: subcategoryId
+              outcome: 6.027456183070403
+            categoryName: categoryName
+            categoryId: categoryId
+            outcome: 0.8008281904610115
+          outcomeData:
+            percentage: 2.3021358869347655
+            name: name
+            outcome: 5.637376656633329
+          type: type
+          outflowsCategoryData:
+            subcategories:
+            - subcategoryName: subcategoryName
+              subcategoryId: subcategoryId
+              outcome: 5.962133916683182
+            - subcategoryName: subcategoryName
+              subcategoryId: subcategoryId
+              outcome: 5.962133916683182
+            categoryName: categoryName
+            categoryId: categoryId
+            outcome: 1.4658129805029452
+        - entriesCategoryData:
+            subcategories:
+            - subcategoryName: subcategoryName
+              subcategoryId: subcategoryId
+              outcome: 6.027456183070403
+            - subcategoryName: subcategoryName
+              subcategoryId: subcategoryId
+              outcome: 6.027456183070403
+            categoryName: categoryName
+            categoryId: categoryId
+            outcome: 0.8008281904610115
+          outcomeData:
+            percentage: 2.3021358869347655
+            name: name
+            outcome: 5.637376656633329
+          type: type
+          outflowsCategoryData:
+            subcategories:
+            - subcategoryName: subcategoryName
+              subcategoryId: subcategoryId
+              outcome: 5.962133916683182
+            - subcategoryName: subcategoryName
+              subcategoryId: subcategoryId
+              outcome: 5.962133916683182
+            categoryName: categoryName
+            categoryId: categoryId
+            outcome: 1.4658129805029452
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/FinancialStatementReportItemEntity'
+          title: items
+          type: array
+      required:
+      - items
+      title: FinancialStatementReport
+      type: object
+    DreLineOutcomeResultEntity:
+      example:
+        amountInCents: 0.8008281904610115
+        ratio: 6.027456183070403
+      properties:
+        amountInCents:
+          title: amountInCents
+          type: number
+        ratio:
+          title: ratio
+          type: number
+      required:
+      - amountInCents
+      title: DreLineOutcomeResultEntity
+      type: object
+    BalancePointResultEntity:
+      example:
+        amountInCents: 1.4658129805029452
+      properties:
+        amountInCents:
+          title: amountInCents
+          type: number
+      title: BalancePointResultEntity
+      type: object
+    MeanResultSubcategoryItemEntity:
+      example:
+        amountInCents: 5.637376656633329
+        subcategoryName: subcategoryName
+        subcategoryId: subcategoryId
+      properties:
+        subcategoryId:
+          title: subcategoryId
+          type: string
+        subcategoryName:
+          title: subcategoryName
+          type: string
+        amountInCents:
+          title: amountInCents
+          type: number
+      required:
+      - amountInCents
+      - subcategoryId
+      - subcategoryName
+      title: MeanResultSubcategoryItemEntity
+      type: object
+    MeanResultEntity:
+      example:
+        amountInCents: 5.962133916683182
+        subcategories:
+        - amountInCents: 5.637376656633329
+          subcategoryName: subcategoryName
+          subcategoryId: subcategoryId
+        - amountInCents: 5.637376656633329
+          subcategoryName: subcategoryName
+          subcategoryId: subcategoryId
+      properties:
+        amountInCents:
+          title: amountInCents
+          type: number
+        subcategories:
+          items:
+            $ref: '#/components/schemas/MeanResultSubcategoryItemEntity'
+          title: subcategories
+          type: array
+      required:
+      - amountInCents
+      title: MeanResultEntity
+      type: object
+    ProportionResultEntity:
+      example:
+        ratio: 2.3021358869347655
+      properties:
+        ratio:
+          title: ratio
+          type: number
+      title: ProportionResultEntity
+      type: object
+    BankTransactionIndicatorEntity:
+      example:
+        data: "{}"
+        meanResult:
+          amountInCents: 5.962133916683182
+          subcategories:
+          - amountInCents: 5.637376656633329
+            subcategoryName: subcategoryName
+            subcategoryId: subcategoryId
+          - amountInCents: 5.637376656633329
+            subcategoryName: subcategoryName
+            subcategoryId: subcategoryId
+        name: name
+        balancePointResult:
+          amountInCents: 1.4658129805029452
+        description: description
+        proportionResult:
+          ratio: 2.3021358869347655
+        id: id
+        type: type
+        prettyId: prettyId
+        dreLineOutcomeResult:
+          amountInCents: 0.8008281904610115
+          ratio: 6.027456183070403
+      properties:
+        id:
+          title: id
+          type: string
+        prettyId:
+          title: prettyId
+          type: string
+        type:
+          title: type
+          type: string
+        name:
+          title: name
+          type: string
+        description:
+          title: description
+          type: string
+        data:
+          title: data
+          type: object
+        dreLineOutcomeResult:
+          $ref: '#/components/schemas/DreLineOutcomeResultEntity'
+        balancePointResult:
+          $ref: '#/components/schemas/BalancePointResultEntity'
+        meanResult:
+          $ref: '#/components/schemas/MeanResultEntity'
+        proportionResult:
+          $ref: '#/components/schemas/ProportionResultEntity'
+      required:
+      - data
+      - description
+      - id
+      - name
+      - prettyId
+      - type
+      title: BankTransactionIndicatorEntity
+      type: object
+    CreateOrUpdateMessageTokenRequestDto:
+      example:
+        deviceId: deviceId
+        platform: platform
+        token: token
+      properties:
+        platform:
+          title: platform
+          type: string
+        deviceId:
+          title: deviceId
+          type: string
+        token:
+          title: token
+          type: string
+      required:
+      - deviceId
+      - platform
+      - token
+      title: CreateOrUpdateMessageTokenRequestDto
+      type: object
+    MessageTokenEntity:
+      example:
+        createdAt: 2000-01-23T04:56:07.000+00:00
+        workspace:
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          creatorUserId: creatorUserId
+          selectedPersonalCategoryTreeId: selectedPersonalCategoryTreeId
+          selectedBusinessCategoryTreeId: selectedBusinessCategoryTreeId
+          name: name
+          id: id
+          type: type
+          prettyId: prettyId
+        provider: FIREBASE_MESSAGING
+        id: id
+        userId: userId
+        user:
+          createdAt: 2000-01-23T04:56:07.000+00:00
+          id: id
+          email: email
+          passwordHash: passwordHash
+        deviceId: deviceId
+        platform: WEB
+        workspaceId: workspaceId
+        token: token
+        updatedAt: 2000-01-23T04:56:07.000+00:00
+      properties:
+        id:
+          title: id
+          type: string
+        workspaceId:
+          title: workspaceId
+          type: string
+        workspace:
+          $ref: '#/components/schemas/WorkspaceEntity'
+        userId:
+          title: userId
+          type: string
+        user:
+          $ref: '#/components/schemas/UserEntity'
+        provider:
+          enum:
+          - FIREBASE_MESSAGING
+          title: provider
+          type: string
+        platform:
+          enum:
+          - WEB
+          - ANDROID
+          - IOS
+          title: platform
+          type: string
+        deviceId:
+          title: deviceId
+          type: string
+        token:
+          title: token
+          type: string
+        createdAt:
+          format: date-time
+          title: createdAt
+          type: string
+        updatedAt:
+          format: date-time
+          title: updatedAt
+          type: string
+      required:
+      - createdAt
+      - deviceId
+      - id
+      - platform
+      - provider
+      - token
+      - updatedAt
+      - user
+      - userId
+      - workspace
+      - workspaceId
+      title: MessageTokenEntity
+      type: object
+    CreateBankTransactionTagRequestDto:
+      example:
+        name: name
+      properties:
+        name:
+          title: name
+          type: string
+      required:
+      - name
+      title: CreateBankTransactionTagRequestDto
+      type: object
