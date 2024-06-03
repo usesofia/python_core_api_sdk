@@ -33,13 +33,13 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.WorkspacesApi(api_client)
     create_workspace_request_dto = python_core_api_sdk.CreateWorkspaceRequestDto() # CreateWorkspaceRequestDto | 
 
     try:
-        api_response = api_instance.workspaces_controller_create(create_workspace_request_dto)
+        api_response = await api_instance.workspaces_controller_create(create_workspace_request_dto)
         print("The response of WorkspacesApi->workspaces_controller_create:\n")
         pprint(api_response)
     except Exception as e:
@@ -99,12 +99,12 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.WorkspacesApi(api_client)
 
     try:
-        api_response = api_instance.workspaces_controller_fetch_user_related_workspaces()
+        api_response = await api_instance.workspaces_controller_fetch_user_related_workspaces()
         print("The response of WorkspacesApi->workspaces_controller_fetch_user_related_workspaces:\n")
         pprint(api_response)
     except Exception as e:
@@ -161,13 +161,13 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.WorkspacesApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
 
     try:
-        api_response = api_instance.workspaces_controller_get(workspace_id)
+        api_response = await api_instance.workspaces_controller_get(workspace_id)
         print("The response of WorkspacesApi->workspaces_controller_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -228,14 +228,14 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.WorkspacesApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
     parcial_update_workspace_request_dto = python_core_api_sdk.ParcialUpdateWorkspaceRequestDto() # ParcialUpdateWorkspaceRequestDto | 
 
     try:
-        api_response = api_instance.workspaces_controller_parcial_update(workspace_id, parcial_update_workspace_request_dto)
+        api_response = await api_instance.workspaces_controller_parcial_update(workspace_id, parcial_update_workspace_request_dto)
         print("The response of WorkspacesApi->workspaces_controller_parcial_update:\n")
         pprint(api_response)
     except Exception as e:

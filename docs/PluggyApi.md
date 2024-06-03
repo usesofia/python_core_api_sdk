@@ -31,13 +31,13 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.PluggyApi(api_client)
     create_pluggy_connect_token_request_dto = python_core_api_sdk.CreatePluggyConnectTokenRequestDto() # CreatePluggyConnectTokenRequestDto | 
 
     try:
-        api_response = api_instance.pluggy_controller_create(create_pluggy_connect_token_request_dto)
+        api_response = await api_instance.pluggy_controller_create(create_pluggy_connect_token_request_dto)
         print("The response of PluggyApi->pluggy_controller_create:\n")
         pprint(api_response)
     except Exception as e:
@@ -96,12 +96,12 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.PluggyApi(api_client)
 
     try:
-        api_instance.pluggy_controller_webhook()
+        await api_instance.pluggy_controller_webhook()
     except Exception as e:
         print("Exception when calling PluggyApi->pluggy_controller_webhook: %s\n" % e)
 ```

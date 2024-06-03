@@ -44,7 +44,7 @@ class AuthApi:
 
 
     @validate_call
-    def auth_controller_check_email_in_use(
+    async def auth_controller_check_email_in_use(
         self,
         check_email_in_use_request_dto: CheckEmailInUseRequestDto,
         _request_timeout: Union[
@@ -98,11 +98,11 @@ class AuthApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "EmailInUseEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -110,7 +110,7 @@ class AuthApi:
 
 
     @validate_call
-    def auth_controller_check_email_in_use_with_http_info(
+    async def auth_controller_check_email_in_use_with_http_info(
         self,
         check_email_in_use_request_dto: CheckEmailInUseRequestDto,
         _request_timeout: Union[
@@ -164,11 +164,11 @@ class AuthApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "EmailInUseEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -176,7 +176,7 @@ class AuthApi:
 
 
     @validate_call
-    def auth_controller_check_email_in_use_without_preload_content(
+    async def auth_controller_check_email_in_use_without_preload_content(
         self,
         check_email_in_use_request_dto: CheckEmailInUseRequestDto,
         _request_timeout: Union[
@@ -230,7 +230,7 @@ class AuthApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "EmailInUseEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -311,7 +311,7 @@ class AuthApi:
 
 
     @validate_call
-    def auth_controller_refresh(
+    async def auth_controller_refresh(
         self,
         refresh_request_dto: RefreshRequestDto,
         _request_timeout: Union[
@@ -365,11 +365,11 @@ class AuthApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CredentialsEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -377,7 +377,7 @@ class AuthApi:
 
 
     @validate_call
-    def auth_controller_refresh_with_http_info(
+    async def auth_controller_refresh_with_http_info(
         self,
         refresh_request_dto: RefreshRequestDto,
         _request_timeout: Union[
@@ -431,11 +431,11 @@ class AuthApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CredentialsEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -443,7 +443,7 @@ class AuthApi:
 
 
     @validate_call
-    def auth_controller_refresh_without_preload_content(
+    async def auth_controller_refresh_without_preload_content(
         self,
         refresh_request_dto: RefreshRequestDto,
         _request_timeout: Union[
@@ -497,7 +497,7 @@ class AuthApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CredentialsEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -578,7 +578,7 @@ class AuthApi:
 
 
     @validate_call
-    def auth_controller_send_email_verification_code(
+    async def auth_controller_send_email_verification_code(
         self,
         send_email_verification_code_request_dto: SendEmailVerificationCodeRequestDto,
         _request_timeout: Union[
@@ -632,11 +632,11 @@ class AuthApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -644,7 +644,7 @@ class AuthApi:
 
 
     @validate_call
-    def auth_controller_send_email_verification_code_with_http_info(
+    async def auth_controller_send_email_verification_code_with_http_info(
         self,
         send_email_verification_code_request_dto: SendEmailVerificationCodeRequestDto,
         _request_timeout: Union[
@@ -698,11 +698,11 @@ class AuthApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -710,7 +710,7 @@ class AuthApi:
 
 
     @validate_call
-    def auth_controller_send_email_verification_code_without_preload_content(
+    async def auth_controller_send_email_verification_code_without_preload_content(
         self,
         send_email_verification_code_request_dto: SendEmailVerificationCodeRequestDto,
         _request_timeout: Union[
@@ -764,7 +764,7 @@ class AuthApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -845,7 +845,7 @@ class AuthApi:
 
 
     @validate_call
-    def auth_controller_sign_in_with_email_password(
+    async def auth_controller_sign_in_with_email_password(
         self,
         sign_in_with_email_password_request_dto: SignInWithEmailPasswordRequestDto,
         _request_timeout: Union[
@@ -899,11 +899,11 @@ class AuthApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CredentialsEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -911,7 +911,7 @@ class AuthApi:
 
 
     @validate_call
-    def auth_controller_sign_in_with_email_password_with_http_info(
+    async def auth_controller_sign_in_with_email_password_with_http_info(
         self,
         sign_in_with_email_password_request_dto: SignInWithEmailPasswordRequestDto,
         _request_timeout: Union[
@@ -965,11 +965,11 @@ class AuthApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CredentialsEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -977,7 +977,7 @@ class AuthApi:
 
 
     @validate_call
-    def auth_controller_sign_in_with_email_password_without_preload_content(
+    async def auth_controller_sign_in_with_email_password_without_preload_content(
         self,
         sign_in_with_email_password_request_dto: SignInWithEmailPasswordRequestDto,
         _request_timeout: Union[
@@ -1031,7 +1031,7 @@ class AuthApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CredentialsEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1112,7 +1112,7 @@ class AuthApi:
 
 
     @validate_call
-    def auth_controller_sign_up_with_email_password(
+    async def auth_controller_sign_up_with_email_password(
         self,
         sign_up_with_email_password_request_dto: SignUpWithEmailPasswordRequestDto,
         _request_timeout: Union[
@@ -1166,11 +1166,11 @@ class AuthApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "UserEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1178,7 +1178,7 @@ class AuthApi:
 
 
     @validate_call
-    def auth_controller_sign_up_with_email_password_with_http_info(
+    async def auth_controller_sign_up_with_email_password_with_http_info(
         self,
         sign_up_with_email_password_request_dto: SignUpWithEmailPasswordRequestDto,
         _request_timeout: Union[
@@ -1232,11 +1232,11 @@ class AuthApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "UserEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1244,7 +1244,7 @@ class AuthApi:
 
 
     @validate_call
-    def auth_controller_sign_up_with_email_password_without_preload_content(
+    async def auth_controller_sign_up_with_email_password_without_preload_content(
         self,
         sign_up_with_email_password_request_dto: SignUpWithEmailPasswordRequestDto,
         _request_timeout: Union[
@@ -1298,7 +1298,7 @@ class AuthApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "UserEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

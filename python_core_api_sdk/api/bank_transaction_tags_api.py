@@ -40,7 +40,7 @@ class BankTransactionTagsApi:
 
 
     @validate_call
-    def bank_transaction_tags_controller_create_tag(
+    async def bank_transaction_tags_controller_create_tag(
         self,
         workspace_id: StrictStr,
         create_bank_transaction_tag_request_dto: CreateBankTransactionTagRequestDto,
@@ -98,11 +98,11 @@ class BankTransactionTagsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "BankTransactionTagEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -110,7 +110,7 @@ class BankTransactionTagsApi:
 
 
     @validate_call
-    def bank_transaction_tags_controller_create_tag_with_http_info(
+    async def bank_transaction_tags_controller_create_tag_with_http_info(
         self,
         workspace_id: StrictStr,
         create_bank_transaction_tag_request_dto: CreateBankTransactionTagRequestDto,
@@ -168,11 +168,11 @@ class BankTransactionTagsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "BankTransactionTagEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -180,7 +180,7 @@ class BankTransactionTagsApi:
 
 
     @validate_call
-    def bank_transaction_tags_controller_create_tag_without_preload_content(
+    async def bank_transaction_tags_controller_create_tag_without_preload_content(
         self,
         workspace_id: StrictStr,
         create_bank_transaction_tag_request_dto: CreateBankTransactionTagRequestDto,
@@ -238,7 +238,7 @@ class BankTransactionTagsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "BankTransactionTagEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -322,7 +322,7 @@ class BankTransactionTagsApi:
 
 
     @validate_call
-    def bank_transaction_tags_controller_list_tags(
+    async def bank_transaction_tags_controller_list_tags(
         self,
         workspace_id: StrictStr,
         _request_timeout: Union[
@@ -376,11 +376,11 @@ class BankTransactionTagsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[BankTransactionTagEntity]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -388,7 +388,7 @@ class BankTransactionTagsApi:
 
 
     @validate_call
-    def bank_transaction_tags_controller_list_tags_with_http_info(
+    async def bank_transaction_tags_controller_list_tags_with_http_info(
         self,
         workspace_id: StrictStr,
         _request_timeout: Union[
@@ -442,11 +442,11 @@ class BankTransactionTagsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[BankTransactionTagEntity]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -454,7 +454,7 @@ class BankTransactionTagsApi:
 
 
     @validate_call
-    def bank_transaction_tags_controller_list_tags_without_preload_content(
+    async def bank_transaction_tags_controller_list_tags_without_preload_content(
         self,
         workspace_id: StrictStr,
         _request_timeout: Union[
@@ -508,7 +508,7 @@ class BankTransactionTagsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[BankTransactionTagEntity]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

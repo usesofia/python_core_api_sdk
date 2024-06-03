@@ -33,13 +33,13 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.BankConnectionsApi(api_client)
     bank_connection_id = 'bank_connection_id_example' # str | 
 
     try:
-        api_response = api_instance.bank_connections_controller_activate_bank_connection(bank_connection_id)
+        api_response = await api_instance.bank_connections_controller_activate_bank_connection(bank_connection_id)
         print("The response of BankConnectionsApi->bank_connections_controller_activate_bank_connection:\n")
         pprint(api_response)
     except Exception as e:
@@ -100,14 +100,14 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.BankConnectionsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
     create_or_update_bank_connection_request_dto = python_core_api_sdk.CreateOrUpdateBankConnectionRequestDto() # CreateOrUpdateBankConnectionRequestDto | 
 
     try:
-        api_response = api_instance.bank_connections_controller_create_or_update_bank_connection(workspace_id, create_or_update_bank_connection_request_dto)
+        api_response = await api_instance.bank_connections_controller_create_or_update_bank_connection(workspace_id, create_or_update_bank_connection_request_dto)
         print("The response of BankConnectionsApi->bank_connections_controller_create_or_update_bank_connection:\n")
         pprint(api_response)
     except Exception as e:
@@ -168,13 +168,13 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.BankConnectionsApi(api_client)
     bank_connection_id = 'bank_connection_id_example' # str | 
 
     try:
-        api_response = api_instance.bank_connections_controller_disable_bank_connection(bank_connection_id)
+        api_response = await api_instance.bank_connections_controller_disable_bank_connection(bank_connection_id)
         print("The response of BankConnectionsApi->bank_connections_controller_disable_bank_connection:\n")
         pprint(api_response)
     except Exception as e:
@@ -234,14 +234,14 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.BankConnectionsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
     enabled = True # bool |  (optional)
 
     try:
-        api_response = api_instance.bank_connections_controller_fetch_user_bank_connections(workspace_id, enabled=enabled)
+        api_response = await api_instance.bank_connections_controller_fetch_user_bank_connections(workspace_id, enabled=enabled)
         print("The response of BankConnectionsApi->bank_connections_controller_fetch_user_bank_connections:\n")
         pprint(api_response)
     except Exception as e:
@@ -302,13 +302,13 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.BankConnectionsApi(api_client)
     bank_connection_id = 'bank_connection_id_example' # str | 
 
     try:
-        api_response = api_instance.bank_connections_controller_get_bank_connection_details(bank_connection_id)
+        api_response = await api_instance.bank_connections_controller_get_bank_connection_details(bank_connection_id)
         print("The response of BankConnectionsApi->bank_connections_controller_get_bank_connection_details:\n")
         pprint(api_response)
     except Exception as e:

@@ -31,13 +31,13 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.StripeApi(api_client)
     create_stripe_checkout_session_request_dto = python_core_api_sdk.CreateStripeCheckoutSessionRequestDto() # CreateStripeCheckoutSessionRequestDto | 
 
     try:
-        api_response = api_instance.stripe_controller_create_checkout_session_for_stripe(create_stripe_checkout_session_request_dto)
+        api_response = await api_instance.stripe_controller_create_checkout_session_for_stripe(create_stripe_checkout_session_request_dto)
         print("The response of StripeApi->stripe_controller_create_checkout_session_for_stripe:\n")
         pprint(api_response)
     except Exception as e:
@@ -96,13 +96,13 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.StripeApi(api_client)
     stripe_signature = 'stripe_signature_example' # str | 
 
     try:
-        api_instance.stripe_controller_stripe_webhook(stripe_signature)
+        await api_instance.stripe_controller_stripe_webhook(stripe_signature)
     except Exception as e:
         print("Exception when calling StripeApi->stripe_controller_stripe_webhook: %s\n" % e)
 ```

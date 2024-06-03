@@ -29,7 +29,7 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.BankTransactionCategoriesApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
@@ -38,7 +38,7 @@ with python_core_api_sdk.ApiClient(configuration) as api_client:
     legal_natures = 'legal_natures_example' # str |  (optional)
 
     try:
-        api_response = api_instance.bank_transaction_categories_controller_get_bank_transaction_categories(workspace_id, only_leafs=only_leafs, transaction_natures=transaction_natures, legal_natures=legal_natures)
+        api_response = await api_instance.bank_transaction_categories_controller_get_bank_transaction_categories(workspace_id, only_leafs=only_leafs, transaction_natures=transaction_natures, legal_natures=legal_natures)
         print("The response of BankTransactionCategoriesApi->bank_transaction_categories_controller_get_bank_transaction_categories:\n")
         pprint(api_response)
     except Exception as e:

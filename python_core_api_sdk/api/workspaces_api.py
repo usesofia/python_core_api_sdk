@@ -42,7 +42,7 @@ class WorkspacesApi:
 
 
     @validate_call
-    def workspaces_controller_create(
+    async def workspaces_controller_create(
         self,
         create_workspace_request_dto: CreateWorkspaceRequestDto,
         _request_timeout: Union[
@@ -96,11 +96,11 @@ class WorkspacesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "WorkspaceEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -108,7 +108,7 @@ class WorkspacesApi:
 
 
     @validate_call
-    def workspaces_controller_create_with_http_info(
+    async def workspaces_controller_create_with_http_info(
         self,
         create_workspace_request_dto: CreateWorkspaceRequestDto,
         _request_timeout: Union[
@@ -162,11 +162,11 @@ class WorkspacesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "WorkspaceEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -174,7 +174,7 @@ class WorkspacesApi:
 
 
     @validate_call
-    def workspaces_controller_create_without_preload_content(
+    async def workspaces_controller_create_without_preload_content(
         self,
         create_workspace_request_dto: CreateWorkspaceRequestDto,
         _request_timeout: Union[
@@ -228,7 +228,7 @@ class WorkspacesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "WorkspaceEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -309,7 +309,7 @@ class WorkspacesApi:
 
 
     @validate_call
-    def workspaces_controller_fetch_user_related_workspaces(
+    async def workspaces_controller_fetch_user_related_workspaces(
         self,
         _request_timeout: Union[
             None,
@@ -359,11 +359,11 @@ class WorkspacesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[UserRelatedWorkspaceEntity]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -371,7 +371,7 @@ class WorkspacesApi:
 
 
     @validate_call
-    def workspaces_controller_fetch_user_related_workspaces_with_http_info(
+    async def workspaces_controller_fetch_user_related_workspaces_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -421,11 +421,11 @@ class WorkspacesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[UserRelatedWorkspaceEntity]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -433,7 +433,7 @@ class WorkspacesApi:
 
 
     @validate_call
-    def workspaces_controller_fetch_user_related_workspaces_without_preload_content(
+    async def workspaces_controller_fetch_user_related_workspaces_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -483,7 +483,7 @@ class WorkspacesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[UserRelatedWorkspaceEntity]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -548,7 +548,7 @@ class WorkspacesApi:
 
 
     @validate_call
-    def workspaces_controller_get(
+    async def workspaces_controller_get(
         self,
         workspace_id: StrictStr,
         _request_timeout: Union[
@@ -602,11 +602,11 @@ class WorkspacesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "WorkspaceEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -614,7 +614,7 @@ class WorkspacesApi:
 
 
     @validate_call
-    def workspaces_controller_get_with_http_info(
+    async def workspaces_controller_get_with_http_info(
         self,
         workspace_id: StrictStr,
         _request_timeout: Union[
@@ -668,11 +668,11 @@ class WorkspacesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "WorkspaceEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -680,7 +680,7 @@ class WorkspacesApi:
 
 
     @validate_call
-    def workspaces_controller_get_without_preload_content(
+    async def workspaces_controller_get_without_preload_content(
         self,
         workspace_id: StrictStr,
         _request_timeout: Union[
@@ -734,7 +734,7 @@ class WorkspacesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "WorkspaceEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -802,7 +802,7 @@ class WorkspacesApi:
 
 
     @validate_call
-    def workspaces_controller_parcial_update(
+    async def workspaces_controller_parcial_update(
         self,
         workspace_id: StrictStr,
         parcial_update_workspace_request_dto: ParcialUpdateWorkspaceRequestDto,
@@ -860,11 +860,11 @@ class WorkspacesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "WorkspaceEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -872,7 +872,7 @@ class WorkspacesApi:
 
 
     @validate_call
-    def workspaces_controller_parcial_update_with_http_info(
+    async def workspaces_controller_parcial_update_with_http_info(
         self,
         workspace_id: StrictStr,
         parcial_update_workspace_request_dto: ParcialUpdateWorkspaceRequestDto,
@@ -930,11 +930,11 @@ class WorkspacesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "WorkspaceEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -942,7 +942,7 @@ class WorkspacesApi:
 
 
     @validate_call
-    def workspaces_controller_parcial_update_without_preload_content(
+    async def workspaces_controller_parcial_update_without_preload_content(
         self,
         workspace_id: StrictStr,
         parcial_update_workspace_request_dto: ParcialUpdateWorkspaceRequestDto,
@@ -1000,7 +1000,7 @@ class WorkspacesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "WorkspaceEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

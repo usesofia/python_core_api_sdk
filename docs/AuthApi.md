@@ -34,13 +34,13 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.AuthApi(api_client)
     check_email_in_use_request_dto = python_core_api_sdk.CheckEmailInUseRequestDto() # CheckEmailInUseRequestDto | 
 
     try:
-        api_response = api_instance.auth_controller_check_email_in_use(check_email_in_use_request_dto)
+        api_response = await api_instance.auth_controller_check_email_in_use(check_email_in_use_request_dto)
         print("The response of AuthApi->auth_controller_check_email_in_use:\n")
         pprint(api_response)
     except Exception as e:
@@ -101,13 +101,13 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.AuthApi(api_client)
     refresh_request_dto = python_core_api_sdk.RefreshRequestDto() # RefreshRequestDto | 
 
     try:
-        api_response = api_instance.auth_controller_refresh(refresh_request_dto)
+        api_response = await api_instance.auth_controller_refresh(refresh_request_dto)
         print("The response of AuthApi->auth_controller_refresh:\n")
         pprint(api_response)
     except Exception as e:
@@ -167,13 +167,13 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.AuthApi(api_client)
     send_email_verification_code_request_dto = python_core_api_sdk.SendEmailVerificationCodeRequestDto() # SendEmailVerificationCodeRequestDto | 
 
     try:
-        api_instance.auth_controller_send_email_verification_code(send_email_verification_code_request_dto)
+        await api_instance.auth_controller_send_email_verification_code(send_email_verification_code_request_dto)
     except Exception as e:
         print("Exception when calling AuthApi->auth_controller_send_email_verification_code: %s\n" % e)
 ```
@@ -232,13 +232,13 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.AuthApi(api_client)
     sign_in_with_email_password_request_dto = python_core_api_sdk.SignInWithEmailPasswordRequestDto() # SignInWithEmailPasswordRequestDto | 
 
     try:
-        api_response = api_instance.auth_controller_sign_in_with_email_password(sign_in_with_email_password_request_dto)
+        api_response = await api_instance.auth_controller_sign_in_with_email_password(sign_in_with_email_password_request_dto)
         print("The response of AuthApi->auth_controller_sign_in_with_email_password:\n")
         pprint(api_response)
     except Exception as e:
@@ -299,13 +299,13 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.AuthApi(api_client)
     sign_up_with_email_password_request_dto = python_core_api_sdk.SignUpWithEmailPasswordRequestDto() # SignUpWithEmailPasswordRequestDto | 
 
     try:
-        api_response = api_instance.auth_controller_sign_up_with_email_password(sign_up_with_email_password_request_dto)
+        api_response = await api_instance.auth_controller_sign_up_with_email_password(sign_up_with_email_password_request_dto)
         print("The response of AuthApi->auth_controller_sign_up_with_email_password:\n")
         pprint(api_response)
     except Exception as e:

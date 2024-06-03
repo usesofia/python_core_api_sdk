@@ -39,7 +39,7 @@ class BankTransactionCategoriesApi:
 
 
     @validate_call
-    def bank_transaction_categories_controller_get_bank_transaction_categories(
+    async def bank_transaction_categories_controller_get_bank_transaction_categories(
         self,
         workspace_id: StrictStr,
         only_leafs: Optional[StrictBool] = None,
@@ -105,11 +105,11 @@ class BankTransactionCategoriesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[BankTransactionCategoryEntity]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -117,7 +117,7 @@ class BankTransactionCategoriesApi:
 
 
     @validate_call
-    def bank_transaction_categories_controller_get_bank_transaction_categories_with_http_info(
+    async def bank_transaction_categories_controller_get_bank_transaction_categories_with_http_info(
         self,
         workspace_id: StrictStr,
         only_leafs: Optional[StrictBool] = None,
@@ -183,11 +183,11 @@ class BankTransactionCategoriesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[BankTransactionCategoryEntity]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -195,7 +195,7 @@ class BankTransactionCategoriesApi:
 
 
     @validate_call
-    def bank_transaction_categories_controller_get_bank_transaction_categories_without_preload_content(
+    async def bank_transaction_categories_controller_get_bank_transaction_categories_without_preload_content(
         self,
         workspace_id: StrictStr,
         only_leafs: Optional[StrictBool] = None,
@@ -261,7 +261,7 @@ class BankTransactionCategoriesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[BankTransactionCategoryEntity]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

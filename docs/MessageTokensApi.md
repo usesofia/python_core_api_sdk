@@ -31,14 +31,14 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.MessageTokensApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
     create_or_update_message_token_request_dto = python_core_api_sdk.CreateOrUpdateMessageTokenRequestDto() # CreateOrUpdateMessageTokenRequestDto | 
 
     try:
-        api_response = api_instance.message_tokens_controller_create_or_update_message_token(workspace_id, create_or_update_message_token_request_dto)
+        api_response = await api_instance.message_tokens_controller_create_or_update_message_token(workspace_id, create_or_update_message_token_request_dto)
         print("The response of MessageTokensApi->message_tokens_controller_create_or_update_message_token:\n")
         pprint(api_response)
     except Exception as e:
@@ -99,13 +99,13 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.MessageTokensApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
 
     try:
-        api_response = api_instance.message_tokens_controller_get_workspace_message_tokens(workspace_id)
+        api_response = await api_instance.message_tokens_controller_get_workspace_message_tokens(workspace_id)
         print("The response of MessageTokensApi->message_tokens_controller_get_workspace_message_tokens:\n")
         pprint(api_response)
     except Exception as e:

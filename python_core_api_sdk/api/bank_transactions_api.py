@@ -42,7 +42,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    def bank_transactions_controller_create_or_update_bank_transactions_in_bulk(
+    async def bank_transactions_controller_create_or_update_bank_transactions_in_bulk(
         self,
         create_or_update_bank_transactions_in_bulk_request_dto: CreateOrUpdateBankTransactionsInBulkRequestDto,
         _request_timeout: Union[
@@ -96,11 +96,11 @@ class BankTransactionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[BankTransactionEntity]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -108,7 +108,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    def bank_transactions_controller_create_or_update_bank_transactions_in_bulk_with_http_info(
+    async def bank_transactions_controller_create_or_update_bank_transactions_in_bulk_with_http_info(
         self,
         create_or_update_bank_transactions_in_bulk_request_dto: CreateOrUpdateBankTransactionsInBulkRequestDto,
         _request_timeout: Union[
@@ -162,11 +162,11 @@ class BankTransactionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[BankTransactionEntity]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -174,7 +174,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    def bank_transactions_controller_create_or_update_bank_transactions_in_bulk_without_preload_content(
+    async def bank_transactions_controller_create_or_update_bank_transactions_in_bulk_without_preload_content(
         self,
         create_or_update_bank_transactions_in_bulk_request_dto: CreateOrUpdateBankTransactionsInBulkRequestDto,
         _request_timeout: Union[
@@ -228,7 +228,7 @@ class BankTransactionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[BankTransactionEntity]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -309,7 +309,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    def bank_transactions_controller_get_bank_transactions(
+    async def bank_transactions_controller_get_bank_transactions(
         self,
         workspace_id: StrictStr,
         page_index: Optional[Union[StrictFloat, StrictInt]] = None,
@@ -423,11 +423,11 @@ class BankTransactionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankTransactionsPageEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -435,7 +435,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    def bank_transactions_controller_get_bank_transactions_with_http_info(
+    async def bank_transactions_controller_get_bank_transactions_with_http_info(
         self,
         workspace_id: StrictStr,
         page_index: Optional[Union[StrictFloat, StrictInt]] = None,
@@ -549,11 +549,11 @@ class BankTransactionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankTransactionsPageEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -561,7 +561,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    def bank_transactions_controller_get_bank_transactions_without_preload_content(
+    async def bank_transactions_controller_get_bank_transactions_without_preload_content(
         self,
         workspace_id: StrictStr,
         page_index: Optional[Union[StrictFloat, StrictInt]] = None,
@@ -675,7 +675,7 @@ class BankTransactionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankTransactionsPageEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -818,7 +818,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    def bank_transactions_controller_get_bank_transactions_confirmed_today_by_me(
+    async def bank_transactions_controller_get_bank_transactions_confirmed_today_by_me(
         self,
         workspace_id: StrictStr,
         page_index: Optional[Union[StrictFloat, StrictInt]] = None,
@@ -880,11 +880,11 @@ class BankTransactionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankTransactionsPageEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -892,7 +892,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    def bank_transactions_controller_get_bank_transactions_confirmed_today_by_me_with_http_info(
+    async def bank_transactions_controller_get_bank_transactions_confirmed_today_by_me_with_http_info(
         self,
         workspace_id: StrictStr,
         page_index: Optional[Union[StrictFloat, StrictInt]] = None,
@@ -954,11 +954,11 @@ class BankTransactionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankTransactionsPageEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -966,7 +966,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    def bank_transactions_controller_get_bank_transactions_confirmed_today_by_me_without_preload_content(
+    async def bank_transactions_controller_get_bank_transactions_confirmed_today_by_me_without_preload_content(
         self,
         workspace_id: StrictStr,
         page_index: Optional[Union[StrictFloat, StrictInt]] = None,
@@ -1028,7 +1028,7 @@ class BankTransactionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankTransactionsPageEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1106,7 +1106,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    def bank_transactions_controller_get_bank_transactions_not_confirmed(
+    async def bank_transactions_controller_get_bank_transactions_not_confirmed(
         self,
         workspace_id: StrictStr,
         page_index: Optional[Union[StrictFloat, StrictInt]] = None,
@@ -1172,11 +1172,11 @@ class BankTransactionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankTransactionsPageEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1184,7 +1184,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    def bank_transactions_controller_get_bank_transactions_not_confirmed_with_http_info(
+    async def bank_transactions_controller_get_bank_transactions_not_confirmed_with_http_info(
         self,
         workspace_id: StrictStr,
         page_index: Optional[Union[StrictFloat, StrictInt]] = None,
@@ -1250,11 +1250,11 @@ class BankTransactionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankTransactionsPageEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1262,7 +1262,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    def bank_transactions_controller_get_bank_transactions_not_confirmed_without_preload_content(
+    async def bank_transactions_controller_get_bank_transactions_not_confirmed_without_preload_content(
         self,
         workspace_id: StrictStr,
         page_index: Optional[Union[StrictFloat, StrictInt]] = None,
@@ -1328,7 +1328,7 @@ class BankTransactionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankTransactionsPageEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1411,7 +1411,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    def bank_transactions_controller_get_bank_transactions_totals(
+    async def bank_transactions_controller_get_bank_transactions_totals(
         self,
         workspace_id: StrictStr,
         account_ids: Optional[StrictStr] = None,
@@ -1517,11 +1517,11 @@ class BankTransactionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankTransactionsPageEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1529,7 +1529,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    def bank_transactions_controller_get_bank_transactions_totals_with_http_info(
+    async def bank_transactions_controller_get_bank_transactions_totals_with_http_info(
         self,
         workspace_id: StrictStr,
         account_ids: Optional[StrictStr] = None,
@@ -1635,11 +1635,11 @@ class BankTransactionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankTransactionsPageEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1647,7 +1647,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    def bank_transactions_controller_get_bank_transactions_totals_without_preload_content(
+    async def bank_transactions_controller_get_bank_transactions_totals_without_preload_content(
         self,
         workspace_id: StrictStr,
         account_ids: Optional[StrictStr] = None,
@@ -1753,7 +1753,7 @@ class BankTransactionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankTransactionsPageEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1886,7 +1886,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    def bank_transactions_controller_get_recent(
+    async def bank_transactions_controller_get_recent(
         self,
         workspace_id: StrictStr,
         _request_timeout: Union[
@@ -1940,11 +1940,11 @@ class BankTransactionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[BankTransactionEntity]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1952,7 +1952,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    def bank_transactions_controller_get_recent_with_http_info(
+    async def bank_transactions_controller_get_recent_with_http_info(
         self,
         workspace_id: StrictStr,
         _request_timeout: Union[
@@ -2006,11 +2006,11 @@ class BankTransactionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[BankTransactionEntity]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2018,7 +2018,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    def bank_transactions_controller_get_recent_without_preload_content(
+    async def bank_transactions_controller_get_recent_without_preload_content(
         self,
         workspace_id: StrictStr,
         _request_timeout: Union[
@@ -2072,7 +2072,7 @@ class BankTransactionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[BankTransactionEntity]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2140,7 +2140,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    def bank_transactions_controller_get_transaction_details(
+    async def bank_transactions_controller_get_transaction_details(
         self,
         bank_transaction_id: StrictStr,
         _request_timeout: Union[
@@ -2194,11 +2194,11 @@ class BankTransactionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankTransactionEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2206,7 +2206,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    def bank_transactions_controller_get_transaction_details_with_http_info(
+    async def bank_transactions_controller_get_transaction_details_with_http_info(
         self,
         bank_transaction_id: StrictStr,
         _request_timeout: Union[
@@ -2260,11 +2260,11 @@ class BankTransactionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankTransactionEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2272,7 +2272,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    def bank_transactions_controller_get_transaction_details_without_preload_content(
+    async def bank_transactions_controller_get_transaction_details_without_preload_content(
         self,
         bank_transaction_id: StrictStr,
         _request_timeout: Union[
@@ -2326,7 +2326,7 @@ class BankTransactionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankTransactionEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2394,7 +2394,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    def bank_transactions_controller_update_transaction(
+    async def bank_transactions_controller_update_transaction(
         self,
         bank_transaction_id: StrictStr,
         update_bank_transaction_request_dto: UpdateBankTransactionRequestDto,
@@ -2452,11 +2452,11 @@ class BankTransactionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankTransactionEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2464,7 +2464,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    def bank_transactions_controller_update_transaction_with_http_info(
+    async def bank_transactions_controller_update_transaction_with_http_info(
         self,
         bank_transaction_id: StrictStr,
         update_bank_transaction_request_dto: UpdateBankTransactionRequestDto,
@@ -2522,11 +2522,11 @@ class BankTransactionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankTransactionEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2534,7 +2534,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    def bank_transactions_controller_update_transaction_without_preload_content(
+    async def bank_transactions_controller_update_transaction_without_preload_content(
         self,
         bank_transaction_id: StrictStr,
         update_bank_transaction_request_dto: UpdateBankTransactionRequestDto,
@@ -2592,7 +2592,7 @@ class BankTransactionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankTransactionEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

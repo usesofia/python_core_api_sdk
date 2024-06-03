@@ -39,7 +39,7 @@ class ProfilesApi:
 
 
     @validate_call
-    def profiles_controller_create(
+    async def profiles_controller_create(
         self,
         create_profile_request_dto: CreateProfileRequestDto,
         _request_timeout: Union[
@@ -93,11 +93,11 @@ class ProfilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "ProfileEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -105,7 +105,7 @@ class ProfilesApi:
 
 
     @validate_call
-    def profiles_controller_create_with_http_info(
+    async def profiles_controller_create_with_http_info(
         self,
         create_profile_request_dto: CreateProfileRequestDto,
         _request_timeout: Union[
@@ -159,11 +159,11 @@ class ProfilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "ProfileEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -171,7 +171,7 @@ class ProfilesApi:
 
 
     @validate_call
-    def profiles_controller_create_without_preload_content(
+    async def profiles_controller_create_without_preload_content(
         self,
         create_profile_request_dto: CreateProfileRequestDto,
         _request_timeout: Union[
@@ -225,7 +225,7 @@ class ProfilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "ProfileEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -306,7 +306,7 @@ class ProfilesApi:
 
 
     @validate_call
-    def profiles_controller_get_my(
+    async def profiles_controller_get_my(
         self,
         _request_timeout: Union[
             None,
@@ -356,11 +356,11 @@ class ProfilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ProfileEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -368,7 +368,7 @@ class ProfilesApi:
 
 
     @validate_call
-    def profiles_controller_get_my_with_http_info(
+    async def profiles_controller_get_my_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -418,11 +418,11 @@ class ProfilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ProfileEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -430,7 +430,7 @@ class ProfilesApi:
 
 
     @validate_call
-    def profiles_controller_get_my_without_preload_content(
+    async def profiles_controller_get_my_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -480,7 +480,7 @@ class ProfilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ProfileEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -545,7 +545,7 @@ class ProfilesApi:
 
 
     @validate_call
-    def profiles_controller_parcial_update(
+    async def profiles_controller_parcial_update(
         self,
         parcial_update_profile_request_dto: ParcialUpdateProfileRequestDto,
         _request_timeout: Union[
@@ -599,11 +599,11 @@ class ProfilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ProfileEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -611,7 +611,7 @@ class ProfilesApi:
 
 
     @validate_call
-    def profiles_controller_parcial_update_with_http_info(
+    async def profiles_controller_parcial_update_with_http_info(
         self,
         parcial_update_profile_request_dto: ParcialUpdateProfileRequestDto,
         _request_timeout: Union[
@@ -665,11 +665,11 @@ class ProfilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ProfileEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -677,7 +677,7 @@ class ProfilesApi:
 
 
     @validate_call
-    def profiles_controller_parcial_update_without_preload_content(
+    async def profiles_controller_parcial_update_without_preload_content(
         self,
         parcial_update_profile_request_dto: ParcialUpdateProfileRequestDto,
         _request_timeout: Union[
@@ -731,7 +731,7 @@ class ProfilesApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "ProfileEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

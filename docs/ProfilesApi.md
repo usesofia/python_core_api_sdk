@@ -32,13 +32,13 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.ProfilesApi(api_client)
     create_profile_request_dto = python_core_api_sdk.CreateProfileRequestDto() # CreateProfileRequestDto | 
 
     try:
-        api_response = api_instance.profiles_controller_create(create_profile_request_dto)
+        api_response = await api_instance.profiles_controller_create(create_profile_request_dto)
         print("The response of ProfilesApi->profiles_controller_create:\n")
         pprint(api_response)
     except Exception as e:
@@ -98,12 +98,12 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.ProfilesApi(api_client)
 
     try:
-        api_response = api_instance.profiles_controller_get_my()
+        api_response = await api_instance.profiles_controller_get_my()
         print("The response of ProfilesApi->profiles_controller_get_my:\n")
         pprint(api_response)
     except Exception as e:
@@ -161,13 +161,13 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.ProfilesApi(api_client)
     parcial_update_profile_request_dto = python_core_api_sdk.ParcialUpdateProfileRequestDto() # ParcialUpdateProfileRequestDto | 
 
     try:
-        api_response = api_instance.profiles_controller_parcial_update(parcial_update_profile_request_dto)
+        api_response = await api_instance.profiles_controller_parcial_update(parcial_update_profile_request_dto)
         print("The response of ProfilesApi->profiles_controller_parcial_update:\n")
         pprint(api_response)
     except Exception as e:

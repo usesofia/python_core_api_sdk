@@ -42,7 +42,7 @@ class ReportsApi:
 
 
     @validate_call
-    def reports_controller_get_accounts_entries_by_category_report(
+    async def reports_controller_get_accounts_entries_by_category_report(
         self,
         workspace_id: StrictStr,
         account_ids: Optional[StrictStr] = None,
@@ -136,11 +136,11 @@ class ReportsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CashFlowByCategoryReportEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -148,7 +148,7 @@ class ReportsApi:
 
 
     @validate_call
-    def reports_controller_get_accounts_entries_by_category_report_with_http_info(
+    async def reports_controller_get_accounts_entries_by_category_report_with_http_info(
         self,
         workspace_id: StrictStr,
         account_ids: Optional[StrictStr] = None,
@@ -242,11 +242,11 @@ class ReportsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CashFlowByCategoryReportEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -254,7 +254,7 @@ class ReportsApi:
 
 
     @validate_call
-    def reports_controller_get_accounts_entries_by_category_report_without_preload_content(
+    async def reports_controller_get_accounts_entries_by_category_report_without_preload_content(
         self,
         workspace_id: StrictStr,
         account_ids: Optional[StrictStr] = None,
@@ -348,7 +348,7 @@ class ReportsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CashFlowByCategoryReportEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -466,7 +466,7 @@ class ReportsApi:
 
 
     @validate_call
-    def reports_controller_get_accounts_outputs_by_category_report(
+    async def reports_controller_get_accounts_outputs_by_category_report(
         self,
         workspace_id: StrictStr,
         account_ids: Optional[StrictStr] = None,
@@ -560,11 +560,11 @@ class ReportsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CashFlowByCategoryReportEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -572,7 +572,7 @@ class ReportsApi:
 
 
     @validate_call
-    def reports_controller_get_accounts_outputs_by_category_report_with_http_info(
+    async def reports_controller_get_accounts_outputs_by_category_report_with_http_info(
         self,
         workspace_id: StrictStr,
         account_ids: Optional[StrictStr] = None,
@@ -666,11 +666,11 @@ class ReportsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CashFlowByCategoryReportEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -678,7 +678,7 @@ class ReportsApi:
 
 
     @validate_call
-    def reports_controller_get_accounts_outputs_by_category_report_without_preload_content(
+    async def reports_controller_get_accounts_outputs_by_category_report_without_preload_content(
         self,
         workspace_id: StrictStr,
         account_ids: Optional[StrictStr] = None,
@@ -772,7 +772,7 @@ class ReportsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CashFlowByCategoryReportEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -890,7 +890,7 @@ class ReportsApi:
 
 
     @validate_call
-    def reports_controller_get_business_indicators(
+    async def reports_controller_get_business_indicators(
         self,
         workspace_id: StrictStr,
         account_ids: Optional[StrictStr] = None,
@@ -972,11 +972,11 @@ class ReportsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[BankTransactionIndicatorEntity]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -984,7 +984,7 @@ class ReportsApi:
 
 
     @validate_call
-    def reports_controller_get_business_indicators_with_http_info(
+    async def reports_controller_get_business_indicators_with_http_info(
         self,
         workspace_id: StrictStr,
         account_ids: Optional[StrictStr] = None,
@@ -1066,11 +1066,11 @@ class ReportsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[BankTransactionIndicatorEntity]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1078,7 +1078,7 @@ class ReportsApi:
 
 
     @validate_call
-    def reports_controller_get_business_indicators_without_preload_content(
+    async def reports_controller_get_business_indicators_without_preload_content(
         self,
         workspace_id: StrictStr,
         account_ids: Optional[StrictStr] = None,
@@ -1160,7 +1160,7 @@ class ReportsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[BankTransactionIndicatorEntity]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1263,7 +1263,7 @@ class ReportsApi:
 
 
     @validate_call
-    def reports_controller_get_cards_cash_flow_report(
+    async def reports_controller_get_cards_cash_flow_report(
         self,
         workspace_id: StrictStr,
         account_ids: Optional[StrictStr] = None,
@@ -1341,11 +1341,11 @@ class ReportsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CashFlowReportEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1353,7 +1353,7 @@ class ReportsApi:
 
 
     @validate_call
-    def reports_controller_get_cards_cash_flow_report_with_http_info(
+    async def reports_controller_get_cards_cash_flow_report_with_http_info(
         self,
         workspace_id: StrictStr,
         account_ids: Optional[StrictStr] = None,
@@ -1431,11 +1431,11 @@ class ReportsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CashFlowReportEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1443,7 +1443,7 @@ class ReportsApi:
 
 
     @validate_call
-    def reports_controller_get_cards_cash_flow_report_without_preload_content(
+    async def reports_controller_get_cards_cash_flow_report_without_preload_content(
         self,
         workspace_id: StrictStr,
         account_ids: Optional[StrictStr] = None,
@@ -1521,7 +1521,7 @@ class ReportsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CashFlowReportEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1619,7 +1619,7 @@ class ReportsApi:
 
 
     @validate_call
-    def reports_controller_get_cards_outputs_by_category_report(
+    async def reports_controller_get_cards_outputs_by_category_report(
         self,
         workspace_id: StrictStr,
         account_ids: Optional[StrictStr] = None,
@@ -1709,11 +1709,11 @@ class ReportsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CashFlowByCategoryReportEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1721,7 +1721,7 @@ class ReportsApi:
 
 
     @validate_call
-    def reports_controller_get_cards_outputs_by_category_report_with_http_info(
+    async def reports_controller_get_cards_outputs_by_category_report_with_http_info(
         self,
         workspace_id: StrictStr,
         account_ids: Optional[StrictStr] = None,
@@ -1811,11 +1811,11 @@ class ReportsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CashFlowByCategoryReportEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1823,7 +1823,7 @@ class ReportsApi:
 
 
     @validate_call
-    def reports_controller_get_cards_outputs_by_category_report_without_preload_content(
+    async def reports_controller_get_cards_outputs_by_category_report_without_preload_content(
         self,
         workspace_id: StrictStr,
         account_ids: Optional[StrictStr] = None,
@@ -1913,7 +1913,7 @@ class ReportsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CashFlowByCategoryReportEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2026,7 +2026,7 @@ class ReportsApi:
 
 
     @validate_call
-    def reports_controller_get_cash_flow_report(
+    async def reports_controller_get_cash_flow_report(
         self,
         workspace_id: StrictStr,
         account_ids: Optional[StrictStr] = None,
@@ -2108,11 +2108,11 @@ class ReportsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CashFlowReportEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2120,7 +2120,7 @@ class ReportsApi:
 
 
     @validate_call
-    def reports_controller_get_cash_flow_report_with_http_info(
+    async def reports_controller_get_cash_flow_report_with_http_info(
         self,
         workspace_id: StrictStr,
         account_ids: Optional[StrictStr] = None,
@@ -2202,11 +2202,11 @@ class ReportsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CashFlowReportEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2214,7 +2214,7 @@ class ReportsApi:
 
 
     @validate_call
-    def reports_controller_get_cash_flow_report_without_preload_content(
+    async def reports_controller_get_cash_flow_report_without_preload_content(
         self,
         workspace_id: StrictStr,
         account_ids: Optional[StrictStr] = None,
@@ -2296,7 +2296,7 @@ class ReportsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "CashFlowReportEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2399,7 +2399,7 @@ class ReportsApi:
 
 
     @validate_call
-    def reports_controller_get_financial_statement_report(
+    async def reports_controller_get_financial_statement_report(
         self,
         workspace_id: StrictStr,
         account_ids: Optional[StrictStr] = None,
@@ -2485,11 +2485,11 @@ class ReportsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FinancialStatementReport",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2497,7 +2497,7 @@ class ReportsApi:
 
 
     @validate_call
-    def reports_controller_get_financial_statement_report_with_http_info(
+    async def reports_controller_get_financial_statement_report_with_http_info(
         self,
         workspace_id: StrictStr,
         account_ids: Optional[StrictStr] = None,
@@ -2583,11 +2583,11 @@ class ReportsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FinancialStatementReport",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2595,7 +2595,7 @@ class ReportsApi:
 
 
     @validate_call
-    def reports_controller_get_financial_statement_report_without_preload_content(
+    async def reports_controller_get_financial_statement_report_without_preload_content(
         self,
         workspace_id: StrictStr,
         account_ids: Optional[StrictStr] = None,
@@ -2681,7 +2681,7 @@ class ReportsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "FinancialStatementReport",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

@@ -31,14 +31,14 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.BankTransactionTagsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
     create_bank_transaction_tag_request_dto = python_core_api_sdk.CreateBankTransactionTagRequestDto() # CreateBankTransactionTagRequestDto | 
 
     try:
-        api_response = api_instance.bank_transaction_tags_controller_create_tag(workspace_id, create_bank_transaction_tag_request_dto)
+        api_response = await api_instance.bank_transaction_tags_controller_create_tag(workspace_id, create_bank_transaction_tag_request_dto)
         print("The response of BankTransactionTagsApi->bank_transaction_tags_controller_create_tag:\n")
         pprint(api_response)
     except Exception as e:
@@ -99,13 +99,13 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.BankTransactionTagsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
 
     try:
-        api_response = api_instance.bank_transaction_tags_controller_list_tags(workspace_id)
+        api_response = await api_instance.bank_transaction_tags_controller_list_tags(workspace_id)
         print("The response of BankTransactionTagsApi->bank_transaction_tags_controller_list_tags:\n")
         pprint(api_response)
     except Exception as e:

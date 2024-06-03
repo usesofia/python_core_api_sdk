@@ -38,7 +38,7 @@ class WorkspaceSubscriptionsApi:
 
 
     @validate_call
-    def workspace_subscriptions_controller_get(
+    async def workspace_subscriptions_controller_get(
         self,
         workspace_id: StrictStr,
         _request_timeout: Union[
@@ -92,11 +92,11 @@ class WorkspaceSubscriptionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "WorkspaceSubscriptionEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -104,7 +104,7 @@ class WorkspaceSubscriptionsApi:
 
 
     @validate_call
-    def workspace_subscriptions_controller_get_with_http_info(
+    async def workspace_subscriptions_controller_get_with_http_info(
         self,
         workspace_id: StrictStr,
         _request_timeout: Union[
@@ -158,11 +158,11 @@ class WorkspaceSubscriptionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "WorkspaceSubscriptionEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -170,7 +170,7 @@ class WorkspaceSubscriptionsApi:
 
 
     @validate_call
-    def workspace_subscriptions_controller_get_without_preload_content(
+    async def workspace_subscriptions_controller_get_without_preload_content(
         self,
         workspace_id: StrictStr,
         _request_timeout: Union[
@@ -224,7 +224,7 @@ class WorkspaceSubscriptionsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "WorkspaceSubscriptionEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

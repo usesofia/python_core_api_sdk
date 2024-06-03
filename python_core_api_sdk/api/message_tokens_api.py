@@ -40,7 +40,7 @@ class MessageTokensApi:
 
 
     @validate_call
-    def message_tokens_controller_create_or_update_message_token(
+    async def message_tokens_controller_create_or_update_message_token(
         self,
         workspace_id: StrictStr,
         create_or_update_message_token_request_dto: CreateOrUpdateMessageTokenRequestDto,
@@ -98,11 +98,11 @@ class MessageTokensApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "MessageTokenEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -110,7 +110,7 @@ class MessageTokensApi:
 
 
     @validate_call
-    def message_tokens_controller_create_or_update_message_token_with_http_info(
+    async def message_tokens_controller_create_or_update_message_token_with_http_info(
         self,
         workspace_id: StrictStr,
         create_or_update_message_token_request_dto: CreateOrUpdateMessageTokenRequestDto,
@@ -168,11 +168,11 @@ class MessageTokensApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "MessageTokenEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -180,7 +180,7 @@ class MessageTokensApi:
 
 
     @validate_call
-    def message_tokens_controller_create_or_update_message_token_without_preload_content(
+    async def message_tokens_controller_create_or_update_message_token_without_preload_content(
         self,
         workspace_id: StrictStr,
         create_or_update_message_token_request_dto: CreateOrUpdateMessageTokenRequestDto,
@@ -238,7 +238,7 @@ class MessageTokensApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "MessageTokenEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -322,7 +322,7 @@ class MessageTokensApi:
 
 
     @validate_call
-    def message_tokens_controller_get_workspace_message_tokens(
+    async def message_tokens_controller_get_workspace_message_tokens(
         self,
         workspace_id: StrictStr,
         _request_timeout: Union[
@@ -376,11 +376,11 @@ class MessageTokensApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[MessageTokenEntity]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -388,7 +388,7 @@ class MessageTokensApi:
 
 
     @validate_call
-    def message_tokens_controller_get_workspace_message_tokens_with_http_info(
+    async def message_tokens_controller_get_workspace_message_tokens_with_http_info(
         self,
         workspace_id: StrictStr,
         _request_timeout: Union[
@@ -442,11 +442,11 @@ class MessageTokensApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[MessageTokenEntity]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -454,7 +454,7 @@ class MessageTokensApi:
 
 
     @validate_call
-    def message_tokens_controller_get_workspace_message_tokens_without_preload_content(
+    async def message_tokens_controller_get_workspace_message_tokens_without_preload_content(
         self,
         workspace_id: StrictStr,
         _request_timeout: Union[
@@ -508,7 +508,7 @@ class MessageTokensApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[MessageTokenEntity]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

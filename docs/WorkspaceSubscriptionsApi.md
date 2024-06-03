@@ -29,13 +29,13 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.WorkspaceSubscriptionsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
 
     try:
-        api_response = api_instance.workspace_subscriptions_controller_get(workspace_id)
+        api_response = await api_instance.workspace_subscriptions_controller_get(workspace_id)
         print("The response of WorkspaceSubscriptionsApi->workspace_subscriptions_controller_get:\n")
         pprint(api_response)
     except Exception as e:

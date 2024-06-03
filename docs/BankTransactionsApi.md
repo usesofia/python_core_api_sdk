@@ -37,13 +37,13 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.BankTransactionsApi(api_client)
     create_or_update_bank_transactions_in_bulk_request_dto = python_core_api_sdk.CreateOrUpdateBankTransactionsInBulkRequestDto() # CreateOrUpdateBankTransactionsInBulkRequestDto | 
 
     try:
-        api_response = api_instance.bank_transactions_controller_create_or_update_bank_transactions_in_bulk(create_or_update_bank_transactions_in_bulk_request_dto)
+        api_response = await api_instance.bank_transactions_controller_create_or_update_bank_transactions_in_bulk(create_or_update_bank_transactions_in_bulk_request_dto)
         print("The response of BankTransactionsApi->bank_transactions_controller_create_or_update_bank_transactions_in_bulk:\n")
         pprint(api_response)
     except Exception as e:
@@ -103,7 +103,7 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.BankTransactionsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
@@ -124,7 +124,7 @@ with python_core_api_sdk.ApiClient(configuration) as api_client:
     ignore_invoice_related = True # bool |  (optional)
 
     try:
-        api_response = api_instance.bank_transactions_controller_get_bank_transactions(workspace_id, page_index=page_index, page_size=page_size, account_ids=account_ids, category_ids=category_ids, tag_ids=tag_ids, legal_natures=legal_natures, types=types, min_posted_date=min_posted_date, max_posted_date=max_posted_date, min_competency_date=min_competency_date, max_competency_date=max_competency_date, show_ignored=show_ignored, ignore_automatic_application_related=ignore_automatic_application_related, ignore_internal_transfers=ignore_internal_transfers, ignore_invoice_related=ignore_invoice_related)
+        api_response = await api_instance.bank_transactions_controller_get_bank_transactions(workspace_id, page_index=page_index, page_size=page_size, account_ids=account_ids, category_ids=category_ids, tag_ids=tag_ids, legal_natures=legal_natures, types=types, min_posted_date=min_posted_date, max_posted_date=max_posted_date, min_competency_date=min_competency_date, max_competency_date=max_competency_date, show_ignored=show_ignored, ignore_automatic_application_related=ignore_automatic_application_related, ignore_internal_transfers=ignore_internal_transfers, ignore_invoice_related=ignore_invoice_related)
         print("The response of BankTransactionsApi->bank_transactions_controller_get_bank_transactions:\n")
         pprint(api_response)
     except Exception as e:
@@ -199,7 +199,7 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.BankTransactionsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
@@ -207,7 +207,7 @@ with python_core_api_sdk.ApiClient(configuration) as api_client:
     page_size = 3.4 # float |  (optional)
 
     try:
-        api_response = api_instance.bank_transactions_controller_get_bank_transactions_confirmed_today_by_me(workspace_id, page_index=page_index, page_size=page_size)
+        api_response = await api_instance.bank_transactions_controller_get_bank_transactions_confirmed_today_by_me(workspace_id, page_index=page_index, page_size=page_size)
         print("The response of BankTransactionsApi->bank_transactions_controller_get_bank_transactions_confirmed_today_by_me:\n")
         pprint(api_response)
     except Exception as e:
@@ -269,7 +269,7 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.BankTransactionsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
@@ -278,7 +278,7 @@ with python_core_api_sdk.ApiClient(configuration) as api_client:
     consider_ignored = True # bool |  (optional)
 
     try:
-        api_response = api_instance.bank_transactions_controller_get_bank_transactions_not_confirmed(workspace_id, page_index=page_index, page_size=page_size, consider_ignored=consider_ignored)
+        api_response = await api_instance.bank_transactions_controller_get_bank_transactions_not_confirmed(workspace_id, page_index=page_index, page_size=page_size, consider_ignored=consider_ignored)
         print("The response of BankTransactionsApi->bank_transactions_controller_get_bank_transactions_not_confirmed:\n")
         pprint(api_response)
     except Exception as e:
@@ -341,7 +341,7 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.BankTransactionsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
@@ -360,7 +360,7 @@ with python_core_api_sdk.ApiClient(configuration) as api_client:
     types = 'types_example' # str |  (optional)
 
     try:
-        api_response = api_instance.bank_transactions_controller_get_bank_transactions_totals(workspace_id, account_ids=account_ids, category_ids=category_ids, tag_ids=tag_ids, legal_natures=legal_natures, min_posted_date=min_posted_date, max_posted_date=max_posted_date, min_competency_date=min_competency_date, max_competency_date=max_competency_date, show_ignored=show_ignored, ignore_automatic_application_related=ignore_automatic_application_related, ignore_internal_transfers=ignore_internal_transfers, ignore_invoice_related=ignore_invoice_related, types=types)
+        api_response = await api_instance.bank_transactions_controller_get_bank_transactions_totals(workspace_id, account_ids=account_ids, category_ids=category_ids, tag_ids=tag_ids, legal_natures=legal_natures, min_posted_date=min_posted_date, max_posted_date=max_posted_date, min_competency_date=min_competency_date, max_competency_date=max_competency_date, show_ignored=show_ignored, ignore_automatic_application_related=ignore_automatic_application_related, ignore_internal_transfers=ignore_internal_transfers, ignore_invoice_related=ignore_invoice_related, types=types)
         print("The response of BankTransactionsApi->bank_transactions_controller_get_bank_transactions_totals:\n")
         pprint(api_response)
     except Exception as e:
@@ -433,13 +433,13 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.BankTransactionsApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
 
     try:
-        api_response = api_instance.bank_transactions_controller_get_recent(workspace_id)
+        api_response = await api_instance.bank_transactions_controller_get_recent(workspace_id)
         print("The response of BankTransactionsApi->bank_transactions_controller_get_recent:\n")
         pprint(api_response)
     except Exception as e:
@@ -499,13 +499,13 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.BankTransactionsApi(api_client)
     bank_transaction_id = 'bank_transaction_id_example' # str | 
 
     try:
-        api_response = api_instance.bank_transactions_controller_get_transaction_details(bank_transaction_id)
+        api_response = await api_instance.bank_transactions_controller_get_transaction_details(bank_transaction_id)
         print("The response of BankTransactionsApi->bank_transactions_controller_get_transaction_details:\n")
         pprint(api_response)
     except Exception as e:
@@ -566,14 +566,14 @@ configuration = python_core_api_sdk.Configuration(
 
 
 # Enter a context with an instance of the API client
-with python_core_api_sdk.ApiClient(configuration) as api_client:
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.BankTransactionsApi(api_client)
     bank_transaction_id = 'bank_transaction_id_example' # str | 
     update_bank_transaction_request_dto = python_core_api_sdk.UpdateBankTransactionRequestDto() # UpdateBankTransactionRequestDto | 
 
     try:
-        api_response = api_instance.bank_transactions_controller_update_transaction(bank_transaction_id, update_bank_transaction_request_dto)
+        api_response = await api_instance.bank_transactions_controller_update_transaction(bank_transaction_id, update_bank_transaction_request_dto)
         print("The response of BankTransactionsApi->bank_transactions_controller_update_transaction:\n")
         pprint(api_response)
     except Exception as e:

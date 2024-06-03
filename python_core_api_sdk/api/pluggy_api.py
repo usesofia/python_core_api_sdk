@@ -38,7 +38,7 @@ class PluggyApi:
 
 
     @validate_call
-    def pluggy_controller_create(
+    async def pluggy_controller_create(
         self,
         create_pluggy_connect_token_request_dto: CreatePluggyConnectTokenRequestDto,
         _request_timeout: Union[
@@ -92,11 +92,11 @@ class PluggyApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "PluggyConnectTokenEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -104,7 +104,7 @@ class PluggyApi:
 
 
     @validate_call
-    def pluggy_controller_create_with_http_info(
+    async def pluggy_controller_create_with_http_info(
         self,
         create_pluggy_connect_token_request_dto: CreatePluggyConnectTokenRequestDto,
         _request_timeout: Union[
@@ -158,11 +158,11 @@ class PluggyApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "PluggyConnectTokenEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -170,7 +170,7 @@ class PluggyApi:
 
 
     @validate_call
-    def pluggy_controller_create_without_preload_content(
+    async def pluggy_controller_create_without_preload_content(
         self,
         create_pluggy_connect_token_request_dto: CreatePluggyConnectTokenRequestDto,
         _request_timeout: Union[
@@ -224,7 +224,7 @@ class PluggyApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "PluggyConnectTokenEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -305,7 +305,7 @@ class PluggyApi:
 
 
     @validate_call
-    def pluggy_controller_webhook(
+    async def pluggy_controller_webhook(
         self,
         _request_timeout: Union[
             None,
@@ -355,11 +355,11 @@ class PluggyApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -367,7 +367,7 @@ class PluggyApi:
 
 
     @validate_call
-    def pluggy_controller_webhook_with_http_info(
+    async def pluggy_controller_webhook_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -417,11 +417,11 @@ class PluggyApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -429,7 +429,7 @@ class PluggyApi:
 
 
     @validate_call
-    def pluggy_controller_webhook_without_preload_content(
+    async def pluggy_controller_webhook_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -479,7 +479,7 @@ class PluggyApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

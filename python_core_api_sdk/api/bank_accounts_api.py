@@ -41,7 +41,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    def bank_accounts_controller_activate_bank_account(
+    async def bank_accounts_controller_activate_bank_account(
         self,
         bank_account_id: StrictStr,
         _request_timeout: Union[
@@ -95,11 +95,11 @@ class BankAccountsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankAccountEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -107,7 +107,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    def bank_accounts_controller_activate_bank_account_with_http_info(
+    async def bank_accounts_controller_activate_bank_account_with_http_info(
         self,
         bank_account_id: StrictStr,
         _request_timeout: Union[
@@ -161,11 +161,11 @@ class BankAccountsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankAccountEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -173,7 +173,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    def bank_accounts_controller_activate_bank_account_without_preload_content(
+    async def bank_accounts_controller_activate_bank_account_without_preload_content(
         self,
         bank_account_id: StrictStr,
         _request_timeout: Union[
@@ -227,7 +227,7 @@ class BankAccountsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankAccountEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -295,7 +295,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    def bank_accounts_controller_create_or_update_bank_account(
+    async def bank_accounts_controller_create_or_update_bank_account(
         self,
         workspace_id: StrictStr,
         create_or_update_bank_account_request_dto: CreateOrUpdateBankAccountRequestDto,
@@ -353,11 +353,11 @@ class BankAccountsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankAccountEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -365,7 +365,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    def bank_accounts_controller_create_or_update_bank_account_with_http_info(
+    async def bank_accounts_controller_create_or_update_bank_account_with_http_info(
         self,
         workspace_id: StrictStr,
         create_or_update_bank_account_request_dto: CreateOrUpdateBankAccountRequestDto,
@@ -423,11 +423,11 @@ class BankAccountsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankAccountEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -435,7 +435,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    def bank_accounts_controller_create_or_update_bank_account_without_preload_content(
+    async def bank_accounts_controller_create_or_update_bank_account_without_preload_content(
         self,
         workspace_id: StrictStr,
         create_or_update_bank_account_request_dto: CreateOrUpdateBankAccountRequestDto,
@@ -493,7 +493,7 @@ class BankAccountsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankAccountEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -577,7 +577,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    def bank_accounts_controller_create_workspace_bank_accounts_balance_report(
+    async def bank_accounts_controller_create_workspace_bank_accounts_balance_report(
         self,
         workspace_id: StrictStr,
         enabled: Optional[StrictBool] = None,
@@ -639,11 +639,11 @@ class BankAccountsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankAccountsBalanceReportEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -651,7 +651,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    def bank_accounts_controller_create_workspace_bank_accounts_balance_report_with_http_info(
+    async def bank_accounts_controller_create_workspace_bank_accounts_balance_report_with_http_info(
         self,
         workspace_id: StrictStr,
         enabled: Optional[StrictBool] = None,
@@ -713,11 +713,11 @@ class BankAccountsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankAccountsBalanceReportEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -725,7 +725,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    def bank_accounts_controller_create_workspace_bank_accounts_balance_report_without_preload_content(
+    async def bank_accounts_controller_create_workspace_bank_accounts_balance_report_without_preload_content(
         self,
         workspace_id: StrictStr,
         enabled: Optional[StrictBool] = None,
@@ -787,7 +787,7 @@ class BankAccountsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankAccountsBalanceReportEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -865,7 +865,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    def bank_accounts_controller_disable_bank_account(
+    async def bank_accounts_controller_disable_bank_account(
         self,
         bank_account_id: StrictStr,
         _request_timeout: Union[
@@ -919,11 +919,11 @@ class BankAccountsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankAccountEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -931,7 +931,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    def bank_accounts_controller_disable_bank_account_with_http_info(
+    async def bank_accounts_controller_disable_bank_account_with_http_info(
         self,
         bank_account_id: StrictStr,
         _request_timeout: Union[
@@ -985,11 +985,11 @@ class BankAccountsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankAccountEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -997,7 +997,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    def bank_accounts_controller_disable_bank_account_without_preload_content(
+    async def bank_accounts_controller_disable_bank_account_without_preload_content(
         self,
         bank_account_id: StrictStr,
         _request_timeout: Union[
@@ -1051,7 +1051,7 @@ class BankAccountsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankAccountEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1119,7 +1119,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    def bank_accounts_controller_fetch_connection_bank_accounts(
+    async def bank_accounts_controller_fetch_connection_bank_accounts(
         self,
         workspace_id: StrictStr,
         bank_connection_id: StrictStr,
@@ -1185,11 +1185,11 @@ class BankAccountsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[BankAccountEntity]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1197,7 +1197,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    def bank_accounts_controller_fetch_connection_bank_accounts_with_http_info(
+    async def bank_accounts_controller_fetch_connection_bank_accounts_with_http_info(
         self,
         workspace_id: StrictStr,
         bank_connection_id: StrictStr,
@@ -1263,11 +1263,11 @@ class BankAccountsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[BankAccountEntity]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1275,7 +1275,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    def bank_accounts_controller_fetch_connection_bank_accounts_without_preload_content(
+    async def bank_accounts_controller_fetch_connection_bank_accounts_without_preload_content(
         self,
         workspace_id: StrictStr,
         bank_connection_id: StrictStr,
@@ -1341,7 +1341,7 @@ class BankAccountsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[BankAccountEntity]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1422,7 +1422,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    def bank_accounts_controller_fetch_workspace_bank_accounts(
+    async def bank_accounts_controller_fetch_workspace_bank_accounts(
         self,
         workspace_id: StrictStr,
         enabled: Optional[StrictBool] = None,
@@ -1484,11 +1484,11 @@ class BankAccountsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[BankAccountEntity]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1496,7 +1496,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    def bank_accounts_controller_fetch_workspace_bank_accounts_with_http_info(
+    async def bank_accounts_controller_fetch_workspace_bank_accounts_with_http_info(
         self,
         workspace_id: StrictStr,
         enabled: Optional[StrictBool] = None,
@@ -1558,11 +1558,11 @@ class BankAccountsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[BankAccountEntity]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1570,7 +1570,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    def bank_accounts_controller_fetch_workspace_bank_accounts_without_preload_content(
+    async def bank_accounts_controller_fetch_workspace_bank_accounts_without_preload_content(
         self,
         workspace_id: StrictStr,
         enabled: Optional[StrictBool] = None,
@@ -1632,7 +1632,7 @@ class BankAccountsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "List[BankAccountEntity]",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1710,7 +1710,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    def bank_accounts_controller_get_bank_account_details(
+    async def bank_accounts_controller_get_bank_account_details(
         self,
         bank_account_id: StrictStr,
         _request_timeout: Union[
@@ -1764,11 +1764,11 @@ class BankAccountsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankAccountEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1776,7 +1776,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    def bank_accounts_controller_get_bank_account_details_with_http_info(
+    async def bank_accounts_controller_get_bank_account_details_with_http_info(
         self,
         bank_account_id: StrictStr,
         _request_timeout: Union[
@@ -1830,11 +1830,11 @@ class BankAccountsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankAccountEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1842,7 +1842,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    def bank_accounts_controller_get_bank_account_details_without_preload_content(
+    async def bank_accounts_controller_get_bank_account_details_without_preload_content(
         self,
         bank_account_id: StrictStr,
         _request_timeout: Union[
@@ -1896,7 +1896,7 @@ class BankAccountsApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '200': "BankAccountEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

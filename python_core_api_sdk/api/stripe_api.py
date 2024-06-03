@@ -39,7 +39,7 @@ class StripeApi:
 
 
     @validate_call
-    def stripe_controller_create_checkout_session_for_stripe(
+    async def stripe_controller_create_checkout_session_for_stripe(
         self,
         create_stripe_checkout_session_request_dto: CreateStripeCheckoutSessionRequestDto,
         _request_timeout: Union[
@@ -93,11 +93,11 @@ class StripeApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CheckoutSessionEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -105,7 +105,7 @@ class StripeApi:
 
 
     @validate_call
-    def stripe_controller_create_checkout_session_for_stripe_with_http_info(
+    async def stripe_controller_create_checkout_session_for_stripe_with_http_info(
         self,
         create_stripe_checkout_session_request_dto: CreateStripeCheckoutSessionRequestDto,
         _request_timeout: Union[
@@ -159,11 +159,11 @@ class StripeApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CheckoutSessionEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -171,7 +171,7 @@ class StripeApi:
 
 
     @validate_call
-    def stripe_controller_create_checkout_session_for_stripe_without_preload_content(
+    async def stripe_controller_create_checkout_session_for_stripe_without_preload_content(
         self,
         create_stripe_checkout_session_request_dto: CreateStripeCheckoutSessionRequestDto,
         _request_timeout: Union[
@@ -225,7 +225,7 @@ class StripeApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': "CheckoutSessionEntity",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -306,7 +306,7 @@ class StripeApi:
 
 
     @validate_call
-    def stripe_controller_stripe_webhook(
+    async def stripe_controller_stripe_webhook(
         self,
         stripe_signature: StrictStr,
         _request_timeout: Union[
@@ -360,11 +360,11 @@ class StripeApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -372,7 +372,7 @@ class StripeApi:
 
 
     @validate_call
-    def stripe_controller_stripe_webhook_with_http_info(
+    async def stripe_controller_stripe_webhook_with_http_info(
         self,
         stripe_signature: StrictStr,
         _request_timeout: Union[
@@ -426,11 +426,11 @@ class StripeApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -438,7 +438,7 @@ class StripeApi:
 
 
     @validate_call
-    def stripe_controller_stripe_webhook_without_preload_content(
+    async def stripe_controller_stripe_webhook_without_preload_content(
         self,
         stripe_signature: StrictStr,
         _request_timeout: Union[
@@ -492,7 +492,7 @@ class StripeApi:
         _response_types_map: Dict[str, Optional[str]] = {
             '201': None,
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
