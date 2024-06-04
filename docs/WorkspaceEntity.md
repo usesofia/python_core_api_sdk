@@ -13,6 +13,9 @@ Name | Type | Description | Notes
 **created_at** | **datetime** |  | 
 **selected_personal_category_tree_id** | **str** |  | [optional] 
 **selected_business_category_tree_id** | **str** |  | [optional] 
+**hybrid_settings** | [**WorkspaceHybridSettingsEntity**](WorkspaceHybridSettingsEntity.md) |  | [optional] 
+**company_settings** | [**WorkspaceCompanySettingsEntity**](WorkspaceCompanySettingsEntity.md) |  | [optional] 
+**personal_settings** | [**WorkspacePersonalSettingsEntity**](WorkspacePersonalSettingsEntity.md) |  | [optional] 
 
 ## Example
 

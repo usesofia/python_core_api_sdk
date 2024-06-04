@@ -20,6 +20,9 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from python_core_api_sdk.models.workspace_company_settings_entity import WorkspaceCompanySettingsEntity
+from python_core_api_sdk.models.workspace_hybrid_settings_entity import WorkspaceHybridSettingsEntity
+from python_core_api_sdk.models.workspace_personal_settings_entity import WorkspacePersonalSettingsEntity
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -35,7 +38,10 @@ class WorkspaceEntity(BaseModel):
     created_at: datetime = Field(alias="createdAt")
     selected_personal_category_tree_id: Optional[StrictStr] = Field(default=None, alias="selectedPersonalCategoryTreeId")
     selected_business_category_tree_id: Optional[StrictStr] = Field(default=None, alias="selectedBusinessCategoryTreeId")
-    __properties: ClassVar[List[str]] = ["id", "prettyId", "name", "type", "creatorUserId", "createdAt", "selectedPersonalCategoryTreeId", "selectedBusinessCategoryTreeId"]
+    hybrid_settings: Optional[WorkspaceHybridSettingsEntity] = Field(default=None, alias="hybridSettings")
+    company_settings: Optional[WorkspaceCompanySettingsEntity] = Field(default=None, alias="companySettings")
+    personal_settings: Optional[WorkspacePersonalSettingsEntity] = Field(default=None, alias="personalSettings")
+    __properties: ClassVar[List[str]] = ["id", "prettyId", "name", "type", "creatorUserId", "createdAt", "selectedPersonalCategoryTreeId", "selectedBusinessCategoryTreeId", "hybridSettings", "companySettings", "personalSettings"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -76,6 +82,15 @@ class WorkspaceEntity(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of hybrid_settings
+        if self.hybrid_settings:
+            _dict['hybridSettings'] = self.hybrid_settings.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of company_settings
+        if self.company_settings:
+            _dict['companySettings'] = self.company_settings.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of personal_settings
+        if self.personal_settings:
+            _dict['personalSettings'] = self.personal_settings.to_dict()
         return _dict
 
     @classmethod
@@ -95,7 +110,10 @@ class WorkspaceEntity(BaseModel):
             "creatorUserId": obj.get("creatorUserId"),
             "createdAt": obj.get("createdAt"),
             "selectedPersonalCategoryTreeId": obj.get("selectedPersonalCategoryTreeId"),
-            "selectedBusinessCategoryTreeId": obj.get("selectedBusinessCategoryTreeId")
+            "selectedBusinessCategoryTreeId": obj.get("selectedBusinessCategoryTreeId"),
+            "hybridSettings": WorkspaceHybridSettingsEntity.from_dict(obj["hybridSettings"]) if obj.get("hybridSettings") is not None else None,
+            "companySettings": WorkspaceCompanySettingsEntity.from_dict(obj["companySettings"]) if obj.get("companySettings") is not None else None,
+            "personalSettings": WorkspacePersonalSettingsEntity.from_dict(obj["personalSettings"]) if obj.get("personalSettings") is not None else None
         })
         return _obj
 
