@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**bank_transactions_controller_create_or_update_bank_transactions_in_bulk**](BankTransactionsApi.md#bank_transactions_controller_create_or_update_bank_transactions_in_bulk) | **PUT** /bank/transactions/bulk | 
+[**bank_transactions_controller_get_bank_transaction_by_provider**](BankTransactionsApi.md#bank_transactions_controller_get_bank_transaction_by_provider) | **GET** /workspaces/{workspaceId}/bank/transactions/by-provider | 
 [**bank_transactions_controller_get_bank_transactions**](BankTransactionsApi.md#bank_transactions_controller_get_bank_transactions) | **GET** /workspaces/{workspaceId}/bank/transactions | 
 [**bank_transactions_controller_get_bank_transactions_confirmed_today_by_me**](BankTransactionsApi.md#bank_transactions_controller_get_bank_transactions_confirmed_today_by_me) | **GET** /workspaces/{workspaceId}/bank/transactions/confirmed-today-by-me | 
 [**bank_transactions_controller_get_bank_transactions_not_confirmed**](BankTransactionsApi.md#bank_transactions_controller_get_bank_transactions_not_confirmed) | **GET** /workspaces/{workspaceId}/bank/transactions/not-confirmed | 
@@ -70,6 +71,76 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** |  |  -  |
+**0** |  |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **bank_transactions_controller_get_bank_transaction_by_provider**
+> BankTransactionEntity bank_transactions_controller_get_bank_transaction_by_provider(workspace_id, provider, provider_transaction_id)
+
+
+
+### Example
+
+
+```python
+import python_core_api_sdk
+from python_core_api_sdk.models.bank_transaction_entity import BankTransactionEntity
+from python_core_api_sdk.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = python_core_api_sdk.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+async with python_core_api_sdk.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = python_core_api_sdk.BankTransactionsApi(api_client)
+    workspace_id = 'workspace_id_example' # str | 
+    provider = 'provider_example' # str | 
+    provider_transaction_id = 'provider_transaction_id_example' # str | 
+
+    try:
+        api_response = await api_instance.bank_transactions_controller_get_bank_transaction_by_provider(workspace_id, provider, provider_transaction_id)
+        print("The response of BankTransactionsApi->bank_transactions_controller_get_bank_transaction_by_provider:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling BankTransactionsApi->bank_transactions_controller_get_bank_transaction_by_provider: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **workspace_id** | **str**|  | 
+ **provider** | **str**|  | 
+ **provider_transaction_id** | **str**|  | 
+
+### Return type
+
+[**BankTransactionEntity**](BankTransactionEntity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details
