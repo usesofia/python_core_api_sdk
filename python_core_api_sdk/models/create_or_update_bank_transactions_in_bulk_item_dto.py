@@ -46,7 +46,7 @@ class CreateOrUpdateBankTransactionsInBulkItemDto(BaseModel):
     category_id: StrictStr = Field(alias="categoryId")
     payment_data: PaymentDataDto = Field(alias="paymentData")
     credit_card_metadata: CreditCardMetadataDto = Field(alias="creditCardMetadata")
-    category_guesses: List[CategoryGuessDto] = Field(alias="categoryGuesses")
+    category_guesses: Optional[List[CategoryGuessDto]] = Field(default=None, alias="categoryGuesses")
     best_guess_category_id: StrictStr = Field(alias="bestGuessCategoryId")
     __properties: ClassVar[List[str]] = ["accountId", "provider", "workspaceId", "providerTransactionId", "description", "postedDate", "competencyDate", "amount", "type", "status", "legalNature", "providerCategoryId", "providerCategoryName", "categoryId", "paymentData", "creditCardMetadata", "categoryGuesses", "bestGuessCategoryId"]
 

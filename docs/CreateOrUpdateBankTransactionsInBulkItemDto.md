@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **category_id** | **str** |  | 
 **payment_data** | [**PaymentDataDto**](PaymentDataDto.md) |  | 
 **credit_card_metadata** | [**CreditCardMetadataDto**](CreditCardMetadataDto.md) |  | 
-**category_guesses** | [**List[CategoryGuessDto]**](CategoryGuessDto.md) |  | 
+**category_guesses** | [**List[CategoryGuessDto]**](CategoryGuessDto.md) |  | [optional] 
 **best_guess_category_id** | **str** |  | 
 
 ## Example
