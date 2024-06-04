@@ -16,4 +16,5 @@ from python_core_api_sdk.api.subscription_products_api import SubscriptionProduc
 from python_core_api_sdk.api.workspace_join_requests_api import WorkspaceJoinRequestsApi
 from python_core_api_sdk.api.workspace_subscriptions_api import WorkspaceSubscriptionsApi
 from python_core_api_sdk.api.workspaces_api import WorkspacesApi
+from python_core_api_sdk.api.default_api import DefaultApi
 

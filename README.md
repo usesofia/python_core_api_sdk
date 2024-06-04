@@ -136,6 +136,7 @@ Class | Method | HTTP request | Description
 *WorkspacesApi* | [**workspaces_controller_fetch_user_related_workspaces**](docs/WorkspacesApi.md#workspaces_controller_fetch_user_related_workspaces) | **GET** /workspaces/related-to-me | 
 *WorkspacesApi* | [**workspaces_controller_get**](docs/WorkspacesApi.md#workspaces_controller_get) | **GET** /workspaces/{workspaceId} | 
 *WorkspacesApi* | [**workspaces_controller_parcial_update**](docs/WorkspacesApi.md#workspaces_controller_parcial_update) | **PATCH** /workspaces/{workspaceId} | 
+*DefaultApi* | [**users_controller_get**](docs/DefaultApi.md#users_controller_get) | **GET** /users/users/{userId} | 
 
 
 ## Documentation For Models
@@ -210,6 +211,7 @@ Class | Method | HTTP request | Description
  - [UpdateBankTransactionRequestDto](docs/UpdateBankTransactionRequestDto.md)
  - [UserEntity](docs/UserEntity.md)
  - [UserRelatedWorkspaceEntity](docs/UserRelatedWorkspaceEntity.md)
+ - [UserWithProfileEntity](docs/UserWithProfileEntity.md)
  - [WorkspaceEntity](docs/WorkspaceEntity.md)
  - [WorkspaceJoinRequestEntity](docs/WorkspaceJoinRequestEntity.md)
  - [WorkspaceSubscriptionEntity](docs/WorkspaceSubscriptionEntity.md)

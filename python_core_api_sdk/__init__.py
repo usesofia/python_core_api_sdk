@@ -32,6 +32,7 @@ from python_core_api_sdk.api.subscription_products_api import SubscriptionProduc
 from python_core_api_sdk.api.workspace_join_requests_api import WorkspaceJoinRequestsApi
 from python_core_api_sdk.api.workspace_subscriptions_api import WorkspaceSubscriptionsApi
 from python_core_api_sdk.api.workspaces_api import WorkspacesApi
+from python_core_api_sdk.api.default_api import DefaultApi
 
 # import ApiClient
 from python_core_api_sdk.api_response import ApiResponse
@@ -115,6 +116,7 @@ from python_core_api_sdk.models.subscription_product_entity import SubscriptionP
 from python_core_api_sdk.models.update_bank_transaction_request_dto import UpdateBankTransactionRequestDto
 from python_core_api_sdk.models.user_entity import UserEntity
 from python_core_api_sdk.models.user_related_workspace_entity import UserRelatedWorkspaceEntity
+from python_core_api_sdk.models.user_with_profile_entity import UserWithProfileEntity
 from python_core_api_sdk.models.workspace_entity import WorkspaceEntity
 from python_core_api_sdk.models.workspace_join_request_entity import WorkspaceJoinRequestEntity
 from python_core_api_sdk.models.workspace_subscription_entity import WorkspaceSubscriptionEntity
