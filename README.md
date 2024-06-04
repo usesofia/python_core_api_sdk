@@ -130,13 +130,13 @@ Class | Method | HTTP request | Description
 *StripeApi* | [**stripe_controller_create_checkout_session_for_stripe**](docs/StripeApi.md#stripe_controller_create_checkout_session_for_stripe) | **POST** /stripe/checkout-session | 
 *StripeApi* | [**stripe_controller_stripe_webhook**](docs/StripeApi.md#stripe_controller_stripe_webhook) | **POST** /stripe/webhook | 
 *SubscriptionProductsApi* | [**subscription_products_controller_list**](docs/SubscriptionProductsApi.md#subscription_products_controller_list) | **GET** /workspaces/{workspaceId}/subscription-products | 
+*UsersApi* | [**users_controller_get**](docs/UsersApi.md#users_controller_get) | **GET** /users/users/{userId} | 
 *WorkspaceJoinRequestsApi* | [**workspace_join_requests_controller_create_new_pending_or_return_current**](docs/WorkspaceJoinRequestsApi.md#workspace_join_requests_controller_create_new_pending_or_return_current) | **POST** /workspaces/{workspaceId}/join-requests | 
 *WorkspaceSubscriptionsApi* | [**workspace_subscriptions_controller_get**](docs/WorkspaceSubscriptionsApi.md#workspace_subscriptions_controller_get) | **GET** /workspaces/{workspaceId}/subscription | 
 *WorkspacesApi* | [**workspaces_controller_create**](docs/WorkspacesApi.md#workspaces_controller_create) | **POST** /workspaces | 
 *WorkspacesApi* | [**workspaces_controller_fetch_user_related_workspaces**](docs/WorkspacesApi.md#workspaces_controller_fetch_user_related_workspaces) | **GET** /workspaces/related-to-me | 
 *WorkspacesApi* | [**workspaces_controller_get**](docs/WorkspacesApi.md#workspaces_controller_get) | **GET** /workspaces/{workspaceId} | 
 *WorkspacesApi* | [**workspaces_controller_parcial_update**](docs/WorkspacesApi.md#workspaces_controller_parcial_update) | **PATCH** /workspaces/{workspaceId} | 
-*DefaultApi* | [**users_controller_get**](docs/DefaultApi.md#users_controller_get) | **GET** /users/users/{userId} | 
 
 
 ## Documentation For Models

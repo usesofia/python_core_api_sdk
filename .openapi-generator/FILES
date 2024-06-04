@@ -47,7 +47,6 @@ docs/CreateStripeCheckoutSessionRequestDto.md
 docs/CreateWorkspaceRequestDto.md
 docs/CredentialsEntity.md
 docs/CreditCardMetadataDto.md
-docs/DefaultApi.md
 docs/DreLineOutcomeResultEntity.md
 docs/EmailInUseEntity.md
 docs/ErrorEntity.md
@@ -87,6 +86,7 @@ docs/UpdateBankTransactionRequestDto.md
 docs/UserEntity.md
 docs/UserRelatedWorkspaceEntity.md
 docs/UserWithProfileEntity.md
+docs/UsersApi.md
 docs/WorkspaceEntity.md
 docs/WorkspaceJoinRequestEntity.md
 docs/WorkspaceJoinRequestsApi.md
@@ -103,13 +103,13 @@ python_core_api_sdk/api/bank_connections_api.py
 python_core_api_sdk/api/bank_transaction_categories_api.py
 python_core_api_sdk/api/bank_transaction_tags_api.py
 python_core_api_sdk/api/bank_transactions_api.py
-python_core_api_sdk/api/default_api.py
 python_core_api_sdk/api/message_tokens_api.py
 python_core_api_sdk/api/pluggy_api.py
 python_core_api_sdk/api/profiles_api.py
 python_core_api_sdk/api/reports_api.py
 python_core_api_sdk/api/stripe_api.py
 python_core_api_sdk/api/subscription_products_api.py
+python_core_api_sdk/api/users_api.py
 python_core_api_sdk/api/workspace_join_requests_api.py
 python_core_api_sdk/api/workspace_subscriptions_api.py
 python_core_api_sdk/api/workspaces_api.py
@@ -199,6 +199,5 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_default_api.py
-test/test_user_with_profile_entity.py
+test/test_users_api.py
 tox.ini

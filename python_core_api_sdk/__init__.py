@@ -29,10 +29,10 @@ from python_core_api_sdk.api.profiles_api import ProfilesApi
 from python_core_api_sdk.api.reports_api import ReportsApi
 from python_core_api_sdk.api.stripe_api import StripeApi
 from python_core_api_sdk.api.subscription_products_api import SubscriptionProductsApi
+from python_core_api_sdk.api.users_api import UsersApi
 from python_core_api_sdk.api.workspace_join_requests_api import WorkspaceJoinRequestsApi
 from python_core_api_sdk.api.workspace_subscriptions_api import WorkspaceSubscriptionsApi
 from python_core_api_sdk.api.workspaces_api import WorkspacesApi
-from python_core_api_sdk.api.default_api import DefaultApi
 
 # import ApiClient
 from python_core_api_sdk.api_response import ApiResponse
