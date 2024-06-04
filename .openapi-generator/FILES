@@ -205,7 +205,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_workspace_company_settings_entity.py
-test/test_workspace_hybrid_settings_entity.py
-test/test_workspace_personal_settings_entity.py
 tox.ini
