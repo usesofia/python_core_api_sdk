@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**amount_in_cents** | **float** |  | 
+**amount_in_cents** | **float** |  | [optional] 
 **subcategories** | [**List[MeanResultSubcategoryItemEntity]**](MeanResultSubcategoryItemEntity.md) |  | [optional] 
 
 ## Example

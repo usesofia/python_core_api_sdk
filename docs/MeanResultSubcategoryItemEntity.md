@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **subcategory_id** | **str** |  | 
 **subcategory_name** | **str** |  | 
-**amount_in_cents** | **float** |  | 
+**amount_in_cents** | **float** |  | [optional] 
 
 ## Example
 

@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Union
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,7 +28,7 @@ class MeanResultSubcategoryItemEntity(BaseModel):
     """ # noqa: E501
     subcategory_id: StrictStr = Field(alias="subcategoryId")
     subcategory_name: StrictStr = Field(alias="subcategoryName")
-    amount_in_cents: Union[StrictFloat, StrictInt] = Field(alias="amountInCents")
+    amount_in_cents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="amountInCents")
     __properties: ClassVar[List[str]] = ["subcategoryId", "subcategoryName", "amountInCents"]
 
     model_config = ConfigDict(

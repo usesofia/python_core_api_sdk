@@ -27,7 +27,7 @@ class MeanResultEntity(BaseModel):
     """
     MeanResultEntity
     """ # noqa: E501
-    amount_in_cents: Union[StrictFloat, StrictInt] = Field(alias="amountInCents")
+    amount_in_cents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="amountInCents")
     subcategories: Optional[List[MeanResultSubcategoryItemEntity]] = None
     __properties: ClassVar[List[str]] = ["amountInCents", "subcategories"]
 
