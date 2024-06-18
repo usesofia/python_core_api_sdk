@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
 **full_name** | **str** |  | 
-**phone** | **str** |  | 
 **birth_date** | **datetime** |  | 
 **user_id** | **str** |  | 
 **created_at** | **datetime** |  | 

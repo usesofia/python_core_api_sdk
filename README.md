@@ -127,12 +127,8 @@ Class | Method | HTTP request | Description
 *ReportsApi* | [**reports_controller_get_cards_outputs_by_category_report**](docs/ReportsApi.md#reports_controller_get_cards_outputs_by_category_report) | **GET** /workspaces/{workspaceId}/reports/cards/outputs-by-category | 
 *ReportsApi* | [**reports_controller_get_cash_flow_report**](docs/ReportsApi.md#reports_controller_get_cash_flow_report) | **GET** /workspaces/{workspaceId}/reports/accounts/cash-flow | 
 *ReportsApi* | [**reports_controller_get_financial_statement_report**](docs/ReportsApi.md#reports_controller_get_financial_statement_report) | **GET** /workspaces/{workspaceId}/reports/financial-statement | 
-*StripeApi* | [**stripe_controller_create_checkout_session_for_stripe**](docs/StripeApi.md#stripe_controller_create_checkout_session_for_stripe) | **POST** /stripe/checkout-session | 
-*StripeApi* | [**stripe_controller_stripe_webhook**](docs/StripeApi.md#stripe_controller_stripe_webhook) | **POST** /stripe/webhook | 
-*SubscriptionProductsApi* | [**subscription_products_controller_list**](docs/SubscriptionProductsApi.md#subscription_products_controller_list) | **GET** /workspaces/{workspaceId}/subscription-products | 
 *UsersApi* | [**users_controller_get**](docs/UsersApi.md#users_controller_get) | **GET** /users/users/{userId} | 
 *WorkspaceJoinRequestsApi* | [**workspace_join_requests_controller_create_new_pending_or_return_current**](docs/WorkspaceJoinRequestsApi.md#workspace_join_requests_controller_create_new_pending_or_return_current) | **POST** /workspaces/{workspaceId}/join-requests | 
-*WorkspaceSubscriptionsApi* | [**workspace_subscriptions_controller_get**](docs/WorkspaceSubscriptionsApi.md#workspace_subscriptions_controller_get) | **GET** /workspaces/{workspaceId}/subscription | 
 *WorkspacesApi* | [**workspaces_controller_create**](docs/WorkspacesApi.md#workspaces_controller_create) | **POST** /workspaces | 
 *WorkspacesApi* | [**workspaces_controller_fetch_user_related_workspaces**](docs/WorkspacesApi.md#workspaces_controller_fetch_user_related_workspaces) | **GET** /workspaces/related-to-me | 
 *WorkspacesApi* | [**workspaces_controller_get**](docs/WorkspacesApi.md#workspaces_controller_get) | **GET** /workspaces/{workspaceId} | 
@@ -141,7 +137,6 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [AiChatFeatureSpecificationEntity](docs/AiChatFeatureSpecificationEntity.md)
  - [BalancePointResultEntity](docs/BalancePointResultEntity.md)
  - [BankAccountEntity](docs/BankAccountEntity.md)
  - [BankAccountsBalanceReportEntity](docs/BankAccountsBalanceReportEntity.md)
@@ -157,6 +152,7 @@ Class | Method | HTTP request | Description
  - [BankTransactionPaymentDataEntity](docs/BankTransactionPaymentDataEntity.md)
  - [BankTransactionTagEntity](docs/BankTransactionTagEntity.md)
  - [BankTransactionsPageEntity](docs/BankTransactionsPageEntity.md)
+ - [BankTransactionsTotalsEntity](docs/BankTransactionsTotalsEntity.md)
  - [CashFlowByCategoryReportEntity](docs/CashFlowByCategoryReportEntity.md)
  - [CashFlowByCategoryReportItemEntity](docs/CashFlowByCategoryReportItemEntity.md)
  - [CashFlowReportDailyItemEntity](docs/CashFlowReportDailyItemEntity.md)
@@ -165,8 +161,6 @@ Class | Method | HTTP request | Description
  - [CashFlowReportWeeklyItemEntity](docs/CashFlowReportWeeklyItemEntity.md)
  - [CategoryGuessDto](docs/CategoryGuessDto.md)
  - [CheckEmailInUseRequestDto](docs/CheckEmailInUseRequestDto.md)
- - [CheckoutSessionEntity](docs/CheckoutSessionEntity.md)
- - [ConnectionFeatureSpecificationEntity](docs/ConnectionFeatureSpecificationEntity.md)
  - [CreateBankTransactionTagRequestDto](docs/CreateBankTransactionTagRequestDto.md)
  - [CreateOrUpdateBankAccountRequestDto](docs/CreateOrUpdateBankAccountRequestDto.md)
  - [CreateOrUpdateBankConnectionRequestDto](docs/CreateOrUpdateBankConnectionRequestDto.md)
@@ -175,7 +169,6 @@ Class | Method | HTTP request | Description
  - [CreateOrUpdateMessageTokenRequestDto](docs/CreateOrUpdateMessageTokenRequestDto.md)
  - [CreatePluggyConnectTokenRequestDto](docs/CreatePluggyConnectTokenRequestDto.md)
  - [CreateProfileRequestDto](docs/CreateProfileRequestDto.md)
- - [CreateStripeCheckoutSessionRequestDto](docs/CreateStripeCheckoutSessionRequestDto.md)
  - [CreateWorkspaceRequestDto](docs/CreateWorkspaceRequestDto.md)
  - [CredentialsEntity](docs/CredentialsEntity.md)
  - [CreditCardMetadataDto](docs/CreditCardMetadataDto.md)
@@ -190,15 +183,12 @@ Class | Method | HTTP request | Description
  - [FinancialStatementReportItemEntity](docs/FinancialStatementReportItemEntity.md)
  - [FinancialStatementeEntriesCategoryData](docs/FinancialStatementeEntriesCategoryData.md)
  - [FinancialStatementeEntriesSubcategoryData](docs/FinancialStatementeEntriesSubcategoryData.md)
- - [FinancialTransactionsFeatureSpecificationEntity](docs/FinancialTransactionsFeatureSpecificationEntity.md)
  - [MeanResultEntity](docs/MeanResultEntity.md)
  - [MeanResultSubcategoryItemEntity](docs/MeanResultSubcategoryItemEntity.md)
  - [MessageTokenEntity](docs/MessageTokenEntity.md)
  - [ParcialUpdateProfileRequestDto](docs/ParcialUpdateProfileRequestDto.md)
  - [ParcialUpdateWorkspaceRequestDto](docs/ParcialUpdateWorkspaceRequestDto.md)
  - [PaymentDataDto](docs/PaymentDataDto.md)
- - [PaymentsManagerProductDataEntity](docs/PaymentsManagerProductDataEntity.md)
- - [PaymentsManagerProductPriceEntity](docs/PaymentsManagerProductPriceEntity.md)
  - [PlainBankAccountEntity](docs/PlainBankAccountEntity.md)
  - [PluggyConnectTokenEntity](docs/PluggyConnectTokenEntity.md)
  - [ProfileEntity](docs/ProfileEntity.md)
@@ -207,7 +197,6 @@ Class | Method | HTTP request | Description
  - [SendEmailVerificationCodeRequestDto](docs/SendEmailVerificationCodeRequestDto.md)
  - [SignInWithEmailPasswordRequestDto](docs/SignInWithEmailPasswordRequestDto.md)
  - [SignUpWithEmailPasswordRequestDto](docs/SignUpWithEmailPasswordRequestDto.md)
- - [SubscriptionProductEntity](docs/SubscriptionProductEntity.md)
  - [UpdateBankTransactionRequestDto](docs/UpdateBankTransactionRequestDto.md)
  - [UserEntity](docs/UserEntity.md)
  - [UserRelatedWorkspaceEntity](docs/UserRelatedWorkspaceEntity.md)
@@ -217,7 +206,6 @@ Class | Method | HTTP request | Description
  - [WorkspaceHybridSettingsEntity](docs/WorkspaceHybridSettingsEntity.md)
  - [WorkspaceJoinRequestEntity](docs/WorkspaceJoinRequestEntity.md)
  - [WorkspacePersonalSettingsEntity](docs/WorkspacePersonalSettingsEntity.md)
- - [WorkspaceSubscriptionEntity](docs/WorkspaceSubscriptionEntity.md)
 
 
 <a id="documentation-for-authorization"></a>

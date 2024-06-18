@@ -20,6 +20,7 @@ from pydantic import StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import List, Optional, Union
 from python_core_api_sdk.models.bank_transaction_entity import BankTransactionEntity
 from python_core_api_sdk.models.bank_transactions_page_entity import BankTransactionsPageEntity
+from python_core_api_sdk.models.bank_transactions_totals_entity import BankTransactionsTotalsEntity
 from python_core_api_sdk.models.create_or_update_bank_transactions_in_bulk_request_dto import CreateOrUpdateBankTransactionsInBulkRequestDto
 from python_core_api_sdk.models.update_bank_transaction_request_dto import UpdateBankTransactionRequestDto
 
@@ -1727,7 +1728,7 @@ class BankTransactionsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> BankTransactionsPageEntity:
+    ) -> BankTransactionsTotalsEntity:
         """bank_transactions_controller_get_bank_transactions_totals
 
 
@@ -1803,7 +1804,7 @@ class BankTransactionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BankTransactionsPageEntity",
+            '200': "BankTransactionsTotalsEntity",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1845,7 +1846,7 @@ class BankTransactionsApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[BankTransactionsPageEntity]:
+    ) -> ApiResponse[BankTransactionsTotalsEntity]:
         """bank_transactions_controller_get_bank_transactions_totals
 
 
@@ -1921,7 +1922,7 @@ class BankTransactionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BankTransactionsPageEntity",
+            '200': "BankTransactionsTotalsEntity",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -2039,7 +2040,7 @@ class BankTransactionsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BankTransactionsPageEntity",
+            '200': "BankTransactionsTotalsEntity",
         }
         response_data = await self.api_client.call_api(
             *_param,

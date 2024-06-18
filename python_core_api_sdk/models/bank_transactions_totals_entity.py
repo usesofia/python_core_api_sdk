@@ -17,23 +17,19 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ProfileEntity(BaseModel):
+class BankTransactionsTotalsEntity(BaseModel):
     """
-    ProfileEntity
+    BankTransactionsTotalsEntity
     """ # noqa: E501
-    id: StrictStr
-    full_name: StrictStr = Field(alias="fullName")
-    birth_date: datetime = Field(alias="birthDate")
-    user_id: StrictStr = Field(alias="userId")
-    created_at: datetime = Field(alias="createdAt")
-    updated_at: datetime = Field(alias="updatedAt")
-    __properties: ClassVar[List[str]] = ["id", "fullName", "birthDate", "userId", "createdAt", "updatedAt"]
+    entries_in_cents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="entriesInCents")
+    outflows_in_cents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="outflowsInCents")
+    outcome_in_cents: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="outcomeInCents")
+    __properties: ClassVar[List[str]] = ["entriesInCents", "outflowsInCents", "outcomeInCents"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -53,7 +49,7 @@ class ProfileEntity(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ProfileEntity from a JSON string"""
+        """Create an instance of BankTransactionsTotalsEntity from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -78,7 +74,7 @@ class ProfileEntity(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ProfileEntity from a dict"""
+        """Create an instance of BankTransactionsTotalsEntity from a dict"""
         if obj is None:
             return None
 
@@ -86,12 +82,9 @@ class ProfileEntity(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "fullName": obj.get("fullName"),
-            "birthDate": obj.get("birthDate"),
-            "userId": obj.get("userId"),
-            "createdAt": obj.get("createdAt"),
-            "updatedAt": obj.get("updatedAt")
+            "entriesInCents": obj.get("entriesInCents"),
+            "outflowsInCents": obj.get("outflowsInCents"),
+            "outcomeInCents": obj.get("outcomeInCents")
         })
         return _obj
 

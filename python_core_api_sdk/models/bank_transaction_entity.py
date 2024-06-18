@@ -73,8 +73,8 @@ class BankTransactionEntity(BaseModel):
     @field_validator('type')
     def type_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['DEBIT', 'CREDIT']):
-            raise ValueError("must be one of enum values ('DEBIT', 'CREDIT')")
+        if value not in set(['DEBIT', 'CREDIT', 'UNDEFINED']):
+            raise ValueError("must be one of enum values ('DEBIT', 'CREDIT', 'UNDEFINED')")
         return value
 
     @field_validator('status')

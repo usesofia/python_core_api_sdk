@@ -391,7 +391,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **bank_transactions_controller_get_bank_transactions_totals**
-> BankTransactionsPageEntity bank_transactions_controller_get_bank_transactions_totals(workspace_id, account_ids=account_ids, category_ids=category_ids, tag_ids=tag_ids, legal_natures=legal_natures, min_posted_date=min_posted_date, max_posted_date=max_posted_date, min_competency_date=min_competency_date, max_competency_date=max_competency_date, show_ignored=show_ignored, ignore_automatic_application_related=ignore_automatic_application_related, ignore_internal_transfers=ignore_internal_transfers, ignore_invoice_related=ignore_invoice_related, types=types)
+> BankTransactionsTotalsEntity bank_transactions_controller_get_bank_transactions_totals(workspace_id, account_ids=account_ids, category_ids=category_ids, tag_ids=tag_ids, legal_natures=legal_natures, min_posted_date=min_posted_date, max_posted_date=max_posted_date, min_competency_date=min_competency_date, max_competency_date=max_competency_date, show_ignored=show_ignored, ignore_automatic_application_related=ignore_automatic_application_related, ignore_internal_transfers=ignore_internal_transfers, ignore_invoice_related=ignore_invoice_related, types=types)
 
 
 
@@ -400,7 +400,7 @@ No authorization required
 
 ```python
 import python_core_api_sdk
-from python_core_api_sdk.models.bank_transactions_page_entity import BankTransactionsPageEntity
+from python_core_api_sdk.models.bank_transactions_totals_entity import BankTransactionsTotalsEntity
 from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -462,7 +462,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BankTransactionsPageEntity**](BankTransactionsPageEntity.md)
+[**BankTransactionsTotalsEntity**](BankTransactionsTotalsEntity.md)
 
 ### Authorization
 
