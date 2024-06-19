@@ -17,7 +17,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import StrictStr
-from python_core_api_sdk.models.user_with_profile_entity import UserWithProfileEntity
+from python_core_api_sdk.models.user_entity import UserEntity
 
 from python_core_api_sdk.api_client import ApiClient, RequestSerialized
 from python_core_api_sdk.api_response import ApiResponse
@@ -53,7 +53,7 @@ class UsersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> UserWithProfileEntity:
+    ) -> UserEntity:
         """users_controller_get
 
 
@@ -90,7 +90,7 @@ class UsersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserWithProfileEntity",
+            '200': "UserEntity",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -119,7 +119,7 @@ class UsersApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[UserWithProfileEntity]:
+    ) -> ApiResponse[UserEntity]:
         """users_controller_get
 
 
@@ -156,7 +156,7 @@ class UsersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserWithProfileEntity",
+            '200': "UserEntity",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -222,7 +222,7 @@ class UsersApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "UserWithProfileEntity",
+            '200': "UserEntity",
         }
         response_data = await self.api_client.call_api(
             *_param,

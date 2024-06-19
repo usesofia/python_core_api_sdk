@@ -17,20 +17,17 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Union
-from python_core_api_sdk.models.exception_response_entity_errors_inner import ExceptionResponseEntityErrorsInner
+from pydantic import BaseModel, ConfigDict, StrictStr
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ExceptionResponseEntity(BaseModel):
+class SendPhoneVerificationCodeRequestDto(BaseModel):
     """
-    ExceptionResponseEntity
+    SendPhoneVerificationCodeRequestDto
     """ # noqa: E501
-    status_code: Union[StrictFloat, StrictInt] = Field(alias="statusCode")
-    message: StrictStr
-    errors: List[ExceptionResponseEntityErrorsInner]
-    __properties: ClassVar[List[str]] = ["statusCode", "message", "errors"]
+    phone: StrictStr
+    __properties: ClassVar[List[str]] = ["phone"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +47,7 @@ class ExceptionResponseEntity(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ExceptionResponseEntity from a JSON string"""
+        """Create an instance of SendPhoneVerificationCodeRequestDto from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,18 +68,11 @@ class ExceptionResponseEntity(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in errors (list)
-        _items = []
-        if self.errors:
-            for _item in self.errors:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['errors'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ExceptionResponseEntity from a dict"""
+        """Create an instance of SendPhoneVerificationCodeRequestDto from a dict"""
         if obj is None:
             return None
 
@@ -90,9 +80,7 @@ class ExceptionResponseEntity(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "statusCode": obj.get("statusCode"),
-            "message": obj.get("message"),
-            "errors": [ExceptionResponseEntityErrorsInner.from_dict(_item) for _item in obj["errors"]] if obj.get("errors") is not None else None
+            "phone": obj.get("phone")
         })
         return _obj
 

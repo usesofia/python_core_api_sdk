@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **users_controller_get**
-> UserWithProfileEntity users_controller_get(user_id)
+> UserEntity users_controller_get(user_id)
 
 
 
@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 ```python
 import python_core_api_sdk
-from python_core_api_sdk.models.user_with_profile_entity import UserWithProfileEntity
+from python_core_api_sdk.models.user_entity import UserEntity
 from python_core_api_sdk.rest import ApiException
 from pprint import pprint
 
@@ -53,7 +53,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**UserWithProfileEntity**](UserWithProfileEntity.md)
+[**UserEntity**](UserEntity.md)
 
 ### Authorization
 

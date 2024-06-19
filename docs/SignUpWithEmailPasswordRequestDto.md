@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **email** | **str** |  | 
 **password** | **str** |  | 
 **email_verification_code** | **str** |  | 
+**phone_verification_code** | **str** |  | 
 
 ## Example
 

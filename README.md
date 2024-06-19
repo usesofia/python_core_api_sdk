@@ -66,15 +66,15 @@ configuration = python_core_api_sdk.Configuration(
 # Enter a context with an instance of the API client
 async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = python_core_api_sdk.AuthApi(api_client)
-    check_email_in_use_request_dto = python_core_api_sdk.CheckEmailInUseRequestDto() # CheckEmailInUseRequestDto | 
+    api_instance = python_core_api_sdk.BankAccountsApi(api_client)
+    bank_account_id = 'bank_account_id_example' # str | 
 
     try:
-        api_response = await api_instance.auth_controller_check_email_in_use(check_email_in_use_request_dto)
-        print("The response of AuthApi->auth_controller_check_email_in_use:\n")
+        api_response = await api_instance.bank_accounts_controller_activate_bank_account(bank_account_id)
+        print("The response of BankAccountsApi->bank_accounts_controller_activate_bank_account:\n")
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling AuthApi->auth_controller_check_email_in_use: %s\n" % e)
+        print("Exception when calling BankAccountsApi->bank_accounts_controller_activate_bank_account: %s\n" % e)
 
 ```
 
@@ -84,11 +84,6 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AuthApi* | [**auth_controller_check_email_in_use**](docs/AuthApi.md#auth_controller_check_email_in_use) | **POST** /auth/check-email-in-use | 
-*AuthApi* | [**auth_controller_refresh**](docs/AuthApi.md#auth_controller_refresh) | **POST** /auth/refresh | 
-*AuthApi* | [**auth_controller_send_email_verification_code**](docs/AuthApi.md#auth_controller_send_email_verification_code) | **POST** /auth/sign-up/email-verification-code | 
-*AuthApi* | [**auth_controller_sign_in_with_email_password**](docs/AuthApi.md#auth_controller_sign_in_with_email_password) | **POST** /auth/sign-in/email-password | 
-*AuthApi* | [**auth_controller_sign_up_with_email_password**](docs/AuthApi.md#auth_controller_sign_up_with_email_password) | **POST** /auth/sign-up/email-password | 
 *BankAccountsApi* | [**bank_accounts_controller_activate_bank_account**](docs/BankAccountsApi.md#bank_accounts_controller_activate_bank_account) | **POST** /bank/accounts/{bankAccountId}/activate | 
 *BankAccountsApi* | [**bank_accounts_controller_create_or_update_bank_account**](docs/BankAccountsApi.md#bank_accounts_controller_create_or_update_bank_account) | **PUT** /workspaces/{workspaceId}/bank/accounts | 
 *BankAccountsApi* | [**bank_accounts_controller_create_workspace_bank_accounts_balance_report**](docs/BankAccountsApi.md#bank_accounts_controller_create_workspace_bank_accounts_balance_report) | **POST** /workspaces/{workspaceId}/bank/accounts/balance-report | 
@@ -113,6 +108,9 @@ Class | Method | HTTP request | Description
 *BankTransactionsApi* | [**bank_transactions_controller_get_recent**](docs/BankTransactionsApi.md#bank_transactions_controller_get_recent) | **GET** /workspaces/{workspaceId}/bank/transactions/most-recent | 
 *BankTransactionsApi* | [**bank_transactions_controller_get_transaction_details**](docs/BankTransactionsApi.md#bank_transactions_controller_get_transaction_details) | **GET** /bank/transactions/{bankTransactionId} | 
 *BankTransactionsApi* | [**bank_transactions_controller_update_transaction**](docs/BankTransactionsApi.md#bank_transactions_controller_update_transaction) | **PATCH** /bank/transactions/{bankTransactionId} | 
+*IamAuthApi* | [**auth_controller_generate_and_send_email_verification_code_for_sign_up**](docs/IamAuthApi.md#auth_controller_generate_and_send_email_verification_code_for_sign_up) | **POST** /iam/auth/sign-up/email-verification-code | 
+*IamAuthApi* | [**auth_controller_generate_and_send_phone_verification_code_for_sign_up**](docs/IamAuthApi.md#auth_controller_generate_and_send_phone_verification_code_for_sign_up) | **POST** /iam/auth/sign-up/phone-verification-code | 
+*IamAuthApi* | [**auth_controller_sign_up_with_email_password**](docs/IamAuthApi.md#auth_controller_sign_up_with_email_password) | **POST** /iam/auth/sign-up/email-password | 
 *MessageTokensApi* | [**message_tokens_controller_create_or_update_message_token**](docs/MessageTokensApi.md#message_tokens_controller_create_or_update_message_token) | **PUT** /workspaces/{workspaceId}/message-tokens | 
 *MessageTokensApi* | [**message_tokens_controller_get_workspace_message_tokens**](docs/MessageTokensApi.md#message_tokens_controller_get_workspace_message_tokens) | **GET** /workspaces/{workspaceId}/message-tokens | 
 *PluggyApi* | [**pluggy_controller_create**](docs/PluggyApi.md#pluggy_controller_create) | **POST** /pluggy/connect-token | 
@@ -160,7 +158,6 @@ Class | Method | HTTP request | Description
  - [CashFlowReportMonthlyItemEntity](docs/CashFlowReportMonthlyItemEntity.md)
  - [CashFlowReportWeeklyItemEntity](docs/CashFlowReportWeeklyItemEntity.md)
  - [CategoryGuessDto](docs/CategoryGuessDto.md)
- - [CheckEmailInUseRequestDto](docs/CheckEmailInUseRequestDto.md)
  - [CreateBankTransactionTagRequestDto](docs/CreateBankTransactionTagRequestDto.md)
  - [CreateOrUpdateBankAccountRequestDto](docs/CreateOrUpdateBankAccountRequestDto.md)
  - [CreateOrUpdateBankConnectionRequestDto](docs/CreateOrUpdateBankConnectionRequestDto.md)
@@ -170,12 +167,10 @@ Class | Method | HTTP request | Description
  - [CreatePluggyConnectTokenRequestDto](docs/CreatePluggyConnectTokenRequestDto.md)
  - [CreateProfileRequestDto](docs/CreateProfileRequestDto.md)
  - [CreateWorkspaceRequestDto](docs/CreateWorkspaceRequestDto.md)
- - [CredentialsEntity](docs/CredentialsEntity.md)
  - [CreditCardMetadataDto](docs/CreditCardMetadataDto.md)
  - [DreLineOutcomeResultEntity](docs/DreLineOutcomeResultEntity.md)
- - [EmailInUseEntity](docs/EmailInUseEntity.md)
- - [ErrorEntity](docs/ErrorEntity.md)
  - [ExceptionResponseEntity](docs/ExceptionResponseEntity.md)
+ - [ExceptionResponseEntityErrorsInner](docs/ExceptionResponseEntityErrorsInner.md)
  - [FinancialStatementOutcomeReportDataEntity](docs/FinancialStatementOutcomeReportDataEntity.md)
  - [FinancialStatementOutflowsSubcategoryData](docs/FinancialStatementOutflowsSubcategoryData.md)
  - [FinancialStatementOutlfowsCategoryData](docs/FinancialStatementOutlfowsCategoryData.md)
@@ -193,14 +188,12 @@ Class | Method | HTTP request | Description
  - [PluggyConnectTokenEntity](docs/PluggyConnectTokenEntity.md)
  - [ProfileEntity](docs/ProfileEntity.md)
  - [ProportionResultEntity](docs/ProportionResultEntity.md)
- - [RefreshRequestDto](docs/RefreshRequestDto.md)
  - [SendEmailVerificationCodeRequestDto](docs/SendEmailVerificationCodeRequestDto.md)
- - [SignInWithEmailPasswordRequestDto](docs/SignInWithEmailPasswordRequestDto.md)
+ - [SendPhoneVerificationCodeRequestDto](docs/SendPhoneVerificationCodeRequestDto.md)
  - [SignUpWithEmailPasswordRequestDto](docs/SignUpWithEmailPasswordRequestDto.md)
  - [UpdateBankTransactionRequestDto](docs/UpdateBankTransactionRequestDto.md)
  - [UserEntity](docs/UserEntity.md)
  - [UserRelatedWorkspaceEntity](docs/UserRelatedWorkspaceEntity.md)
- - [UserWithProfileEntity](docs/UserWithProfileEntity.md)
  - [WorkspaceCompanySettingsEntity](docs/WorkspaceCompanySettingsEntity.md)
  - [WorkspaceEntity](docs/WorkspaceEntity.md)
  - [WorkspaceHybridSettingsEntity](docs/WorkspaceHybridSettingsEntity.md)

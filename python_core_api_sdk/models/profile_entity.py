@@ -17,9 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,10 +28,10 @@ class ProfileEntity(BaseModel):
     """ # noqa: E501
     id: StrictStr
     full_name: StrictStr = Field(alias="fullName")
-    birth_date: datetime = Field(alias="birthDate")
+    birth_date: Optional[Any] = Field(alias="birthDate")
     user_id: StrictStr = Field(alias="userId")
-    created_at: datetime = Field(alias="createdAt")
-    updated_at: datetime = Field(alias="updatedAt")
+    created_at: Optional[Any] = Field(alias="createdAt")
+    updated_at: Optional[Any] = Field(alias="updatedAt")
     __properties: ClassVar[List[str]] = ["id", "fullName", "birthDate", "userId", "createdAt", "updatedAt"]
 
     model_config = ConfigDict(
@@ -74,6 +73,21 @@ class ProfileEntity(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if birth_date (nullable) is None
+        # and model_fields_set contains the field
+        if self.birth_date is None and "birth_date" in self.model_fields_set:
+            _dict['birthDate'] = None
+
+        # set to None if created_at (nullable) is None
+        # and model_fields_set contains the field
+        if self.created_at is None and "created_at" in self.model_fields_set:
+            _dict['createdAt'] = None
+
+        # set to None if updated_at (nullable) is None
+        # and model_fields_set contains the field
+        if self.updated_at is None and "updated_at" in self.model_fields_set:
+            _dict['updatedAt'] = None
+
         return _dict
 
     @classmethod

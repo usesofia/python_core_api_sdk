@@ -7,10 +7,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
 **full_name** | **str** |  | 
-**birth_date** | **datetime** |  | 
+**birth_date** | **object** |  | 
 **user_id** | **str** |  | 
-**created_at** | **datetime** |  | 
-**updated_at** | **datetime** |  | 
+**created_at** | **object** |  | 
+**updated_at** | **object** |  | 
 
 ## Example
 

@@ -17,9 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,9 +28,9 @@ class UserEntity(BaseModel):
     """ # noqa: E501
     id: StrictStr
     email: StrictStr
-    created_at: datetime = Field(alias="createdAt")
-    password_hash: Optional[StrictStr] = Field(default=None, alias="passwordHash")
-    __properties: ClassVar[List[str]] = ["id", "email", "createdAt", "passwordHash"]
+    phone: StrictStr
+    password_hash: StrictStr = Field(alias="passwordHash")
+    __properties: ClassVar[List[str]] = ["id", "email", "phone", "passwordHash"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -86,7 +85,7 @@ class UserEntity(BaseModel):
         _obj = cls.model_validate({
             "id": obj.get("id"),
             "email": obj.get("email"),
-            "createdAt": obj.get("createdAt"),
+            "phone": obj.get("phone"),
             "passwordHash": obj.get("passwordHash")
         })
         return _obj

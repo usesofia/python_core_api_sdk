@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status_code** | **float** |  | 
 **message** | **str** |  | 
-**errors** | [**List[ErrorEntity]**](ErrorEntity.md) |  | 
+**errors** | [**List[ExceptionResponseEntityErrorsInner]**](ExceptionResponseEntityErrorsInner.md) |  | 
 
 ## Example
 

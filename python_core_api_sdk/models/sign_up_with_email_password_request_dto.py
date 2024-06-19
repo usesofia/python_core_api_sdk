@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,9 +28,24 @@ class SignUpWithEmailPasswordRequestDto(BaseModel):
     SignUpWithEmailPasswordRequestDto
     """ # noqa: E501
     email: StrictStr
-    password: StrictStr
-    email_verification_code: StrictStr = Field(alias="emailVerificationCode")
-    __properties: ClassVar[List[str]] = ["email", "password", "emailVerificationCode"]
+    password: Annotated[str, Field(min_length=6, strict=True)]
+    email_verification_code: Annotated[str, Field(strict=True)] = Field(alias="emailVerificationCode")
+    phone_verification_code: Annotated[str, Field(strict=True)] = Field(alias="phoneVerificationCode")
+    __properties: ClassVar[List[str]] = ["email", "password", "emailVerificationCode", "phoneVerificationCode"]
+
+    @field_validator('email_verification_code')
+    def email_verification_code_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^\d+$", value):
+            raise ValueError(r"must validate the regular expression /^\d+$/")
+        return value
+
+    @field_validator('phone_verification_code')
+    def phone_verification_code_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^\d+$", value):
+            raise ValueError(r"must validate the regular expression /^\d+$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -84,7 +100,8 @@ class SignUpWithEmailPasswordRequestDto(BaseModel):
         _obj = cls.model_validate({
             "email": obj.get("email"),
             "password": obj.get("password"),
-            "emailVerificationCode": obj.get("emailVerificationCode")
+            "emailVerificationCode": obj.get("emailVerificationCode"),
+            "phoneVerificationCode": obj.get("phoneVerificationCode")
         })
         return _obj
 

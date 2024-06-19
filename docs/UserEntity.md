@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
 **email** | **str** |  | 
-**created_at** | **datetime** |  | 
-**password_hash** | **str** |  | [optional] 
+**phone** | **str** |  | 
+**password_hash** | **str** |  | 
 
 ## Example
 
