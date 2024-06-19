@@ -173,7 +173,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_exception_response_entity_errors_inner.py
-test/test_iam_auth_api.py
-test/test_send_phone_verification_code_request_dto.py
 tox.ini
