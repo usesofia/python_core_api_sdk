@@ -112,6 +112,7 @@ Class | Method | HTTP request | Description
 *IamAuthApi* | [**auth_controller_generate_and_send_phone_verification_code**](docs/IamAuthApi.md#auth_controller_generate_and_send_phone_verification_code) | **POST** /iam/auth/phone-verification-code | 
 *IamAuthApi* | [**auth_controller_sign_up_with_email_password**](docs/IamAuthApi.md#auth_controller_sign_up_with_email_password) | **POST** /iam/auth/sign-up/email-password | 
 *IamAuthApi* | [**auth_controller_verify_email_verification_code**](docs/IamAuthApi.md#auth_controller_verify_email_verification_code) | **GET** /iam/auth/email-verification-code/verify | 
+*IamAuthApi* | [**auth_controller_verify_phone_verification_code**](docs/IamAuthApi.md#auth_controller_verify_phone_verification_code) | **GET** /iam/auth/phone-verification-code/verify | 
 *MessageTokensApi* | [**message_tokens_controller_create_or_update_message_token**](docs/MessageTokensApi.md#message_tokens_controller_create_or_update_message_token) | **PUT** /workspaces/{workspaceId}/message-tokens | 
 *MessageTokensApi* | [**message_tokens_controller_get_workspace_message_tokens**](docs/MessageTokensApi.md#message_tokens_controller_get_workspace_message_tokens) | **GET** /workspaces/{workspaceId}/message-tokens | 
 *PluggyApi* | [**pluggy_controller_create**](docs/PluggyApi.md#pluggy_controller_create) | **POST** /pluggy/connect-token | 
@@ -196,6 +197,7 @@ Class | Method | HTTP request | Description
  - [UserEntity](docs/UserEntity.md)
  - [UserRelatedWorkspaceEntity](docs/UserRelatedWorkspaceEntity.md)
  - [VerifyEmailVerificationCodeRequestDto](docs/VerifyEmailVerificationCodeRequestDto.md)
+ - [VerifyPhoneVerificationCodeRequestDto](docs/VerifyPhoneVerificationCodeRequestDto.md)
  - [WorkspaceCompanySettingsEntity](docs/WorkspaceCompanySettingsEntity.md)
  - [WorkspaceEntity](docs/WorkspaceEntity.md)
  - [WorkspaceHybridSettingsEntity](docs/WorkspaceHybridSettingsEntity.md)
