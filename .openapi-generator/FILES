@@ -177,5 +177,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_verify_phone_verification_code_request_dto.py
 tox.ini
