@@ -6,7 +6,7 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**auth_controller_generate_and_send_email_verification_code**](IamAuthApi.md#auth_controller_generate_and_send_email_verification_code) | **POST** /iam/auth/email-verification-code | 
 [**auth_controller_generate_and_send_phone_verification_code**](IamAuthApi.md#auth_controller_generate_and_send_phone_verification_code) | **POST** /iam/auth/phone-verification-code | 
-[**auth_controller_sign_up_with_email_password**](IamAuthApi.md#auth_controller_sign_up_with_email_password) | **POST** /iam/auth/sign-up/email-password | 
+[**auth_controller_sign_up_with_email**](IamAuthApi.md#auth_controller_sign_up_with_email) | **POST** /iam/auth/sign-up/email | 
 [**auth_controller_verify_email_verification_code**](IamAuthApi.md#auth_controller_verify_email_verification_code) | **GET** /iam/auth/email-verification-code/verify | 
 [**auth_controller_verify_phone_verification_code**](IamAuthApi.md#auth_controller_verify_phone_verification_code) | **GET** /iam/auth/phone-verification-code/verify | 
 
@@ -139,8 +139,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **auth_controller_sign_up_with_email_password**
-> UserEntity auth_controller_sign_up_with_email_password(sign_up_with_email_password_request_dto)
+# **auth_controller_sign_up_with_email**
+> UserEntity auth_controller_sign_up_with_email(sign_up_with_email_request_dto)
 
 
 
@@ -149,7 +149,7 @@ No authorization required
 
 ```python
 import python_core_api_sdk
-from python_core_api_sdk.models.sign_up_with_email_password_request_dto import SignUpWithEmailPasswordRequestDto
+from python_core_api_sdk.models.sign_up_with_email_request_dto import SignUpWithEmailRequestDto
 from python_core_api_sdk.models.user_entity import UserEntity
 from python_core_api_sdk.rest import ApiException
 from pprint import pprint
@@ -165,14 +165,14 @@ configuration = python_core_api_sdk.Configuration(
 async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.IamAuthApi(api_client)
-    sign_up_with_email_password_request_dto = python_core_api_sdk.SignUpWithEmailPasswordRequestDto() # SignUpWithEmailPasswordRequestDto | 
+    sign_up_with_email_request_dto = python_core_api_sdk.SignUpWithEmailRequestDto() # SignUpWithEmailRequestDto | 
 
     try:
-        api_response = await api_instance.auth_controller_sign_up_with_email_password(sign_up_with_email_password_request_dto)
-        print("The response of IamAuthApi->auth_controller_sign_up_with_email_password:\n")
+        api_response = await api_instance.auth_controller_sign_up_with_email(sign_up_with_email_request_dto)
+        print("The response of IamAuthApi->auth_controller_sign_up_with_email:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling IamAuthApi->auth_controller_sign_up_with_email_password: %s\n" % e)
+        print("Exception when calling IamAuthApi->auth_controller_sign_up_with_email: %s\n" % e)
 ```
 
 
@@ -182,7 +182,7 @@ async with python_core_api_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **sign_up_with_email_password_request_dto** | [**SignUpWithEmailPasswordRequestDto**](SignUpWithEmailPasswordRequestDto.md)|  | 
+ **sign_up_with_email_request_dto** | [**SignUpWithEmailRequestDto**](SignUpWithEmailRequestDto.md)|  | 
 
 ### Return type
 

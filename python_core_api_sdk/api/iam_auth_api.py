@@ -18,7 +18,7 @@ from typing_extensions import Annotated
 
 from python_core_api_sdk.models.generate_and_send_email_verification_code_request_dto import GenerateAndSendEmailVerificationCodeRequestDto
 from python_core_api_sdk.models.generate_and_send_phone_verification_code_request_dto import GenerateAndSendPhoneVerificationCodeRequestDto
-from python_core_api_sdk.models.sign_up_with_email_password_request_dto import SignUpWithEmailPasswordRequestDto
+from python_core_api_sdk.models.sign_up_with_email_request_dto import SignUpWithEmailRequestDto
 from python_core_api_sdk.models.user_entity import UserEntity
 from python_core_api_sdk.models.verify_email_verification_code_request_dto import VerifyEmailVerificationCodeRequestDto
 from python_core_api_sdk.models.verify_phone_verification_code_request_dto import VerifyPhoneVerificationCodeRequestDto
@@ -576,9 +576,9 @@ class IamAuthApi:
 
 
     @validate_call
-    async def auth_controller_sign_up_with_email_password(
+    async def auth_controller_sign_up_with_email(
         self,
-        sign_up_with_email_password_request_dto: SignUpWithEmailPasswordRequestDto,
+        sign_up_with_email_request_dto: SignUpWithEmailRequestDto,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -592,11 +592,11 @@ class IamAuthApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> UserEntity:
-        """auth_controller_sign_up_with_email_password
+        """auth_controller_sign_up_with_email
 
 
-        :param sign_up_with_email_password_request_dto: (required)
-        :type sign_up_with_email_password_request_dto: SignUpWithEmailPasswordRequestDto
+        :param sign_up_with_email_request_dto: (required)
+        :type sign_up_with_email_request_dto: SignUpWithEmailRequestDto
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -619,8 +619,8 @@ class IamAuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._auth_controller_sign_up_with_email_password_serialize(
-            sign_up_with_email_password_request_dto=sign_up_with_email_password_request_dto,
+        _param = self._auth_controller_sign_up_with_email_serialize(
+            sign_up_with_email_request_dto=sign_up_with_email_request_dto,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -642,9 +642,9 @@ class IamAuthApi:
 
 
     @validate_call
-    async def auth_controller_sign_up_with_email_password_with_http_info(
+    async def auth_controller_sign_up_with_email_with_http_info(
         self,
-        sign_up_with_email_password_request_dto: SignUpWithEmailPasswordRequestDto,
+        sign_up_with_email_request_dto: SignUpWithEmailRequestDto,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -658,11 +658,11 @@ class IamAuthApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[UserEntity]:
-        """auth_controller_sign_up_with_email_password
+        """auth_controller_sign_up_with_email
 
 
-        :param sign_up_with_email_password_request_dto: (required)
-        :type sign_up_with_email_password_request_dto: SignUpWithEmailPasswordRequestDto
+        :param sign_up_with_email_request_dto: (required)
+        :type sign_up_with_email_request_dto: SignUpWithEmailRequestDto
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -685,8 +685,8 @@ class IamAuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._auth_controller_sign_up_with_email_password_serialize(
-            sign_up_with_email_password_request_dto=sign_up_with_email_password_request_dto,
+        _param = self._auth_controller_sign_up_with_email_serialize(
+            sign_up_with_email_request_dto=sign_up_with_email_request_dto,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -708,9 +708,9 @@ class IamAuthApi:
 
 
     @validate_call
-    async def auth_controller_sign_up_with_email_password_without_preload_content(
+    async def auth_controller_sign_up_with_email_without_preload_content(
         self,
-        sign_up_with_email_password_request_dto: SignUpWithEmailPasswordRequestDto,
+        sign_up_with_email_request_dto: SignUpWithEmailRequestDto,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -724,11 +724,11 @@ class IamAuthApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """auth_controller_sign_up_with_email_password
+        """auth_controller_sign_up_with_email
 
 
-        :param sign_up_with_email_password_request_dto: (required)
-        :type sign_up_with_email_password_request_dto: SignUpWithEmailPasswordRequestDto
+        :param sign_up_with_email_request_dto: (required)
+        :type sign_up_with_email_request_dto: SignUpWithEmailRequestDto
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -751,8 +751,8 @@ class IamAuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._auth_controller_sign_up_with_email_password_serialize(
-            sign_up_with_email_password_request_dto=sign_up_with_email_password_request_dto,
+        _param = self._auth_controller_sign_up_with_email_serialize(
+            sign_up_with_email_request_dto=sign_up_with_email_request_dto,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -769,9 +769,9 @@ class IamAuthApi:
         return response_data.response
 
 
-    def _auth_controller_sign_up_with_email_password_serialize(
+    def _auth_controller_sign_up_with_email_serialize(
         self,
-        sign_up_with_email_password_request_dto,
+        sign_up_with_email_request_dto,
         _request_auth,
         _content_type,
         _headers,
@@ -795,8 +795,8 @@ class IamAuthApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if sign_up_with_email_password_request_dto is not None:
-            _body_params = sign_up_with_email_password_request_dto
+        if sign_up_with_email_request_dto is not None:
+            _body_params = sign_up_with_email_request_dto
 
 
         # set the HTTP header `Accept`
@@ -826,7 +826,7 @@ class IamAuthApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/iam/auth/sign-up/email-password',
+            resource_path='/iam/auth/sign-up/email',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
