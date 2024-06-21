@@ -40,6 +40,7 @@ docs/CreateOrUpdateMessageTokenRequestDto.md
 docs/CreatePluggyConnectTokenRequestDto.md
 docs/CreateProfileRequestDto.md
 docs/CreateWorkspaceRequestDto.md
+docs/CredentialsEntity.md
 docs/CreditCardMetadataDto.md
 docs/DreLineOutcomeResultEntity.md
 docs/ExceptionResponseEntity.md
@@ -68,6 +69,7 @@ docs/ProfileEntity.md
 docs/ProfilesApi.md
 docs/ProportionResultEntity.md
 docs/ReportsApi.md
+docs/SignInWithEmailRequestDto.md
 docs/SignUpWithEmailRequestDto.md
 docs/UpdateBankTransactionRequestDto.md
 docs/UserEntity.md
@@ -136,6 +138,7 @@ python_core_api_sdk/models/create_or_update_message_token_request_dto.py
 python_core_api_sdk/models/create_pluggy_connect_token_request_dto.py
 python_core_api_sdk/models/create_profile_request_dto.py
 python_core_api_sdk/models/create_workspace_request_dto.py
+python_core_api_sdk/models/credentials_entity.py
 python_core_api_sdk/models/credit_card_metadata_dto.py
 python_core_api_sdk/models/dre_line_outcome_result_entity.py
 python_core_api_sdk/models/exception_response_entity.py
@@ -159,6 +162,7 @@ python_core_api_sdk/models/plain_bank_account_entity.py
 python_core_api_sdk/models/pluggy_connect_token_entity.py
 python_core_api_sdk/models/profile_entity.py
 python_core_api_sdk/models/proportion_result_entity.py
+python_core_api_sdk/models/sign_in_with_email_request_dto.py
 python_core_api_sdk/models/sign_up_with_email_request_dto.py
 python_core_api_sdk/models/update_bank_transaction_request_dto.py
 python_core_api_sdk/models/user_entity.py
@@ -177,5 +181,5 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_sign_up_with_email_request_dto.py
+test/test_sign_in_with_email_request_dto.py
 tox.ini

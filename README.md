@@ -110,6 +110,7 @@ Class | Method | HTTP request | Description
 *BankTransactionsApi* | [**bank_transactions_controller_update_transaction**](docs/BankTransactionsApi.md#bank_transactions_controller_update_transaction) | **PATCH** /bank/transactions/{bankTransactionId} | 
 *IamAuthApi* | [**auth_controller_generate_and_send_email_verification_code**](docs/IamAuthApi.md#auth_controller_generate_and_send_email_verification_code) | **POST** /iam/auth/email-verification-code | 
 *IamAuthApi* | [**auth_controller_generate_and_send_phone_verification_code**](docs/IamAuthApi.md#auth_controller_generate_and_send_phone_verification_code) | **POST** /iam/auth/phone-verification-code | 
+*IamAuthApi* | [**auth_controller_sign_in_with_email**](docs/IamAuthApi.md#auth_controller_sign_in_with_email) | **POST** /iam/auth/sign-in/email | 
 *IamAuthApi* | [**auth_controller_sign_up_with_email**](docs/IamAuthApi.md#auth_controller_sign_up_with_email) | **POST** /iam/auth/sign-up/email | 
 *IamAuthApi* | [**auth_controller_verify_email_verification_code**](docs/IamAuthApi.md#auth_controller_verify_email_verification_code) | **GET** /iam/auth/email-verification-code/verify | 
 *IamAuthApi* | [**auth_controller_verify_phone_verification_code**](docs/IamAuthApi.md#auth_controller_verify_phone_verification_code) | **GET** /iam/auth/phone-verification-code/verify | 
@@ -169,6 +170,7 @@ Class | Method | HTTP request | Description
  - [CreatePluggyConnectTokenRequestDto](docs/CreatePluggyConnectTokenRequestDto.md)
  - [CreateProfileRequestDto](docs/CreateProfileRequestDto.md)
  - [CreateWorkspaceRequestDto](docs/CreateWorkspaceRequestDto.md)
+ - [CredentialsEntity](docs/CredentialsEntity.md)
  - [CreditCardMetadataDto](docs/CreditCardMetadataDto.md)
  - [DreLineOutcomeResultEntity](docs/DreLineOutcomeResultEntity.md)
  - [ExceptionResponseEntity](docs/ExceptionResponseEntity.md)
@@ -192,6 +194,7 @@ Class | Method | HTTP request | Description
  - [PluggyConnectTokenEntity](docs/PluggyConnectTokenEntity.md)
  - [ProfileEntity](docs/ProfileEntity.md)
  - [ProportionResultEntity](docs/ProportionResultEntity.md)
+ - [SignInWithEmailRequestDto](docs/SignInWithEmailRequestDto.md)
  - [SignUpWithEmailRequestDto](docs/SignUpWithEmailRequestDto.md)
  - [UpdateBankTransactionRequestDto](docs/UpdateBankTransactionRequestDto.md)
  - [UserEntity](docs/UserEntity.md)
