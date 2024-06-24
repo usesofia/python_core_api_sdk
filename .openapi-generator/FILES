@@ -68,6 +68,7 @@ docs/PluggyConnectTokenEntity.md
 docs/ProfileEntity.md
 docs/ProfilesApi.md
 docs/ProportionResultEntity.md
+docs/RefreshRequestDto.md
 docs/ReportsApi.md
 docs/SignInWithEmailRequestDto.md
 docs/SignUpWithEmailRequestDto.md
@@ -162,6 +163,7 @@ python_core_api_sdk/models/plain_bank_account_entity.py
 python_core_api_sdk/models/pluggy_connect_token_entity.py
 python_core_api_sdk/models/profile_entity.py
 python_core_api_sdk/models/proportion_result_entity.py
+python_core_api_sdk/models/refresh_request_dto.py
 python_core_api_sdk/models/sign_in_with_email_request_dto.py
 python_core_api_sdk/models/sign_up_with_email_request_dto.py
 python_core_api_sdk/models/update_bank_transaction_request_dto.py
