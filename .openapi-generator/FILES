@@ -31,7 +31,6 @@ docs/CashFlowReportEntity.md
 docs/CashFlowReportMonthlyItemEntity.md
 docs/CashFlowReportWeeklyItemEntity.md
 docs/CategoryGuessDto.md
-docs/CheckEmailInUseRequestDto.md
 docs/CreateBankTransactionTagRequestDto.md
 docs/CreateOrUpdateBankAccountRequestDto.md
 docs/CreateOrUpdateBankConnectionRequestDto.md
@@ -44,7 +43,7 @@ docs/CreateWorkspaceRequestDto.md
 docs/CredentialsEntity.md
 docs/CreditCardMetadataDto.md
 docs/DreLineOutcomeResultEntity.md
-docs/EmailInUseEntity.md
+docs/EmailInUseReportEntity.md
 docs/ExceptionResponseEntity.md
 docs/ExceptionResponseEntityErrorsInner.md
 docs/FinancialStatementOutcomeReportDataEntity.md
@@ -56,6 +55,7 @@ docs/FinancialStatementeEntriesCategoryData.md
 docs/FinancialStatementeEntriesSubcategoryData.md
 docs/GenerateAndSendEmailVerificationCodeRequestDto.md
 docs/GenerateAndSendPhoneVerificationCodeRequestDto.md
+docs/GenerateEmailInUseReportRequestDto.md
 docs/IamAuthApi.md
 docs/MeanResultEntity.md
 docs/MeanResultSubcategoryItemEntity.md
@@ -132,7 +132,6 @@ python_core_api_sdk/models/cash_flow_report_entity.py
 python_core_api_sdk/models/cash_flow_report_monthly_item_entity.py
 python_core_api_sdk/models/cash_flow_report_weekly_item_entity.py
 python_core_api_sdk/models/category_guess_dto.py
-python_core_api_sdk/models/check_email_in_use_request_dto.py
 python_core_api_sdk/models/create_bank_transaction_tag_request_dto.py
 python_core_api_sdk/models/create_or_update_bank_account_request_dto.py
 python_core_api_sdk/models/create_or_update_bank_connection_request_dto.py
@@ -145,7 +144,7 @@ python_core_api_sdk/models/create_workspace_request_dto.py
 python_core_api_sdk/models/credentials_entity.py
 python_core_api_sdk/models/credit_card_metadata_dto.py
 python_core_api_sdk/models/dre_line_outcome_result_entity.py
-python_core_api_sdk/models/email_in_use_entity.py
+python_core_api_sdk/models/email_in_use_report_entity.py
 python_core_api_sdk/models/exception_response_entity.py
 python_core_api_sdk/models/exception_response_entity_errors_inner.py
 python_core_api_sdk/models/financial_statement_outcome_report_data_entity.py
@@ -157,6 +156,7 @@ python_core_api_sdk/models/financial_statemente_entries_category_data.py
 python_core_api_sdk/models/financial_statemente_entries_subcategory_data.py
 python_core_api_sdk/models/generate_and_send_email_verification_code_request_dto.py
 python_core_api_sdk/models/generate_and_send_phone_verification_code_request_dto.py
+python_core_api_sdk/models/generate_email_in_use_report_request_dto.py
 python_core_api_sdk/models/mean_result_entity.py
 python_core_api_sdk/models/mean_result_subcategory_item_entity.py
 python_core_api_sdk/models/message_token_entity.py
@@ -187,4 +187,6 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_email_in_use_report_entity.py
+test/test_generate_email_in_use_report_request_dto.py
 tox.ini
