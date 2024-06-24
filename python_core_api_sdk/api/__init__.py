@@ -7,9 +7,9 @@ from python_core_api_sdk.api.bank_transaction_categories_api import BankTransact
 from python_core_api_sdk.api.bank_transaction_tags_api import BankTransactionTagsApi
 from python_core_api_sdk.api.bank_transactions_api import BankTransactionsApi
 from python_core_api_sdk.api.iam_auth_api import IamAuthApi
+from python_core_api_sdk.api.iam_profiles_api import IamProfilesApi
 from python_core_api_sdk.api.message_tokens_api import MessageTokensApi
 from python_core_api_sdk.api.pluggy_api import PluggyApi
-from python_core_api_sdk.api.profiles_api import ProfilesApi
 from python_core_api_sdk.api.reports_api import ReportsApi
 from python_core_api_sdk.api.users_api import UsersApi
 from python_core_api_sdk.api.workspace_join_requests_api import WorkspaceJoinRequestsApi

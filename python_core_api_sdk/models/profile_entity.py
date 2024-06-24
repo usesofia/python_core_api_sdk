@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,12 +28,19 @@ class ProfileEntity(BaseModel):
     ProfileEntity
     """ # noqa: E501
     id: StrictStr
-    full_name: StrictStr = Field(alias="fullName")
-    birth_date: Optional[Any] = Field(alias="birthDate")
     user_id: StrictStr = Field(alias="userId")
-    created_at: Optional[Any] = Field(alias="createdAt")
-    updated_at: Optional[Any] = Field(alias="updatedAt")
-    __properties: ClassVar[List[str]] = ["id", "fullName", "birthDate", "userId", "createdAt", "updatedAt"]
+    full_name: StrictStr = Field(alias="fullName")
+    birth_date: datetime = Field(alias="birthDate")
+    created_at: datetime = Field(alias="createdAt")
+    updated_at: datetime = Field(alias="updatedAt")
+    __properties: ClassVar[List[str]] = ["id", "userId", "fullName", "birthDate", "createdAt", "updatedAt"]
+
+    @field_validator('birth_date')
+    def birth_date_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"\d{4}-\d{2}-\d{2}T00:00:00.000Z", value):
+            raise ValueError(r"must validate the regular expression /\d{4}-\d{2}-\d{2}T00:00:00.000Z/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -73,21 +81,6 @@ class ProfileEntity(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if birth_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.birth_date is None and "birth_date" in self.model_fields_set:
-            _dict['birthDate'] = None
-
-        # set to None if created_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.created_at is None and "created_at" in self.model_fields_set:
-            _dict['createdAt'] = None
-
-        # set to None if updated_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.updated_at is None and "updated_at" in self.model_fields_set:
-            _dict['updatedAt'] = None
-
         return _dict
 
     @classmethod
@@ -101,9 +94,9 @@ class ProfileEntity(BaseModel):
 
         _obj = cls.model_validate({
             "id": obj.get("id"),
+            "userId": obj.get("userId"),
             "fullName": obj.get("fullName"),
             "birthDate": obj.get("birthDate"),
-            "userId": obj.get("userId"),
             "createdAt": obj.get("createdAt"),
             "updatedAt": obj.get("updatedAt")
         })

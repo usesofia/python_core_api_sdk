@@ -6,11 +6,11 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
-**full_name** | **str** |  | 
-**birth_date** | **object** |  | 
 **user_id** | **str** |  | 
-**created_at** | **object** |  | 
-**updated_at** | **object** |  | 
+**full_name** | **str** |  | 
+**birth_date** | **datetime** |  | 
+**created_at** | **datetime** |  | 
+**updated_at** | **datetime** |  | 
 
 ## Example
 

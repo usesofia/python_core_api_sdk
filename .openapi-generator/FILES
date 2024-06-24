@@ -38,7 +38,6 @@ docs/CreateOrUpdateBankTransactionsInBulkItemDto.md
 docs/CreateOrUpdateBankTransactionsInBulkRequestDto.md
 docs/CreateOrUpdateMessageTokenRequestDto.md
 docs/CreatePluggyConnectTokenRequestDto.md
-docs/CreateProfileRequestDto.md
 docs/CreateWorkspaceRequestDto.md
 docs/CredentialsEntity.md
 docs/CreditCardMetadataDto.md
@@ -58,18 +57,17 @@ docs/GenerateAndSendPhoneVerificationCodeRequestDto.md
 docs/GenerateEmailInUseReportRequestDto.md
 docs/GeneratePhoneInUseReportRequestDto.md
 docs/IamAuthApi.md
+docs/IamProfilesApi.md
 docs/MeanResultEntity.md
 docs/MeanResultSubcategoryItemEntity.md
 docs/MessageTokenEntity.md
 docs/MessageTokensApi.md
-docs/ParcialUpdateProfileRequestDto.md
 docs/ParcialUpdateWorkspaceRequestDto.md
 docs/PaymentDataDto.md
 docs/PlainBankAccountEntity.md
 docs/PluggyApi.md
 docs/PluggyConnectTokenEntity.md
 docs/ProfileEntity.md
-docs/ProfilesApi.md
 docs/ProportionResultEntity.md
 docs/RefreshRequestDto.md
 docs/ReportsApi.md
@@ -98,9 +96,9 @@ python_core_api_sdk/api/bank_transaction_categories_api.py
 python_core_api_sdk/api/bank_transaction_tags_api.py
 python_core_api_sdk/api/bank_transactions_api.py
 python_core_api_sdk/api/iam_auth_api.py
+python_core_api_sdk/api/iam_profiles_api.py
 python_core_api_sdk/api/message_tokens_api.py
 python_core_api_sdk/api/pluggy_api.py
-python_core_api_sdk/api/profiles_api.py
 python_core_api_sdk/api/reports_api.py
 python_core_api_sdk/api/users_api.py
 python_core_api_sdk/api/workspace_join_requests_api.py
@@ -140,7 +138,6 @@ python_core_api_sdk/models/create_or_update_bank_transactions_in_bulk_item_dto.p
 python_core_api_sdk/models/create_or_update_bank_transactions_in_bulk_request_dto.py
 python_core_api_sdk/models/create_or_update_message_token_request_dto.py
 python_core_api_sdk/models/create_pluggy_connect_token_request_dto.py
-python_core_api_sdk/models/create_profile_request_dto.py
 python_core_api_sdk/models/create_workspace_request_dto.py
 python_core_api_sdk/models/credentials_entity.py
 python_core_api_sdk/models/credit_card_metadata_dto.py
@@ -162,7 +159,6 @@ python_core_api_sdk/models/generate_phone_in_use_report_request_dto.py
 python_core_api_sdk/models/mean_result_entity.py
 python_core_api_sdk/models/mean_result_subcategory_item_entity.py
 python_core_api_sdk/models/message_token_entity.py
-python_core_api_sdk/models/parcial_update_profile_request_dto.py
 python_core_api_sdk/models/parcial_update_workspace_request_dto.py
 python_core_api_sdk/models/payment_data_dto.py
 python_core_api_sdk/models/plain_bank_account_entity.py
@@ -189,4 +185,5 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_iam_profiles_api.py
 tox.ini

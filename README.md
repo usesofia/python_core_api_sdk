@@ -118,13 +118,11 @@ Class | Method | HTTP request | Description
 *IamAuthApi* | [**auth_controller_sign_up_with_email**](docs/IamAuthApi.md#auth_controller_sign_up_with_email) | **POST** /iam/auth/sign-up/email | 
 *IamAuthApi* | [**auth_controller_verify_email_verification_code**](docs/IamAuthApi.md#auth_controller_verify_email_verification_code) | **GET** /iam/auth/email-verification-code/verify | 
 *IamAuthApi* | [**auth_controller_verify_phone_verification_code**](docs/IamAuthApi.md#auth_controller_verify_phone_verification_code) | **GET** /iam/auth/phone-verification-code/verify | 
+*IamProfilesApi* | [**profiles_controller_get_my**](docs/IamProfilesApi.md#profiles_controller_get_my) | **GET** /iam/profiles/me | 
 *MessageTokensApi* | [**message_tokens_controller_create_or_update_message_token**](docs/MessageTokensApi.md#message_tokens_controller_create_or_update_message_token) | **PUT** /workspaces/{workspaceId}/message-tokens | 
 *MessageTokensApi* | [**message_tokens_controller_get_workspace_message_tokens**](docs/MessageTokensApi.md#message_tokens_controller_get_workspace_message_tokens) | **GET** /workspaces/{workspaceId}/message-tokens | 
 *PluggyApi* | [**pluggy_controller_create**](docs/PluggyApi.md#pluggy_controller_create) | **POST** /pluggy/connect-token | 
 *PluggyApi* | [**pluggy_controller_webhook**](docs/PluggyApi.md#pluggy_controller_webhook) | **POST** /pluggy/webhook | 
-*ProfilesApi* | [**profiles_controller_create**](docs/ProfilesApi.md#profiles_controller_create) | **POST** /profiles | 
-*ProfilesApi* | [**profiles_controller_get_my**](docs/ProfilesApi.md#profiles_controller_get_my) | **GET** /profiles/me | 
-*ProfilesApi* | [**profiles_controller_parcial_update**](docs/ProfilesApi.md#profiles_controller_parcial_update) | **PATCH** /profiles/me | 
 *ReportsApi* | [**reports_controller_get_accounts_entries_by_category_report**](docs/ReportsApi.md#reports_controller_get_accounts_entries_by_category_report) | **GET** /workspaces/{workspaceId}/reports/accounts/entries-by-category | 
 *ReportsApi* | [**reports_controller_get_accounts_outputs_by_category_report**](docs/ReportsApi.md#reports_controller_get_accounts_outputs_by_category_report) | **GET** /workspaces/{workspaceId}/reports/accounts/outputs-by-category | 
 *ReportsApi* | [**reports_controller_get_business_indicators**](docs/ReportsApi.md#reports_controller_get_business_indicators) | **GET** /workspaces/{workspaceId}/reports/indicators/business | 
@@ -172,7 +170,6 @@ Class | Method | HTTP request | Description
  - [CreateOrUpdateBankTransactionsInBulkRequestDto](docs/CreateOrUpdateBankTransactionsInBulkRequestDto.md)
  - [CreateOrUpdateMessageTokenRequestDto](docs/CreateOrUpdateMessageTokenRequestDto.md)
  - [CreatePluggyConnectTokenRequestDto](docs/CreatePluggyConnectTokenRequestDto.md)
- - [CreateProfileRequestDto](docs/CreateProfileRequestDto.md)
  - [CreateWorkspaceRequestDto](docs/CreateWorkspaceRequestDto.md)
  - [CredentialsEntity](docs/CredentialsEntity.md)
  - [CreditCardMetadataDto](docs/CreditCardMetadataDto.md)
@@ -194,7 +191,6 @@ Class | Method | HTTP request | Description
  - [MeanResultEntity](docs/MeanResultEntity.md)
  - [MeanResultSubcategoryItemEntity](docs/MeanResultSubcategoryItemEntity.md)
  - [MessageTokenEntity](docs/MessageTokenEntity.md)
- - [ParcialUpdateProfileRequestDto](docs/ParcialUpdateProfileRequestDto.md)
  - [ParcialUpdateWorkspaceRequestDto](docs/ParcialUpdateWorkspaceRequestDto.md)
  - [PaymentDataDto](docs/PaymentDataDto.md)
  - [PlainBankAccountEntity](docs/PlainBankAccountEntity.md)
