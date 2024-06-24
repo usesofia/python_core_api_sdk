@@ -111,6 +111,7 @@ Class | Method | HTTP request | Description
 *IamAuthApi* | [**auth_controller_generate_and_send_email_verification_code**](docs/IamAuthApi.md#auth_controller_generate_and_send_email_verification_code) | **POST** /iam/auth/email-verification-code | 
 *IamAuthApi* | [**auth_controller_generate_and_send_phone_verification_code**](docs/IamAuthApi.md#auth_controller_generate_and_send_phone_verification_code) | **POST** /iam/auth/phone-verification-code | 
 *IamAuthApi* | [**auth_controller_generate_email_in_use_report**](docs/IamAuthApi.md#auth_controller_generate_email_in_use_report) | **POST** /iam/auth/email-in-use | 
+*IamAuthApi* | [**auth_controller_generate_phone_in_use_report**](docs/IamAuthApi.md#auth_controller_generate_phone_in_use_report) | **POST** /iam/auth/phone-in-use | 
 *IamAuthApi* | [**auth_controller_refresh**](docs/IamAuthApi.md#auth_controller_refresh) | **POST** /iam/auth/refresh | 
 *IamAuthApi* | [**auth_controller_sign_in_with_email**](docs/IamAuthApi.md#auth_controller_sign_in_with_email) | **POST** /iam/auth/sign-in/email | 
 *IamAuthApi* | [**auth_controller_sign_up_with_email**](docs/IamAuthApi.md#auth_controller_sign_up_with_email) | **POST** /iam/auth/sign-up/email | 
@@ -188,6 +189,7 @@ Class | Method | HTTP request | Description
  - [GenerateAndSendEmailVerificationCodeRequestDto](docs/GenerateAndSendEmailVerificationCodeRequestDto.md)
  - [GenerateAndSendPhoneVerificationCodeRequestDto](docs/GenerateAndSendPhoneVerificationCodeRequestDto.md)
  - [GenerateEmailInUseReportRequestDto](docs/GenerateEmailInUseReportRequestDto.md)
+ - [GeneratePhoneInUseReportRequestDto](docs/GeneratePhoneInUseReportRequestDto.md)
  - [MeanResultEntity](docs/MeanResultEntity.md)
  - [MeanResultSubcategoryItemEntity](docs/MeanResultSubcategoryItemEntity.md)
  - [MessageTokenEntity](docs/MessageTokenEntity.md)

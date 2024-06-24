@@ -56,6 +56,7 @@ docs/FinancialStatementeEntriesSubcategoryData.md
 docs/GenerateAndSendEmailVerificationCodeRequestDto.md
 docs/GenerateAndSendPhoneVerificationCodeRequestDto.md
 docs/GenerateEmailInUseReportRequestDto.md
+docs/GeneratePhoneInUseReportRequestDto.md
 docs/IamAuthApi.md
 docs/MeanResultEntity.md
 docs/MeanResultSubcategoryItemEntity.md
@@ -157,6 +158,7 @@ python_core_api_sdk/models/financial_statemente_entries_subcategory_data.py
 python_core_api_sdk/models/generate_and_send_email_verification_code_request_dto.py
 python_core_api_sdk/models/generate_and_send_phone_verification_code_request_dto.py
 python_core_api_sdk/models/generate_email_in_use_report_request_dto.py
+python_core_api_sdk/models/generate_phone_in_use_report_request_dto.py
 python_core_api_sdk/models/mean_result_entity.py
 python_core_api_sdk/models/mean_result_subcategory_item_entity.py
 python_core_api_sdk/models/message_token_entity.py
@@ -187,6 +189,5 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_email_in_use_report_entity.py
-test/test_generate_email_in_use_report_request_dto.py
+test/test_generate_phone_in_use_report_request_dto.py
 tox.ini
