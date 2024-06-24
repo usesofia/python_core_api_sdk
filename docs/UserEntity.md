@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **email** | **str** |  | 
 **phone** | **str** |  | 
 **password_hash** | **str** |  | 
+**is_root** | **bool** |  | 
+**created_at** | **datetime** |  | 
 
 ## Example
 

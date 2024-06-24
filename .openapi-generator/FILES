@@ -189,5 +189,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_generate_phone_in_use_report_request_dto.py
 tox.ini
