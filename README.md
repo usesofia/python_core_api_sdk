@@ -108,6 +108,7 @@ Class | Method | HTTP request | Description
 *BankTransactionsApi* | [**bank_transactions_controller_get_recent**](docs/BankTransactionsApi.md#bank_transactions_controller_get_recent) | **GET** /workspaces/{workspaceId}/bank/transactions/most-recent | 
 *BankTransactionsApi* | [**bank_transactions_controller_get_transaction_details**](docs/BankTransactionsApi.md#bank_transactions_controller_get_transaction_details) | **GET** /bank/transactions/{bankTransactionId} | 
 *BankTransactionsApi* | [**bank_transactions_controller_update_transaction**](docs/BankTransactionsApi.md#bank_transactions_controller_update_transaction) | **PATCH** /bank/transactions/{bankTransactionId} | 
+*IamAuthApi* | [**auth_controller_check_email_in_use**](docs/IamAuthApi.md#auth_controller_check_email_in_use) | **POST** /iam/auth/check-email-in-use | 
 *IamAuthApi* | [**auth_controller_generate_and_send_email_verification_code**](docs/IamAuthApi.md#auth_controller_generate_and_send_email_verification_code) | **POST** /iam/auth/email-verification-code | 
 *IamAuthApi* | [**auth_controller_generate_and_send_phone_verification_code**](docs/IamAuthApi.md#auth_controller_generate_and_send_phone_verification_code) | **POST** /iam/auth/phone-verification-code | 
 *IamAuthApi* | [**auth_controller_refresh**](docs/IamAuthApi.md#auth_controller_refresh) | **POST** /iam/auth/refresh | 
@@ -162,6 +163,7 @@ Class | Method | HTTP request | Description
  - [CashFlowReportMonthlyItemEntity](docs/CashFlowReportMonthlyItemEntity.md)
  - [CashFlowReportWeeklyItemEntity](docs/CashFlowReportWeeklyItemEntity.md)
  - [CategoryGuessDto](docs/CategoryGuessDto.md)
+ - [CheckEmailInUseRequestDto](docs/CheckEmailInUseRequestDto.md)
  - [CreateBankTransactionTagRequestDto](docs/CreateBankTransactionTagRequestDto.md)
  - [CreateOrUpdateBankAccountRequestDto](docs/CreateOrUpdateBankAccountRequestDto.md)
  - [CreateOrUpdateBankConnectionRequestDto](docs/CreateOrUpdateBankConnectionRequestDto.md)
@@ -174,6 +176,7 @@ Class | Method | HTTP request | Description
  - [CredentialsEntity](docs/CredentialsEntity.md)
  - [CreditCardMetadataDto](docs/CreditCardMetadataDto.md)
  - [DreLineOutcomeResultEntity](docs/DreLineOutcomeResultEntity.md)
+ - [EmailInUseEntity](docs/EmailInUseEntity.md)
  - [ExceptionResponseEntity](docs/ExceptionResponseEntity.md)
  - [ExceptionResponseEntityErrorsInner](docs/ExceptionResponseEntityErrorsInner.md)
  - [FinancialStatementOutcomeReportDataEntity](docs/FinancialStatementOutcomeReportDataEntity.md)
