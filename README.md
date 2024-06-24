@@ -118,6 +118,7 @@ Class | Method | HTTP request | Description
 *IamAuthApi* | [**auth_controller_sign_up_with_email**](docs/IamAuthApi.md#auth_controller_sign_up_with_email) | **POST** /iam/auth/sign-up/email | 
 *IamAuthApi* | [**auth_controller_verify_email_verification_code**](docs/IamAuthApi.md#auth_controller_verify_email_verification_code) | **GET** /iam/auth/email-verification-code/verify | 
 *IamAuthApi* | [**auth_controller_verify_phone_verification_code**](docs/IamAuthApi.md#auth_controller_verify_phone_verification_code) | **GET** /iam/auth/phone-verification-code/verify | 
+*IamProfilesApi* | [**profiles_controller_create**](docs/IamProfilesApi.md#profiles_controller_create) | **POST** /iam/profiles | 
 *IamProfilesApi* | [**profiles_controller_get_my**](docs/IamProfilesApi.md#profiles_controller_get_my) | **GET** /iam/profiles/me | 
 *MessageTokensApi* | [**message_tokens_controller_create_or_update_message_token**](docs/MessageTokensApi.md#message_tokens_controller_create_or_update_message_token) | **PUT** /workspaces/{workspaceId}/message-tokens | 
 *MessageTokensApi* | [**message_tokens_controller_get_workspace_message_tokens**](docs/MessageTokensApi.md#message_tokens_controller_get_workspace_message_tokens) | **GET** /workspaces/{workspaceId}/message-tokens | 
@@ -170,6 +171,7 @@ Class | Method | HTTP request | Description
  - [CreateOrUpdateBankTransactionsInBulkRequestDto](docs/CreateOrUpdateBankTransactionsInBulkRequestDto.md)
  - [CreateOrUpdateMessageTokenRequestDto](docs/CreateOrUpdateMessageTokenRequestDto.md)
  - [CreatePluggyConnectTokenRequestDto](docs/CreatePluggyConnectTokenRequestDto.md)
+ - [CreateProfileRequestDto](docs/CreateProfileRequestDto.md)
  - [CreateWorkspaceRequestDto](docs/CreateWorkspaceRequestDto.md)
  - [CredentialsEntity](docs/CredentialsEntity.md)
  - [CreditCardMetadataDto](docs/CreditCardMetadataDto.md)
