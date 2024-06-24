@@ -181,5 +181,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_sign_in_with_email_request_dto.py
 tox.ini
