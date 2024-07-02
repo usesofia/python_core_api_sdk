@@ -27,7 +27,6 @@ from python_core_api_sdk.api.iam_profiles_api import IamProfilesApi
 from python_core_api_sdk.api.message_tokens_api import MessageTokensApi
 from python_core_api_sdk.api.pluggy_api import PluggyApi
 from python_core_api_sdk.api.reports_api import ReportsApi
-from python_core_api_sdk.api.workspace_join_requests_api import WorkspaceJoinRequestsApi
 from python_core_api_sdk.api.workspaces_api import WorkspacesApi
 
 # import ApiClient
@@ -112,5 +111,4 @@ from python_core_api_sdk.models.verify_phone_verification_code_request_dto impor
 from python_core_api_sdk.models.workspace_company_settings_entity import WorkspaceCompanySettingsEntity
 from python_core_api_sdk.models.workspace_entity import WorkspaceEntity
 from python_core_api_sdk.models.workspace_hybrid_settings_entity import WorkspaceHybridSettingsEntity
-from python_core_api_sdk.models.workspace_join_request_entity import WorkspaceJoinRequestEntity
 from python_core_api_sdk.models.workspace_personal_settings_entity import WorkspacePersonalSettingsEntity

@@ -83,8 +83,6 @@ docs/VerifyPhoneVerificationCodeRequestDto.md
 docs/WorkspaceCompanySettingsEntity.md
 docs/WorkspaceEntity.md
 docs/WorkspaceHybridSettingsEntity.md
-docs/WorkspaceJoinRequestEntity.md
-docs/WorkspaceJoinRequestsApi.md
 docs/WorkspacePersonalSettingsEntity.md
 docs/WorkspacesApi.md
 git_push.sh
@@ -101,7 +99,6 @@ python_core_api_sdk/api/iam_profiles_api.py
 python_core_api_sdk/api/message_tokens_api.py
 python_core_api_sdk/api/pluggy_api.py
 python_core_api_sdk/api/reports_api.py
-python_core_api_sdk/api/workspace_join_requests_api.py
 python_core_api_sdk/api/workspaces_api.py
 python_core_api_sdk/api_client.py
 python_core_api_sdk/api_response.py
@@ -178,7 +175,6 @@ python_core_api_sdk/models/verify_phone_verification_code_request_dto.py
 python_core_api_sdk/models/workspace_company_settings_entity.py
 python_core_api_sdk/models/workspace_entity.py
 python_core_api_sdk/models/workspace_hybrid_settings_entity.py
-python_core_api_sdk/models/workspace_join_request_entity.py
 python_core_api_sdk/models/workspace_personal_settings_entity.py
 python_core_api_sdk/py.typed
 python_core_api_sdk/rest.py

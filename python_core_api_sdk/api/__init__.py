@@ -11,6 +11,5 @@ from python_core_api_sdk.api.iam_profiles_api import IamProfilesApi
 from python_core_api_sdk.api.message_tokens_api import MessageTokensApi
 from python_core_api_sdk.api.pluggy_api import PluggyApi
 from python_core_api_sdk.api.reports_api import ReportsApi
-from python_core_api_sdk.api.workspace_join_requests_api import WorkspaceJoinRequestsApi
 from python_core_api_sdk.api.workspaces_api import WorkspacesApi
 

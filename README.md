@@ -132,7 +132,6 @@ Class | Method | HTTP request | Description
 *ReportsApi* | [**reports_controller_get_cards_outputs_by_category_report**](docs/ReportsApi.md#reports_controller_get_cards_outputs_by_category_report) | **GET** /workspaces/{workspaceId}/reports/cards/outputs-by-category | 
 *ReportsApi* | [**reports_controller_get_cash_flow_report**](docs/ReportsApi.md#reports_controller_get_cash_flow_report) | **GET** /workspaces/{workspaceId}/reports/accounts/cash-flow | 
 *ReportsApi* | [**reports_controller_get_financial_statement_report**](docs/ReportsApi.md#reports_controller_get_financial_statement_report) | **GET** /workspaces/{workspaceId}/reports/financial-statement | 
-*WorkspaceJoinRequestsApi* | [**workspace_join_requests_controller_create_new_pending_or_return_current**](docs/WorkspaceJoinRequestsApi.md#workspace_join_requests_controller_create_new_pending_or_return_current) | **POST** /workspaces/{workspaceId}/join-requests | 
 *WorkspacesApi* | [**workspaces_controller_create**](docs/WorkspacesApi.md#workspaces_controller_create) | **POST** /workspaces | 
 *WorkspacesApi* | [**workspaces_controller_fetch_user_related_workspaces**](docs/WorkspacesApi.md#workspaces_controller_fetch_user_related_workspaces) | **GET** /workspaces/related-to-me | 
 *WorkspacesApi* | [**workspaces_controller_get**](docs/WorkspacesApi.md#workspaces_controller_get) | **GET** /workspaces/{workspaceId} | 
@@ -211,7 +210,6 @@ Class | Method | HTTP request | Description
  - [WorkspaceCompanySettingsEntity](docs/WorkspaceCompanySettingsEntity.md)
  - [WorkspaceEntity](docs/WorkspaceEntity.md)
  - [WorkspaceHybridSettingsEntity](docs/WorkspaceHybridSettingsEntity.md)
- - [WorkspaceJoinRequestEntity](docs/WorkspaceJoinRequestEntity.md)
  - [WorkspacePersonalSettingsEntity](docs/WorkspacePersonalSettingsEntity.md)
 
 
