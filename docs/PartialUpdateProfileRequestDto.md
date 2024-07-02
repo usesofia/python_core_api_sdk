@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **full_name** | **str** |  | [optional] 
-**birth_date** | **datetime** |  | [optional] 
+**birth_date** | **str** |  | [optional] 
 
 ## Example
 

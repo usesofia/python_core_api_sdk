@@ -17,7 +17,6 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
@@ -28,18 +27,8 @@ class PartialUpdateProfileRequestDto(BaseModel):
     PartialUpdateProfileRequestDto
     """ # noqa: E501
     full_name: Optional[StrictStr] = Field(default=None, alias="fullName")
-    birth_date: Optional[datetime] = Field(default=None, alias="birthDate")
+    birth_date: Optional[StrictStr] = Field(default=None, alias="birthDate")
     __properties: ClassVar[List[str]] = ["fullName", "birthDate"]
-
-    @field_validator('birth_date')
-    def birth_date_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if value is None:
-            return value
-
-        if not re.match(r"\d{4}-\d{2}-\d{2}T00:00:00.000Z", value):
-            raise ValueError(r"must validate the regular expression /\d{4}-\d{2}-\d{2}T00:00:00.000Z/")
-        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

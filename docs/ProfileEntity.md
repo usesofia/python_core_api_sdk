@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **id** | **str** |  | 
 **user_id** | **str** |  | 
 **full_name** | **str** |  | 
-**birth_date** | **datetime** |  | 
+**birth_date** | **str** |  | 
 **created_at** | **datetime** |  | 
 **updated_at** | **datetime** |  | 
 

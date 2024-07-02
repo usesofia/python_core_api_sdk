@@ -30,17 +30,10 @@ class ProfileEntity(BaseModel):
     id: StrictStr
     user_id: StrictStr = Field(alias="userId")
     full_name: StrictStr = Field(alias="fullName")
-    birth_date: datetime = Field(alias="birthDate")
+    birth_date: StrictStr = Field(alias="birthDate")
     created_at: datetime = Field(alias="createdAt")
     updated_at: datetime = Field(alias="updatedAt")
     __properties: ClassVar[List[str]] = ["id", "userId", "fullName", "birthDate", "createdAt", "updatedAt"]
-
-    @field_validator('birth_date')
-    def birth_date_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"\d{4}-\d{2}-\d{2}T00:00:00.000Z", value):
-            raise ValueError(r"must validate the regular expression /\d{4}-\d{2}-\d{2}T00:00:00.000Z/")
-        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
