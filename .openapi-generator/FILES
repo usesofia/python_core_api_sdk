@@ -78,7 +78,6 @@ docs/SignUpWithEmailRequestDto.md
 docs/UpdateBankTransactionRequestDto.md
 docs/UserEntity.md
 docs/UserRelatedWorkspaceEntity.md
-docs/UsersApi.md
 docs/VerifyEmailVerificationCodeRequestDto.md
 docs/VerifyPhoneVerificationCodeRequestDto.md
 docs/WorkspaceCompanySettingsEntity.md
@@ -102,7 +101,6 @@ python_core_api_sdk/api/iam_profiles_api.py
 python_core_api_sdk/api/message_tokens_api.py
 python_core_api_sdk/api/pluggy_api.py
 python_core_api_sdk/api/reports_api.py
-python_core_api_sdk/api/users_api.py
 python_core_api_sdk/api/workspace_join_requests_api.py
 python_core_api_sdk/api/workspaces_api.py
 python_core_api_sdk/api_client.py
