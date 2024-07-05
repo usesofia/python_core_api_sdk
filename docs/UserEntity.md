@@ -8,9 +8,10 @@ Name | Type | Description | Notes
 **id** | **str** |  | 
 **email** | **str** |  | 
 **phone** | **str** |  | 
-**password_hash** | **str** |  | 
+**password_hash** | **str** |  | [optional] 
 **is_root** | **bool** |  | 
-**created_at** | **datetime** |  | 
+**workspaces** | [**List[UserEntityWorkspacesInner]**](UserEntityWorkspacesInner.md) |  | [optional] 
+**created_at** | **object** |  | 
 
 ## Example
 

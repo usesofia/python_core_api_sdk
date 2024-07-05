@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **user_id** | **str** |  | 
 **full_name** | **str** |  | 
 **birth_date** | **str** |  | 
-**created_at** | **datetime** |  | 
-**updated_at** | **datetime** |  | 
+**created_at** | **object** |  | 
+**updated_at** | **object** |  | 
 
 ## Example
 

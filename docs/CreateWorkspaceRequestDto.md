@@ -7,9 +7,10 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pretty_id** | **str** |  | 
 **name** | **str** |  | 
-**type** | **str** |  | [optional] 
+**type** | **str** |  | 
 **business_segment** | **str** |  | [optional] 
 **other_description** | **str** |  | [optional] 
+**throw_after_create_workspace** | **bool** |  | [optional] 
 
 ## Example
 

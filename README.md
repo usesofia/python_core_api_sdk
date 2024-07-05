@@ -121,6 +121,8 @@ Class | Method | HTTP request | Description
 *IamProfilesApi* | [**profiles_controller_create**](docs/IamProfilesApi.md#profiles_controller_create) | **POST** /iam/profiles | 
 *IamProfilesApi* | [**profiles_controller_get_my**](docs/IamProfilesApi.md#profiles_controller_get_my) | **GET** /iam/profiles/me | 
 *IamProfilesApi* | [**profiles_controller_partial_update**](docs/IamProfilesApi.md#profiles_controller_partial_update) | **PATCH** /iam/profiles/me | 
+*IamWorkspacesApi* | [**workspaces_controller_create**](docs/IamWorkspacesApi.md#workspaces_controller_create) | **POST** /iam/workspaces | 
+*IamWorkspacesApi* | [**workspaces_controller_parcial_update**](docs/IamWorkspacesApi.md#workspaces_controller_parcial_update) | **PATCH** /iam/workspaces/{workspaceId} | 
 *MessageTokensApi* | [**message_tokens_controller_create_or_update_message_token**](docs/MessageTokensApi.md#message_tokens_controller_create_or_update_message_token) | **PUT** /workspaces/{workspaceId}/message-tokens | 
 *MessageTokensApi* | [**message_tokens_controller_get_workspace_message_tokens**](docs/MessageTokensApi.md#message_tokens_controller_get_workspace_message_tokens) | **GET** /workspaces/{workspaceId}/message-tokens | 
 *PluggyApi* | [**pluggy_controller_create**](docs/PluggyApi.md#pluggy_controller_create) | **POST** /pluggy/connect-token | 
@@ -132,10 +134,6 @@ Class | Method | HTTP request | Description
 *ReportsApi* | [**reports_controller_get_cards_outputs_by_category_report**](docs/ReportsApi.md#reports_controller_get_cards_outputs_by_category_report) | **GET** /workspaces/{workspaceId}/reports/cards/outputs-by-category | 
 *ReportsApi* | [**reports_controller_get_cash_flow_report**](docs/ReportsApi.md#reports_controller_get_cash_flow_report) | **GET** /workspaces/{workspaceId}/reports/accounts/cash-flow | 
 *ReportsApi* | [**reports_controller_get_financial_statement_report**](docs/ReportsApi.md#reports_controller_get_financial_statement_report) | **GET** /workspaces/{workspaceId}/reports/financial-statement | 
-*WorkspacesApi* | [**workspaces_controller_create**](docs/WorkspacesApi.md#workspaces_controller_create) | **POST** /workspaces | 
-*WorkspacesApi* | [**workspaces_controller_fetch_user_related_workspaces**](docs/WorkspacesApi.md#workspaces_controller_fetch_user_related_workspaces) | **GET** /workspaces/related-to-me | 
-*WorkspacesApi* | [**workspaces_controller_get**](docs/WorkspacesApi.md#workspaces_controller_get) | **GET** /workspaces/{workspaceId} | 
-*WorkspacesApi* | [**workspaces_controller_parcial_update**](docs/WorkspacesApi.md#workspaces_controller_parcial_update) | **PATCH** /workspaces/{workspaceId} | 
 
 
 ## Documentation For Models
@@ -204,13 +202,12 @@ Class | Method | HTTP request | Description
  - [SignUpWithEmailRequestDto](docs/SignUpWithEmailRequestDto.md)
  - [UpdateBankTransactionRequestDto](docs/UpdateBankTransactionRequestDto.md)
  - [UserEntity](docs/UserEntity.md)
- - [UserRelatedWorkspaceEntity](docs/UserRelatedWorkspaceEntity.md)
+ - [UserEntityWorkspacesInner](docs/UserEntityWorkspacesInner.md)
+ - [UserEntityWorkspacesInnerHybridSettings](docs/UserEntityWorkspacesInnerHybridSettings.md)
+ - [UserEntityWorkspacesInnerPersonalSettings](docs/UserEntityWorkspacesInnerPersonalSettings.md)
  - [VerifyEmailVerificationCodeRequestDto](docs/VerifyEmailVerificationCodeRequestDto.md)
  - [VerifyPhoneVerificationCodeRequestDto](docs/VerifyPhoneVerificationCodeRequestDto.md)
- - [WorkspaceCompanySettingsEntity](docs/WorkspaceCompanySettingsEntity.md)
  - [WorkspaceEntity](docs/WorkspaceEntity.md)
- - [WorkspaceHybridSettingsEntity](docs/WorkspaceHybridSettingsEntity.md)
- - [WorkspacePersonalSettingsEntity](docs/WorkspacePersonalSettingsEntity.md)
 
 
 <a id="documentation-for-authorization"></a>

@@ -25,9 +25,9 @@ from python_core_api_sdk.models.user_entity_workspaces_inner_personal_settings i
 from typing import Optional, Set
 from typing_extensions import Self
 
-class WorkspaceEntity(BaseModel):
+class UserEntityWorkspacesInner(BaseModel):
     """
-    WorkspaceEntity
+    UserEntityWorkspacesInner
     """ # noqa: E501
     id: StrictStr
     pretty_id: Annotated[str, Field(min_length=1, strict=True, max_length=256)] = Field(alias="prettyId")
@@ -74,7 +74,7 @@ class WorkspaceEntity(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of WorkspaceEntity from a JSON string"""
+        """Create an instance of UserEntityWorkspacesInner from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -138,7 +138,7 @@ class WorkspaceEntity(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of WorkspaceEntity from a dict"""
+        """Create an instance of UserEntityWorkspacesInner from a dict"""
         if obj is None:
             return None
 

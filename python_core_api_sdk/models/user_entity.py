@@ -17,9 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List
+from typing import Any, ClassVar, Dict, List, Optional
+from python_core_api_sdk.models.user_entity_workspaces_inner import UserEntityWorkspacesInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,10 +30,11 @@ class UserEntity(BaseModel):
     id: StrictStr
     email: StrictStr
     phone: StrictStr
-    password_hash: StrictStr = Field(alias="passwordHash")
+    password_hash: Optional[StrictStr] = Field(default=None, alias="passwordHash")
     is_root: StrictBool = Field(alias="isRoot")
-    created_at: datetime = Field(alias="createdAt")
-    __properties: ClassVar[List[str]] = ["id", "email", "phone", "passwordHash", "isRoot", "createdAt"]
+    workspaces: Optional[List[UserEntityWorkspacesInner]] = None
+    created_at: Optional[Any] = Field(alias="createdAt")
+    __properties: ClassVar[List[str]] = ["id", "email", "phone", "passwordHash", "isRoot", "workspaces", "createdAt"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,6 +75,28 @@ class UserEntity(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in workspaces (list)
+        _items = []
+        if self.workspaces:
+            for _item in self.workspaces:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['workspaces'] = _items
+        # set to None if password_hash (nullable) is None
+        # and model_fields_set contains the field
+        if self.password_hash is None and "password_hash" in self.model_fields_set:
+            _dict['passwordHash'] = None
+
+        # set to None if workspaces (nullable) is None
+        # and model_fields_set contains the field
+        if self.workspaces is None and "workspaces" in self.model_fields_set:
+            _dict['workspaces'] = None
+
+        # set to None if created_at (nullable) is None
+        # and model_fields_set contains the field
+        if self.created_at is None and "created_at" in self.model_fields_set:
+            _dict['createdAt'] = None
+
         return _dict
 
     @classmethod
@@ -91,6 +114,7 @@ class UserEntity(BaseModel):
             "phone": obj.get("phone"),
             "passwordHash": obj.get("passwordHash"),
             "isRoot": obj.get("isRoot"),
+            "workspaces": [UserEntityWorkspacesInner.from_dict(_item) for _item in obj["workspaces"]] if obj.get("workspaces") is not None else None,
             "createdAt": obj.get("createdAt")
         })
         return _obj

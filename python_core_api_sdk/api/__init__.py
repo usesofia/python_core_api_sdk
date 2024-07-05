@@ -8,8 +8,8 @@ from python_core_api_sdk.api.bank_transaction_tags_api import BankTransactionTag
 from python_core_api_sdk.api.bank_transactions_api import BankTransactionsApi
 from python_core_api_sdk.api.iam_auth_api import IamAuthApi
 from python_core_api_sdk.api.iam_profiles_api import IamProfilesApi
+from python_core_api_sdk.api.iam_workspaces_api import IamWorkspacesApi
 from python_core_api_sdk.api.message_tokens_api import MessageTokensApi
 from python_core_api_sdk.api.pluggy_api import PluggyApi
 from python_core_api_sdk.api.reports_api import ReportsApi
-from python_core_api_sdk.api.workspaces_api import WorkspacesApi
 

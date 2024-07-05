@@ -1,4 +1,4 @@
-# WorkspaceEntity
+# UserEntityWorkspacesInner
 
 
 ## Properties
@@ -20,19 +20,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from python_core_api_sdk.models.workspace_entity import WorkspaceEntity
+from python_core_api_sdk.models.user_entity_workspaces_inner import UserEntityWorkspacesInner
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of WorkspaceEntity from a JSON string
-workspace_entity_instance = WorkspaceEntity.from_json(json)
+# create an instance of UserEntityWorkspacesInner from a JSON string
+user_entity_workspaces_inner_instance = UserEntityWorkspacesInner.from_json(json)
 # print the JSON string representation of the object
-print(WorkspaceEntity.to_json())
+print(UserEntityWorkspacesInner.to_json())
 
 # convert the object into a dict
-workspace_entity_dict = workspace_entity_instance.to_dict()
-# create an instance of WorkspaceEntity from a dict
-workspace_entity_from_dict = WorkspaceEntity.from_dict(workspace_entity_dict)
+user_entity_workspaces_inner_dict = user_entity_workspaces_inner_instance.to_dict()
+# create an instance of UserEntityWorkspacesInner from a dict
+user_entity_workspaces_inner_from_dict = UserEntityWorkspacesInner.from_dict(user_entity_workspaces_inner_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
