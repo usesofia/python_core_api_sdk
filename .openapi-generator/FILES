@@ -65,6 +65,7 @@ docs/GenerateAndSendEmailVerificationCodeRequestDto.md
 docs/GenerateAndSendPhoneVerificationCodeRequestDto.md
 docs/GenerateEmailInUseReportRequestDto.md
 docs/GeneratePhoneInUseReportRequestDto.md
+docs/HelloApi.md
 docs/MeanResultEntity.md
 docs/MeanResultSubcategoryItemEntity.md
 docs/MessageTokenEntity.md
@@ -118,6 +119,7 @@ python_core_api_sdk/api/bank_transaction_tags_api.py
 python_core_api_sdk/api/bank_transactions_api.py
 python_core_api_sdk/api/bank_transactions_page_category_assigner_api.py
 python_core_api_sdk/api/bank_transactions_page_legal_nature_assigner_api.py
+python_core_api_sdk/api/hello_api.py
 python_core_api_sdk/api/message_tokens_api.py
 python_core_api_sdk/api/pluggy_api.py
 python_core_api_sdk/api/profiles_api.py
@@ -223,4 +225,5 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_hello_api.py
 tox.ini

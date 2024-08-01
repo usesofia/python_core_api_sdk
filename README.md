@@ -121,6 +121,7 @@ Class | Method | HTTP request | Description
 *BankTransactionsApi* | [**bank_transactions_controller_partial_update**](docs/BankTransactionsApi.md#bank_transactions_controller_partial_update) | **PATCH** /bank/transactions/{bankTransactionId} | 
 *BankTransactionsPageCategoryAssignerApi* | [**bank_transactions_page_category_assigner_controller_assign**](docs/BankTransactionsPageCategoryAssignerApi.md#bank_transactions_page_category_assigner_controller_assign) | **POST** /bank/transactions/page/category/assign | 
 *BankTransactionsPageLegalNatureAssignerApi* | [**bank_transactions_page_legal_nature_assigner_controller_assign**](docs/BankTransactionsPageLegalNatureAssignerApi.md#bank_transactions_page_legal_nature_assigner_controller_assign) | **POST** /bank/transactions/page/legal-nature/assign | 
+*HelloApi* | [**hello_controller_hello**](docs/HelloApi.md#hello_controller_hello) | **GET** /hello | 
 *MessageTokensApi* | [**message_tokens_controller_create_or_update**](docs/MessageTokensApi.md#message_tokens_controller_create_or_update) | **PUT** /communication/workspaces/{workspaceId}/message-tokens | 
 *MessageTokensApi* | [**message_tokens_controller_list_by_workspace_id**](docs/MessageTokensApi.md#message_tokens_controller_list_by_workspace_id) | **GET** /communication/workspaces/{workspaceId}/message-tokens | 
 *PluggyApi* | [**pluggy_controller_create_connect_token**](docs/PluggyApi.md#pluggy_controller_create_connect_token) | **POST** /pluggy/connect-tokens | 
