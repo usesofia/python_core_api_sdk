@@ -17,11 +17,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List
-from python_core_api_sdk.models.user_entity import UserEntity
-from python_core_api_sdk.models.workspace_entity import WorkspaceEntity
+from typing import Any, ClassVar, Dict, List, Optional
+from python_core_api_sdk.models.message_token_entity_user import MessageTokenEntityUser
+from python_core_api_sdk.models.message_token_entity_worksapce import MessageTokenEntityWorksapce
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,16 +30,16 @@ class MessageTokenEntity(BaseModel):
     """ # noqa: E501
     id: StrictStr
     workspace_id: StrictStr = Field(alias="workspaceId")
-    workspace: WorkspaceEntity
+    worksapce: Optional[MessageTokenEntityWorksapce] = None
     user_id: StrictStr = Field(alias="userId")
-    user: UserEntity
+    user: Optional[MessageTokenEntityUser] = None
     provider: StrictStr
     platform: StrictStr
     device_id: StrictStr = Field(alias="deviceId")
     token: StrictStr
-    created_at: datetime = Field(alias="createdAt")
-    updated_at: datetime = Field(alias="updatedAt")
-    __properties: ClassVar[List[str]] = ["id", "workspaceId", "workspace", "userId", "user", "provider", "platform", "deviceId", "token", "createdAt", "updatedAt"]
+    created_at: Optional[Any] = Field(alias="createdAt")
+    updated_at: Optional[Any] = Field(alias="updatedAt")
+    __properties: ClassVar[List[str]] = ["id", "workspaceId", "worksapce", "userId", "user", "provider", "platform", "deviceId", "token", "createdAt", "updatedAt"]
 
     @field_validator('provider')
     def provider_validate_enum(cls, value):
@@ -95,12 +94,32 @@ class MessageTokenEntity(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of workspace
-        if self.workspace:
-            _dict['workspace'] = self.workspace.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of worksapce
+        if self.worksapce:
+            _dict['worksapce'] = self.worksapce.to_dict()
         # override the default output from pydantic by calling `to_dict()` of user
         if self.user:
             _dict['user'] = self.user.to_dict()
+        # set to None if worksapce (nullable) is None
+        # and model_fields_set contains the field
+        if self.worksapce is None and "worksapce" in self.model_fields_set:
+            _dict['worksapce'] = None
+
+        # set to None if user (nullable) is None
+        # and model_fields_set contains the field
+        if self.user is None and "user" in self.model_fields_set:
+            _dict['user'] = None
+
+        # set to None if created_at (nullable) is None
+        # and model_fields_set contains the field
+        if self.created_at is None and "created_at" in self.model_fields_set:
+            _dict['createdAt'] = None
+
+        # set to None if updated_at (nullable) is None
+        # and model_fields_set contains the field
+        if self.updated_at is None and "updated_at" in self.model_fields_set:
+            _dict['updatedAt'] = None
+
         return _dict
 
     @classmethod
@@ -115,9 +134,9 @@ class MessageTokenEntity(BaseModel):
         _obj = cls.model_validate({
             "id": obj.get("id"),
             "workspaceId": obj.get("workspaceId"),
-            "workspace": WorkspaceEntity.from_dict(obj["workspace"]) if obj.get("workspace") is not None else None,
+            "worksapce": MessageTokenEntityWorksapce.from_dict(obj["worksapce"]) if obj.get("worksapce") is not None else None,
             "userId": obj.get("userId"),
-            "user": UserEntity.from_dict(obj["user"]) if obj.get("user") is not None else None,
+            "user": MessageTokenEntityUser.from_dict(obj["user"]) if obj.get("user") is not None else None,
             "provider": obj.get("provider"),
             "platform": obj.get("platform"),
             "deviceId": obj.get("deviceId"),

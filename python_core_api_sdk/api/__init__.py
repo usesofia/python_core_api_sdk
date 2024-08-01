@@ -1,15 +1,18 @@
 # flake8: noqa
 
 # import apis into api package
+from python_core_api_sdk.api.auth_api import AuthApi
 from python_core_api_sdk.api.bank_accounts_api import BankAccountsApi
 from python_core_api_sdk.api.bank_connections_api import BankConnectionsApi
+from python_core_api_sdk.api.bank_sync_api import BankSyncApi
 from python_core_api_sdk.api.bank_transaction_categories_api import BankTransactionCategoriesApi
 from python_core_api_sdk.api.bank_transaction_tags_api import BankTransactionTagsApi
 from python_core_api_sdk.api.bank_transactions_api import BankTransactionsApi
-from python_core_api_sdk.api.iam_auth_api import IamAuthApi
-from python_core_api_sdk.api.iam_profiles_api import IamProfilesApi
-from python_core_api_sdk.api.iam_workspaces_api import IamWorkspacesApi
+from python_core_api_sdk.api.bank_transactions_page_category_assigner_api import BankTransactionsPageCategoryAssignerApi
+from python_core_api_sdk.api.bank_transactions_page_legal_nature_assigner_api import BankTransactionsPageLegalNatureAssignerApi
 from python_core_api_sdk.api.message_tokens_api import MessageTokensApi
 from python_core_api_sdk.api.pluggy_api import PluggyApi
+from python_core_api_sdk.api.profiles_api import ProfilesApi
 from python_core_api_sdk.api.reports_api import ReportsApi
+from python_core_api_sdk.api.workspaces_api import WorkspacesApi
 

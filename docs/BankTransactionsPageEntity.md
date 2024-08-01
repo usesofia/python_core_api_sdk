@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**page_index** | **float** |  | 
-**page_size** | **float** |  | 
-**total_items** | **float** |  | 
-**total_pages** | **float** |  | 
-**items** | [**List[BankTransactionEntity]**](BankTransactionEntity.md) |  | 
+**page_index** | **int** |  | 
+**page_size** | **int** |  | 
+**total_items** | **int** |  | 
+**total_pages** | **int** |  | 
+**items** | [**List[BankTransactionsPageEntityItemsInner]**](BankTransactionsPageEntityItemsInner.md) |  | 
 
 ## Example
 

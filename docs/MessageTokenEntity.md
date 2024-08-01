@@ -7,15 +7,15 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
 **workspace_id** | **str** |  | 
-**workspace** | [**WorkspaceEntity**](WorkspaceEntity.md) |  | 
+**worksapce** | [**MessageTokenEntityWorksapce**](MessageTokenEntityWorksapce.md) |  | [optional] 
 **user_id** | **str** |  | 
-**user** | [**UserEntity**](UserEntity.md) |  | 
+**user** | [**MessageTokenEntityUser**](MessageTokenEntityUser.md) |  | [optional] 
 **provider** | **str** |  | 
 **platform** | **str** |  | 
 **device_id** | **str** |  | 
 **token** | **str** |  | 
-**created_at** | **datetime** |  | 
-**updated_at** | **datetime** |  | 
+**created_at** | **object** |  | 
+**updated_at** | **object** |  | 
 
 ## Example
 

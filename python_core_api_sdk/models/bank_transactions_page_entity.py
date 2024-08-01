@@ -17,9 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
-from typing import Any, ClassVar, Dict, List, Union
-from python_core_api_sdk.models.bank_transaction_entity import BankTransactionEntity
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from typing import Any, ClassVar, Dict, List
+from python_core_api_sdk.models.bank_transactions_page_entity_items_inner import BankTransactionsPageEntityItemsInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,11 +27,11 @@ class BankTransactionsPageEntity(BaseModel):
     """
     BankTransactionsPageEntity
     """ # noqa: E501
-    page_index: Union[StrictFloat, StrictInt] = Field(alias="pageIndex")
-    page_size: Union[StrictFloat, StrictInt] = Field(alias="pageSize")
-    total_items: Union[StrictFloat, StrictInt] = Field(alias="totalItems")
-    total_pages: Union[StrictFloat, StrictInt] = Field(alias="totalPages")
-    items: List[BankTransactionEntity]
+    page_index: StrictInt = Field(alias="pageIndex")
+    page_size: StrictInt = Field(alias="pageSize")
+    total_items: StrictInt = Field(alias="totalItems")
+    total_pages: StrictInt = Field(alias="totalPages")
+    items: List[BankTransactionsPageEntityItemsInner]
     __properties: ClassVar[List[str]] = ["pageIndex", "pageSize", "totalItems", "totalPages", "items"]
 
     model_config = ConfigDict(
@@ -96,7 +96,7 @@ class BankTransactionsPageEntity(BaseModel):
             "pageSize": obj.get("pageSize"),
             "totalItems": obj.get("totalItems"),
             "totalPages": obj.get("totalPages"),
-            "items": [BankTransactionEntity.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None
+            "items": [BankTransactionsPageEntityItemsInner.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None
         })
         return _obj
 

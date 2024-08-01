@@ -38,7 +38,7 @@ class PluggyApi:
 
 
     @validate_call
-    async def pluggy_controller_create(
+    async def pluggy_controller_create_connect_token(
         self,
         create_pluggy_connect_token_request_dto: CreatePluggyConnectTokenRequestDto,
         _request_timeout: Union[
@@ -54,7 +54,7 @@ class PluggyApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> PluggyConnectTokenEntity:
-        """pluggy_controller_create
+        """pluggy_controller_create_connect_token
 
 
         :param create_pluggy_connect_token_request_dto: (required)
@@ -81,7 +81,7 @@ class PluggyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._pluggy_controller_create_serialize(
+        _param = self._pluggy_controller_create_connect_token_serialize(
             create_pluggy_connect_token_request_dto=create_pluggy_connect_token_request_dto,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -104,7 +104,7 @@ class PluggyApi:
 
 
     @validate_call
-    async def pluggy_controller_create_with_http_info(
+    async def pluggy_controller_create_connect_token_with_http_info(
         self,
         create_pluggy_connect_token_request_dto: CreatePluggyConnectTokenRequestDto,
         _request_timeout: Union[
@@ -120,7 +120,7 @@ class PluggyApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[PluggyConnectTokenEntity]:
-        """pluggy_controller_create
+        """pluggy_controller_create_connect_token
 
 
         :param create_pluggy_connect_token_request_dto: (required)
@@ -147,7 +147,7 @@ class PluggyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._pluggy_controller_create_serialize(
+        _param = self._pluggy_controller_create_connect_token_serialize(
             create_pluggy_connect_token_request_dto=create_pluggy_connect_token_request_dto,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -170,7 +170,7 @@ class PluggyApi:
 
 
     @validate_call
-    async def pluggy_controller_create_without_preload_content(
+    async def pluggy_controller_create_connect_token_without_preload_content(
         self,
         create_pluggy_connect_token_request_dto: CreatePluggyConnectTokenRequestDto,
         _request_timeout: Union[
@@ -186,7 +186,7 @@ class PluggyApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """pluggy_controller_create
+        """pluggy_controller_create_connect_token
 
 
         :param create_pluggy_connect_token_request_dto: (required)
@@ -213,7 +213,7 @@ class PluggyApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._pluggy_controller_create_serialize(
+        _param = self._pluggy_controller_create_connect_token_serialize(
             create_pluggy_connect_token_request_dto=create_pluggy_connect_token_request_dto,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -231,7 +231,7 @@ class PluggyApi:
         return response_data.response
 
 
-    def _pluggy_controller_create_serialize(
+    def _pluggy_controller_create_connect_token_serialize(
         self,
         create_pluggy_connect_token_request_dto,
         _request_auth,
@@ -289,7 +289,7 @@ class PluggyApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/pluggy/connect-token',
+            resource_path='/pluggy/connect-tokens',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -354,7 +354,7 @@ class PluggyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
+            '201': None,
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -416,7 +416,7 @@ class PluggyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
+            '201': None,
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -478,7 +478,7 @@ class PluggyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
+            '201': None,
         }
         response_data = await self.api_client.call_api(
             *_param,

@@ -17,8 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Union
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,10 +31,24 @@ class CreateOrUpdateBankAccountRequestDto(BaseModel):
     provider_account_id: StrictStr = Field(alias="providerAccountId")
     type: StrictStr
     number: StrictStr
-    balance: Union[StrictFloat, StrictInt]
+    balance: StrictInt
     currency_code: StrictStr = Field(alias="currencyCode")
     name: StrictStr
     __properties: ClassVar[List[str]] = ["bankConnectionId", "provider", "providerAccountId", "type", "number", "balance", "currencyCode", "name"]
+
+    @field_validator('provider')
+    def provider_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['PLUGGY', 'SOFIA']):
+            raise ValueError("must be one of enum values ('PLUGGY', 'SOFIA')")
+        return value
+
+    @field_validator('type')
+    def type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['CHECKING', 'SAVINGS', 'CREDIT_CARD']):
+            raise ValueError("must be one of enum values ('CHECKING', 'SAVINGS', 'CREDIT_CARD')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

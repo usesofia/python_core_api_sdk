@@ -17,9 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from python_core_api_sdk.models.bank_transaction_category_plain_entity import BankTransactionCategoryPlainEntity
+from python_core_api_sdk.models.bank_transaction_category_entity_children_inner import BankTransactionCategoryEntityChildrenInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,11 +29,17 @@ class BankTransactionCategoryEntity(BaseModel):
     """ # noqa: E501
     id: StrictStr
     name: StrictStr
-    nature: StrictStr
+    direction_nature: StrictStr = Field(alias="directionNature")
     parent_id: Optional[StrictStr] = Field(default=None, alias="parentId")
-    path: List[BankTransactionCategoryPlainEntity]
-    children: List[BankTransactionCategoryPlainEntity]
-    __properties: ClassVar[List[str]] = ["id", "name", "nature", "parentId", "path", "children"]
+    children: List[BankTransactionCategoryEntityChildrenInner]
+    __properties: ClassVar[List[str]] = ["id", "name", "directionNature", "parentId", "children"]
+
+    @field_validator('direction_nature')
+    def direction_nature_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['CREDIT', 'DEBIT', 'UNDEFINED']):
+            raise ValueError("must be one of enum values ('CREDIT', 'DEBIT', 'UNDEFINED')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,13 +80,6 @@ class BankTransactionCategoryEntity(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in path (list)
-        _items = []
-        if self.path:
-            for _item in self.path:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['path'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in children (list)
         _items = []
         if self.children:
@@ -88,6 +87,11 @@ class BankTransactionCategoryEntity(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['children'] = _items
+        # set to None if parent_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.parent_id is None and "parent_id" in self.model_fields_set:
+            _dict['parentId'] = None
+
         return _dict
 
     @classmethod
@@ -102,10 +106,9 @@ class BankTransactionCategoryEntity(BaseModel):
         _obj = cls.model_validate({
             "id": obj.get("id"),
             "name": obj.get("name"),
-            "nature": obj.get("nature"),
+            "directionNature": obj.get("directionNature"),
             "parentId": obj.get("parentId"),
-            "path": [BankTransactionCategoryPlainEntity.from_dict(_item) for _item in obj["path"]] if obj.get("path") is not None else None,
-            "children": [BankTransactionCategoryPlainEntity.from_dict(_item) for _item in obj["children"]] if obj.get("children") is not None else None
+            "children": [BankTransactionCategoryEntityChildrenInner.from_dict(_item) for _item in obj["children"]] if obj.get("children") is not None else None
         })
         return _obj
 

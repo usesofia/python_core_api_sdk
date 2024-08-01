@@ -39,11 +39,11 @@ class BankTransactionCategoriesApi:
 
 
     @validate_call
-    async def bank_transaction_categories_controller_get_bank_transaction_categories(
+    async def bank_transaction_categories_controller_list(
         self,
         workspace_id: StrictStr,
         only_leafs: Optional[StrictBool] = None,
-        transaction_natures: Optional[StrictStr] = None,
+        direction_natures: Optional[StrictStr] = None,
         legal_natures: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -58,15 +58,15 @@ class BankTransactionCategoriesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[BankTransactionCategoryEntity]:
-        """bank_transaction_categories_controller_get_bank_transaction_categories
+        """bank_transaction_categories_controller_list
 
 
         :param workspace_id: (required)
         :type workspace_id: str
         :param only_leafs:
         :type only_leafs: bool
-        :param transaction_natures:
-        :type transaction_natures: str
+        :param direction_natures:
+        :type direction_natures: str
         :param legal_natures:
         :type legal_natures: str
         :param _request_timeout: timeout setting for this request. If one
@@ -91,10 +91,10 @@ class BankTransactionCategoriesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_transaction_categories_controller_get_bank_transaction_categories_serialize(
+        _param = self._bank_transaction_categories_controller_list_serialize(
             workspace_id=workspace_id,
             only_leafs=only_leafs,
-            transaction_natures=transaction_natures,
+            direction_natures=direction_natures,
             legal_natures=legal_natures,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -117,11 +117,11 @@ class BankTransactionCategoriesApi:
 
 
     @validate_call
-    async def bank_transaction_categories_controller_get_bank_transaction_categories_with_http_info(
+    async def bank_transaction_categories_controller_list_with_http_info(
         self,
         workspace_id: StrictStr,
         only_leafs: Optional[StrictBool] = None,
-        transaction_natures: Optional[StrictStr] = None,
+        direction_natures: Optional[StrictStr] = None,
         legal_natures: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -136,15 +136,15 @@ class BankTransactionCategoriesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[BankTransactionCategoryEntity]]:
-        """bank_transaction_categories_controller_get_bank_transaction_categories
+        """bank_transaction_categories_controller_list
 
 
         :param workspace_id: (required)
         :type workspace_id: str
         :param only_leafs:
         :type only_leafs: bool
-        :param transaction_natures:
-        :type transaction_natures: str
+        :param direction_natures:
+        :type direction_natures: str
         :param legal_natures:
         :type legal_natures: str
         :param _request_timeout: timeout setting for this request. If one
@@ -169,10 +169,10 @@ class BankTransactionCategoriesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_transaction_categories_controller_get_bank_transaction_categories_serialize(
+        _param = self._bank_transaction_categories_controller_list_serialize(
             workspace_id=workspace_id,
             only_leafs=only_leafs,
-            transaction_natures=transaction_natures,
+            direction_natures=direction_natures,
             legal_natures=legal_natures,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -195,11 +195,11 @@ class BankTransactionCategoriesApi:
 
 
     @validate_call
-    async def bank_transaction_categories_controller_get_bank_transaction_categories_without_preload_content(
+    async def bank_transaction_categories_controller_list_without_preload_content(
         self,
         workspace_id: StrictStr,
         only_leafs: Optional[StrictBool] = None,
-        transaction_natures: Optional[StrictStr] = None,
+        direction_natures: Optional[StrictStr] = None,
         legal_natures: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
@@ -214,15 +214,15 @@ class BankTransactionCategoriesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """bank_transaction_categories_controller_get_bank_transaction_categories
+        """bank_transaction_categories_controller_list
 
 
         :param workspace_id: (required)
         :type workspace_id: str
         :param only_leafs:
         :type only_leafs: bool
-        :param transaction_natures:
-        :type transaction_natures: str
+        :param direction_natures:
+        :type direction_natures: str
         :param legal_natures:
         :type legal_natures: str
         :param _request_timeout: timeout setting for this request. If one
@@ -247,10 +247,10 @@ class BankTransactionCategoriesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_transaction_categories_controller_get_bank_transaction_categories_serialize(
+        _param = self._bank_transaction_categories_controller_list_serialize(
             workspace_id=workspace_id,
             only_leafs=only_leafs,
-            transaction_natures=transaction_natures,
+            direction_natures=direction_natures,
             legal_natures=legal_natures,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -268,11 +268,11 @@ class BankTransactionCategoriesApi:
         return response_data.response
 
 
-    def _bank_transaction_categories_controller_get_bank_transaction_categories_serialize(
+    def _bank_transaction_categories_controller_list_serialize(
         self,
         workspace_id,
         only_leafs,
-        transaction_natures,
+        direction_natures,
         legal_natures,
         _request_auth,
         _content_type,
@@ -300,9 +300,9 @@ class BankTransactionCategoriesApi:
             
             _query_params.append(('onlyLeafs', only_leafs))
             
-        if transaction_natures is not None:
+        if direction_natures is not None:
             
-            _query_params.append(('transactionNatures', transaction_natures))
+            _query_params.append(('directionNatures', direction_natures))
             
         if legal_natures is not None:
             
@@ -328,7 +328,7 @@ class BankTransactionCategoriesApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/workspaces/{workspaceId}/bank/transactions/categories',
+            resource_path='/bank/workspaces/{workspaceId}/transaction-categories',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

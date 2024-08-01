@@ -4,12 +4,12 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**pluggy_controller_create**](PluggyApi.md#pluggy_controller_create) | **POST** /pluggy/connect-token | 
+[**pluggy_controller_create_connect_token**](PluggyApi.md#pluggy_controller_create_connect_token) | **POST** /pluggy/connect-tokens | 
 [**pluggy_controller_webhook**](PluggyApi.md#pluggy_controller_webhook) | **POST** /pluggy/webhook | 
 
 
-# **pluggy_controller_create**
-> PluggyConnectTokenEntity pluggy_controller_create(create_pluggy_connect_token_request_dto)
+# **pluggy_controller_create_connect_token**
+> PluggyConnectTokenEntity pluggy_controller_create_connect_token(create_pluggy_connect_token_request_dto)
 
 
 
@@ -37,11 +37,11 @@ async with python_core_api_sdk.ApiClient(configuration) as api_client:
     create_pluggy_connect_token_request_dto = python_core_api_sdk.CreatePluggyConnectTokenRequestDto() # CreatePluggyConnectTokenRequestDto | 
 
     try:
-        api_response = await api_instance.pluggy_controller_create(create_pluggy_connect_token_request_dto)
-        print("The response of PluggyApi->pluggy_controller_create:\n")
+        api_response = await api_instance.pluggy_controller_create_connect_token(create_pluggy_connect_token_request_dto)
+        print("The response of PluggyApi->pluggy_controller_create_connect_token:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling PluggyApi->pluggy_controller_create: %s\n" % e)
+        print("Exception when calling PluggyApi->pluggy_controller_create_connect_token: %s\n" % e)
 ```
 
 
@@ -129,7 +129,7 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** |  |  -  |
+**201** |  |  -  |
 **0** |  |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

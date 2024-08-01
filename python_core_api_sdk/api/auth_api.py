@@ -16,14 +16,18 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from python_core_api_sdk.models.check_email_in_use_request_dto import CheckEmailInUseRequestDto
 from python_core_api_sdk.models.credentials_entity import CredentialsEntity
-from python_core_api_sdk.models.email_in_use_entity import EmailInUseEntity
+from python_core_api_sdk.models.email_in_use_report_entity import EmailInUseReportEntity
+from python_core_api_sdk.models.generate_and_send_email_verification_code_request_dto import GenerateAndSendEmailVerificationCodeRequestDto
+from python_core_api_sdk.models.generate_and_send_phone_verification_code_request_dto import GenerateAndSendPhoneVerificationCodeRequestDto
+from python_core_api_sdk.models.generate_email_in_use_report_request_dto import GenerateEmailInUseReportRequestDto
+from python_core_api_sdk.models.generate_phone_in_use_report_request_dto import GeneratePhoneInUseReportRequestDto
 from python_core_api_sdk.models.refresh_request_dto import RefreshRequestDto
-from python_core_api_sdk.models.send_email_verification_code_request_dto import SendEmailVerificationCodeRequestDto
-from python_core_api_sdk.models.sign_in_with_email_password_request_dto import SignInWithEmailPasswordRequestDto
-from python_core_api_sdk.models.sign_up_with_email_password_request_dto import SignUpWithEmailPasswordRequestDto
+from python_core_api_sdk.models.sign_in_with_email_request_dto import SignInWithEmailRequestDto
+from python_core_api_sdk.models.sign_up_with_email_request_dto import SignUpWithEmailRequestDto
 from python_core_api_sdk.models.user_entity import UserEntity
+from python_core_api_sdk.models.verify_email_verification_code_request_dto import VerifyEmailVerificationCodeRequestDto
+from python_core_api_sdk.models.verify_phone_verification_code_request_dto import VerifyPhoneVerificationCodeRequestDto
 
 from python_core_api_sdk.api_client import ApiClient, RequestSerialized
 from python_core_api_sdk.api_response import ApiResponse
@@ -44,9 +48,9 @@ class AuthApi:
 
 
     @validate_call
-    async def auth_controller_check_email_in_use(
+    async def auth_controller_generate_and_send_email_verification_code(
         self,
-        check_email_in_use_request_dto: CheckEmailInUseRequestDto,
+        generate_and_send_email_verification_code_request_dto: GenerateAndSendEmailVerificationCodeRequestDto,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -59,12 +63,12 @@ class AuthApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> EmailInUseEntity:
-        """auth_controller_check_email_in_use
+    ) -> None:
+        """auth_controller_generate_and_send_email_verification_code
 
 
-        :param check_email_in_use_request_dto: (required)
-        :type check_email_in_use_request_dto: CheckEmailInUseRequestDto
+        :param generate_and_send_email_verification_code_request_dto: (required)
+        :type generate_and_send_email_verification_code_request_dto: GenerateAndSendEmailVerificationCodeRequestDto
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -87,8 +91,8 @@ class AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._auth_controller_check_email_in_use_serialize(
-            check_email_in_use_request_dto=check_email_in_use_request_dto,
+        _param = self._auth_controller_generate_and_send_email_verification_code_serialize(
+            generate_and_send_email_verification_code_request_dto=generate_and_send_email_verification_code_request_dto,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -96,7 +100,7 @@ class AuthApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "EmailInUseEntity",
+            '201': None,
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -110,9 +114,9 @@ class AuthApi:
 
 
     @validate_call
-    async def auth_controller_check_email_in_use_with_http_info(
+    async def auth_controller_generate_and_send_email_verification_code_with_http_info(
         self,
-        check_email_in_use_request_dto: CheckEmailInUseRequestDto,
+        generate_and_send_email_verification_code_request_dto: GenerateAndSendEmailVerificationCodeRequestDto,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -125,12 +129,12 @@ class AuthApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[EmailInUseEntity]:
-        """auth_controller_check_email_in_use
+    ) -> ApiResponse[None]:
+        """auth_controller_generate_and_send_email_verification_code
 
 
-        :param check_email_in_use_request_dto: (required)
-        :type check_email_in_use_request_dto: CheckEmailInUseRequestDto
+        :param generate_and_send_email_verification_code_request_dto: (required)
+        :type generate_and_send_email_verification_code_request_dto: GenerateAndSendEmailVerificationCodeRequestDto
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -153,8 +157,8 @@ class AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._auth_controller_check_email_in_use_serialize(
-            check_email_in_use_request_dto=check_email_in_use_request_dto,
+        _param = self._auth_controller_generate_and_send_email_verification_code_serialize(
+            generate_and_send_email_verification_code_request_dto=generate_and_send_email_verification_code_request_dto,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -162,7 +166,7 @@ class AuthApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "EmailInUseEntity",
+            '201': None,
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -176,9 +180,9 @@ class AuthApi:
 
 
     @validate_call
-    async def auth_controller_check_email_in_use_without_preload_content(
+    async def auth_controller_generate_and_send_email_verification_code_without_preload_content(
         self,
-        check_email_in_use_request_dto: CheckEmailInUseRequestDto,
+        generate_and_send_email_verification_code_request_dto: GenerateAndSendEmailVerificationCodeRequestDto,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -192,11 +196,11 @@ class AuthApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """auth_controller_check_email_in_use
+        """auth_controller_generate_and_send_email_verification_code
 
 
-        :param check_email_in_use_request_dto: (required)
-        :type check_email_in_use_request_dto: CheckEmailInUseRequestDto
+        :param generate_and_send_email_verification_code_request_dto: (required)
+        :type generate_and_send_email_verification_code_request_dto: GenerateAndSendEmailVerificationCodeRequestDto
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -219,8 +223,8 @@ class AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._auth_controller_check_email_in_use_serialize(
-            check_email_in_use_request_dto=check_email_in_use_request_dto,
+        _param = self._auth_controller_generate_and_send_email_verification_code_serialize(
+            generate_and_send_email_verification_code_request_dto=generate_and_send_email_verification_code_request_dto,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -228,7 +232,7 @@ class AuthApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "EmailInUseEntity",
+            '201': None,
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -237,9 +241,9 @@ class AuthApi:
         return response_data.response
 
 
-    def _auth_controller_check_email_in_use_serialize(
+    def _auth_controller_generate_and_send_email_verification_code_serialize(
         self,
-        check_email_in_use_request_dto,
+        generate_and_send_email_verification_code_request_dto,
         _request_auth,
         _content_type,
         _headers,
@@ -263,16 +267,17 @@ class AuthApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if check_email_in_use_request_dto is not None:
-            _body_params = check_email_in_use_request_dto
+        if generate_and_send_email_verification_code_request_dto is not None:
+            _body_params = generate_and_send_email_verification_code_request_dto
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -294,7 +299,1051 @@ class AuthApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/auth/check-email-in-use',
+            resource_path='/iam/auth/email-verification-code',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def auth_controller_generate_and_send_phone_verification_code(
+        self,
+        generate_and_send_phone_verification_code_request_dto: GenerateAndSendPhoneVerificationCodeRequestDto,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> None:
+        """auth_controller_generate_and_send_phone_verification_code
+
+
+        :param generate_and_send_phone_verification_code_request_dto: (required)
+        :type generate_and_send_phone_verification_code_request_dto: GenerateAndSendPhoneVerificationCodeRequestDto
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._auth_controller_generate_and_send_phone_verification_code_serialize(
+            generate_and_send_phone_verification_code_request_dto=generate_and_send_phone_verification_code_request_dto,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def auth_controller_generate_and_send_phone_verification_code_with_http_info(
+        self,
+        generate_and_send_phone_verification_code_request_dto: GenerateAndSendPhoneVerificationCodeRequestDto,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[None]:
+        """auth_controller_generate_and_send_phone_verification_code
+
+
+        :param generate_and_send_phone_verification_code_request_dto: (required)
+        :type generate_and_send_phone_verification_code_request_dto: GenerateAndSendPhoneVerificationCodeRequestDto
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._auth_controller_generate_and_send_phone_verification_code_serialize(
+            generate_and_send_phone_verification_code_request_dto=generate_and_send_phone_verification_code_request_dto,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def auth_controller_generate_and_send_phone_verification_code_without_preload_content(
+        self,
+        generate_and_send_phone_verification_code_request_dto: GenerateAndSendPhoneVerificationCodeRequestDto,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """auth_controller_generate_and_send_phone_verification_code
+
+
+        :param generate_and_send_phone_verification_code_request_dto: (required)
+        :type generate_and_send_phone_verification_code_request_dto: GenerateAndSendPhoneVerificationCodeRequestDto
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._auth_controller_generate_and_send_phone_verification_code_serialize(
+            generate_and_send_phone_verification_code_request_dto=generate_and_send_phone_verification_code_request_dto,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _auth_controller_generate_and_send_phone_verification_code_serialize(
+        self,
+        generate_and_send_phone_verification_code_request_dto,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if generate_and_send_phone_verification_code_request_dto is not None:
+            _body_params = generate_and_send_phone_verification_code_request_dto
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/iam/auth/phone-verification-code',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def auth_controller_generate_email_in_use_report(
+        self,
+        generate_email_in_use_report_request_dto: GenerateEmailInUseReportRequestDto,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EmailInUseReportEntity:
+        """auth_controller_generate_email_in_use_report
+
+
+        :param generate_email_in_use_report_request_dto: (required)
+        :type generate_email_in_use_report_request_dto: GenerateEmailInUseReportRequestDto
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._auth_controller_generate_email_in_use_report_serialize(
+            generate_email_in_use_report_request_dto=generate_email_in_use_report_request_dto,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "EmailInUseReportEntity",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def auth_controller_generate_email_in_use_report_with_http_info(
+        self,
+        generate_email_in_use_report_request_dto: GenerateEmailInUseReportRequestDto,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EmailInUseReportEntity]:
+        """auth_controller_generate_email_in_use_report
+
+
+        :param generate_email_in_use_report_request_dto: (required)
+        :type generate_email_in_use_report_request_dto: GenerateEmailInUseReportRequestDto
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._auth_controller_generate_email_in_use_report_serialize(
+            generate_email_in_use_report_request_dto=generate_email_in_use_report_request_dto,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "EmailInUseReportEntity",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def auth_controller_generate_email_in_use_report_without_preload_content(
+        self,
+        generate_email_in_use_report_request_dto: GenerateEmailInUseReportRequestDto,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """auth_controller_generate_email_in_use_report
+
+
+        :param generate_email_in_use_report_request_dto: (required)
+        :type generate_email_in_use_report_request_dto: GenerateEmailInUseReportRequestDto
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._auth_controller_generate_email_in_use_report_serialize(
+            generate_email_in_use_report_request_dto=generate_email_in_use_report_request_dto,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "EmailInUseReportEntity",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _auth_controller_generate_email_in_use_report_serialize(
+        self,
+        generate_email_in_use_report_request_dto,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if generate_email_in_use_report_request_dto is not None:
+            _body_params = generate_email_in_use_report_request_dto
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/iam/auth/email-in-use',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def auth_controller_generate_phone_in_use_report(
+        self,
+        generate_phone_in_use_report_request_dto: GeneratePhoneInUseReportRequestDto,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> EmailInUseReportEntity:
+        """auth_controller_generate_phone_in_use_report
+
+
+        :param generate_phone_in_use_report_request_dto: (required)
+        :type generate_phone_in_use_report_request_dto: GeneratePhoneInUseReportRequestDto
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._auth_controller_generate_phone_in_use_report_serialize(
+            generate_phone_in_use_report_request_dto=generate_phone_in_use_report_request_dto,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "EmailInUseReportEntity",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def auth_controller_generate_phone_in_use_report_with_http_info(
+        self,
+        generate_phone_in_use_report_request_dto: GeneratePhoneInUseReportRequestDto,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[EmailInUseReportEntity]:
+        """auth_controller_generate_phone_in_use_report
+
+
+        :param generate_phone_in_use_report_request_dto: (required)
+        :type generate_phone_in_use_report_request_dto: GeneratePhoneInUseReportRequestDto
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._auth_controller_generate_phone_in_use_report_serialize(
+            generate_phone_in_use_report_request_dto=generate_phone_in_use_report_request_dto,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "EmailInUseReportEntity",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def auth_controller_generate_phone_in_use_report_without_preload_content(
+        self,
+        generate_phone_in_use_report_request_dto: GeneratePhoneInUseReportRequestDto,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """auth_controller_generate_phone_in_use_report
+
+
+        :param generate_phone_in_use_report_request_dto: (required)
+        :type generate_phone_in_use_report_request_dto: GeneratePhoneInUseReportRequestDto
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._auth_controller_generate_phone_in_use_report_serialize(
+            generate_phone_in_use_report_request_dto=generate_phone_in_use_report_request_dto,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': "EmailInUseReportEntity",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _auth_controller_generate_phone_in_use_report_serialize(
+        self,
+        generate_phone_in_use_report_request_dto,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if generate_phone_in_use_report_request_dto is not None:
+            _body_params = generate_phone_in_use_report_request_dto
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/iam/auth/phone-in-use',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def auth_controller_get_me(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> UserEntity:
+        """auth_controller_get_me
+
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._auth_controller_get_me_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "UserEntity",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def auth_controller_get_me_with_http_info(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[UserEntity]:
+        """auth_controller_get_me
+
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._auth_controller_get_me_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "UserEntity",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def auth_controller_get_me_without_preload_content(
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """auth_controller_get_me
+
+
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._auth_controller_get_me_serialize(
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "UserEntity",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _auth_controller_get_me_serialize(
+        self,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/iam/auth/me',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -535,11 +1584,12 @@ class AuthApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -561,7 +1611,7 @@ class AuthApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/auth/refresh',
+            resource_path='/iam/auth/refresh',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -578,276 +1628,9 @@ class AuthApi:
 
 
     @validate_call
-    async def auth_controller_send_email_verification_code(
+    async def auth_controller_sign_in_with_email(
         self,
-        send_email_verification_code_request_dto: SendEmailVerificationCodeRequestDto,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> None:
-        """auth_controller_send_email_verification_code
-
-
-        :param send_email_verification_code_request_dto: (required)
-        :type send_email_verification_code_request_dto: SendEmailVerificationCodeRequestDto
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._auth_controller_send_email_verification_code_serialize(
-            send_email_verification_code_request_dto=send_email_verification_code_request_dto,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': None,
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def auth_controller_send_email_verification_code_with_http_info(
-        self,
-        send_email_verification_code_request_dto: SendEmailVerificationCodeRequestDto,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[None]:
-        """auth_controller_send_email_verification_code
-
-
-        :param send_email_verification_code_request_dto: (required)
-        :type send_email_verification_code_request_dto: SendEmailVerificationCodeRequestDto
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._auth_controller_send_email_verification_code_serialize(
-            send_email_verification_code_request_dto=send_email_verification_code_request_dto,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': None,
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def auth_controller_send_email_verification_code_without_preload_content(
-        self,
-        send_email_verification_code_request_dto: SendEmailVerificationCodeRequestDto,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """auth_controller_send_email_verification_code
-
-
-        :param send_email_verification_code_request_dto: (required)
-        :type send_email_verification_code_request_dto: SendEmailVerificationCodeRequestDto
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._auth_controller_send_email_verification_code_serialize(
-            send_email_verification_code_request_dto=send_email_verification_code_request_dto,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '201': None,
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _auth_controller_send_email_verification_code_serialize(
-        self,
-        send_email_verification_code_request_dto,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if send_email_verification_code_request_dto is not None:
-            _body_params = send_email_verification_code_request_dto
-
-
-        # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/auth/sign-up/email-verification-code',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def auth_controller_sign_in_with_email_password(
-        self,
-        sign_in_with_email_password_request_dto: SignInWithEmailPasswordRequestDto,
+        sign_in_with_email_request_dto: SignInWithEmailRequestDto,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -861,11 +1644,11 @@ class AuthApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> CredentialsEntity:
-        """auth_controller_sign_in_with_email_password
+        """auth_controller_sign_in_with_email
 
 
-        :param sign_in_with_email_password_request_dto: (required)
-        :type sign_in_with_email_password_request_dto: SignInWithEmailPasswordRequestDto
+        :param sign_in_with_email_request_dto: (required)
+        :type sign_in_with_email_request_dto: SignInWithEmailRequestDto
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -888,8 +1671,8 @@ class AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._auth_controller_sign_in_with_email_password_serialize(
-            sign_in_with_email_password_request_dto=sign_in_with_email_password_request_dto,
+        _param = self._auth_controller_sign_in_with_email_serialize(
+            sign_in_with_email_request_dto=sign_in_with_email_request_dto,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -911,9 +1694,9 @@ class AuthApi:
 
 
     @validate_call
-    async def auth_controller_sign_in_with_email_password_with_http_info(
+    async def auth_controller_sign_in_with_email_with_http_info(
         self,
-        sign_in_with_email_password_request_dto: SignInWithEmailPasswordRequestDto,
+        sign_in_with_email_request_dto: SignInWithEmailRequestDto,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -927,11 +1710,11 @@ class AuthApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[CredentialsEntity]:
-        """auth_controller_sign_in_with_email_password
+        """auth_controller_sign_in_with_email
 
 
-        :param sign_in_with_email_password_request_dto: (required)
-        :type sign_in_with_email_password_request_dto: SignInWithEmailPasswordRequestDto
+        :param sign_in_with_email_request_dto: (required)
+        :type sign_in_with_email_request_dto: SignInWithEmailRequestDto
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -954,8 +1737,8 @@ class AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._auth_controller_sign_in_with_email_password_serialize(
-            sign_in_with_email_password_request_dto=sign_in_with_email_password_request_dto,
+        _param = self._auth_controller_sign_in_with_email_serialize(
+            sign_in_with_email_request_dto=sign_in_with_email_request_dto,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -977,9 +1760,9 @@ class AuthApi:
 
 
     @validate_call
-    async def auth_controller_sign_in_with_email_password_without_preload_content(
+    async def auth_controller_sign_in_with_email_without_preload_content(
         self,
-        sign_in_with_email_password_request_dto: SignInWithEmailPasswordRequestDto,
+        sign_in_with_email_request_dto: SignInWithEmailRequestDto,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -993,11 +1776,11 @@ class AuthApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """auth_controller_sign_in_with_email_password
+        """auth_controller_sign_in_with_email
 
 
-        :param sign_in_with_email_password_request_dto: (required)
-        :type sign_in_with_email_password_request_dto: SignInWithEmailPasswordRequestDto
+        :param sign_in_with_email_request_dto: (required)
+        :type sign_in_with_email_request_dto: SignInWithEmailRequestDto
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1020,8 +1803,8 @@ class AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._auth_controller_sign_in_with_email_password_serialize(
-            sign_in_with_email_password_request_dto=sign_in_with_email_password_request_dto,
+        _param = self._auth_controller_sign_in_with_email_serialize(
+            sign_in_with_email_request_dto=sign_in_with_email_request_dto,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1038,9 +1821,9 @@ class AuthApi:
         return response_data.response
 
 
-    def _auth_controller_sign_in_with_email_password_serialize(
+    def _auth_controller_sign_in_with_email_serialize(
         self,
-        sign_in_with_email_password_request_dto,
+        sign_in_with_email_request_dto,
         _request_auth,
         _content_type,
         _headers,
@@ -1064,16 +1847,17 @@ class AuthApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if sign_in_with_email_password_request_dto is not None:
-            _body_params = sign_in_with_email_password_request_dto
+        if sign_in_with_email_request_dto is not None:
+            _body_params = sign_in_with_email_request_dto
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -1095,7 +1879,7 @@ class AuthApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/auth/sign-in/email-password',
+            resource_path='/iam/auth/sign-in/email',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1112,9 +1896,9 @@ class AuthApi:
 
 
     @validate_call
-    async def auth_controller_sign_up_with_email_password(
+    async def auth_controller_sign_up_with_email(
         self,
-        sign_up_with_email_password_request_dto: SignUpWithEmailPasswordRequestDto,
+        sign_up_with_email_request_dto: SignUpWithEmailRequestDto,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1128,11 +1912,11 @@ class AuthApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> UserEntity:
-        """auth_controller_sign_up_with_email_password
+        """auth_controller_sign_up_with_email
 
 
-        :param sign_up_with_email_password_request_dto: (required)
-        :type sign_up_with_email_password_request_dto: SignUpWithEmailPasswordRequestDto
+        :param sign_up_with_email_request_dto: (required)
+        :type sign_up_with_email_request_dto: SignUpWithEmailRequestDto
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1155,8 +1939,8 @@ class AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._auth_controller_sign_up_with_email_password_serialize(
-            sign_up_with_email_password_request_dto=sign_up_with_email_password_request_dto,
+        _param = self._auth_controller_sign_up_with_email_serialize(
+            sign_up_with_email_request_dto=sign_up_with_email_request_dto,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1178,9 +1962,9 @@ class AuthApi:
 
 
     @validate_call
-    async def auth_controller_sign_up_with_email_password_with_http_info(
+    async def auth_controller_sign_up_with_email_with_http_info(
         self,
-        sign_up_with_email_password_request_dto: SignUpWithEmailPasswordRequestDto,
+        sign_up_with_email_request_dto: SignUpWithEmailRequestDto,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1194,11 +1978,11 @@ class AuthApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[UserEntity]:
-        """auth_controller_sign_up_with_email_password
+        """auth_controller_sign_up_with_email
 
 
-        :param sign_up_with_email_password_request_dto: (required)
-        :type sign_up_with_email_password_request_dto: SignUpWithEmailPasswordRequestDto
+        :param sign_up_with_email_request_dto: (required)
+        :type sign_up_with_email_request_dto: SignUpWithEmailRequestDto
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1221,8 +2005,8 @@ class AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._auth_controller_sign_up_with_email_password_serialize(
-            sign_up_with_email_password_request_dto=sign_up_with_email_password_request_dto,
+        _param = self._auth_controller_sign_up_with_email_serialize(
+            sign_up_with_email_request_dto=sign_up_with_email_request_dto,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1244,9 +2028,9 @@ class AuthApi:
 
 
     @validate_call
-    async def auth_controller_sign_up_with_email_password_without_preload_content(
+    async def auth_controller_sign_up_with_email_without_preload_content(
         self,
-        sign_up_with_email_password_request_dto: SignUpWithEmailPasswordRequestDto,
+        sign_up_with_email_request_dto: SignUpWithEmailRequestDto,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1260,11 +2044,11 @@ class AuthApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """auth_controller_sign_up_with_email_password
+        """auth_controller_sign_up_with_email
 
 
-        :param sign_up_with_email_password_request_dto: (required)
-        :type sign_up_with_email_password_request_dto: SignUpWithEmailPasswordRequestDto
+        :param sign_up_with_email_request_dto: (required)
+        :type sign_up_with_email_request_dto: SignUpWithEmailRequestDto
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1287,8 +2071,8 @@ class AuthApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._auth_controller_sign_up_with_email_password_serialize(
-            sign_up_with_email_password_request_dto=sign_up_with_email_password_request_dto,
+        _param = self._auth_controller_sign_up_with_email_serialize(
+            sign_up_with_email_request_dto=sign_up_with_email_request_dto,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1305,9 +2089,9 @@ class AuthApi:
         return response_data.response
 
 
-    def _auth_controller_sign_up_with_email_password_serialize(
+    def _auth_controller_sign_up_with_email_serialize(
         self,
-        sign_up_with_email_password_request_dto,
+        sign_up_with_email_request_dto,
         _request_auth,
         _content_type,
         _headers,
@@ -1331,16 +2115,17 @@ class AuthApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if sign_up_with_email_password_request_dto is not None:
-            _body_params = sign_up_with_email_password_request_dto
+        if sign_up_with_email_request_dto is not None:
+            _body_params = sign_up_with_email_request_dto
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -1362,7 +2147,543 @@ class AuthApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/auth/sign-up/email-password',
+            resource_path='/iam/auth/sign-up/email',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def auth_controller_verify_email_verification_code(
+        self,
+        verify_email_verification_code_request_dto: VerifyEmailVerificationCodeRequestDto,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> None:
+        """auth_controller_verify_email_verification_code
+
+
+        :param verify_email_verification_code_request_dto: (required)
+        :type verify_email_verification_code_request_dto: VerifyEmailVerificationCodeRequestDto
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._auth_controller_verify_email_verification_code_serialize(
+            verify_email_verification_code_request_dto=verify_email_verification_code_request_dto,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def auth_controller_verify_email_verification_code_with_http_info(
+        self,
+        verify_email_verification_code_request_dto: VerifyEmailVerificationCodeRequestDto,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[None]:
+        """auth_controller_verify_email_verification_code
+
+
+        :param verify_email_verification_code_request_dto: (required)
+        :type verify_email_verification_code_request_dto: VerifyEmailVerificationCodeRequestDto
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._auth_controller_verify_email_verification_code_serialize(
+            verify_email_verification_code_request_dto=verify_email_verification_code_request_dto,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def auth_controller_verify_email_verification_code_without_preload_content(
+        self,
+        verify_email_verification_code_request_dto: VerifyEmailVerificationCodeRequestDto,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """auth_controller_verify_email_verification_code
+
+
+        :param verify_email_verification_code_request_dto: (required)
+        :type verify_email_verification_code_request_dto: VerifyEmailVerificationCodeRequestDto
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._auth_controller_verify_email_verification_code_serialize(
+            verify_email_verification_code_request_dto=verify_email_verification_code_request_dto,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _auth_controller_verify_email_verification_code_serialize(
+        self,
+        verify_email_verification_code_request_dto,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if verify_email_verification_code_request_dto is not None:
+            _body_params = verify_email_verification_code_request_dto
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/iam/auth/email-verification-code/verify',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def auth_controller_verify_phone_verification_code(
+        self,
+        verify_phone_verification_code_request_dto: VerifyPhoneVerificationCodeRequestDto,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> None:
+        """auth_controller_verify_phone_verification_code
+
+
+        :param verify_phone_verification_code_request_dto: (required)
+        :type verify_phone_verification_code_request_dto: VerifyPhoneVerificationCodeRequestDto
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._auth_controller_verify_phone_verification_code_serialize(
+            verify_phone_verification_code_request_dto=verify_phone_verification_code_request_dto,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def auth_controller_verify_phone_verification_code_with_http_info(
+        self,
+        verify_phone_verification_code_request_dto: VerifyPhoneVerificationCodeRequestDto,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[None]:
+        """auth_controller_verify_phone_verification_code
+
+
+        :param verify_phone_verification_code_request_dto: (required)
+        :type verify_phone_verification_code_request_dto: VerifyPhoneVerificationCodeRequestDto
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._auth_controller_verify_phone_verification_code_serialize(
+            verify_phone_verification_code_request_dto=verify_phone_verification_code_request_dto,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def auth_controller_verify_phone_verification_code_without_preload_content(
+        self,
+        verify_phone_verification_code_request_dto: VerifyPhoneVerificationCodeRequestDto,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """auth_controller_verify_phone_verification_code
+
+
+        :param verify_phone_verification_code_request_dto: (required)
+        :type verify_phone_verification_code_request_dto: VerifyPhoneVerificationCodeRequestDto
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._auth_controller_verify_phone_verification_code_serialize(
+            verify_phone_verification_code_request_dto=verify_phone_verification_code_request_dto,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '201': None,
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _auth_controller_verify_phone_verification_code_serialize(
+        self,
+        verify_phone_verification_code_request_dto,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if verify_phone_verification_code_request_dto is not None:
+            _body_params = verify_phone_verification_code_request_dto
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/iam/auth/phone-verification-code/verify',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

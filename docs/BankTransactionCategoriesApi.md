@@ -4,11 +4,11 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**bank_transaction_categories_controller_get_bank_transaction_categories**](BankTransactionCategoriesApi.md#bank_transaction_categories_controller_get_bank_transaction_categories) | **GET** /workspaces/{workspaceId}/bank/transactions/categories | 
+[**bank_transaction_categories_controller_list**](BankTransactionCategoriesApi.md#bank_transaction_categories_controller_list) | **GET** /bank/workspaces/{workspaceId}/transaction-categories | 
 
 
-# **bank_transaction_categories_controller_get_bank_transaction_categories**
-> List[BankTransactionCategoryEntity] bank_transaction_categories_controller_get_bank_transaction_categories(workspace_id, only_leafs=only_leafs, transaction_natures=transaction_natures, legal_natures=legal_natures)
+# **bank_transaction_categories_controller_list**
+> List[BankTransactionCategoryEntity] bank_transaction_categories_controller_list(workspace_id, only_leafs=only_leafs, direction_natures=direction_natures, legal_natures=legal_natures)
 
 
 
@@ -34,15 +34,15 @@ async with python_core_api_sdk.ApiClient(configuration) as api_client:
     api_instance = python_core_api_sdk.BankTransactionCategoriesApi(api_client)
     workspace_id = 'workspace_id_example' # str | 
     only_leafs = True # bool |  (optional)
-    transaction_natures = 'transaction_natures_example' # str |  (optional)
+    direction_natures = 'direction_natures_example' # str |  (optional)
     legal_natures = 'legal_natures_example' # str |  (optional)
 
     try:
-        api_response = await api_instance.bank_transaction_categories_controller_get_bank_transaction_categories(workspace_id, only_leafs=only_leafs, transaction_natures=transaction_natures, legal_natures=legal_natures)
-        print("The response of BankTransactionCategoriesApi->bank_transaction_categories_controller_get_bank_transaction_categories:\n")
+        api_response = await api_instance.bank_transaction_categories_controller_list(workspace_id, only_leafs=only_leafs, direction_natures=direction_natures, legal_natures=legal_natures)
+        print("The response of BankTransactionCategoriesApi->bank_transaction_categories_controller_list:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling BankTransactionCategoriesApi->bank_transaction_categories_controller_get_bank_transaction_categories: %s\n" % e)
+        print("Exception when calling BankTransactionCategoriesApi->bank_transaction_categories_controller_list: %s\n" % e)
 ```
 
 
@@ -54,7 +54,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **workspace_id** | **str**|  | 
  **only_leafs** | **bool**|  | [optional] 
- **transaction_natures** | **str**|  | [optional] 
+ **direction_natures** | **str**|  | [optional] 
  **legal_natures** | **str**|  | [optional] 
 
 ### Return type

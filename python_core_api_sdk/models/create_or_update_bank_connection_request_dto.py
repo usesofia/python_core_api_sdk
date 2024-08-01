@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -32,6 +32,20 @@ class CreateOrUpdateBankConnectionRequestDto(BaseModel):
     provider_connector_id: StrictStr = Field(alias="providerConnectorId")
     history_range: StrictStr = Field(alias="historyRange")
     __properties: ClassVar[List[str]] = ["createdByUserId", "provider", "providerItemId", "providerConnectorId", "historyRange"]
+
+    @field_validator('provider')
+    def provider_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['PLUGGY', 'SOFIA']):
+            raise ValueError("must be one of enum values ('PLUGGY', 'SOFIA')")
+        return value
+
+    @field_validator('history_range')
+    def history_range_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['ONE_DAY', 'ONE_WEEK', 'ONE_MONTH', 'TWO_MONTHS', 'THREE_MONTHS', 'SIX_MONTHS', 'ONE_YEAR']):
+            raise ValueError("must be one of enum values ('ONE_DAY', 'ONE_WEEK', 'ONE_MONTH', 'TWO_MONTHS', 'THREE_MONTHS', 'SIX_MONTHS', 'ONE_YEAR')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

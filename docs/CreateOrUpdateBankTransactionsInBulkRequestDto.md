@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [**List[CreateOrUpdateBankTransactionsInBulkItemDto]**](CreateOrUpdateBankTransactionsInBulkItemDto.md) |  | 
+**items** | [**List[CreateOrUpdateBankTransactionsInBulkRequestDtoItemsInner]**](CreateOrUpdateBankTransactionsInBulkRequestDtoItemsInner.md) |  | 
 
 ## Example
 

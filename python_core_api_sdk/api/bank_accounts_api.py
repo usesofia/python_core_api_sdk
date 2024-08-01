@@ -19,7 +19,6 @@ from typing_extensions import Annotated
 from pydantic import StrictBool, StrictStr
 from typing import List, Optional
 from python_core_api_sdk.models.bank_account_entity import BankAccountEntity
-from python_core_api_sdk.models.bank_accounts_balance_report_entity import BankAccountsBalanceReportEntity
 from python_core_api_sdk.models.create_or_update_bank_account_request_dto import CreateOrUpdateBankAccountRequestDto
 
 from python_core_api_sdk.api_client import ApiClient, RequestSerialized
@@ -41,7 +40,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    async def bank_accounts_controller_activate_bank_account(
+    async def bank_accounts_controller_activate(
         self,
         bank_account_id: StrictStr,
         _request_timeout: Union[
@@ -57,7 +56,7 @@ class BankAccountsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> BankAccountEntity:
-        """bank_accounts_controller_activate_bank_account
+        """bank_accounts_controller_activate
 
 
         :param bank_account_id: (required)
@@ -84,7 +83,7 @@ class BankAccountsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_accounts_controller_activate_bank_account_serialize(
+        _param = self._bank_accounts_controller_activate_serialize(
             bank_account_id=bank_account_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -93,7 +92,7 @@ class BankAccountsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BankAccountEntity",
+            '201': "BankAccountEntity",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -107,7 +106,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    async def bank_accounts_controller_activate_bank_account_with_http_info(
+    async def bank_accounts_controller_activate_with_http_info(
         self,
         bank_account_id: StrictStr,
         _request_timeout: Union[
@@ -123,7 +122,7 @@ class BankAccountsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[BankAccountEntity]:
-        """bank_accounts_controller_activate_bank_account
+        """bank_accounts_controller_activate
 
 
         :param bank_account_id: (required)
@@ -150,7 +149,7 @@ class BankAccountsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_accounts_controller_activate_bank_account_serialize(
+        _param = self._bank_accounts_controller_activate_serialize(
             bank_account_id=bank_account_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -159,7 +158,7 @@ class BankAccountsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BankAccountEntity",
+            '201': "BankAccountEntity",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -173,7 +172,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    async def bank_accounts_controller_activate_bank_account_without_preload_content(
+    async def bank_accounts_controller_activate_without_preload_content(
         self,
         bank_account_id: StrictStr,
         _request_timeout: Union[
@@ -189,7 +188,7 @@ class BankAccountsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """bank_accounts_controller_activate_bank_account
+        """bank_accounts_controller_activate
 
 
         :param bank_account_id: (required)
@@ -216,7 +215,7 @@ class BankAccountsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_accounts_controller_activate_bank_account_serialize(
+        _param = self._bank_accounts_controller_activate_serialize(
             bank_account_id=bank_account_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -225,7 +224,7 @@ class BankAccountsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BankAccountEntity",
+            '201': "BankAccountEntity",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -234,7 +233,7 @@ class BankAccountsApi:
         return response_data.response
 
 
-    def _bank_accounts_controller_activate_bank_account_serialize(
+    def _bank_accounts_controller_activate_serialize(
         self,
         bank_account_id,
         _request_auth,
@@ -296,9 +295,8 @@ class BankAccountsApi:
 
 
     @validate_call
-    async def bank_accounts_controller_create_or_update_bank_account(
+    async def bank_accounts_controller_create_or_update(
         self,
-        workspace_id: StrictStr,
         create_or_update_bank_account_request_dto: CreateOrUpdateBankAccountRequestDto,
         _request_timeout: Union[
             None,
@@ -313,11 +311,9 @@ class BankAccountsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> BankAccountEntity:
-        """bank_accounts_controller_create_or_update_bank_account
+        """bank_accounts_controller_create_or_update
 
 
-        :param workspace_id: (required)
-        :type workspace_id: str
         :param create_or_update_bank_account_request_dto: (required)
         :type create_or_update_bank_account_request_dto: CreateOrUpdateBankAccountRequestDto
         :param _request_timeout: timeout setting for this request. If one
@@ -342,8 +338,7 @@ class BankAccountsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_accounts_controller_create_or_update_bank_account_serialize(
-            workspace_id=workspace_id,
+        _param = self._bank_accounts_controller_create_or_update_serialize(
             create_or_update_bank_account_request_dto=create_or_update_bank_account_request_dto,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -366,9 +361,8 @@ class BankAccountsApi:
 
 
     @validate_call
-    async def bank_accounts_controller_create_or_update_bank_account_with_http_info(
+    async def bank_accounts_controller_create_or_update_with_http_info(
         self,
-        workspace_id: StrictStr,
         create_or_update_bank_account_request_dto: CreateOrUpdateBankAccountRequestDto,
         _request_timeout: Union[
             None,
@@ -383,11 +377,9 @@ class BankAccountsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[BankAccountEntity]:
-        """bank_accounts_controller_create_or_update_bank_account
+        """bank_accounts_controller_create_or_update
 
 
-        :param workspace_id: (required)
-        :type workspace_id: str
         :param create_or_update_bank_account_request_dto: (required)
         :type create_or_update_bank_account_request_dto: CreateOrUpdateBankAccountRequestDto
         :param _request_timeout: timeout setting for this request. If one
@@ -412,8 +404,7 @@ class BankAccountsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_accounts_controller_create_or_update_bank_account_serialize(
-            workspace_id=workspace_id,
+        _param = self._bank_accounts_controller_create_or_update_serialize(
             create_or_update_bank_account_request_dto=create_or_update_bank_account_request_dto,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -436,9 +427,8 @@ class BankAccountsApi:
 
 
     @validate_call
-    async def bank_accounts_controller_create_or_update_bank_account_without_preload_content(
+    async def bank_accounts_controller_create_or_update_without_preload_content(
         self,
-        workspace_id: StrictStr,
         create_or_update_bank_account_request_dto: CreateOrUpdateBankAccountRequestDto,
         _request_timeout: Union[
             None,
@@ -453,11 +443,9 @@ class BankAccountsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """bank_accounts_controller_create_or_update_bank_account
+        """bank_accounts_controller_create_or_update
 
 
-        :param workspace_id: (required)
-        :type workspace_id: str
         :param create_or_update_bank_account_request_dto: (required)
         :type create_or_update_bank_account_request_dto: CreateOrUpdateBankAccountRequestDto
         :param _request_timeout: timeout setting for this request. If one
@@ -482,8 +470,7 @@ class BankAccountsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_accounts_controller_create_or_update_bank_account_serialize(
-            workspace_id=workspace_id,
+        _param = self._bank_accounts_controller_create_or_update_serialize(
             create_or_update_bank_account_request_dto=create_or_update_bank_account_request_dto,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -501,9 +488,8 @@ class BankAccountsApi:
         return response_data.response
 
 
-    def _bank_accounts_controller_create_or_update_bank_account_serialize(
+    def _bank_accounts_controller_create_or_update_serialize(
         self,
-        workspace_id,
         create_or_update_bank_account_request_dto,
         _request_auth,
         _content_type,
@@ -524,8 +510,6 @@ class BankAccountsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if workspace_id is not None:
-            _path_params['workspaceId'] = workspace_id
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -562,7 +546,7 @@ class BankAccountsApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/workspaces/{workspaceId}/bank/accounts',
+            resource_path='/bank/accounts',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -579,296 +563,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    async def bank_accounts_controller_create_workspace_bank_accounts_balance_report(
-        self,
-        workspace_id: StrictStr,
-        enabled: Optional[StrictBool] = None,
-        types: Optional[StrictStr] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> BankAccountsBalanceReportEntity:
-        """bank_accounts_controller_create_workspace_bank_accounts_balance_report
-
-
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param enabled:
-        :type enabled: bool
-        :param types:
-        :type types: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._bank_accounts_controller_create_workspace_bank_accounts_balance_report_serialize(
-            workspace_id=workspace_id,
-            enabled=enabled,
-            types=types,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BankAccountsBalanceReportEntity",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def bank_accounts_controller_create_workspace_bank_accounts_balance_report_with_http_info(
-        self,
-        workspace_id: StrictStr,
-        enabled: Optional[StrictBool] = None,
-        types: Optional[StrictStr] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[BankAccountsBalanceReportEntity]:
-        """bank_accounts_controller_create_workspace_bank_accounts_balance_report
-
-
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param enabled:
-        :type enabled: bool
-        :param types:
-        :type types: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._bank_accounts_controller_create_workspace_bank_accounts_balance_report_serialize(
-            workspace_id=workspace_id,
-            enabled=enabled,
-            types=types,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BankAccountsBalanceReportEntity",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def bank_accounts_controller_create_workspace_bank_accounts_balance_report_without_preload_content(
-        self,
-        workspace_id: StrictStr,
-        enabled: Optional[StrictBool] = None,
-        types: Optional[StrictStr] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """bank_accounts_controller_create_workspace_bank_accounts_balance_report
-
-
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param enabled:
-        :type enabled: bool
-        :param types:
-        :type types: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._bank_accounts_controller_create_workspace_bank_accounts_balance_report_serialize(
-            workspace_id=workspace_id,
-            enabled=enabled,
-            types=types,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BankAccountsBalanceReportEntity",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _bank_accounts_controller_create_workspace_bank_accounts_balance_report_serialize(
-        self,
-        workspace_id,
-        enabled,
-        types,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if workspace_id is not None:
-            _path_params['workspaceId'] = workspace_id
-        # process the query parameters
-        if enabled is not None:
-            
-            _query_params.append(('enabled', enabled))
-            
-        if types is not None:
-            
-            _query_params.append(('types', types))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/workspaces/{workspaceId}/bank/accounts/balance-report',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def bank_accounts_controller_disable_bank_account(
+    async def bank_accounts_controller_disable(
         self,
         bank_account_id: StrictStr,
         _request_timeout: Union[
@@ -884,7 +579,7 @@ class BankAccountsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> BankAccountEntity:
-        """bank_accounts_controller_disable_bank_account
+        """bank_accounts_controller_disable
 
 
         :param bank_account_id: (required)
@@ -911,7 +606,7 @@ class BankAccountsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_accounts_controller_disable_bank_account_serialize(
+        _param = self._bank_accounts_controller_disable_serialize(
             bank_account_id=bank_account_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -920,7 +615,7 @@ class BankAccountsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BankAccountEntity",
+            '201': "BankAccountEntity",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -934,7 +629,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    async def bank_accounts_controller_disable_bank_account_with_http_info(
+    async def bank_accounts_controller_disable_with_http_info(
         self,
         bank_account_id: StrictStr,
         _request_timeout: Union[
@@ -950,7 +645,7 @@ class BankAccountsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[BankAccountEntity]:
-        """bank_accounts_controller_disable_bank_account
+        """bank_accounts_controller_disable
 
 
         :param bank_account_id: (required)
@@ -977,7 +672,7 @@ class BankAccountsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_accounts_controller_disable_bank_account_serialize(
+        _param = self._bank_accounts_controller_disable_serialize(
             bank_account_id=bank_account_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -986,7 +681,7 @@ class BankAccountsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BankAccountEntity",
+            '201': "BankAccountEntity",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1000,7 +695,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    async def bank_accounts_controller_disable_bank_account_without_preload_content(
+    async def bank_accounts_controller_disable_without_preload_content(
         self,
         bank_account_id: StrictStr,
         _request_timeout: Union[
@@ -1016,7 +711,7 @@ class BankAccountsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """bank_accounts_controller_disable_bank_account
+        """bank_accounts_controller_disable
 
 
         :param bank_account_id: (required)
@@ -1043,7 +738,7 @@ class BankAccountsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_accounts_controller_disable_bank_account_serialize(
+        _param = self._bank_accounts_controller_disable_serialize(
             bank_account_id=bank_account_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1052,7 +747,7 @@ class BankAccountsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BankAccountEntity",
+            '201': "BankAccountEntity",
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -1061,7 +756,7 @@ class BankAccountsApi:
         return response_data.response
 
 
-    def _bank_accounts_controller_disable_bank_account_serialize(
+    def _bank_accounts_controller_disable_serialize(
         self,
         bank_account_id,
         _request_auth,
@@ -1123,600 +818,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    async def bank_accounts_controller_fetch_connection_bank_accounts(
-        self,
-        workspace_id: StrictStr,
-        bank_connection_id: StrictStr,
-        enabled: StrictBool,
-        types: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[BankAccountEntity]:
-        """bank_accounts_controller_fetch_connection_bank_accounts
-
-
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param bank_connection_id: (required)
-        :type bank_connection_id: str
-        :param enabled: (required)
-        :type enabled: bool
-        :param types: (required)
-        :type types: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._bank_accounts_controller_fetch_connection_bank_accounts_serialize(
-            workspace_id=workspace_id,
-            bank_connection_id=bank_connection_id,
-            enabled=enabled,
-            types=types,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[BankAccountEntity]",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def bank_accounts_controller_fetch_connection_bank_accounts_with_http_info(
-        self,
-        workspace_id: StrictStr,
-        bank_connection_id: StrictStr,
-        enabled: StrictBool,
-        types: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[BankAccountEntity]]:
-        """bank_accounts_controller_fetch_connection_bank_accounts
-
-
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param bank_connection_id: (required)
-        :type bank_connection_id: str
-        :param enabled: (required)
-        :type enabled: bool
-        :param types: (required)
-        :type types: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._bank_accounts_controller_fetch_connection_bank_accounts_serialize(
-            workspace_id=workspace_id,
-            bank_connection_id=bank_connection_id,
-            enabled=enabled,
-            types=types,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[BankAccountEntity]",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def bank_accounts_controller_fetch_connection_bank_accounts_without_preload_content(
-        self,
-        workspace_id: StrictStr,
-        bank_connection_id: StrictStr,
-        enabled: StrictBool,
-        types: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """bank_accounts_controller_fetch_connection_bank_accounts
-
-
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param bank_connection_id: (required)
-        :type bank_connection_id: str
-        :param enabled: (required)
-        :type enabled: bool
-        :param types: (required)
-        :type types: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._bank_accounts_controller_fetch_connection_bank_accounts_serialize(
-            workspace_id=workspace_id,
-            bank_connection_id=bank_connection_id,
-            enabled=enabled,
-            types=types,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[BankAccountEntity]",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _bank_accounts_controller_fetch_connection_bank_accounts_serialize(
-        self,
-        workspace_id,
-        bank_connection_id,
-        enabled,
-        types,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if workspace_id is not None:
-            _path_params['workspaceId'] = workspace_id
-        if bank_connection_id is not None:
-            _path_params['bankConnectionId'] = bank_connection_id
-        # process the query parameters
-        if enabled is not None:
-            
-            _query_params.append(('enabled', enabled))
-            
-        if types is not None:
-            
-            _query_params.append(('types', types))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/workspaces/{workspaceId}/bank/connections/{bankConnectionId}/accounts',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def bank_accounts_controller_fetch_workspace_bank_accounts(
-        self,
-        workspace_id: StrictStr,
-        enabled: Optional[StrictBool] = None,
-        types: Optional[StrictStr] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[BankAccountEntity]:
-        """bank_accounts_controller_fetch_workspace_bank_accounts
-
-
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param enabled:
-        :type enabled: bool
-        :param types:
-        :type types: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._bank_accounts_controller_fetch_workspace_bank_accounts_serialize(
-            workspace_id=workspace_id,
-            enabled=enabled,
-            types=types,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[BankAccountEntity]",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def bank_accounts_controller_fetch_workspace_bank_accounts_with_http_info(
-        self,
-        workspace_id: StrictStr,
-        enabled: Optional[StrictBool] = None,
-        types: Optional[StrictStr] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[BankAccountEntity]]:
-        """bank_accounts_controller_fetch_workspace_bank_accounts
-
-
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param enabled:
-        :type enabled: bool
-        :param types:
-        :type types: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._bank_accounts_controller_fetch_workspace_bank_accounts_serialize(
-            workspace_id=workspace_id,
-            enabled=enabled,
-            types=types,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[BankAccountEntity]",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def bank_accounts_controller_fetch_workspace_bank_accounts_without_preload_content(
-        self,
-        workspace_id: StrictStr,
-        enabled: Optional[StrictBool] = None,
-        types: Optional[StrictStr] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """bank_accounts_controller_fetch_workspace_bank_accounts
-
-
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param enabled:
-        :type enabled: bool
-        :param types:
-        :type types: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._bank_accounts_controller_fetch_workspace_bank_accounts_serialize(
-            workspace_id=workspace_id,
-            enabled=enabled,
-            types=types,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[BankAccountEntity]",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _bank_accounts_controller_fetch_workspace_bank_accounts_serialize(
-        self,
-        workspace_id,
-        enabled,
-        types,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if workspace_id is not None:
-            _path_params['workspaceId'] = workspace_id
-        # process the query parameters
-        if enabled is not None:
-            
-            _query_params.append(('enabled', enabled))
-            
-        if types is not None:
-            
-            _query_params.append(('types', types))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/workspaces/{workspaceId}/bank/accounts',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def bank_accounts_controller_get_bank_account_details(
+    async def bank_accounts_controller_get_by_id(
         self,
         bank_account_id: StrictStr,
         _request_timeout: Union[
@@ -1732,7 +834,7 @@ class BankAccountsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> BankAccountEntity:
-        """bank_accounts_controller_get_bank_account_details
+        """bank_accounts_controller_get_by_id
 
 
         :param bank_account_id: (required)
@@ -1759,7 +861,7 @@ class BankAccountsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_accounts_controller_get_bank_account_details_serialize(
+        _param = self._bank_accounts_controller_get_by_id_serialize(
             bank_account_id=bank_account_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1782,7 +884,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    async def bank_accounts_controller_get_bank_account_details_with_http_info(
+    async def bank_accounts_controller_get_by_id_with_http_info(
         self,
         bank_account_id: StrictStr,
         _request_timeout: Union[
@@ -1798,7 +900,7 @@ class BankAccountsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[BankAccountEntity]:
-        """bank_accounts_controller_get_bank_account_details
+        """bank_accounts_controller_get_by_id
 
 
         :param bank_account_id: (required)
@@ -1825,7 +927,7 @@ class BankAccountsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_accounts_controller_get_bank_account_details_serialize(
+        _param = self._bank_accounts_controller_get_by_id_serialize(
             bank_account_id=bank_account_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1848,7 +950,7 @@ class BankAccountsApi:
 
 
     @validate_call
-    async def bank_accounts_controller_get_bank_account_details_without_preload_content(
+    async def bank_accounts_controller_get_by_id_without_preload_content(
         self,
         bank_account_id: StrictStr,
         _request_timeout: Union[
@@ -1864,7 +966,7 @@ class BankAccountsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """bank_accounts_controller_get_bank_account_details
+        """bank_accounts_controller_get_by_id
 
 
         :param bank_account_id: (required)
@@ -1891,7 +993,7 @@ class BankAccountsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_accounts_controller_get_bank_account_details_serialize(
+        _param = self._bank_accounts_controller_get_by_id_serialize(
             bank_account_id=bank_account_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1909,7 +1011,7 @@ class BankAccountsApi:
         return response_data.response
 
 
-    def _bank_accounts_controller_get_bank_account_details_serialize(
+    def _bank_accounts_controller_get_by_id_serialize(
         self,
         bank_account_id,
         _request_auth,
@@ -1955,6 +1057,584 @@ class BankAccountsApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/bank/accounts/{bankAccountId}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def bank_accounts_controller_list_by_bank_connection_id(
+        self,
+        bank_connection_id: StrictStr,
+        enabled: Optional[StrictBool] = None,
+        types: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> List[BankAccountEntity]:
+        """bank_accounts_controller_list_by_bank_connection_id
+
+
+        :param bank_connection_id: (required)
+        :type bank_connection_id: str
+        :param enabled:
+        :type enabled: bool
+        :param types:
+        :type types: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._bank_accounts_controller_list_by_bank_connection_id_serialize(
+            bank_connection_id=bank_connection_id,
+            enabled=enabled,
+            types=types,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[BankAccountEntity]",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def bank_accounts_controller_list_by_bank_connection_id_with_http_info(
+        self,
+        bank_connection_id: StrictStr,
+        enabled: Optional[StrictBool] = None,
+        types: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[List[BankAccountEntity]]:
+        """bank_accounts_controller_list_by_bank_connection_id
+
+
+        :param bank_connection_id: (required)
+        :type bank_connection_id: str
+        :param enabled:
+        :type enabled: bool
+        :param types:
+        :type types: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._bank_accounts_controller_list_by_bank_connection_id_serialize(
+            bank_connection_id=bank_connection_id,
+            enabled=enabled,
+            types=types,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[BankAccountEntity]",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def bank_accounts_controller_list_by_bank_connection_id_without_preload_content(
+        self,
+        bank_connection_id: StrictStr,
+        enabled: Optional[StrictBool] = None,
+        types: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """bank_accounts_controller_list_by_bank_connection_id
+
+
+        :param bank_connection_id: (required)
+        :type bank_connection_id: str
+        :param enabled:
+        :type enabled: bool
+        :param types:
+        :type types: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._bank_accounts_controller_list_by_bank_connection_id_serialize(
+            bank_connection_id=bank_connection_id,
+            enabled=enabled,
+            types=types,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[BankAccountEntity]",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _bank_accounts_controller_list_by_bank_connection_id_serialize(
+        self,
+        bank_connection_id,
+        enabled,
+        types,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if bank_connection_id is not None:
+            _path_params['bankConnectionId'] = bank_connection_id
+        # process the query parameters
+        if enabled is not None:
+            
+            _query_params.append(('enabled', enabled))
+            
+        if types is not None:
+            
+            _query_params.append(('types', types))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/bank/connections/{bankConnectionId}/accounts',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def bank_accounts_controller_list_by_workspace_id(
+        self,
+        workspace_id: StrictStr,
+        enabled: Optional[StrictBool] = None,
+        types: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> List[BankAccountEntity]:
+        """bank_accounts_controller_list_by_workspace_id
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param enabled:
+        :type enabled: bool
+        :param types:
+        :type types: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._bank_accounts_controller_list_by_workspace_id_serialize(
+            workspace_id=workspace_id,
+            enabled=enabled,
+            types=types,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[BankAccountEntity]",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def bank_accounts_controller_list_by_workspace_id_with_http_info(
+        self,
+        workspace_id: StrictStr,
+        enabled: Optional[StrictBool] = None,
+        types: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[List[BankAccountEntity]]:
+        """bank_accounts_controller_list_by_workspace_id
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param enabled:
+        :type enabled: bool
+        :param types:
+        :type types: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._bank_accounts_controller_list_by_workspace_id_serialize(
+            workspace_id=workspace_id,
+            enabled=enabled,
+            types=types,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[BankAccountEntity]",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def bank_accounts_controller_list_by_workspace_id_without_preload_content(
+        self,
+        workspace_id: StrictStr,
+        enabled: Optional[StrictBool] = None,
+        types: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """bank_accounts_controller_list_by_workspace_id
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param enabled:
+        :type enabled: bool
+        :param types:
+        :type types: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._bank_accounts_controller_list_by_workspace_id_serialize(
+            workspace_id=workspace_id,
+            enabled=enabled,
+            types=types,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[BankAccountEntity]",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _bank_accounts_controller_list_by_workspace_id_serialize(
+        self,
+        workspace_id,
+        enabled,
+        types,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if workspace_id is not None:
+            _path_params['workspaceId'] = workspace_id
+        # process the query parameters
+        if enabled is not None:
+            
+            _query_params.append(('enabled', enabled))
+            
+        if types is not None:
+            
+            _query_params.append(('types', types))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/bank/workspaces/{workspaceId}/accounts',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

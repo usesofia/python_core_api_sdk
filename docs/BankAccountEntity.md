@@ -7,17 +7,16 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
 **bank_connection_id** | **str** |  | 
-**bank_connection** | [**BankConnectionEntity**](BankConnectionEntity.md) |  | 
 **provider** | **str** |  | 
 **provider_account_id** | **str** |  | 
 **type** | **str** |  | 
 **enabled** | **bool** |  | 
 **number** | **str** |  | 
-**balance** | **float** |  | 
+**balance** | **int** |  | 
 **currency_code** | **str** |  | 
 **name** | **str** |  | 
-**created_at** | **datetime** |  | 
-**updated_at** | **datetime** |  | 
+**created_at** | **object** |  | 
+**updated_at** | **object** |  | 
 
 ## Example
 

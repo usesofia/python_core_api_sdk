@@ -8,14 +8,15 @@ Name | Type | Description | Notes
 **id** | **str** |  | 
 **created_by_user_id** | **str** |  | 
 **workspace_id** | **str** |  | 
+**accounts** | [**List[BankConnectionEntityAccountsInner]**](BankConnectionEntityAccountsInner.md) |  | [optional] 
 **enabled** | **bool** |  | 
 **provider** | **str** |  | 
 **provider_item_id** | **str** |  | 
 **history_range** | **str** |  | 
 **connector_id** | **str** |  | 
-**connector** | [**BankConnectorEntity**](BankConnectorEntity.md) |  | 
-**created_at** | **datetime** |  | 
-**updated_at** | **datetime** |  | 
+**connector** | [**BankConnectionEntityConnector**](BankConnectionEntityConnector.md) |  | [optional] 
+**created_at** | **object** |  | 
+**updated_at** | **object** |  | 
 
 ## Example
 

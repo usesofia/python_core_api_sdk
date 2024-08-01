@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **provider_account_id** | **str** |  | 
 **type** | **str** |  | 
 **number** | **str** |  | 
-**balance** | **float** |  | 
+**balance** | **int** |  | 
 **currency_code** | **str** |  | 
 **name** | **str** |  | 
 

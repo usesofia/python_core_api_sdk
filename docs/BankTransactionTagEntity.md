@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
 **name** | **str** |  | 
-**created_at** | **datetime** |  | 
-**updated_at** | **datetime** |  | 
+**created_at** | **object** |  | 
+**updated_at** | **object** |  | 
 
 ## Example
 

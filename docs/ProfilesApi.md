@@ -4,9 +4,9 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**profiles_controller_create**](ProfilesApi.md#profiles_controller_create) | **POST** /profiles | 
-[**profiles_controller_get_my**](ProfilesApi.md#profiles_controller_get_my) | **GET** /profiles/me | 
-[**profiles_controller_parcial_update**](ProfilesApi.md#profiles_controller_parcial_update) | **PATCH** /profiles/me | 
+[**profiles_controller_create**](ProfilesApi.md#profiles_controller_create) | **POST** /iam/profiles | 
+[**profiles_controller_get_my**](ProfilesApi.md#profiles_controller_get_my) | **GET** /iam/profiles/me | 
+[**profiles_controller_partial_update**](ProfilesApi.md#profiles_controller_partial_update) | **PATCH** /iam/profiles/me | 
 
 
 # **profiles_controller_create**
@@ -138,8 +138,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **profiles_controller_parcial_update**
-> ProfileEntity profiles_controller_parcial_update(parcial_update_profile_request_dto)
+# **profiles_controller_partial_update**
+> ProfileEntity profiles_controller_partial_update(partial_update_profile_request_dto)
 
 
 
@@ -148,7 +148,7 @@ No authorization required
 
 ```python
 import python_core_api_sdk
-from python_core_api_sdk.models.parcial_update_profile_request_dto import ParcialUpdateProfileRequestDto
+from python_core_api_sdk.models.partial_update_profile_request_dto import PartialUpdateProfileRequestDto
 from python_core_api_sdk.models.profile_entity import ProfileEntity
 from python_core_api_sdk.rest import ApiException
 from pprint import pprint
@@ -164,14 +164,14 @@ configuration = python_core_api_sdk.Configuration(
 async with python_core_api_sdk.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = python_core_api_sdk.ProfilesApi(api_client)
-    parcial_update_profile_request_dto = python_core_api_sdk.ParcialUpdateProfileRequestDto() # ParcialUpdateProfileRequestDto | 
+    partial_update_profile_request_dto = python_core_api_sdk.PartialUpdateProfileRequestDto() # PartialUpdateProfileRequestDto | 
 
     try:
-        api_response = await api_instance.profiles_controller_parcial_update(parcial_update_profile_request_dto)
-        print("The response of ProfilesApi->profiles_controller_parcial_update:\n")
+        api_response = await api_instance.profiles_controller_partial_update(partial_update_profile_request_dto)
+        print("The response of ProfilesApi->profiles_controller_partial_update:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling ProfilesApi->profiles_controller_parcial_update: %s\n" % e)
+        print("Exception when calling ProfilesApi->profiles_controller_partial_update: %s\n" % e)
 ```
 
 
@@ -181,7 +181,7 @@ async with python_core_api_sdk.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **parcial_update_profile_request_dto** | [**ParcialUpdateProfileRequestDto**](ParcialUpdateProfileRequestDto.md)|  | 
+ **partial_update_profile_request_dto** | [**PartialUpdateProfileRequestDto**](PartialUpdateProfileRequestDto.md)|  | 
 
 ### Return type
 

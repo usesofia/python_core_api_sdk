@@ -4,12 +4,12 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**bank_transaction_tags_controller_create_tag**](BankTransactionTagsApi.md#bank_transaction_tags_controller_create_tag) | **POST** /workspaces/{workspaceId}/bank/transactions/tags | 
-[**bank_transaction_tags_controller_list_tags**](BankTransactionTagsApi.md#bank_transaction_tags_controller_list_tags) | **GET** /workspaces/{workspaceId}/bank/transactions/tags | 
+[**bank_transaction_tags_controller_create**](BankTransactionTagsApi.md#bank_transaction_tags_controller_create) | **POST** /bank/workspaces/{workspaceId}/transaction-tags | 
+[**bank_transaction_tags_controller_list**](BankTransactionTagsApi.md#bank_transaction_tags_controller_list) | **GET** /bank/workspaces/{workspaceId}/transaction-tags | 
 
 
-# **bank_transaction_tags_controller_create_tag**
-> BankTransactionTagEntity bank_transaction_tags_controller_create_tag(workspace_id, create_bank_transaction_tag_request_dto)
+# **bank_transaction_tags_controller_create**
+> BankTransactionTagEntity bank_transaction_tags_controller_create(workspace_id, create_bank_transaction_tag_request_dto)
 
 
 
@@ -38,11 +38,11 @@ async with python_core_api_sdk.ApiClient(configuration) as api_client:
     create_bank_transaction_tag_request_dto = python_core_api_sdk.CreateBankTransactionTagRequestDto() # CreateBankTransactionTagRequestDto | 
 
     try:
-        api_response = await api_instance.bank_transaction_tags_controller_create_tag(workspace_id, create_bank_transaction_tag_request_dto)
-        print("The response of BankTransactionTagsApi->bank_transaction_tags_controller_create_tag:\n")
+        api_response = await api_instance.bank_transaction_tags_controller_create(workspace_id, create_bank_transaction_tag_request_dto)
+        print("The response of BankTransactionTagsApi->bank_transaction_tags_controller_create:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling BankTransactionTagsApi->bank_transaction_tags_controller_create_tag: %s\n" % e)
+        print("Exception when calling BankTransactionTagsApi->bank_transaction_tags_controller_create: %s\n" % e)
 ```
 
 
@@ -77,8 +77,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **bank_transaction_tags_controller_list_tags**
-> List[BankTransactionTagEntity] bank_transaction_tags_controller_list_tags(workspace_id)
+# **bank_transaction_tags_controller_list**
+> List[BankTransactionTagEntity] bank_transaction_tags_controller_list(workspace_id)
 
 
 
@@ -105,11 +105,11 @@ async with python_core_api_sdk.ApiClient(configuration) as api_client:
     workspace_id = 'workspace_id_example' # str | 
 
     try:
-        api_response = await api_instance.bank_transaction_tags_controller_list_tags(workspace_id)
-        print("The response of BankTransactionTagsApi->bank_transaction_tags_controller_list_tags:\n")
+        api_response = await api_instance.bank_transaction_tags_controller_list(workspace_id)
+        print("The response of BankTransactionTagsApi->bank_transaction_tags_controller_list:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling BankTransactionTagsApi->bank_transaction_tags_controller_list_tags: %s\n" % e)
+        print("Exception when calling BankTransactionTagsApi->bank_transaction_tags_controller_list: %s\n" % e)
 ```
 
 

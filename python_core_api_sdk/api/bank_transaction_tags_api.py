@@ -40,7 +40,7 @@ class BankTransactionTagsApi:
 
 
     @validate_call
-    async def bank_transaction_tags_controller_create_tag(
+    async def bank_transaction_tags_controller_create(
         self,
         workspace_id: StrictStr,
         create_bank_transaction_tag_request_dto: CreateBankTransactionTagRequestDto,
@@ -57,7 +57,7 @@ class BankTransactionTagsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> BankTransactionTagEntity:
-        """bank_transaction_tags_controller_create_tag
+        """bank_transaction_tags_controller_create
 
 
         :param workspace_id: (required)
@@ -86,7 +86,7 @@ class BankTransactionTagsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_transaction_tags_controller_create_tag_serialize(
+        _param = self._bank_transaction_tags_controller_create_serialize(
             workspace_id=workspace_id,
             create_bank_transaction_tag_request_dto=create_bank_transaction_tag_request_dto,
             _request_auth=_request_auth,
@@ -110,7 +110,7 @@ class BankTransactionTagsApi:
 
 
     @validate_call
-    async def bank_transaction_tags_controller_create_tag_with_http_info(
+    async def bank_transaction_tags_controller_create_with_http_info(
         self,
         workspace_id: StrictStr,
         create_bank_transaction_tag_request_dto: CreateBankTransactionTagRequestDto,
@@ -127,7 +127,7 @@ class BankTransactionTagsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[BankTransactionTagEntity]:
-        """bank_transaction_tags_controller_create_tag
+        """bank_transaction_tags_controller_create
 
 
         :param workspace_id: (required)
@@ -156,7 +156,7 @@ class BankTransactionTagsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_transaction_tags_controller_create_tag_serialize(
+        _param = self._bank_transaction_tags_controller_create_serialize(
             workspace_id=workspace_id,
             create_bank_transaction_tag_request_dto=create_bank_transaction_tag_request_dto,
             _request_auth=_request_auth,
@@ -180,7 +180,7 @@ class BankTransactionTagsApi:
 
 
     @validate_call
-    async def bank_transaction_tags_controller_create_tag_without_preload_content(
+    async def bank_transaction_tags_controller_create_without_preload_content(
         self,
         workspace_id: StrictStr,
         create_bank_transaction_tag_request_dto: CreateBankTransactionTagRequestDto,
@@ -197,7 +197,7 @@ class BankTransactionTagsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """bank_transaction_tags_controller_create_tag
+        """bank_transaction_tags_controller_create
 
 
         :param workspace_id: (required)
@@ -226,7 +226,7 @@ class BankTransactionTagsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_transaction_tags_controller_create_tag_serialize(
+        _param = self._bank_transaction_tags_controller_create_serialize(
             workspace_id=workspace_id,
             create_bank_transaction_tag_request_dto=create_bank_transaction_tag_request_dto,
             _request_auth=_request_auth,
@@ -245,7 +245,7 @@ class BankTransactionTagsApi:
         return response_data.response
 
 
-    def _bank_transaction_tags_controller_create_tag_serialize(
+    def _bank_transaction_tags_controller_create_serialize(
         self,
         workspace_id,
         create_bank_transaction_tag_request_dto,
@@ -306,7 +306,7 @@ class BankTransactionTagsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/workspaces/{workspaceId}/bank/transactions/tags',
+            resource_path='/bank/workspaces/{workspaceId}/transaction-tags',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -323,7 +323,7 @@ class BankTransactionTagsApi:
 
 
     @validate_call
-    async def bank_transaction_tags_controller_list_tags(
+    async def bank_transaction_tags_controller_list(
         self,
         workspace_id: StrictStr,
         _request_timeout: Union[
@@ -339,7 +339,7 @@ class BankTransactionTagsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[BankTransactionTagEntity]:
-        """bank_transaction_tags_controller_list_tags
+        """bank_transaction_tags_controller_list
 
 
         :param workspace_id: (required)
@@ -366,7 +366,7 @@ class BankTransactionTagsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_transaction_tags_controller_list_tags_serialize(
+        _param = self._bank_transaction_tags_controller_list_serialize(
             workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -389,7 +389,7 @@ class BankTransactionTagsApi:
 
 
     @validate_call
-    async def bank_transaction_tags_controller_list_tags_with_http_info(
+    async def bank_transaction_tags_controller_list_with_http_info(
         self,
         workspace_id: StrictStr,
         _request_timeout: Union[
@@ -405,7 +405,7 @@ class BankTransactionTagsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[BankTransactionTagEntity]]:
-        """bank_transaction_tags_controller_list_tags
+        """bank_transaction_tags_controller_list
 
 
         :param workspace_id: (required)
@@ -432,7 +432,7 @@ class BankTransactionTagsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_transaction_tags_controller_list_tags_serialize(
+        _param = self._bank_transaction_tags_controller_list_serialize(
             workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -455,7 +455,7 @@ class BankTransactionTagsApi:
 
 
     @validate_call
-    async def bank_transaction_tags_controller_list_tags_without_preload_content(
+    async def bank_transaction_tags_controller_list_without_preload_content(
         self,
         workspace_id: StrictStr,
         _request_timeout: Union[
@@ -471,7 +471,7 @@ class BankTransactionTagsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """bank_transaction_tags_controller_list_tags
+        """bank_transaction_tags_controller_list
 
 
         :param workspace_id: (required)
@@ -498,7 +498,7 @@ class BankTransactionTagsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_transaction_tags_controller_list_tags_serialize(
+        _param = self._bank_transaction_tags_controller_list_serialize(
             workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -516,7 +516,7 @@ class BankTransactionTagsApi:
         return response_data.response
 
 
-    def _bank_transaction_tags_controller_list_tags_serialize(
+    def _bank_transaction_tags_controller_list_serialize(
         self,
         workspace_id,
         _request_auth,
@@ -561,7 +561,7 @@ class BankTransactionTagsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/workspaces/{workspaceId}/bank/transactions/tags',
+            resource_path='/bank/workspaces/{workspaceId}/transaction-tags',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

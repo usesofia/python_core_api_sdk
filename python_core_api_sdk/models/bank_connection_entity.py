@@ -17,10 +17,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
-from typing import Any, ClassVar, Dict, List
-from python_core_api_sdk.models.bank_connector_entity import BankConnectorEntity
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
+from python_core_api_sdk.models.bank_connection_entity_accounts_inner import BankConnectionEntityAccountsInner
+from python_core_api_sdk.models.bank_connection_entity_connector import BankConnectionEntityConnector
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,15 +31,30 @@ class BankConnectionEntity(BaseModel):
     id: StrictStr
     created_by_user_id: StrictStr = Field(alias="createdByUserId")
     workspace_id: StrictStr = Field(alias="workspaceId")
+    accounts: Optional[List[BankConnectionEntityAccountsInner]] = None
     enabled: StrictBool
     provider: StrictStr
     provider_item_id: StrictStr = Field(alias="providerItemId")
     history_range: StrictStr = Field(alias="historyRange")
     connector_id: StrictStr = Field(alias="connectorId")
-    connector: BankConnectorEntity
-    created_at: datetime = Field(alias="createdAt")
-    updated_at: datetime = Field(alias="updatedAt")
-    __properties: ClassVar[List[str]] = ["id", "createdByUserId", "workspaceId", "enabled", "provider", "providerItemId", "historyRange", "connectorId", "connector", "createdAt", "updatedAt"]
+    connector: Optional[BankConnectionEntityConnector] = None
+    created_at: Optional[Any] = Field(alias="createdAt")
+    updated_at: Optional[Any] = Field(alias="updatedAt")
+    __properties: ClassVar[List[str]] = ["id", "createdByUserId", "workspaceId", "accounts", "enabled", "provider", "providerItemId", "historyRange", "connectorId", "connector", "createdAt", "updatedAt"]
+
+    @field_validator('provider')
+    def provider_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['PLUGGY', 'SOFIA']):
+            raise ValueError("must be one of enum values ('PLUGGY', 'SOFIA')")
+        return value
+
+    @field_validator('history_range')
+    def history_range_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['ONE_DAY', 'ONE_WEEK', 'ONE_MONTH', 'TWO_MONTHS', 'THREE_MONTHS', 'SIX_MONTHS', 'ONE_YEAR']):
+            raise ValueError("must be one of enum values ('ONE_DAY', 'ONE_WEEK', 'ONE_MONTH', 'TWO_MONTHS', 'THREE_MONTHS', 'SIX_MONTHS', 'ONE_YEAR')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -80,9 +95,36 @@ class BankConnectionEntity(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in accounts (list)
+        _items = []
+        if self.accounts:
+            for _item in self.accounts:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['accounts'] = _items
         # override the default output from pydantic by calling `to_dict()` of connector
         if self.connector:
             _dict['connector'] = self.connector.to_dict()
+        # set to None if accounts (nullable) is None
+        # and model_fields_set contains the field
+        if self.accounts is None and "accounts" in self.model_fields_set:
+            _dict['accounts'] = None
+
+        # set to None if connector (nullable) is None
+        # and model_fields_set contains the field
+        if self.connector is None and "connector" in self.model_fields_set:
+            _dict['connector'] = None
+
+        # set to None if created_at (nullable) is None
+        # and model_fields_set contains the field
+        if self.created_at is None and "created_at" in self.model_fields_set:
+            _dict['createdAt'] = None
+
+        # set to None if updated_at (nullable) is None
+        # and model_fields_set contains the field
+        if self.updated_at is None and "updated_at" in self.model_fields_set:
+            _dict['updatedAt'] = None
+
         return _dict
 
     @classmethod
@@ -98,12 +140,13 @@ class BankConnectionEntity(BaseModel):
             "id": obj.get("id"),
             "createdByUserId": obj.get("createdByUserId"),
             "workspaceId": obj.get("workspaceId"),
+            "accounts": [BankConnectionEntityAccountsInner.from_dict(_item) for _item in obj["accounts"]] if obj.get("accounts") is not None else None,
             "enabled": obj.get("enabled"),
             "provider": obj.get("provider"),
             "providerItemId": obj.get("providerItemId"),
             "historyRange": obj.get("historyRange"),
             "connectorId": obj.get("connectorId"),
-            "connector": BankConnectorEntity.from_dict(obj["connector"]) if obj.get("connector") is not None else None,
+            "connector": BankConnectionEntityConnector.from_dict(obj["connector"]) if obj.get("connector") is not None else None,
             "createdAt": obj.get("createdAt"),
             "updatedAt": obj.get("updatedAt")
         })

@@ -40,7 +40,7 @@ class MessageTokensApi:
 
 
     @validate_call
-    async def message_tokens_controller_create_or_update_message_token(
+    async def message_tokens_controller_create_or_update(
         self,
         workspace_id: StrictStr,
         create_or_update_message_token_request_dto: CreateOrUpdateMessageTokenRequestDto,
@@ -57,7 +57,7 @@ class MessageTokensApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> MessageTokenEntity:
-        """message_tokens_controller_create_or_update_message_token
+        """message_tokens_controller_create_or_update
 
 
         :param workspace_id: (required)
@@ -86,7 +86,7 @@ class MessageTokensApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._message_tokens_controller_create_or_update_message_token_serialize(
+        _param = self._message_tokens_controller_create_or_update_serialize(
             workspace_id=workspace_id,
             create_or_update_message_token_request_dto=create_or_update_message_token_request_dto,
             _request_auth=_request_auth,
@@ -110,7 +110,7 @@ class MessageTokensApi:
 
 
     @validate_call
-    async def message_tokens_controller_create_or_update_message_token_with_http_info(
+    async def message_tokens_controller_create_or_update_with_http_info(
         self,
         workspace_id: StrictStr,
         create_or_update_message_token_request_dto: CreateOrUpdateMessageTokenRequestDto,
@@ -127,7 +127,7 @@ class MessageTokensApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[MessageTokenEntity]:
-        """message_tokens_controller_create_or_update_message_token
+        """message_tokens_controller_create_or_update
 
 
         :param workspace_id: (required)
@@ -156,7 +156,7 @@ class MessageTokensApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._message_tokens_controller_create_or_update_message_token_serialize(
+        _param = self._message_tokens_controller_create_or_update_serialize(
             workspace_id=workspace_id,
             create_or_update_message_token_request_dto=create_or_update_message_token_request_dto,
             _request_auth=_request_auth,
@@ -180,7 +180,7 @@ class MessageTokensApi:
 
 
     @validate_call
-    async def message_tokens_controller_create_or_update_message_token_without_preload_content(
+    async def message_tokens_controller_create_or_update_without_preload_content(
         self,
         workspace_id: StrictStr,
         create_or_update_message_token_request_dto: CreateOrUpdateMessageTokenRequestDto,
@@ -197,7 +197,7 @@ class MessageTokensApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """message_tokens_controller_create_or_update_message_token
+        """message_tokens_controller_create_or_update
 
 
         :param workspace_id: (required)
@@ -226,7 +226,7 @@ class MessageTokensApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._message_tokens_controller_create_or_update_message_token_serialize(
+        _param = self._message_tokens_controller_create_or_update_serialize(
             workspace_id=workspace_id,
             create_or_update_message_token_request_dto=create_or_update_message_token_request_dto,
             _request_auth=_request_auth,
@@ -245,7 +245,7 @@ class MessageTokensApi:
         return response_data.response
 
 
-    def _message_tokens_controller_create_or_update_message_token_serialize(
+    def _message_tokens_controller_create_or_update_serialize(
         self,
         workspace_id,
         create_or_update_message_token_request_dto,
@@ -306,7 +306,7 @@ class MessageTokensApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/workspaces/{workspaceId}/message-tokens',
+            resource_path='/communication/workspaces/{workspaceId}/message-tokens',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -323,7 +323,7 @@ class MessageTokensApi:
 
 
     @validate_call
-    async def message_tokens_controller_get_workspace_message_tokens(
+    async def message_tokens_controller_list_by_workspace_id(
         self,
         workspace_id: StrictStr,
         _request_timeout: Union[
@@ -339,7 +339,7 @@ class MessageTokensApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[MessageTokenEntity]:
-        """message_tokens_controller_get_workspace_message_tokens
+        """message_tokens_controller_list_by_workspace_id
 
 
         :param workspace_id: (required)
@@ -366,7 +366,7 @@ class MessageTokensApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._message_tokens_controller_get_workspace_message_tokens_serialize(
+        _param = self._message_tokens_controller_list_by_workspace_id_serialize(
             workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -389,7 +389,7 @@ class MessageTokensApi:
 
 
     @validate_call
-    async def message_tokens_controller_get_workspace_message_tokens_with_http_info(
+    async def message_tokens_controller_list_by_workspace_id_with_http_info(
         self,
         workspace_id: StrictStr,
         _request_timeout: Union[
@@ -405,7 +405,7 @@ class MessageTokensApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[MessageTokenEntity]]:
-        """message_tokens_controller_get_workspace_message_tokens
+        """message_tokens_controller_list_by_workspace_id
 
 
         :param workspace_id: (required)
@@ -432,7 +432,7 @@ class MessageTokensApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._message_tokens_controller_get_workspace_message_tokens_serialize(
+        _param = self._message_tokens_controller_list_by_workspace_id_serialize(
             workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -455,7 +455,7 @@ class MessageTokensApi:
 
 
     @validate_call
-    async def message_tokens_controller_get_workspace_message_tokens_without_preload_content(
+    async def message_tokens_controller_list_by_workspace_id_without_preload_content(
         self,
         workspace_id: StrictStr,
         _request_timeout: Union[
@@ -471,7 +471,7 @@ class MessageTokensApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """message_tokens_controller_get_workspace_message_tokens
+        """message_tokens_controller_list_by_workspace_id
 
 
         :param workspace_id: (required)
@@ -498,7 +498,7 @@ class MessageTokensApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._message_tokens_controller_get_workspace_message_tokens_serialize(
+        _param = self._message_tokens_controller_list_by_workspace_id_serialize(
             workspace_id=workspace_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -516,7 +516,7 @@ class MessageTokensApi:
         return response_data.response
 
 
-    def _message_tokens_controller_get_workspace_message_tokens_serialize(
+    def _message_tokens_controller_list_by_workspace_id_serialize(
         self,
         workspace_id,
         _request_auth,
@@ -561,7 +561,7 @@ class MessageTokensApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/workspaces/{workspaceId}/message-tokens',
+            resource_path='/communication/workspaces/{workspaceId}/message-tokens',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

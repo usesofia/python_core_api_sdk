@@ -5,12 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
-**pretty_id** | **str** |  | 
-**name** | **str** |  | 
-**type** | **str** |  | 
-**creator_user_id** | **str** |  | 
-**created_at** | **datetime** |  | 
+**workspace** | [**UserEntityWorkspacesInner**](UserEntityWorkspacesInner.md) |  | 
 **relation_type** | **str** |  | 
 
 ## Example

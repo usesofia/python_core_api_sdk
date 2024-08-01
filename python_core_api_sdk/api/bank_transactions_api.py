@@ -20,9 +20,8 @@ from pydantic import StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import List, Optional, Union
 from python_core_api_sdk.models.bank_transaction_entity import BankTransactionEntity
 from python_core_api_sdk.models.bank_transactions_page_entity import BankTransactionsPageEntity
-from python_core_api_sdk.models.bank_transactions_totals_entity import BankTransactionsTotalsEntity
 from python_core_api_sdk.models.create_or_update_bank_transactions_in_bulk_request_dto import CreateOrUpdateBankTransactionsInBulkRequestDto
-from python_core_api_sdk.models.update_bank_transaction_request_dto import UpdateBankTransactionRequestDto
+from python_core_api_sdk.models.partial_update_bank_transaction_request_dto import PartialUpdateBankTransactionRequestDto
 
 from python_core_api_sdk.api_client import ApiClient, RequestSerialized
 from python_core_api_sdk.api_response import ApiResponse
@@ -43,7 +42,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    async def bank_transactions_controller_create_or_update_bank_transactions_in_bulk(
+    async def bank_transactions_controller_create_or_update_in_bulk(
         self,
         create_or_update_bank_transactions_in_bulk_request_dto: CreateOrUpdateBankTransactionsInBulkRequestDto,
         _request_timeout: Union[
@@ -59,7 +58,7 @@ class BankTransactionsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[BankTransactionEntity]:
-        """bank_transactions_controller_create_or_update_bank_transactions_in_bulk
+        """bank_transactions_controller_create_or_update_in_bulk
 
 
         :param create_or_update_bank_transactions_in_bulk_request_dto: (required)
@@ -86,7 +85,7 @@ class BankTransactionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_transactions_controller_create_or_update_bank_transactions_in_bulk_serialize(
+        _param = self._bank_transactions_controller_create_or_update_in_bulk_serialize(
             create_or_update_bank_transactions_in_bulk_request_dto=create_or_update_bank_transactions_in_bulk_request_dto,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -109,7 +108,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    async def bank_transactions_controller_create_or_update_bank_transactions_in_bulk_with_http_info(
+    async def bank_transactions_controller_create_or_update_in_bulk_with_http_info(
         self,
         create_or_update_bank_transactions_in_bulk_request_dto: CreateOrUpdateBankTransactionsInBulkRequestDto,
         _request_timeout: Union[
@@ -125,7 +124,7 @@ class BankTransactionsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[BankTransactionEntity]]:
-        """bank_transactions_controller_create_or_update_bank_transactions_in_bulk
+        """bank_transactions_controller_create_or_update_in_bulk
 
 
         :param create_or_update_bank_transactions_in_bulk_request_dto: (required)
@@ -152,7 +151,7 @@ class BankTransactionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_transactions_controller_create_or_update_bank_transactions_in_bulk_serialize(
+        _param = self._bank_transactions_controller_create_or_update_in_bulk_serialize(
             create_or_update_bank_transactions_in_bulk_request_dto=create_or_update_bank_transactions_in_bulk_request_dto,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -175,7 +174,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    async def bank_transactions_controller_create_or_update_bank_transactions_in_bulk_without_preload_content(
+    async def bank_transactions_controller_create_or_update_in_bulk_without_preload_content(
         self,
         create_or_update_bank_transactions_in_bulk_request_dto: CreateOrUpdateBankTransactionsInBulkRequestDto,
         _request_timeout: Union[
@@ -191,7 +190,7 @@ class BankTransactionsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """bank_transactions_controller_create_or_update_bank_transactions_in_bulk
+        """bank_transactions_controller_create_or_update_in_bulk
 
 
         :param create_or_update_bank_transactions_in_bulk_request_dto: (required)
@@ -218,7 +217,7 @@ class BankTransactionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_transactions_controller_create_or_update_bank_transactions_in_bulk_serialize(
+        _param = self._bank_transactions_controller_create_or_update_in_bulk_serialize(
             create_or_update_bank_transactions_in_bulk_request_dto=create_or_update_bank_transactions_in_bulk_request_dto,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -236,7 +235,7 @@ class BankTransactionsApi:
         return response_data.response
 
 
-    def _bank_transactions_controller_create_or_update_bank_transactions_in_bulk_serialize(
+    def _bank_transactions_controller_create_or_update_in_bulk_serialize(
         self,
         create_or_update_bank_transactions_in_bulk_request_dto,
         _request_auth,
@@ -311,2132 +310,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    async def bank_transactions_controller_get_bank_transaction_by_provider(
-        self,
-        workspace_id: StrictStr,
-        provider: StrictStr,
-        provider_transaction_id: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> BankTransactionEntity:
-        """bank_transactions_controller_get_bank_transaction_by_provider
-
-
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param provider: (required)
-        :type provider: str
-        :param provider_transaction_id: (required)
-        :type provider_transaction_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._bank_transactions_controller_get_bank_transaction_by_provider_serialize(
-            workspace_id=workspace_id,
-            provider=provider,
-            provider_transaction_id=provider_transaction_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BankTransactionEntity",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def bank_transactions_controller_get_bank_transaction_by_provider_with_http_info(
-        self,
-        workspace_id: StrictStr,
-        provider: StrictStr,
-        provider_transaction_id: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[BankTransactionEntity]:
-        """bank_transactions_controller_get_bank_transaction_by_provider
-
-
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param provider: (required)
-        :type provider: str
-        :param provider_transaction_id: (required)
-        :type provider_transaction_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._bank_transactions_controller_get_bank_transaction_by_provider_serialize(
-            workspace_id=workspace_id,
-            provider=provider,
-            provider_transaction_id=provider_transaction_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BankTransactionEntity",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def bank_transactions_controller_get_bank_transaction_by_provider_without_preload_content(
-        self,
-        workspace_id: StrictStr,
-        provider: StrictStr,
-        provider_transaction_id: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """bank_transactions_controller_get_bank_transaction_by_provider
-
-
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param provider: (required)
-        :type provider: str
-        :param provider_transaction_id: (required)
-        :type provider_transaction_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._bank_transactions_controller_get_bank_transaction_by_provider_serialize(
-            workspace_id=workspace_id,
-            provider=provider,
-            provider_transaction_id=provider_transaction_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BankTransactionEntity",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _bank_transactions_controller_get_bank_transaction_by_provider_serialize(
-        self,
-        workspace_id,
-        provider,
-        provider_transaction_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if workspace_id is not None:
-            _path_params['workspaceId'] = workspace_id
-        # process the query parameters
-        if provider is not None:
-            
-            _query_params.append(('provider', provider))
-            
-        if provider_transaction_id is not None:
-            
-            _query_params.append(('providerTransactionId', provider_transaction_id))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/workspaces/{workspaceId}/bank/transactions/by-provider',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def bank_transactions_controller_get_bank_transactions(
-        self,
-        workspace_id: StrictStr,
-        page_index: Optional[Union[StrictFloat, StrictInt]] = None,
-        page_size: Optional[Union[StrictFloat, StrictInt]] = None,
-        account_ids: Optional[StrictStr] = None,
-        category_ids: Optional[StrictStr] = None,
-        tag_ids: Optional[StrictStr] = None,
-        legal_natures: Optional[StrictStr] = None,
-        types: Optional[StrictStr] = None,
-        min_posted_date: Optional[StrictStr] = None,
-        max_posted_date: Optional[StrictStr] = None,
-        min_competency_date: Optional[StrictStr] = None,
-        max_competency_date: Optional[StrictStr] = None,
-        show_ignored: Optional[StrictBool] = None,
-        ignore_automatic_application_related: Optional[StrictBool] = None,
-        ignore_internal_transfers: Optional[StrictBool] = None,
-        ignore_invoice_related: Optional[StrictBool] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> BankTransactionsPageEntity:
-        """bank_transactions_controller_get_bank_transactions
-
-
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param page_index:
-        :type page_index: float
-        :param page_size:
-        :type page_size: float
-        :param account_ids:
-        :type account_ids: str
-        :param category_ids:
-        :type category_ids: str
-        :param tag_ids:
-        :type tag_ids: str
-        :param legal_natures:
-        :type legal_natures: str
-        :param types:
-        :type types: str
-        :param min_posted_date:
-        :type min_posted_date: str
-        :param max_posted_date:
-        :type max_posted_date: str
-        :param min_competency_date:
-        :type min_competency_date: str
-        :param max_competency_date:
-        :type max_competency_date: str
-        :param show_ignored:
-        :type show_ignored: bool
-        :param ignore_automatic_application_related:
-        :type ignore_automatic_application_related: bool
-        :param ignore_internal_transfers:
-        :type ignore_internal_transfers: bool
-        :param ignore_invoice_related:
-        :type ignore_invoice_related: bool
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._bank_transactions_controller_get_bank_transactions_serialize(
-            workspace_id=workspace_id,
-            page_index=page_index,
-            page_size=page_size,
-            account_ids=account_ids,
-            category_ids=category_ids,
-            tag_ids=tag_ids,
-            legal_natures=legal_natures,
-            types=types,
-            min_posted_date=min_posted_date,
-            max_posted_date=max_posted_date,
-            min_competency_date=min_competency_date,
-            max_competency_date=max_competency_date,
-            show_ignored=show_ignored,
-            ignore_automatic_application_related=ignore_automatic_application_related,
-            ignore_internal_transfers=ignore_internal_transfers,
-            ignore_invoice_related=ignore_invoice_related,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BankTransactionsPageEntity",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def bank_transactions_controller_get_bank_transactions_with_http_info(
-        self,
-        workspace_id: StrictStr,
-        page_index: Optional[Union[StrictFloat, StrictInt]] = None,
-        page_size: Optional[Union[StrictFloat, StrictInt]] = None,
-        account_ids: Optional[StrictStr] = None,
-        category_ids: Optional[StrictStr] = None,
-        tag_ids: Optional[StrictStr] = None,
-        legal_natures: Optional[StrictStr] = None,
-        types: Optional[StrictStr] = None,
-        min_posted_date: Optional[StrictStr] = None,
-        max_posted_date: Optional[StrictStr] = None,
-        min_competency_date: Optional[StrictStr] = None,
-        max_competency_date: Optional[StrictStr] = None,
-        show_ignored: Optional[StrictBool] = None,
-        ignore_automatic_application_related: Optional[StrictBool] = None,
-        ignore_internal_transfers: Optional[StrictBool] = None,
-        ignore_invoice_related: Optional[StrictBool] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[BankTransactionsPageEntity]:
-        """bank_transactions_controller_get_bank_transactions
-
-
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param page_index:
-        :type page_index: float
-        :param page_size:
-        :type page_size: float
-        :param account_ids:
-        :type account_ids: str
-        :param category_ids:
-        :type category_ids: str
-        :param tag_ids:
-        :type tag_ids: str
-        :param legal_natures:
-        :type legal_natures: str
-        :param types:
-        :type types: str
-        :param min_posted_date:
-        :type min_posted_date: str
-        :param max_posted_date:
-        :type max_posted_date: str
-        :param min_competency_date:
-        :type min_competency_date: str
-        :param max_competency_date:
-        :type max_competency_date: str
-        :param show_ignored:
-        :type show_ignored: bool
-        :param ignore_automatic_application_related:
-        :type ignore_automatic_application_related: bool
-        :param ignore_internal_transfers:
-        :type ignore_internal_transfers: bool
-        :param ignore_invoice_related:
-        :type ignore_invoice_related: bool
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._bank_transactions_controller_get_bank_transactions_serialize(
-            workspace_id=workspace_id,
-            page_index=page_index,
-            page_size=page_size,
-            account_ids=account_ids,
-            category_ids=category_ids,
-            tag_ids=tag_ids,
-            legal_natures=legal_natures,
-            types=types,
-            min_posted_date=min_posted_date,
-            max_posted_date=max_posted_date,
-            min_competency_date=min_competency_date,
-            max_competency_date=max_competency_date,
-            show_ignored=show_ignored,
-            ignore_automatic_application_related=ignore_automatic_application_related,
-            ignore_internal_transfers=ignore_internal_transfers,
-            ignore_invoice_related=ignore_invoice_related,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BankTransactionsPageEntity",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def bank_transactions_controller_get_bank_transactions_without_preload_content(
-        self,
-        workspace_id: StrictStr,
-        page_index: Optional[Union[StrictFloat, StrictInt]] = None,
-        page_size: Optional[Union[StrictFloat, StrictInt]] = None,
-        account_ids: Optional[StrictStr] = None,
-        category_ids: Optional[StrictStr] = None,
-        tag_ids: Optional[StrictStr] = None,
-        legal_natures: Optional[StrictStr] = None,
-        types: Optional[StrictStr] = None,
-        min_posted_date: Optional[StrictStr] = None,
-        max_posted_date: Optional[StrictStr] = None,
-        min_competency_date: Optional[StrictStr] = None,
-        max_competency_date: Optional[StrictStr] = None,
-        show_ignored: Optional[StrictBool] = None,
-        ignore_automatic_application_related: Optional[StrictBool] = None,
-        ignore_internal_transfers: Optional[StrictBool] = None,
-        ignore_invoice_related: Optional[StrictBool] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """bank_transactions_controller_get_bank_transactions
-
-
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param page_index:
-        :type page_index: float
-        :param page_size:
-        :type page_size: float
-        :param account_ids:
-        :type account_ids: str
-        :param category_ids:
-        :type category_ids: str
-        :param tag_ids:
-        :type tag_ids: str
-        :param legal_natures:
-        :type legal_natures: str
-        :param types:
-        :type types: str
-        :param min_posted_date:
-        :type min_posted_date: str
-        :param max_posted_date:
-        :type max_posted_date: str
-        :param min_competency_date:
-        :type min_competency_date: str
-        :param max_competency_date:
-        :type max_competency_date: str
-        :param show_ignored:
-        :type show_ignored: bool
-        :param ignore_automatic_application_related:
-        :type ignore_automatic_application_related: bool
-        :param ignore_internal_transfers:
-        :type ignore_internal_transfers: bool
-        :param ignore_invoice_related:
-        :type ignore_invoice_related: bool
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._bank_transactions_controller_get_bank_transactions_serialize(
-            workspace_id=workspace_id,
-            page_index=page_index,
-            page_size=page_size,
-            account_ids=account_ids,
-            category_ids=category_ids,
-            tag_ids=tag_ids,
-            legal_natures=legal_natures,
-            types=types,
-            min_posted_date=min_posted_date,
-            max_posted_date=max_posted_date,
-            min_competency_date=min_competency_date,
-            max_competency_date=max_competency_date,
-            show_ignored=show_ignored,
-            ignore_automatic_application_related=ignore_automatic_application_related,
-            ignore_internal_transfers=ignore_internal_transfers,
-            ignore_invoice_related=ignore_invoice_related,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BankTransactionsPageEntity",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _bank_transactions_controller_get_bank_transactions_serialize(
-        self,
-        workspace_id,
-        page_index,
-        page_size,
-        account_ids,
-        category_ids,
-        tag_ids,
-        legal_natures,
-        types,
-        min_posted_date,
-        max_posted_date,
-        min_competency_date,
-        max_competency_date,
-        show_ignored,
-        ignore_automatic_application_related,
-        ignore_internal_transfers,
-        ignore_invoice_related,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if workspace_id is not None:
-            _path_params['workspaceId'] = workspace_id
-        # process the query parameters
-        if page_index is not None:
-            
-            _query_params.append(('pageIndex', page_index))
-            
-        if page_size is not None:
-            
-            _query_params.append(('pageSize', page_size))
-            
-        if account_ids is not None:
-            
-            _query_params.append(('accountIds', account_ids))
-            
-        if category_ids is not None:
-            
-            _query_params.append(('categoryIds', category_ids))
-            
-        if tag_ids is not None:
-            
-            _query_params.append(('tagIds', tag_ids))
-            
-        if legal_natures is not None:
-            
-            _query_params.append(('legalNatures', legal_natures))
-            
-        if types is not None:
-            
-            _query_params.append(('types', types))
-            
-        if min_posted_date is not None:
-            
-            _query_params.append(('minPostedDate', min_posted_date))
-            
-        if max_posted_date is not None:
-            
-            _query_params.append(('maxPostedDate', max_posted_date))
-            
-        if min_competency_date is not None:
-            
-            _query_params.append(('minCompetencyDate', min_competency_date))
-            
-        if max_competency_date is not None:
-            
-            _query_params.append(('maxCompetencyDate', max_competency_date))
-            
-        if show_ignored is not None:
-            
-            _query_params.append(('showIgnored', show_ignored))
-            
-        if ignore_automatic_application_related is not None:
-            
-            _query_params.append(('ignoreAutomaticApplicationRelated', ignore_automatic_application_related))
-            
-        if ignore_internal_transfers is not None:
-            
-            _query_params.append(('ignoreInternalTransfers', ignore_internal_transfers))
-            
-        if ignore_invoice_related is not None:
-            
-            _query_params.append(('ignoreInvoiceRelated', ignore_invoice_related))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/workspaces/{workspaceId}/bank/transactions',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def bank_transactions_controller_get_bank_transactions_confirmed_today_by_me(
-        self,
-        workspace_id: StrictStr,
-        page_index: Optional[Union[StrictFloat, StrictInt]] = None,
-        page_size: Optional[Union[StrictFloat, StrictInt]] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> BankTransactionsPageEntity:
-        """bank_transactions_controller_get_bank_transactions_confirmed_today_by_me
-
-
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param page_index:
-        :type page_index: float
-        :param page_size:
-        :type page_size: float
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._bank_transactions_controller_get_bank_transactions_confirmed_today_by_me_serialize(
-            workspace_id=workspace_id,
-            page_index=page_index,
-            page_size=page_size,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BankTransactionsPageEntity",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def bank_transactions_controller_get_bank_transactions_confirmed_today_by_me_with_http_info(
-        self,
-        workspace_id: StrictStr,
-        page_index: Optional[Union[StrictFloat, StrictInt]] = None,
-        page_size: Optional[Union[StrictFloat, StrictInt]] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[BankTransactionsPageEntity]:
-        """bank_transactions_controller_get_bank_transactions_confirmed_today_by_me
-
-
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param page_index:
-        :type page_index: float
-        :param page_size:
-        :type page_size: float
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._bank_transactions_controller_get_bank_transactions_confirmed_today_by_me_serialize(
-            workspace_id=workspace_id,
-            page_index=page_index,
-            page_size=page_size,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BankTransactionsPageEntity",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def bank_transactions_controller_get_bank_transactions_confirmed_today_by_me_without_preload_content(
-        self,
-        workspace_id: StrictStr,
-        page_index: Optional[Union[StrictFloat, StrictInt]] = None,
-        page_size: Optional[Union[StrictFloat, StrictInt]] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """bank_transactions_controller_get_bank_transactions_confirmed_today_by_me
-
-
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param page_index:
-        :type page_index: float
-        :param page_size:
-        :type page_size: float
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._bank_transactions_controller_get_bank_transactions_confirmed_today_by_me_serialize(
-            workspace_id=workspace_id,
-            page_index=page_index,
-            page_size=page_size,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BankTransactionsPageEntity",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _bank_transactions_controller_get_bank_transactions_confirmed_today_by_me_serialize(
-        self,
-        workspace_id,
-        page_index,
-        page_size,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if workspace_id is not None:
-            _path_params['workspaceId'] = workspace_id
-        # process the query parameters
-        if page_index is not None:
-            
-            _query_params.append(('pageIndex', page_index))
-            
-        if page_size is not None:
-            
-            _query_params.append(('pageSize', page_size))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/workspaces/{workspaceId}/bank/transactions/confirmed-today-by-me',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def bank_transactions_controller_get_bank_transactions_not_confirmed(
-        self,
-        workspace_id: StrictStr,
-        page_index: Optional[Union[StrictFloat, StrictInt]] = None,
-        page_size: Optional[Union[StrictFloat, StrictInt]] = None,
-        consider_ignored: Optional[StrictBool] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> BankTransactionsPageEntity:
-        """bank_transactions_controller_get_bank_transactions_not_confirmed
-
-
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param page_index:
-        :type page_index: float
-        :param page_size:
-        :type page_size: float
-        :param consider_ignored:
-        :type consider_ignored: bool
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._bank_transactions_controller_get_bank_transactions_not_confirmed_serialize(
-            workspace_id=workspace_id,
-            page_index=page_index,
-            page_size=page_size,
-            consider_ignored=consider_ignored,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BankTransactionsPageEntity",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def bank_transactions_controller_get_bank_transactions_not_confirmed_with_http_info(
-        self,
-        workspace_id: StrictStr,
-        page_index: Optional[Union[StrictFloat, StrictInt]] = None,
-        page_size: Optional[Union[StrictFloat, StrictInt]] = None,
-        consider_ignored: Optional[StrictBool] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[BankTransactionsPageEntity]:
-        """bank_transactions_controller_get_bank_transactions_not_confirmed
-
-
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param page_index:
-        :type page_index: float
-        :param page_size:
-        :type page_size: float
-        :param consider_ignored:
-        :type consider_ignored: bool
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._bank_transactions_controller_get_bank_transactions_not_confirmed_serialize(
-            workspace_id=workspace_id,
-            page_index=page_index,
-            page_size=page_size,
-            consider_ignored=consider_ignored,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BankTransactionsPageEntity",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def bank_transactions_controller_get_bank_transactions_not_confirmed_without_preload_content(
-        self,
-        workspace_id: StrictStr,
-        page_index: Optional[Union[StrictFloat, StrictInt]] = None,
-        page_size: Optional[Union[StrictFloat, StrictInt]] = None,
-        consider_ignored: Optional[StrictBool] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """bank_transactions_controller_get_bank_transactions_not_confirmed
-
-
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param page_index:
-        :type page_index: float
-        :param page_size:
-        :type page_size: float
-        :param consider_ignored:
-        :type consider_ignored: bool
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._bank_transactions_controller_get_bank_transactions_not_confirmed_serialize(
-            workspace_id=workspace_id,
-            page_index=page_index,
-            page_size=page_size,
-            consider_ignored=consider_ignored,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BankTransactionsPageEntity",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _bank_transactions_controller_get_bank_transactions_not_confirmed_serialize(
-        self,
-        workspace_id,
-        page_index,
-        page_size,
-        consider_ignored,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if workspace_id is not None:
-            _path_params['workspaceId'] = workspace_id
-        # process the query parameters
-        if page_index is not None:
-            
-            _query_params.append(('pageIndex', page_index))
-            
-        if page_size is not None:
-            
-            _query_params.append(('pageSize', page_size))
-            
-        if consider_ignored is not None:
-            
-            _query_params.append(('considerIgnored', consider_ignored))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/workspaces/{workspaceId}/bank/transactions/not-confirmed',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def bank_transactions_controller_get_bank_transactions_totals(
-        self,
-        workspace_id: StrictStr,
-        account_ids: Optional[StrictStr] = None,
-        category_ids: Optional[StrictStr] = None,
-        tag_ids: Optional[StrictStr] = None,
-        legal_natures: Optional[StrictStr] = None,
-        min_posted_date: Optional[StrictStr] = None,
-        max_posted_date: Optional[StrictStr] = None,
-        min_competency_date: Optional[StrictStr] = None,
-        max_competency_date: Optional[StrictStr] = None,
-        show_ignored: Optional[StrictBool] = None,
-        ignore_automatic_application_related: Optional[StrictBool] = None,
-        ignore_internal_transfers: Optional[StrictBool] = None,
-        ignore_invoice_related: Optional[StrictBool] = None,
-        types: Optional[StrictStr] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> BankTransactionsTotalsEntity:
-        """bank_transactions_controller_get_bank_transactions_totals
-
-
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param account_ids:
-        :type account_ids: str
-        :param category_ids:
-        :type category_ids: str
-        :param tag_ids:
-        :type tag_ids: str
-        :param legal_natures:
-        :type legal_natures: str
-        :param min_posted_date:
-        :type min_posted_date: str
-        :param max_posted_date:
-        :type max_posted_date: str
-        :param min_competency_date:
-        :type min_competency_date: str
-        :param max_competency_date:
-        :type max_competency_date: str
-        :param show_ignored:
-        :type show_ignored: bool
-        :param ignore_automatic_application_related:
-        :type ignore_automatic_application_related: bool
-        :param ignore_internal_transfers:
-        :type ignore_internal_transfers: bool
-        :param ignore_invoice_related:
-        :type ignore_invoice_related: bool
-        :param types:
-        :type types: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._bank_transactions_controller_get_bank_transactions_totals_serialize(
-            workspace_id=workspace_id,
-            account_ids=account_ids,
-            category_ids=category_ids,
-            tag_ids=tag_ids,
-            legal_natures=legal_natures,
-            min_posted_date=min_posted_date,
-            max_posted_date=max_posted_date,
-            min_competency_date=min_competency_date,
-            max_competency_date=max_competency_date,
-            show_ignored=show_ignored,
-            ignore_automatic_application_related=ignore_automatic_application_related,
-            ignore_internal_transfers=ignore_internal_transfers,
-            ignore_invoice_related=ignore_invoice_related,
-            types=types,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BankTransactionsTotalsEntity",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def bank_transactions_controller_get_bank_transactions_totals_with_http_info(
-        self,
-        workspace_id: StrictStr,
-        account_ids: Optional[StrictStr] = None,
-        category_ids: Optional[StrictStr] = None,
-        tag_ids: Optional[StrictStr] = None,
-        legal_natures: Optional[StrictStr] = None,
-        min_posted_date: Optional[StrictStr] = None,
-        max_posted_date: Optional[StrictStr] = None,
-        min_competency_date: Optional[StrictStr] = None,
-        max_competency_date: Optional[StrictStr] = None,
-        show_ignored: Optional[StrictBool] = None,
-        ignore_automatic_application_related: Optional[StrictBool] = None,
-        ignore_internal_transfers: Optional[StrictBool] = None,
-        ignore_invoice_related: Optional[StrictBool] = None,
-        types: Optional[StrictStr] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[BankTransactionsTotalsEntity]:
-        """bank_transactions_controller_get_bank_transactions_totals
-
-
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param account_ids:
-        :type account_ids: str
-        :param category_ids:
-        :type category_ids: str
-        :param tag_ids:
-        :type tag_ids: str
-        :param legal_natures:
-        :type legal_natures: str
-        :param min_posted_date:
-        :type min_posted_date: str
-        :param max_posted_date:
-        :type max_posted_date: str
-        :param min_competency_date:
-        :type min_competency_date: str
-        :param max_competency_date:
-        :type max_competency_date: str
-        :param show_ignored:
-        :type show_ignored: bool
-        :param ignore_automatic_application_related:
-        :type ignore_automatic_application_related: bool
-        :param ignore_internal_transfers:
-        :type ignore_internal_transfers: bool
-        :param ignore_invoice_related:
-        :type ignore_invoice_related: bool
-        :param types:
-        :type types: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._bank_transactions_controller_get_bank_transactions_totals_serialize(
-            workspace_id=workspace_id,
-            account_ids=account_ids,
-            category_ids=category_ids,
-            tag_ids=tag_ids,
-            legal_natures=legal_natures,
-            min_posted_date=min_posted_date,
-            max_posted_date=max_posted_date,
-            min_competency_date=min_competency_date,
-            max_competency_date=max_competency_date,
-            show_ignored=show_ignored,
-            ignore_automatic_application_related=ignore_automatic_application_related,
-            ignore_internal_transfers=ignore_internal_transfers,
-            ignore_invoice_related=ignore_invoice_related,
-            types=types,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BankTransactionsTotalsEntity",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def bank_transactions_controller_get_bank_transactions_totals_without_preload_content(
-        self,
-        workspace_id: StrictStr,
-        account_ids: Optional[StrictStr] = None,
-        category_ids: Optional[StrictStr] = None,
-        tag_ids: Optional[StrictStr] = None,
-        legal_natures: Optional[StrictStr] = None,
-        min_posted_date: Optional[StrictStr] = None,
-        max_posted_date: Optional[StrictStr] = None,
-        min_competency_date: Optional[StrictStr] = None,
-        max_competency_date: Optional[StrictStr] = None,
-        show_ignored: Optional[StrictBool] = None,
-        ignore_automatic_application_related: Optional[StrictBool] = None,
-        ignore_internal_transfers: Optional[StrictBool] = None,
-        ignore_invoice_related: Optional[StrictBool] = None,
-        types: Optional[StrictStr] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """bank_transactions_controller_get_bank_transactions_totals
-
-
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param account_ids:
-        :type account_ids: str
-        :param category_ids:
-        :type category_ids: str
-        :param tag_ids:
-        :type tag_ids: str
-        :param legal_natures:
-        :type legal_natures: str
-        :param min_posted_date:
-        :type min_posted_date: str
-        :param max_posted_date:
-        :type max_posted_date: str
-        :param min_competency_date:
-        :type min_competency_date: str
-        :param max_competency_date:
-        :type max_competency_date: str
-        :param show_ignored:
-        :type show_ignored: bool
-        :param ignore_automatic_application_related:
-        :type ignore_automatic_application_related: bool
-        :param ignore_internal_transfers:
-        :type ignore_internal_transfers: bool
-        :param ignore_invoice_related:
-        :type ignore_invoice_related: bool
-        :param types:
-        :type types: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._bank_transactions_controller_get_bank_transactions_totals_serialize(
-            workspace_id=workspace_id,
-            account_ids=account_ids,
-            category_ids=category_ids,
-            tag_ids=tag_ids,
-            legal_natures=legal_natures,
-            min_posted_date=min_posted_date,
-            max_posted_date=max_posted_date,
-            min_competency_date=min_competency_date,
-            max_competency_date=max_competency_date,
-            show_ignored=show_ignored,
-            ignore_automatic_application_related=ignore_automatic_application_related,
-            ignore_internal_transfers=ignore_internal_transfers,
-            ignore_invoice_related=ignore_invoice_related,
-            types=types,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "BankTransactionsTotalsEntity",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _bank_transactions_controller_get_bank_transactions_totals_serialize(
-        self,
-        workspace_id,
-        account_ids,
-        category_ids,
-        tag_ids,
-        legal_natures,
-        min_posted_date,
-        max_posted_date,
-        min_competency_date,
-        max_competency_date,
-        show_ignored,
-        ignore_automatic_application_related,
-        ignore_internal_transfers,
-        ignore_invoice_related,
-        types,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if workspace_id is not None:
-            _path_params['workspaceId'] = workspace_id
-        # process the query parameters
-        if account_ids is not None:
-            
-            _query_params.append(('accountIds', account_ids))
-            
-        if category_ids is not None:
-            
-            _query_params.append(('categoryIds', category_ids))
-            
-        if tag_ids is not None:
-            
-            _query_params.append(('tagIds', tag_ids))
-            
-        if legal_natures is not None:
-            
-            _query_params.append(('legalNatures', legal_natures))
-            
-        if min_posted_date is not None:
-            
-            _query_params.append(('minPostedDate', min_posted_date))
-            
-        if max_posted_date is not None:
-            
-            _query_params.append(('maxPostedDate', max_posted_date))
-            
-        if min_competency_date is not None:
-            
-            _query_params.append(('minCompetencyDate', min_competency_date))
-            
-        if max_competency_date is not None:
-            
-            _query_params.append(('maxCompetencyDate', max_competency_date))
-            
-        if show_ignored is not None:
-            
-            _query_params.append(('showIgnored', show_ignored))
-            
-        if ignore_automatic_application_related is not None:
-            
-            _query_params.append(('ignoreAutomaticApplicationRelated', ignore_automatic_application_related))
-            
-        if ignore_internal_transfers is not None:
-            
-            _query_params.append(('ignoreInternalTransfers', ignore_internal_transfers))
-            
-        if ignore_invoice_related is not None:
-            
-            _query_params.append(('ignoreInvoiceRelated', ignore_invoice_related))
-            
-        if types is not None:
-            
-            _query_params.append(('types', types))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/workspaces/{workspaceId}/bank/transactions/totals',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def bank_transactions_controller_get_recent(
-        self,
-        workspace_id: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> List[BankTransactionEntity]:
-        """bank_transactions_controller_get_recent
-
-
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._bank_transactions_controller_get_recent_serialize(
-            workspace_id=workspace_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[BankTransactionEntity]",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def bank_transactions_controller_get_recent_with_http_info(
-        self,
-        workspace_id: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[List[BankTransactionEntity]]:
-        """bank_transactions_controller_get_recent
-
-
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._bank_transactions_controller_get_recent_serialize(
-            workspace_id=workspace_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[BankTransactionEntity]",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def bank_transactions_controller_get_recent_without_preload_content(
-        self,
-        workspace_id: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """bank_transactions_controller_get_recent
-
-
-        :param workspace_id: (required)
-        :type workspace_id: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._bank_transactions_controller_get_recent_serialize(
-            workspace_id=workspace_id,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[BankTransactionEntity]",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _bank_transactions_controller_get_recent_serialize(
-        self,
-        workspace_id,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[str, Union[str, bytes]] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if workspace_id is not None:
-            _path_params['workspaceId'] = workspace_id
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/workspaces/{workspaceId}/bank/transactions/most-recent',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def bank_transactions_controller_get_transaction_details(
+    async def bank_transactions_controller_get_by_id(
         self,
         bank_transaction_id: StrictStr,
         _request_timeout: Union[
@@ -2452,7 +326,7 @@ class BankTransactionsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> BankTransactionEntity:
-        """bank_transactions_controller_get_transaction_details
+        """bank_transactions_controller_get_by_id
 
 
         :param bank_transaction_id: (required)
@@ -2479,7 +353,7 @@ class BankTransactionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_transactions_controller_get_transaction_details_serialize(
+        _param = self._bank_transactions_controller_get_by_id_serialize(
             bank_transaction_id=bank_transaction_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2502,7 +376,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    async def bank_transactions_controller_get_transaction_details_with_http_info(
+    async def bank_transactions_controller_get_by_id_with_http_info(
         self,
         bank_transaction_id: StrictStr,
         _request_timeout: Union[
@@ -2518,7 +392,7 @@ class BankTransactionsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[BankTransactionEntity]:
-        """bank_transactions_controller_get_transaction_details
+        """bank_transactions_controller_get_by_id
 
 
         :param bank_transaction_id: (required)
@@ -2545,7 +419,7 @@ class BankTransactionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_transactions_controller_get_transaction_details_serialize(
+        _param = self._bank_transactions_controller_get_by_id_serialize(
             bank_transaction_id=bank_transaction_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2568,7 +442,7 @@ class BankTransactionsApi:
 
 
     @validate_call
-    async def bank_transactions_controller_get_transaction_details_without_preload_content(
+    async def bank_transactions_controller_get_by_id_without_preload_content(
         self,
         bank_transaction_id: StrictStr,
         _request_timeout: Union[
@@ -2584,7 +458,7 @@ class BankTransactionsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """bank_transactions_controller_get_transaction_details
+        """bank_transactions_controller_get_by_id
 
 
         :param bank_transaction_id: (required)
@@ -2611,7 +485,7 @@ class BankTransactionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_transactions_controller_get_transaction_details_serialize(
+        _param = self._bank_transactions_controller_get_by_id_serialize(
             bank_transaction_id=bank_transaction_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2629,7 +503,7 @@ class BankTransactionsApi:
         return response_data.response
 
 
-    def _bank_transactions_controller_get_transaction_details_serialize(
+    def _bank_transactions_controller_get_by_id_serialize(
         self,
         bank_transaction_id,
         _request_auth,
@@ -2691,10 +565,11 @@ class BankTransactionsApi:
 
 
     @validate_call
-    async def bank_transactions_controller_update_transaction(
+    async def bank_transactions_controller_get_by_provider(
         self,
-        bank_transaction_id: StrictStr,
-        update_bank_transaction_request_dto: UpdateBankTransactionRequestDto,
+        account_id: StrictStr,
+        provider: StrictStr,
+        provider_transaction_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2708,13 +583,15 @@ class BankTransactionsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> BankTransactionEntity:
-        """bank_transactions_controller_update_transaction
+        """bank_transactions_controller_get_by_provider
 
 
-        :param bank_transaction_id: (required)
-        :type bank_transaction_id: str
-        :param update_bank_transaction_request_dto: (required)
-        :type update_bank_transaction_request_dto: UpdateBankTransactionRequestDto
+        :param account_id: (required)
+        :type account_id: str
+        :param provider: (required)
+        :type provider: str
+        :param provider_transaction_id: (required)
+        :type provider_transaction_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2737,9 +614,10 @@ class BankTransactionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_transactions_controller_update_transaction_serialize(
-            bank_transaction_id=bank_transaction_id,
-            update_bank_transaction_request_dto=update_bank_transaction_request_dto,
+        _param = self._bank_transactions_controller_get_by_provider_serialize(
+            account_id=account_id,
+            provider=provider,
+            provider_transaction_id=provider_transaction_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2761,10 +639,11 @@ class BankTransactionsApi:
 
 
     @validate_call
-    async def bank_transactions_controller_update_transaction_with_http_info(
+    async def bank_transactions_controller_get_by_provider_with_http_info(
         self,
-        bank_transaction_id: StrictStr,
-        update_bank_transaction_request_dto: UpdateBankTransactionRequestDto,
+        account_id: StrictStr,
+        provider: StrictStr,
+        provider_transaction_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2778,13 +657,15 @@ class BankTransactionsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[BankTransactionEntity]:
-        """bank_transactions_controller_update_transaction
+        """bank_transactions_controller_get_by_provider
 
 
-        :param bank_transaction_id: (required)
-        :type bank_transaction_id: str
-        :param update_bank_transaction_request_dto: (required)
-        :type update_bank_transaction_request_dto: UpdateBankTransactionRequestDto
+        :param account_id: (required)
+        :type account_id: str
+        :param provider: (required)
+        :type provider: str
+        :param provider_transaction_id: (required)
+        :type provider_transaction_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2807,9 +688,10 @@ class BankTransactionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_transactions_controller_update_transaction_serialize(
-            bank_transaction_id=bank_transaction_id,
-            update_bank_transaction_request_dto=update_bank_transaction_request_dto,
+        _param = self._bank_transactions_controller_get_by_provider_serialize(
+            account_id=account_id,
+            provider=provider,
+            provider_transaction_id=provider_transaction_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2831,10 +713,11 @@ class BankTransactionsApi:
 
 
     @validate_call
-    async def bank_transactions_controller_update_transaction_without_preload_content(
+    async def bank_transactions_controller_get_by_provider_without_preload_content(
         self,
-        bank_transaction_id: StrictStr,
-        update_bank_transaction_request_dto: UpdateBankTransactionRequestDto,
+        account_id: StrictStr,
+        provider: StrictStr,
+        provider_transaction_id: StrictStr,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2848,13 +731,15 @@ class BankTransactionsApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """bank_transactions_controller_update_transaction
+        """bank_transactions_controller_get_by_provider
 
 
-        :param bank_transaction_id: (required)
-        :type bank_transaction_id: str
-        :param update_bank_transaction_request_dto: (required)
-        :type update_bank_transaction_request_dto: UpdateBankTransactionRequestDto
+        :param account_id: (required)
+        :type account_id: str
+        :param provider: (required)
+        :type provider: str
+        :param provider_transaction_id: (required)
+        :type provider_transaction_id: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2877,9 +762,10 @@ class BankTransactionsApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._bank_transactions_controller_update_transaction_serialize(
-            bank_transaction_id=bank_transaction_id,
-            update_bank_transaction_request_dto=update_bank_transaction_request_dto,
+        _param = self._bank_transactions_controller_get_by_provider_serialize(
+            account_id=account_id,
+            provider=provider,
+            provider_transaction_id=provider_transaction_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2896,10 +782,2157 @@ class BankTransactionsApi:
         return response_data.response
 
 
-    def _bank_transactions_controller_update_transaction_serialize(
+    def _bank_transactions_controller_get_by_provider_serialize(
+        self,
+        account_id,
+        provider,
+        provider_transaction_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if account_id is not None:
+            _path_params['accountId'] = account_id
+        # process the query parameters
+        if provider is not None:
+            
+            _query_params.append(('provider', provider))
+            
+        if provider_transaction_id is not None:
+            
+            _query_params.append(('providerTransactionId', provider_transaction_id))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/bank/accounts/{accountId}/transactions/by-provider',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def bank_transactions_controller_get_totals(
+        self,
+        workspace_id: StrictStr,
+        account_ids: Optional[StrictStr] = None,
+        category_ids: Optional[StrictStr] = None,
+        tag_ids: Optional[StrictStr] = None,
+        legal_natures: Optional[StrictStr] = None,
+        direction_natures: Optional[StrictStr] = None,
+        min_posted_datetime: Optional[StrictStr] = None,
+        max_posted_datetime: Optional[StrictStr] = None,
+        min_competency_datetime: Optional[StrictStr] = None,
+        max_competency_datetime: Optional[StrictStr] = None,
+        consider_ignored: Optional[StrictBool] = None,
+        consider_automatic_application_related: Optional[StrictBool] = None,
+        consider_internal_transfers: Optional[StrictBool] = None,
+        consider_invoice_related: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> BankTransactionsPageEntity:
+        """bank_transactions_controller_get_totals
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param account_ids:
+        :type account_ids: str
+        :param category_ids:
+        :type category_ids: str
+        :param tag_ids:
+        :type tag_ids: str
+        :param legal_natures:
+        :type legal_natures: str
+        :param direction_natures:
+        :type direction_natures: str
+        :param min_posted_datetime:
+        :type min_posted_datetime: str
+        :param max_posted_datetime:
+        :type max_posted_datetime: str
+        :param min_competency_datetime:
+        :type min_competency_datetime: str
+        :param max_competency_datetime:
+        :type max_competency_datetime: str
+        :param consider_ignored:
+        :type consider_ignored: bool
+        :param consider_automatic_application_related:
+        :type consider_automatic_application_related: bool
+        :param consider_internal_transfers:
+        :type consider_internal_transfers: bool
+        :param consider_invoice_related:
+        :type consider_invoice_related: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._bank_transactions_controller_get_totals_serialize(
+            workspace_id=workspace_id,
+            account_ids=account_ids,
+            category_ids=category_ids,
+            tag_ids=tag_ids,
+            legal_natures=legal_natures,
+            direction_natures=direction_natures,
+            min_posted_datetime=min_posted_datetime,
+            max_posted_datetime=max_posted_datetime,
+            min_competency_datetime=min_competency_datetime,
+            max_competency_datetime=max_competency_datetime,
+            consider_ignored=consider_ignored,
+            consider_automatic_application_related=consider_automatic_application_related,
+            consider_internal_transfers=consider_internal_transfers,
+            consider_invoice_related=consider_invoice_related,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "BankTransactionsPageEntity",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def bank_transactions_controller_get_totals_with_http_info(
+        self,
+        workspace_id: StrictStr,
+        account_ids: Optional[StrictStr] = None,
+        category_ids: Optional[StrictStr] = None,
+        tag_ids: Optional[StrictStr] = None,
+        legal_natures: Optional[StrictStr] = None,
+        direction_natures: Optional[StrictStr] = None,
+        min_posted_datetime: Optional[StrictStr] = None,
+        max_posted_datetime: Optional[StrictStr] = None,
+        min_competency_datetime: Optional[StrictStr] = None,
+        max_competency_datetime: Optional[StrictStr] = None,
+        consider_ignored: Optional[StrictBool] = None,
+        consider_automatic_application_related: Optional[StrictBool] = None,
+        consider_internal_transfers: Optional[StrictBool] = None,
+        consider_invoice_related: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[BankTransactionsPageEntity]:
+        """bank_transactions_controller_get_totals
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param account_ids:
+        :type account_ids: str
+        :param category_ids:
+        :type category_ids: str
+        :param tag_ids:
+        :type tag_ids: str
+        :param legal_natures:
+        :type legal_natures: str
+        :param direction_natures:
+        :type direction_natures: str
+        :param min_posted_datetime:
+        :type min_posted_datetime: str
+        :param max_posted_datetime:
+        :type max_posted_datetime: str
+        :param min_competency_datetime:
+        :type min_competency_datetime: str
+        :param max_competency_datetime:
+        :type max_competency_datetime: str
+        :param consider_ignored:
+        :type consider_ignored: bool
+        :param consider_automatic_application_related:
+        :type consider_automatic_application_related: bool
+        :param consider_internal_transfers:
+        :type consider_internal_transfers: bool
+        :param consider_invoice_related:
+        :type consider_invoice_related: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._bank_transactions_controller_get_totals_serialize(
+            workspace_id=workspace_id,
+            account_ids=account_ids,
+            category_ids=category_ids,
+            tag_ids=tag_ids,
+            legal_natures=legal_natures,
+            direction_natures=direction_natures,
+            min_posted_datetime=min_posted_datetime,
+            max_posted_datetime=max_posted_datetime,
+            min_competency_datetime=min_competency_datetime,
+            max_competency_datetime=max_competency_datetime,
+            consider_ignored=consider_ignored,
+            consider_automatic_application_related=consider_automatic_application_related,
+            consider_internal_transfers=consider_internal_transfers,
+            consider_invoice_related=consider_invoice_related,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "BankTransactionsPageEntity",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def bank_transactions_controller_get_totals_without_preload_content(
+        self,
+        workspace_id: StrictStr,
+        account_ids: Optional[StrictStr] = None,
+        category_ids: Optional[StrictStr] = None,
+        tag_ids: Optional[StrictStr] = None,
+        legal_natures: Optional[StrictStr] = None,
+        direction_natures: Optional[StrictStr] = None,
+        min_posted_datetime: Optional[StrictStr] = None,
+        max_posted_datetime: Optional[StrictStr] = None,
+        min_competency_datetime: Optional[StrictStr] = None,
+        max_competency_datetime: Optional[StrictStr] = None,
+        consider_ignored: Optional[StrictBool] = None,
+        consider_automatic_application_related: Optional[StrictBool] = None,
+        consider_internal_transfers: Optional[StrictBool] = None,
+        consider_invoice_related: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """bank_transactions_controller_get_totals
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param account_ids:
+        :type account_ids: str
+        :param category_ids:
+        :type category_ids: str
+        :param tag_ids:
+        :type tag_ids: str
+        :param legal_natures:
+        :type legal_natures: str
+        :param direction_natures:
+        :type direction_natures: str
+        :param min_posted_datetime:
+        :type min_posted_datetime: str
+        :param max_posted_datetime:
+        :type max_posted_datetime: str
+        :param min_competency_datetime:
+        :type min_competency_datetime: str
+        :param max_competency_datetime:
+        :type max_competency_datetime: str
+        :param consider_ignored:
+        :type consider_ignored: bool
+        :param consider_automatic_application_related:
+        :type consider_automatic_application_related: bool
+        :param consider_internal_transfers:
+        :type consider_internal_transfers: bool
+        :param consider_invoice_related:
+        :type consider_invoice_related: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._bank_transactions_controller_get_totals_serialize(
+            workspace_id=workspace_id,
+            account_ids=account_ids,
+            category_ids=category_ids,
+            tag_ids=tag_ids,
+            legal_natures=legal_natures,
+            direction_natures=direction_natures,
+            min_posted_datetime=min_posted_datetime,
+            max_posted_datetime=max_posted_datetime,
+            min_competency_datetime=min_competency_datetime,
+            max_competency_datetime=max_competency_datetime,
+            consider_ignored=consider_ignored,
+            consider_automatic_application_related=consider_automatic_application_related,
+            consider_internal_transfers=consider_internal_transfers,
+            consider_invoice_related=consider_invoice_related,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "BankTransactionsPageEntity",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _bank_transactions_controller_get_totals_serialize(
+        self,
+        workspace_id,
+        account_ids,
+        category_ids,
+        tag_ids,
+        legal_natures,
+        direction_natures,
+        min_posted_datetime,
+        max_posted_datetime,
+        min_competency_datetime,
+        max_competency_datetime,
+        consider_ignored,
+        consider_automatic_application_related,
+        consider_internal_transfers,
+        consider_invoice_related,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if workspace_id is not None:
+            _path_params['workspaceId'] = workspace_id
+        # process the query parameters
+        if account_ids is not None:
+            
+            _query_params.append(('accountIds', account_ids))
+            
+        if category_ids is not None:
+            
+            _query_params.append(('categoryIds', category_ids))
+            
+        if tag_ids is not None:
+            
+            _query_params.append(('tagIds', tag_ids))
+            
+        if legal_natures is not None:
+            
+            _query_params.append(('legalNatures', legal_natures))
+            
+        if direction_natures is not None:
+            
+            _query_params.append(('directionNatures', direction_natures))
+            
+        if min_posted_datetime is not None:
+            
+            _query_params.append(('minPostedDatetime', min_posted_datetime))
+            
+        if max_posted_datetime is not None:
+            
+            _query_params.append(('maxPostedDatetime', max_posted_datetime))
+            
+        if min_competency_datetime is not None:
+            
+            _query_params.append(('minCompetencyDatetime', min_competency_datetime))
+            
+        if max_competency_datetime is not None:
+            
+            _query_params.append(('maxCompetencyDatetime', max_competency_datetime))
+            
+        if consider_ignored is not None:
+            
+            _query_params.append(('considerIgnored', consider_ignored))
+            
+        if consider_automatic_application_related is not None:
+            
+            _query_params.append(('considerAutomaticApplicationRelated', consider_automatic_application_related))
+            
+        if consider_internal_transfers is not None:
+            
+            _query_params.append(('considerInternalTransfers', consider_internal_transfers))
+            
+        if consider_invoice_related is not None:
+            
+            _query_params.append(('considerInvoiceRelated', consider_invoice_related))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/bank/workspaces/{workspaceId}/transactions/totals',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def bank_transactions_controller_list(
+        self,
+        workspace_id: StrictStr,
+        page_index: Optional[Union[StrictFloat, StrictInt]] = None,
+        page_size: Optional[Union[StrictFloat, StrictInt]] = None,
+        account_ids: Optional[StrictStr] = None,
+        category_ids: Optional[StrictStr] = None,
+        tag_ids: Optional[StrictStr] = None,
+        legal_natures: Optional[StrictStr] = None,
+        direction_natures: Optional[StrictStr] = None,
+        min_posted_datetime: Optional[StrictStr] = None,
+        max_posted_datetime: Optional[StrictStr] = None,
+        min_competency_datetime: Optional[StrictStr] = None,
+        max_competency_datetime: Optional[StrictStr] = None,
+        consider_ignored: Optional[StrictBool] = None,
+        consider_automatic_application_related: Optional[StrictBool] = None,
+        consider_internal_transfers: Optional[StrictBool] = None,
+        consider_invoice_related: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> BankTransactionsPageEntity:
+        """bank_transactions_controller_list
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param page_index:
+        :type page_index: float
+        :param page_size:
+        :type page_size: float
+        :param account_ids:
+        :type account_ids: str
+        :param category_ids:
+        :type category_ids: str
+        :param tag_ids:
+        :type tag_ids: str
+        :param legal_natures:
+        :type legal_natures: str
+        :param direction_natures:
+        :type direction_natures: str
+        :param min_posted_datetime:
+        :type min_posted_datetime: str
+        :param max_posted_datetime:
+        :type max_posted_datetime: str
+        :param min_competency_datetime:
+        :type min_competency_datetime: str
+        :param max_competency_datetime:
+        :type max_competency_datetime: str
+        :param consider_ignored:
+        :type consider_ignored: bool
+        :param consider_automatic_application_related:
+        :type consider_automatic_application_related: bool
+        :param consider_internal_transfers:
+        :type consider_internal_transfers: bool
+        :param consider_invoice_related:
+        :type consider_invoice_related: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._bank_transactions_controller_list_serialize(
+            workspace_id=workspace_id,
+            page_index=page_index,
+            page_size=page_size,
+            account_ids=account_ids,
+            category_ids=category_ids,
+            tag_ids=tag_ids,
+            legal_natures=legal_natures,
+            direction_natures=direction_natures,
+            min_posted_datetime=min_posted_datetime,
+            max_posted_datetime=max_posted_datetime,
+            min_competency_datetime=min_competency_datetime,
+            max_competency_datetime=max_competency_datetime,
+            consider_ignored=consider_ignored,
+            consider_automatic_application_related=consider_automatic_application_related,
+            consider_internal_transfers=consider_internal_transfers,
+            consider_invoice_related=consider_invoice_related,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "BankTransactionsPageEntity",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def bank_transactions_controller_list_with_http_info(
+        self,
+        workspace_id: StrictStr,
+        page_index: Optional[Union[StrictFloat, StrictInt]] = None,
+        page_size: Optional[Union[StrictFloat, StrictInt]] = None,
+        account_ids: Optional[StrictStr] = None,
+        category_ids: Optional[StrictStr] = None,
+        tag_ids: Optional[StrictStr] = None,
+        legal_natures: Optional[StrictStr] = None,
+        direction_natures: Optional[StrictStr] = None,
+        min_posted_datetime: Optional[StrictStr] = None,
+        max_posted_datetime: Optional[StrictStr] = None,
+        min_competency_datetime: Optional[StrictStr] = None,
+        max_competency_datetime: Optional[StrictStr] = None,
+        consider_ignored: Optional[StrictBool] = None,
+        consider_automatic_application_related: Optional[StrictBool] = None,
+        consider_internal_transfers: Optional[StrictBool] = None,
+        consider_invoice_related: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[BankTransactionsPageEntity]:
+        """bank_transactions_controller_list
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param page_index:
+        :type page_index: float
+        :param page_size:
+        :type page_size: float
+        :param account_ids:
+        :type account_ids: str
+        :param category_ids:
+        :type category_ids: str
+        :param tag_ids:
+        :type tag_ids: str
+        :param legal_natures:
+        :type legal_natures: str
+        :param direction_natures:
+        :type direction_natures: str
+        :param min_posted_datetime:
+        :type min_posted_datetime: str
+        :param max_posted_datetime:
+        :type max_posted_datetime: str
+        :param min_competency_datetime:
+        :type min_competency_datetime: str
+        :param max_competency_datetime:
+        :type max_competency_datetime: str
+        :param consider_ignored:
+        :type consider_ignored: bool
+        :param consider_automatic_application_related:
+        :type consider_automatic_application_related: bool
+        :param consider_internal_transfers:
+        :type consider_internal_transfers: bool
+        :param consider_invoice_related:
+        :type consider_invoice_related: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._bank_transactions_controller_list_serialize(
+            workspace_id=workspace_id,
+            page_index=page_index,
+            page_size=page_size,
+            account_ids=account_ids,
+            category_ids=category_ids,
+            tag_ids=tag_ids,
+            legal_natures=legal_natures,
+            direction_natures=direction_natures,
+            min_posted_datetime=min_posted_datetime,
+            max_posted_datetime=max_posted_datetime,
+            min_competency_datetime=min_competency_datetime,
+            max_competency_datetime=max_competency_datetime,
+            consider_ignored=consider_ignored,
+            consider_automatic_application_related=consider_automatic_application_related,
+            consider_internal_transfers=consider_internal_transfers,
+            consider_invoice_related=consider_invoice_related,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "BankTransactionsPageEntity",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def bank_transactions_controller_list_without_preload_content(
+        self,
+        workspace_id: StrictStr,
+        page_index: Optional[Union[StrictFloat, StrictInt]] = None,
+        page_size: Optional[Union[StrictFloat, StrictInt]] = None,
+        account_ids: Optional[StrictStr] = None,
+        category_ids: Optional[StrictStr] = None,
+        tag_ids: Optional[StrictStr] = None,
+        legal_natures: Optional[StrictStr] = None,
+        direction_natures: Optional[StrictStr] = None,
+        min_posted_datetime: Optional[StrictStr] = None,
+        max_posted_datetime: Optional[StrictStr] = None,
+        min_competency_datetime: Optional[StrictStr] = None,
+        max_competency_datetime: Optional[StrictStr] = None,
+        consider_ignored: Optional[StrictBool] = None,
+        consider_automatic_application_related: Optional[StrictBool] = None,
+        consider_internal_transfers: Optional[StrictBool] = None,
+        consider_invoice_related: Optional[StrictStr] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """bank_transactions_controller_list
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param page_index:
+        :type page_index: float
+        :param page_size:
+        :type page_size: float
+        :param account_ids:
+        :type account_ids: str
+        :param category_ids:
+        :type category_ids: str
+        :param tag_ids:
+        :type tag_ids: str
+        :param legal_natures:
+        :type legal_natures: str
+        :param direction_natures:
+        :type direction_natures: str
+        :param min_posted_datetime:
+        :type min_posted_datetime: str
+        :param max_posted_datetime:
+        :type max_posted_datetime: str
+        :param min_competency_datetime:
+        :type min_competency_datetime: str
+        :param max_competency_datetime:
+        :type max_competency_datetime: str
+        :param consider_ignored:
+        :type consider_ignored: bool
+        :param consider_automatic_application_related:
+        :type consider_automatic_application_related: bool
+        :param consider_internal_transfers:
+        :type consider_internal_transfers: bool
+        :param consider_invoice_related:
+        :type consider_invoice_related: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._bank_transactions_controller_list_serialize(
+            workspace_id=workspace_id,
+            page_index=page_index,
+            page_size=page_size,
+            account_ids=account_ids,
+            category_ids=category_ids,
+            tag_ids=tag_ids,
+            legal_natures=legal_natures,
+            direction_natures=direction_natures,
+            min_posted_datetime=min_posted_datetime,
+            max_posted_datetime=max_posted_datetime,
+            min_competency_datetime=min_competency_datetime,
+            max_competency_datetime=max_competency_datetime,
+            consider_ignored=consider_ignored,
+            consider_automatic_application_related=consider_automatic_application_related,
+            consider_internal_transfers=consider_internal_transfers,
+            consider_invoice_related=consider_invoice_related,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "BankTransactionsPageEntity",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _bank_transactions_controller_list_serialize(
+        self,
+        workspace_id,
+        page_index,
+        page_size,
+        account_ids,
+        category_ids,
+        tag_ids,
+        legal_natures,
+        direction_natures,
+        min_posted_datetime,
+        max_posted_datetime,
+        min_competency_datetime,
+        max_competency_datetime,
+        consider_ignored,
+        consider_automatic_application_related,
+        consider_internal_transfers,
+        consider_invoice_related,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if workspace_id is not None:
+            _path_params['workspaceId'] = workspace_id
+        # process the query parameters
+        if page_index is not None:
+            
+            _query_params.append(('pageIndex', page_index))
+            
+        if page_size is not None:
+            
+            _query_params.append(('pageSize', page_size))
+            
+        if account_ids is not None:
+            
+            _query_params.append(('accountIds', account_ids))
+            
+        if category_ids is not None:
+            
+            _query_params.append(('categoryIds', category_ids))
+            
+        if tag_ids is not None:
+            
+            _query_params.append(('tagIds', tag_ids))
+            
+        if legal_natures is not None:
+            
+            _query_params.append(('legalNatures', legal_natures))
+            
+        if direction_natures is not None:
+            
+            _query_params.append(('directionNatures', direction_natures))
+            
+        if min_posted_datetime is not None:
+            
+            _query_params.append(('minPostedDatetime', min_posted_datetime))
+            
+        if max_posted_datetime is not None:
+            
+            _query_params.append(('maxPostedDatetime', max_posted_datetime))
+            
+        if min_competency_datetime is not None:
+            
+            _query_params.append(('minCompetencyDatetime', min_competency_datetime))
+            
+        if max_competency_datetime is not None:
+            
+            _query_params.append(('maxCompetencyDatetime', max_competency_datetime))
+            
+        if consider_ignored is not None:
+            
+            _query_params.append(('considerIgnored', consider_ignored))
+            
+        if consider_automatic_application_related is not None:
+            
+            _query_params.append(('considerAutomaticApplicationRelated', consider_automatic_application_related))
+            
+        if consider_internal_transfers is not None:
+            
+            _query_params.append(('considerInternalTransfers', consider_internal_transfers))
+            
+        if consider_invoice_related is not None:
+            
+            _query_params.append(('considerInvoiceRelated', consider_invoice_related))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/bank/workspaces/{workspaceId}/transactions',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def bank_transactions_controller_list_most_recent(
+        self,
+        workspace_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> List[BankTransactionEntity]:
+        """bank_transactions_controller_list_most_recent
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._bank_transactions_controller_list_most_recent_serialize(
+            workspace_id=workspace_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[BankTransactionEntity]",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def bank_transactions_controller_list_most_recent_with_http_info(
+        self,
+        workspace_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[List[BankTransactionEntity]]:
+        """bank_transactions_controller_list_most_recent
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._bank_transactions_controller_list_most_recent_serialize(
+            workspace_id=workspace_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[BankTransactionEntity]",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def bank_transactions_controller_list_most_recent_without_preload_content(
+        self,
+        workspace_id: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """bank_transactions_controller_list_most_recent
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._bank_transactions_controller_list_most_recent_serialize(
+            workspace_id=workspace_id,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "List[BankTransactionEntity]",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _bank_transactions_controller_list_most_recent_serialize(
+        self,
+        workspace_id,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if workspace_id is not None:
+            _path_params['workspaceId'] = workspace_id
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/bank/workspaces/{workspaceId}/transactions/most-recent',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def bank_transactions_controller_list_not_verified(
+        self,
+        workspace_id: StrictStr,
+        page_index: Optional[Union[StrictFloat, StrictInt]] = None,
+        page_size: Optional[Union[StrictFloat, StrictInt]] = None,
+        consider_ignored: Optional[StrictBool] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> BankTransactionsPageEntity:
+        """bank_transactions_controller_list_not_verified
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param page_index:
+        :type page_index: float
+        :param page_size:
+        :type page_size: float
+        :param consider_ignored:
+        :type consider_ignored: bool
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._bank_transactions_controller_list_not_verified_serialize(
+            workspace_id=workspace_id,
+            page_index=page_index,
+            page_size=page_size,
+            consider_ignored=consider_ignored,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "BankTransactionsPageEntity",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def bank_transactions_controller_list_not_verified_with_http_info(
+        self,
+        workspace_id: StrictStr,
+        page_index: Optional[Union[StrictFloat, StrictInt]] = None,
+        page_size: Optional[Union[StrictFloat, StrictInt]] = None,
+        consider_ignored: Optional[StrictBool] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[BankTransactionsPageEntity]:
+        """bank_transactions_controller_list_not_verified
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param page_index:
+        :type page_index: float
+        :param page_size:
+        :type page_size: float
+        :param consider_ignored:
+        :type consider_ignored: bool
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._bank_transactions_controller_list_not_verified_serialize(
+            workspace_id=workspace_id,
+            page_index=page_index,
+            page_size=page_size,
+            consider_ignored=consider_ignored,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "BankTransactionsPageEntity",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def bank_transactions_controller_list_not_verified_without_preload_content(
+        self,
+        workspace_id: StrictStr,
+        page_index: Optional[Union[StrictFloat, StrictInt]] = None,
+        page_size: Optional[Union[StrictFloat, StrictInt]] = None,
+        consider_ignored: Optional[StrictBool] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """bank_transactions_controller_list_not_verified
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param page_index:
+        :type page_index: float
+        :param page_size:
+        :type page_size: float
+        :param consider_ignored:
+        :type consider_ignored: bool
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._bank_transactions_controller_list_not_verified_serialize(
+            workspace_id=workspace_id,
+            page_index=page_index,
+            page_size=page_size,
+            consider_ignored=consider_ignored,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "BankTransactionsPageEntity",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _bank_transactions_controller_list_not_verified_serialize(
+        self,
+        workspace_id,
+        page_index,
+        page_size,
+        consider_ignored,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if workspace_id is not None:
+            _path_params['workspaceId'] = workspace_id
+        # process the query parameters
+        if page_index is not None:
+            
+            _query_params.append(('pageIndex', page_index))
+            
+        if page_size is not None:
+            
+            _query_params.append(('pageSize', page_size))
+            
+        if consider_ignored is not None:
+            
+            _query_params.append(('considerIgnored', consider_ignored))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/bank/workspaces/{workspaceId}/transactions/not-verified',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def bank_transactions_controller_list_verified_by_me(
+        self,
+        workspace_id: StrictStr,
+        from_datetime: StrictStr,
+        to_datetime: StrictStr,
+        page_index: Optional[Union[StrictFloat, StrictInt]] = None,
+        page_size: Optional[Union[StrictFloat, StrictInt]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> BankTransactionsPageEntity:
+        """bank_transactions_controller_list_verified_by_me
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param from_datetime: (required)
+        :type from_datetime: str
+        :param to_datetime: (required)
+        :type to_datetime: str
+        :param page_index:
+        :type page_index: float
+        :param page_size:
+        :type page_size: float
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._bank_transactions_controller_list_verified_by_me_serialize(
+            workspace_id=workspace_id,
+            from_datetime=from_datetime,
+            to_datetime=to_datetime,
+            page_index=page_index,
+            page_size=page_size,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "BankTransactionsPageEntity",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def bank_transactions_controller_list_verified_by_me_with_http_info(
+        self,
+        workspace_id: StrictStr,
+        from_datetime: StrictStr,
+        to_datetime: StrictStr,
+        page_index: Optional[Union[StrictFloat, StrictInt]] = None,
+        page_size: Optional[Union[StrictFloat, StrictInt]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[BankTransactionsPageEntity]:
+        """bank_transactions_controller_list_verified_by_me
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param from_datetime: (required)
+        :type from_datetime: str
+        :param to_datetime: (required)
+        :type to_datetime: str
+        :param page_index:
+        :type page_index: float
+        :param page_size:
+        :type page_size: float
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._bank_transactions_controller_list_verified_by_me_serialize(
+            workspace_id=workspace_id,
+            from_datetime=from_datetime,
+            to_datetime=to_datetime,
+            page_index=page_index,
+            page_size=page_size,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "BankTransactionsPageEntity",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def bank_transactions_controller_list_verified_by_me_without_preload_content(
+        self,
+        workspace_id: StrictStr,
+        from_datetime: StrictStr,
+        to_datetime: StrictStr,
+        page_index: Optional[Union[StrictFloat, StrictInt]] = None,
+        page_size: Optional[Union[StrictFloat, StrictInt]] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """bank_transactions_controller_list_verified_by_me
+
+
+        :param workspace_id: (required)
+        :type workspace_id: str
+        :param from_datetime: (required)
+        :type from_datetime: str
+        :param to_datetime: (required)
+        :type to_datetime: str
+        :param page_index:
+        :type page_index: float
+        :param page_size:
+        :type page_size: float
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._bank_transactions_controller_list_verified_by_me_serialize(
+            workspace_id=workspace_id,
+            from_datetime=from_datetime,
+            to_datetime=to_datetime,
+            page_index=page_index,
+            page_size=page_size,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "BankTransactionsPageEntity",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _bank_transactions_controller_list_verified_by_me_serialize(
+        self,
+        workspace_id,
+        from_datetime,
+        to_datetime,
+        page_index,
+        page_size,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[str, Union[str, bytes]] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if workspace_id is not None:
+            _path_params['workspaceId'] = workspace_id
+        # process the query parameters
+        if from_datetime is not None:
+            
+            _query_params.append(('fromDatetime', from_datetime))
+            
+        if to_datetime is not None:
+            
+            _query_params.append(('toDatetime', to_datetime))
+            
+        if page_index is not None:
+            
+            _query_params.append(('pageIndex', page_index))
+            
+        if page_size is not None:
+            
+            _query_params.append(('pageSize', page_size))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/bank/workspaces/{workspaceId}/transactions/verified-by-me',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    async def bank_transactions_controller_partial_update(
+        self,
+        bank_transaction_id: StrictStr,
+        partial_update_bank_transaction_request_dto: PartialUpdateBankTransactionRequestDto,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> BankTransactionEntity:
+        """bank_transactions_controller_partial_update
+
+
+        :param bank_transaction_id: (required)
+        :type bank_transaction_id: str
+        :param partial_update_bank_transaction_request_dto: (required)
+        :type partial_update_bank_transaction_request_dto: PartialUpdateBankTransactionRequestDto
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._bank_transactions_controller_partial_update_serialize(
+            bank_transaction_id=bank_transaction_id,
+            partial_update_bank_transaction_request_dto=partial_update_bank_transaction_request_dto,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "BankTransactionEntity",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    async def bank_transactions_controller_partial_update_with_http_info(
+        self,
+        bank_transaction_id: StrictStr,
+        partial_update_bank_transaction_request_dto: PartialUpdateBankTransactionRequestDto,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[BankTransactionEntity]:
+        """bank_transactions_controller_partial_update
+
+
+        :param bank_transaction_id: (required)
+        :type bank_transaction_id: str
+        :param partial_update_bank_transaction_request_dto: (required)
+        :type partial_update_bank_transaction_request_dto: PartialUpdateBankTransactionRequestDto
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._bank_transactions_controller_partial_update_serialize(
+            bank_transaction_id=bank_transaction_id,
+            partial_update_bank_transaction_request_dto=partial_update_bank_transaction_request_dto,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "BankTransactionEntity",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        await response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    async def bank_transactions_controller_partial_update_without_preload_content(
+        self,
+        bank_transaction_id: StrictStr,
+        partial_update_bank_transaction_request_dto: PartialUpdateBankTransactionRequestDto,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """bank_transactions_controller_partial_update
+
+
+        :param bank_transaction_id: (required)
+        :type bank_transaction_id: str
+        :param partial_update_bank_transaction_request_dto: (required)
+        :type partial_update_bank_transaction_request_dto: PartialUpdateBankTransactionRequestDto
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._bank_transactions_controller_partial_update_serialize(
+            bank_transaction_id=bank_transaction_id,
+            partial_update_bank_transaction_request_dto=partial_update_bank_transaction_request_dto,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "BankTransactionEntity",
+        }
+        response_data = await self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _bank_transactions_controller_partial_update_serialize(
         self,
         bank_transaction_id,
-        update_bank_transaction_request_dto,
+        partial_update_bank_transaction_request_dto,
         _request_auth,
         _content_type,
         _headers,
@@ -2925,8 +2958,8 @@ class BankTransactionsApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if update_bank_transaction_request_dto is not None:
-            _body_params = update_bank_transaction_request_dto
+        if partial_update_bank_transaction_request_dto is not None:
+            _body_params = partial_update_bank_transaction_request_dto
 
 
         # set the HTTP header `Accept`

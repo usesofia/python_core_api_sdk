@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,7 +27,7 @@ class CreateBankTransactionTagRequestDto(BaseModel):
     """
     CreateBankTransactionTagRequestDto
     """ # noqa: E501
-    name: StrictStr
+    name: Annotated[str, Field(min_length=1, strict=True)]
     __properties: ClassVar[List[str]] = ["name"]
 
     model_config = ConfigDict(

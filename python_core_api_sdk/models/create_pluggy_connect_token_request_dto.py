@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -30,6 +30,13 @@ class CreatePluggyConnectTokenRequestDto(BaseModel):
     workspace_id: StrictStr = Field(alias="workspaceId")
     history_range: StrictStr = Field(alias="historyRange")
     __properties: ClassVar[List[str]] = ["itemId", "workspaceId", "historyRange"]
+
+    @field_validator('history_range')
+    def history_range_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['ONE_DAY', 'ONE_WEEK', 'ONE_MONTH', 'TWO_MONTHS', 'THREE_MONTHS', 'SIX_MONTHS', 'ONE_YEAR']):
+            raise ValueError("must be one of enum values ('ONE_DAY', 'ONE_WEEK', 'ONE_MONTH', 'TWO_MONTHS', 'THREE_MONTHS', 'SIX_MONTHS', 'ONE_YEAR')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -70,6 +77,11 @@ class CreatePluggyConnectTokenRequestDto(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if item_id (nullable) is None
+        # and model_fields_set contains the field
+        if self.item_id is None and "item_id" in self.model_fields_set:
+            _dict['itemId'] = None
+
         return _dict
 
     @classmethod

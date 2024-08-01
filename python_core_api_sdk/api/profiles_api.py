@@ -17,7 +17,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from python_core_api_sdk.models.create_profile_request_dto import CreateProfileRequestDto
-from python_core_api_sdk.models.parcial_update_profile_request_dto import ParcialUpdateProfileRequestDto
+from python_core_api_sdk.models.partial_update_profile_request_dto import PartialUpdateProfileRequestDto
 from python_core_api_sdk.models.profile_entity import ProfileEntity
 
 from python_core_api_sdk.api_client import ApiClient, RequestSerialized
@@ -263,11 +263,12 @@ class ProfilesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -289,7 +290,7 @@ class ProfilesApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/profiles',
+            resource_path='/iam/profiles',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -515,11 +516,12 @@ class ProfilesApi:
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
 
         # authentication setting
@@ -528,7 +530,7 @@ class ProfilesApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/profiles/me',
+            resource_path='/iam/profiles/me',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -545,9 +547,9 @@ class ProfilesApi:
 
 
     @validate_call
-    async def profiles_controller_parcial_update(
+    async def profiles_controller_partial_update(
         self,
-        parcial_update_profile_request_dto: ParcialUpdateProfileRequestDto,
+        partial_update_profile_request_dto: PartialUpdateProfileRequestDto,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -561,11 +563,11 @@ class ProfilesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ProfileEntity:
-        """profiles_controller_parcial_update
+        """profiles_controller_partial_update
 
 
-        :param parcial_update_profile_request_dto: (required)
-        :type parcial_update_profile_request_dto: ParcialUpdateProfileRequestDto
+        :param partial_update_profile_request_dto: (required)
+        :type partial_update_profile_request_dto: PartialUpdateProfileRequestDto
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -588,8 +590,8 @@ class ProfilesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._profiles_controller_parcial_update_serialize(
-            parcial_update_profile_request_dto=parcial_update_profile_request_dto,
+        _param = self._profiles_controller_partial_update_serialize(
+            partial_update_profile_request_dto=partial_update_profile_request_dto,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -611,9 +613,9 @@ class ProfilesApi:
 
 
     @validate_call
-    async def profiles_controller_parcial_update_with_http_info(
+    async def profiles_controller_partial_update_with_http_info(
         self,
-        parcial_update_profile_request_dto: ParcialUpdateProfileRequestDto,
+        partial_update_profile_request_dto: PartialUpdateProfileRequestDto,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -627,11 +629,11 @@ class ProfilesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ProfileEntity]:
-        """profiles_controller_parcial_update
+        """profiles_controller_partial_update
 
 
-        :param parcial_update_profile_request_dto: (required)
-        :type parcial_update_profile_request_dto: ParcialUpdateProfileRequestDto
+        :param partial_update_profile_request_dto: (required)
+        :type partial_update_profile_request_dto: PartialUpdateProfileRequestDto
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -654,8 +656,8 @@ class ProfilesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._profiles_controller_parcial_update_serialize(
-            parcial_update_profile_request_dto=parcial_update_profile_request_dto,
+        _param = self._profiles_controller_partial_update_serialize(
+            partial_update_profile_request_dto=partial_update_profile_request_dto,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -677,9 +679,9 @@ class ProfilesApi:
 
 
     @validate_call
-    async def profiles_controller_parcial_update_without_preload_content(
+    async def profiles_controller_partial_update_without_preload_content(
         self,
-        parcial_update_profile_request_dto: ParcialUpdateProfileRequestDto,
+        partial_update_profile_request_dto: PartialUpdateProfileRequestDto,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -693,11 +695,11 @@ class ProfilesApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """profiles_controller_parcial_update
+        """profiles_controller_partial_update
 
 
-        :param parcial_update_profile_request_dto: (required)
-        :type parcial_update_profile_request_dto: ParcialUpdateProfileRequestDto
+        :param partial_update_profile_request_dto: (required)
+        :type partial_update_profile_request_dto: PartialUpdateProfileRequestDto
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -720,8 +722,8 @@ class ProfilesApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._profiles_controller_parcial_update_serialize(
-            parcial_update_profile_request_dto=parcial_update_profile_request_dto,
+        _param = self._profiles_controller_partial_update_serialize(
+            partial_update_profile_request_dto=partial_update_profile_request_dto,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -738,9 +740,9 @@ class ProfilesApi:
         return response_data.response
 
 
-    def _profiles_controller_parcial_update_serialize(
+    def _profiles_controller_partial_update_serialize(
         self,
-        parcial_update_profile_request_dto,
+        partial_update_profile_request_dto,
         _request_auth,
         _content_type,
         _headers,
@@ -764,16 +766,17 @@ class ProfilesApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if parcial_update_profile_request_dto is not None:
-            _body_params = parcial_update_profile_request_dto
+        if partial_update_profile_request_dto is not None:
+            _body_params = partial_update_profile_request_dto
 
 
         # set the HTTP header `Accept`
-        _header_params['Accept'] = self.api_client.select_header_accept(
-            [
-                'application/json'
-            ]
-        )
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
 
         # set the HTTP header `Content-Type`
         if _content_type:
@@ -795,7 +798,7 @@ class ProfilesApi:
 
         return self.api_client.param_serialize(
             method='PATCH',
-            resource_path='/profiles/me',
+            resource_path='/iam/profiles/me',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

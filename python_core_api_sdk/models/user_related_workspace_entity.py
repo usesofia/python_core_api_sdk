@@ -17,9 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
+from python_core_api_sdk.models.user_entity_workspaces_inner import UserEntityWorkspacesInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,14 +27,16 @@ class UserRelatedWorkspaceEntity(BaseModel):
     """
     UserRelatedWorkspaceEntity
     """ # noqa: E501
-    id: StrictStr
-    pretty_id: StrictStr = Field(alias="prettyId")
-    name: StrictStr
-    type: StrictStr
-    creator_user_id: StrictStr = Field(alias="creatorUserId")
-    created_at: datetime = Field(alias="createdAt")
+    workspace: UserEntityWorkspacesInner
     relation_type: StrictStr = Field(alias="relationType")
-    __properties: ClassVar[List[str]] = ["id", "prettyId", "name", "type", "creatorUserId", "createdAt", "relationType"]
+    __properties: ClassVar[List[str]] = ["workspace", "relationType"]
+
+    @field_validator('relation_type')
+    def relation_type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['APPROVED', 'WAITING_APPROVAL']):
+            raise ValueError("must be one of enum values ('APPROVED', 'WAITING_APPROVAL')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -75,6 +77,9 @@ class UserRelatedWorkspaceEntity(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of workspace
+        if self.workspace:
+            _dict['workspace'] = self.workspace.to_dict()
         return _dict
 
     @classmethod
@@ -87,12 +92,7 @@ class UserRelatedWorkspaceEntity(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "id": obj.get("id"),
-            "prettyId": obj.get("prettyId"),
-            "name": obj.get("name"),
-            "type": obj.get("type"),
-            "creatorUserId": obj.get("creatorUserId"),
-            "createdAt": obj.get("createdAt"),
+            "workspace": UserEntityWorkspacesInner.from_dict(obj["workspace"]) if obj.get("workspace") is not None else None,
             "relationType": obj.get("relationType")
         })
         return _obj

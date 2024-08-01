@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List
-from python_core_api_sdk.models.create_or_update_bank_transactions_in_bulk_item_dto import CreateOrUpdateBankTransactionsInBulkItemDto
+from python_core_api_sdk.models.create_or_update_bank_transactions_in_bulk_request_dto_items_inner import CreateOrUpdateBankTransactionsInBulkRequestDtoItemsInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class CreateOrUpdateBankTransactionsInBulkRequestDto(BaseModel):
     """
     CreateOrUpdateBankTransactionsInBulkRequestDto
     """ # noqa: E501
-    items: List[CreateOrUpdateBankTransactionsInBulkItemDto]
+    items: List[CreateOrUpdateBankTransactionsInBulkRequestDtoItemsInner]
     __properties: ClassVar[List[str]] = ["items"]
 
     model_config = ConfigDict(
@@ -88,7 +88,7 @@ class CreateOrUpdateBankTransactionsInBulkRequestDto(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "items": [CreateOrUpdateBankTransactionsInBulkItemDto.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None
+            "items": [CreateOrUpdateBankTransactionsInBulkRequestDtoItemsInner.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None
         })
         return _obj
 

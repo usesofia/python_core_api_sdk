@@ -7,10 +7,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
 **name** | **str** |  | 
-**nature** | **str** |  | 
+**direction_nature** | **str** |  | 
 **parent_id** | **str** |  | [optional] 
-**path** | [**List[BankTransactionCategoryPlainEntity]**](BankTransactionCategoryPlainEntity.md) |  | 
-**children** | [**List[BankTransactionCategoryPlainEntity]**](BankTransactionCategoryPlainEntity.md) |  | 
+**children** | [**List[BankTransactionCategoryEntityChildrenInner]**](BankTransactionCategoryEntityChildrenInner.md) |  | 
 
 ## Example
 

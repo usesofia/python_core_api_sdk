@@ -4,12 +4,12 @@ All URIs are relative to *http://localhost*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**message_tokens_controller_create_or_update_message_token**](MessageTokensApi.md#message_tokens_controller_create_or_update_message_token) | **PUT** /workspaces/{workspaceId}/message-tokens | 
-[**message_tokens_controller_get_workspace_message_tokens**](MessageTokensApi.md#message_tokens_controller_get_workspace_message_tokens) | **GET** /workspaces/{workspaceId}/message-tokens | 
+[**message_tokens_controller_create_or_update**](MessageTokensApi.md#message_tokens_controller_create_or_update) | **PUT** /communication/workspaces/{workspaceId}/message-tokens | 
+[**message_tokens_controller_list_by_workspace_id**](MessageTokensApi.md#message_tokens_controller_list_by_workspace_id) | **GET** /communication/workspaces/{workspaceId}/message-tokens | 
 
 
-# **message_tokens_controller_create_or_update_message_token**
-> MessageTokenEntity message_tokens_controller_create_or_update_message_token(workspace_id, create_or_update_message_token_request_dto)
+# **message_tokens_controller_create_or_update**
+> MessageTokenEntity message_tokens_controller_create_or_update(workspace_id, create_or_update_message_token_request_dto)
 
 
 
@@ -38,11 +38,11 @@ async with python_core_api_sdk.ApiClient(configuration) as api_client:
     create_or_update_message_token_request_dto = python_core_api_sdk.CreateOrUpdateMessageTokenRequestDto() # CreateOrUpdateMessageTokenRequestDto | 
 
     try:
-        api_response = await api_instance.message_tokens_controller_create_or_update_message_token(workspace_id, create_or_update_message_token_request_dto)
-        print("The response of MessageTokensApi->message_tokens_controller_create_or_update_message_token:\n")
+        api_response = await api_instance.message_tokens_controller_create_or_update(workspace_id, create_or_update_message_token_request_dto)
+        print("The response of MessageTokensApi->message_tokens_controller_create_or_update:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling MessageTokensApi->message_tokens_controller_create_or_update_message_token: %s\n" % e)
+        print("Exception when calling MessageTokensApi->message_tokens_controller_create_or_update: %s\n" % e)
 ```
 
 
@@ -77,8 +77,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **message_tokens_controller_get_workspace_message_tokens**
-> List[MessageTokenEntity] message_tokens_controller_get_workspace_message_tokens(workspace_id)
+# **message_tokens_controller_list_by_workspace_id**
+> List[MessageTokenEntity] message_tokens_controller_list_by_workspace_id(workspace_id)
 
 
 
@@ -105,11 +105,11 @@ async with python_core_api_sdk.ApiClient(configuration) as api_client:
     workspace_id = 'workspace_id_example' # str | 
 
     try:
-        api_response = await api_instance.message_tokens_controller_get_workspace_message_tokens(workspace_id)
-        print("The response of MessageTokensApi->message_tokens_controller_get_workspace_message_tokens:\n")
+        api_response = await api_instance.message_tokens_controller_list_by_workspace_id(workspace_id)
+        print("The response of MessageTokensApi->message_tokens_controller_list_by_workspace_id:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling MessageTokensApi->message_tokens_controller_get_workspace_message_tokens: %s\n" % e)
+        print("Exception when calling MessageTokensApi->message_tokens_controller_list_by_workspace_id: %s\n" % e)
 ```
 
 

@@ -7,33 +7,31 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
 **account_id** | **str** |  | 
-**account** | [**BankAccountEntity**](BankAccountEntity.md) |  | 
+**account** | [**BankConnectionEntityAccountsInner**](BankConnectionEntityAccountsInner.md) |  | 
 **workspace_id** | **str** |  | 
 **provider** | **str** |  | 
 **provider_transaction_id** | **str** |  | 
 **original_description** | **str** |  | 
 **description** | **str** |  | 
-**posted_date** | **datetime** |  | 
-**competency_date** | **datetime** |  | 
-**amount** | **float** |  | 
-**type** | **str** |  | 
+**posted_date** | **object** |  | 
+**competency_date** | **object** |  | 
+**amount** | **int** |  | 
+**direction_nature** | **str** |  | 
 **status** | **str** |  | 
 **legal_nature** | **str** |  | 
 **provider_category_id** | **str** |  | [optional] 
 **provider_category_name** | **str** |  | [optional] 
 **category_id** | **str** |  | [optional] 
-**category** | [**BankTransactionCategoryPlainEntity**](BankTransactionCategoryPlainEntity.md) |  | [optional] 
-**tags** | [**List[BankTransactionTagEntity]**](BankTransactionTagEntity.md) |  | 
+**category** | [**BankTransactionEntityCategory**](BankTransactionEntityCategory.md) |  | [optional] 
+**tags** | [**List[BankTransactionEntityTagsInner]**](BankTransactionEntityTagsInner.md) |  | 
 **payment_data_id** | **str** |  | [optional] 
-**payment_data** | [**BankTransactionPaymentDataEntity**](BankTransactionPaymentDataEntity.md) |  | [optional] 
+**payment_data** | [**BankTransactionEntityPaymentData**](BankTransactionEntityPaymentData.md) |  | [optional] 
 **credit_card_metadata_id** | **str** |  | [optional] 
-**credit_card_metadata** | [**BankTransactionCreditCardMetadataEntity**](BankTransactionCreditCardMetadataEntity.md) |  | [optional] 
-**best_guess_category_id** | **str** |  | [optional] 
-**best_guess_category** | [**BankTransactionCategoryPlainEntity**](BankTransactionCategoryPlainEntity.md) |  | [optional] 
-**ignored_at** | **datetime** |  | [optional] 
-**confirmed_at** | **datetime** |  | [optional] 
-**created_at** | **datetime** |  | 
-**updated_at** | **datetime** |  | 
+**credit_card_metadata** | [**BankTransactionEntityCreditCardMetadata**](BankTransactionEntityCreditCardMetadata.md) |  | [optional] 
+**ignored_at** | **object** |  | [optional] 
+**verified_at** | **object** |  | [optional] 
+**created_at** | **object** |  | 
+**updated_at** | **object** |  | 
 
 ## Example
 

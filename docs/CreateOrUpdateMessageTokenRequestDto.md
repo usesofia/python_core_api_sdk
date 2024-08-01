@@ -6,6 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **platform** | **str** |  | 
+**provider** | **str** |  | 
 **device_id** | **str** |  | 
 **token** | **str** |  | 
 

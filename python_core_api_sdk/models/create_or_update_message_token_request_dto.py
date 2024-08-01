@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,9 +27,24 @@ class CreateOrUpdateMessageTokenRequestDto(BaseModel):
     CreateOrUpdateMessageTokenRequestDto
     """ # noqa: E501
     platform: StrictStr
+    provider: StrictStr
     device_id: StrictStr = Field(alias="deviceId")
     token: StrictStr
-    __properties: ClassVar[List[str]] = ["platform", "deviceId", "token"]
+    __properties: ClassVar[List[str]] = ["platform", "provider", "deviceId", "token"]
+
+    @field_validator('platform')
+    def platform_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['WEB', 'ANDROID', 'IOS']):
+            raise ValueError("must be one of enum values ('WEB', 'ANDROID', 'IOS')")
+        return value
+
+    @field_validator('provider')
+    def provider_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['FIREBASE_MESSAGING']):
+            raise ValueError("must be one of enum values ('FIREBASE_MESSAGING')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -83,6 +98,7 @@ class CreateOrUpdateMessageTokenRequestDto(BaseModel):
 
         _obj = cls.model_validate({
             "platform": obj.get("platform"),
+            "provider": obj.get("provider"),
             "deviceId": obj.get("deviceId"),
             "token": obj.get("token")
         })

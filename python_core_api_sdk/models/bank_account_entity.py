@@ -17,10 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List, Union
-from python_core_api_sdk.models.bank_connection_entity import BankConnectionEntity
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,18 +28,31 @@ class BankAccountEntity(BaseModel):
     """ # noqa: E501
     id: StrictStr
     bank_connection_id: StrictStr = Field(alias="bankConnectionId")
-    bank_connection: BankConnectionEntity = Field(alias="bankConnection")
     provider: StrictStr
     provider_account_id: StrictStr = Field(alias="providerAccountId")
     type: StrictStr
     enabled: StrictBool
     number: StrictStr
-    balance: Union[StrictFloat, StrictInt]
+    balance: StrictInt
     currency_code: StrictStr = Field(alias="currencyCode")
     name: StrictStr
-    created_at: datetime = Field(alias="createdAt")
-    updated_at: datetime = Field(alias="updatedAt")
-    __properties: ClassVar[List[str]] = ["id", "bankConnectionId", "bankConnection", "provider", "providerAccountId", "type", "enabled", "number", "balance", "currencyCode", "name", "createdAt", "updatedAt"]
+    created_at: Optional[Any] = Field(alias="createdAt")
+    updated_at: Optional[Any] = Field(alias="updatedAt")
+    __properties: ClassVar[List[str]] = ["id", "bankConnectionId", "provider", "providerAccountId", "type", "enabled", "number", "balance", "currencyCode", "name", "createdAt", "updatedAt"]
+
+    @field_validator('provider')
+    def provider_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['PLUGGY', 'SOFIA']):
+            raise ValueError("must be one of enum values ('PLUGGY', 'SOFIA')")
+        return value
+
+    @field_validator('type')
+    def type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['CHECKING', 'SAVINGS', 'CREDIT_CARD']):
+            raise ValueError("must be one of enum values ('CHECKING', 'SAVINGS', 'CREDIT_CARD')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -82,9 +93,16 @@ class BankAccountEntity(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of bank_connection
-        if self.bank_connection:
-            _dict['bankConnection'] = self.bank_connection.to_dict()
+        # set to None if created_at (nullable) is None
+        # and model_fields_set contains the field
+        if self.created_at is None and "created_at" in self.model_fields_set:
+            _dict['createdAt'] = None
+
+        # set to None if updated_at (nullable) is None
+        # and model_fields_set contains the field
+        if self.updated_at is None and "updated_at" in self.model_fields_set:
+            _dict['updatedAt'] = None
+
         return _dict
 
     @classmethod
@@ -99,7 +117,6 @@ class BankAccountEntity(BaseModel):
         _obj = cls.model_validate({
             "id": obj.get("id"),
             "bankConnectionId": obj.get("bankConnectionId"),
-            "bankConnection": BankConnectionEntity.from_dict(obj["bankConnection"]) if obj.get("bankConnection") is not None else None,
             "provider": obj.get("provider"),
             "providerAccountId": obj.get("providerAccountId"),
             "type": obj.get("type"),
