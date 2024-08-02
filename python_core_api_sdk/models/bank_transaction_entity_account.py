@@ -24,9 +24,9 @@ from python_core_api_sdk.models.bank_transaction_entity_account_bank_connection 
 from typing import Optional, Set
 from typing_extensions import Self
 
-class BankAccountEntity(BaseModel):
+class BankTransactionEntityAccount(BaseModel):
     """
-    BankAccountEntity
+    BankTransactionEntityAccount
     """ # noqa: E501
     id: StrictStr
     bank_connection_id: StrictStr = Field(alias="bankConnectionId")
@@ -75,7 +75,7 @@ class BankAccountEntity(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of BankAccountEntity from a JSON string"""
+        """Create an instance of BankTransactionEntityAccount from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -103,7 +103,7 @@ class BankAccountEntity(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of BankAccountEntity from a dict"""
+        """Create an instance of BankTransactionEntityAccount from a dict"""
         if obj is None:
             return None
 

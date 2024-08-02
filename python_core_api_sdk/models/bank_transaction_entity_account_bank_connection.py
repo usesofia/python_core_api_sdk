@@ -18,30 +18,28 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List
-from python_core_api_sdk.models.bank_transaction_entity_account_bank_connection import BankTransactionEntityAccountBankConnection
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
+from python_core_api_sdk.models.bank_connection_entity_connector import BankConnectionEntityConnector
 from typing import Optional, Set
 from typing_extensions import Self
 
-class BankAccountEntity(BaseModel):
+class BankTransactionEntityAccountBankConnection(BaseModel):
     """
-    BankAccountEntity
+    BankTransactionEntityAccountBankConnection
     """ # noqa: E501
     id: StrictStr
-    bank_connection_id: StrictStr = Field(alias="bankConnectionId")
-    bank_connection: BankTransactionEntityAccountBankConnection = Field(alias="bankConnection")
-    provider: StrictStr
-    provider_account_id: StrictStr = Field(alias="providerAccountId")
-    type: StrictStr
+    created_by_user_id: StrictStr = Field(alias="createdByUserId")
+    workspace_id: StrictStr = Field(alias="workspaceId")
     enabled: StrictBool
-    number: StrictStr
-    balance: StrictInt
-    currency_code: StrictStr = Field(alias="currencyCode")
-    name: StrictStr
+    provider: StrictStr
+    provider_item_id: StrictStr = Field(alias="providerItemId")
+    history_range: StrictStr = Field(alias="historyRange")
+    connector_id: StrictStr = Field(alias="connectorId")
+    connector: Optional[BankConnectionEntityConnector] = None
     created_at: datetime = Field(alias="createdAt")
     updated_at: datetime = Field(alias="updatedAt")
-    __properties: ClassVar[List[str]] = ["id", "bankConnectionId", "bankConnection", "provider", "providerAccountId", "type", "enabled", "number", "balance", "currencyCode", "name", "createdAt", "updatedAt"]
+    __properties: ClassVar[List[str]] = ["id", "createdByUserId", "workspaceId", "enabled", "provider", "providerItemId", "historyRange", "connectorId", "connector", "createdAt", "updatedAt"]
 
     @field_validator('provider')
     def provider_validate_enum(cls, value):
@@ -50,11 +48,11 @@ class BankAccountEntity(BaseModel):
             raise ValueError("must be one of enum values ('PLUGGY', 'SOFIA')")
         return value
 
-    @field_validator('type')
-    def type_validate_enum(cls, value):
+    @field_validator('history_range')
+    def history_range_validate_enum(cls, value):
         """Validates the enum"""
-        if value not in set(['CHECKING', 'SAVINGS', 'CREDIT_CARD']):
-            raise ValueError("must be one of enum values ('CHECKING', 'SAVINGS', 'CREDIT_CARD')")
+        if value not in set(['ONE_DAY', 'ONE_WEEK', 'ONE_MONTH', 'TWO_MONTHS', 'THREE_MONTHS', 'SIX_MONTHS', 'ONE_YEAR']):
+            raise ValueError("must be one of enum values ('ONE_DAY', 'ONE_WEEK', 'ONE_MONTH', 'TWO_MONTHS', 'THREE_MONTHS', 'SIX_MONTHS', 'ONE_YEAR')")
         return value
 
     model_config = ConfigDict(
@@ -75,7 +73,7 @@ class BankAccountEntity(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of BankAccountEntity from a JSON string"""
+        """Create an instance of BankTransactionEntityAccountBankConnection from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -96,14 +94,19 @@ class BankAccountEntity(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of bank_connection
-        if self.bank_connection:
-            _dict['bankConnection'] = self.bank_connection.to_dict()
+        # override the default output from pydantic by calling `to_dict()` of connector
+        if self.connector:
+            _dict['connector'] = self.connector.to_dict()
+        # set to None if connector (nullable) is None
+        # and model_fields_set contains the field
+        if self.connector is None and "connector" in self.model_fields_set:
+            _dict['connector'] = None
+
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of BankAccountEntity from a dict"""
+        """Create an instance of BankTransactionEntityAccountBankConnection from a dict"""
         if obj is None:
             return None
 
@@ -112,16 +115,14 @@ class BankAccountEntity(BaseModel):
 
         _obj = cls.model_validate({
             "id": obj.get("id"),
-            "bankConnectionId": obj.get("bankConnectionId"),
-            "bankConnection": BankTransactionEntityAccountBankConnection.from_dict(obj["bankConnection"]) if obj.get("bankConnection") is not None else None,
-            "provider": obj.get("provider"),
-            "providerAccountId": obj.get("providerAccountId"),
-            "type": obj.get("type"),
+            "createdByUserId": obj.get("createdByUserId"),
+            "workspaceId": obj.get("workspaceId"),
             "enabled": obj.get("enabled"),
-            "number": obj.get("number"),
-            "balance": obj.get("balance"),
-            "currencyCode": obj.get("currencyCode"),
-            "name": obj.get("name"),
+            "provider": obj.get("provider"),
+            "providerItemId": obj.get("providerItemId"),
+            "historyRange": obj.get("historyRange"),
+            "connectorId": obj.get("connectorId"),
+            "connector": BankConnectionEntityConnector.from_dict(obj["connector"]) if obj.get("connector") is not None else None,
             "createdAt": obj.get("createdAt"),
             "updatedAt": obj.get("updatedAt")
         })

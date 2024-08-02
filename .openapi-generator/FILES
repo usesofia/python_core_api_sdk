@@ -8,10 +8,8 @@ docs/AssignLegalNatureForBankTransactionsPageRequestDto.md
 docs/AuthApi.md
 docs/BalancePointResultEntity.md
 docs/BankAccountEntity.md
-docs/BankAccountEntityBankConnection.md
 docs/BankAccountsApi.md
 docs/BankAccountsBalanceReportEntity.md
-docs/BankAccountsBalanceReportEntityBankAccountsInner.md
 docs/BankAccountsBalanceReportEntityItemsInner.md
 docs/BankConnectionEntity.md
 docs/BankConnectionEntityAccountsInner.md
@@ -22,6 +20,8 @@ docs/BankTransactionCategoriesApi.md
 docs/BankTransactionCategoryEntity.md
 docs/BankTransactionCategoryEntityChildrenInner.md
 docs/BankTransactionEntity.md
+docs/BankTransactionEntityAccount.md
+docs/BankTransactionEntityAccountBankConnection.md
 docs/BankTransactionEntityCategory.md
 docs/BankTransactionEntityCreditCardMetadata.md
 docs/BankTransactionEntityPaymentData.md
@@ -138,9 +138,7 @@ python_core_api_sdk/models/assign_category_for_bank_transactions_page_request_dt
 python_core_api_sdk/models/assign_legal_nature_for_bank_transactions_page_request_dto.py
 python_core_api_sdk/models/balance_point_result_entity.py
 python_core_api_sdk/models/bank_account_entity.py
-python_core_api_sdk/models/bank_account_entity_bank_connection.py
 python_core_api_sdk/models/bank_accounts_balance_report_entity.py
-python_core_api_sdk/models/bank_accounts_balance_report_entity_bank_accounts_inner.py
 python_core_api_sdk/models/bank_accounts_balance_report_entity_items_inner.py
 python_core_api_sdk/models/bank_connection_entity.py
 python_core_api_sdk/models/bank_connection_entity_accounts_inner.py
@@ -148,6 +146,8 @@ python_core_api_sdk/models/bank_connection_entity_connector.py
 python_core_api_sdk/models/bank_transaction_category_entity.py
 python_core_api_sdk/models/bank_transaction_category_entity_children_inner.py
 python_core_api_sdk/models/bank_transaction_entity.py
+python_core_api_sdk/models/bank_transaction_entity_account.py
+python_core_api_sdk/models/bank_transaction_entity_account_bank_connection.py
 python_core_api_sdk/models/bank_transaction_entity_category.py
 python_core_api_sdk/models/bank_transaction_entity_credit_card_metadata.py
 python_core_api_sdk/models/bank_transaction_entity_payment_data.py
@@ -233,6 +233,6 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_bank_account_entity_bank_connection.py
-test/test_bank_accounts_balance_report_entity_bank_accounts_inner.py
+test/test_bank_transaction_entity_account.py
+test/test_bank_transaction_entity_account_bank_connection.py
 tox.ini

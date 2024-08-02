@@ -20,7 +20,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
-from python_core_api_sdk.models.bank_connection_entity_accounts_inner import BankConnectionEntityAccountsInner
+from python_core_api_sdk.models.bank_transaction_entity_account import BankTransactionEntityAccount
 from python_core_api_sdk.models.bank_transaction_entity_category import BankTransactionEntityCategory
 from python_core_api_sdk.models.bank_transaction_entity_credit_card_metadata import BankTransactionEntityCreditCardMetadata
 from python_core_api_sdk.models.bank_transaction_entity_payment_data import BankTransactionEntityPaymentData
@@ -34,7 +34,7 @@ class BankTransactionEntity(BaseModel):
     """ # noqa: E501
     id: StrictStr
     account_id: StrictStr = Field(alias="accountId")
-    account: BankConnectionEntityAccountsInner
+    account: BankTransactionEntityAccount
     workspace_id: StrictStr = Field(alias="workspaceId")
     provider: StrictStr
     provider_transaction_id: StrictStr = Field(alias="providerTransactionId")
@@ -211,7 +211,7 @@ class BankTransactionEntity(BaseModel):
         _obj = cls.model_validate({
             "id": obj.get("id"),
             "accountId": obj.get("accountId"),
-            "account": BankConnectionEntityAccountsInner.from_dict(obj["account"]) if obj.get("account") is not None else None,
+            "account": BankTransactionEntityAccount.from_dict(obj["account"]) if obj.get("account") is not None else None,
             "workspaceId": obj.get("workspaceId"),
             "provider": obj.get("provider"),
             "providerTransactionId": obj.get("providerTransactionId"),

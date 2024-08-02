@@ -1,4 +1,4 @@
-# BankAccountEntity
+# BankTransactionEntityAccount
 
 
 ## Properties
@@ -22,19 +22,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from python_core_api_sdk.models.bank_account_entity import BankAccountEntity
+from python_core_api_sdk.models.bank_transaction_entity_account import BankTransactionEntityAccount
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of BankAccountEntity from a JSON string
-bank_account_entity_instance = BankAccountEntity.from_json(json)
+# create an instance of BankTransactionEntityAccount from a JSON string
+bank_transaction_entity_account_instance = BankTransactionEntityAccount.from_json(json)
 # print the JSON string representation of the object
-print(BankAccountEntity.to_json())
+print(BankTransactionEntityAccount.to_json())
 
 # convert the object into a dict
-bank_account_entity_dict = bank_account_entity_instance.to_dict()
-# create an instance of BankAccountEntity from a dict
-bank_account_entity_from_dict = BankAccountEntity.from_dict(bank_account_entity_dict)
+bank_transaction_entity_account_dict = bank_transaction_entity_account_instance.to_dict()
+# create an instance of BankTransactionEntityAccount from a dict
+bank_transaction_entity_account_from_dict = BankTransactionEntityAccount.from_dict(bank_transaction_entity_account_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

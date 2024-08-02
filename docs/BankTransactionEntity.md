@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
 **account_id** | **str** |  | 
-**account** | [**BankConnectionEntityAccountsInner**](BankConnectionEntityAccountsInner.md) |  | 
+**account** | [**BankTransactionEntityAccount**](BankTransactionEntityAccount.md) |  | 
 **workspace_id** | **str** |  | 
 **provider** | **str** |  | 
 **provider_transaction_id** | **str** |  | 
