@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**items** | [**List[BankAccountsBalanceReportItemEntity]**](BankAccountsBalanceReportItemEntity.md) |  | 
-**bank_accounts** | [**List[BankAccountEntity]**](BankAccountEntity.md) |  | 
+**items** | [**List[BankAccountsBalanceReportEntityItemsInner]**](BankAccountsBalanceReportEntityItemsInner.md) |  | 
+**bank_accounts** | [**List[BankConnectionEntityAccountsInner]**](BankConnectionEntityAccountsInner.md) |  | 
 
 ## Example
 

@@ -94,6 +94,7 @@ Class | Method | HTTP request | Description
 *AuthApi* | [**auth_controller_verify_phone_verification_code**](docs/AuthApi.md#auth_controller_verify_phone_verification_code) | **GET** /iam/auth/phone-verification-code/verify | 
 *BankAccountsApi* | [**bank_accounts_controller_activate**](docs/BankAccountsApi.md#bank_accounts_controller_activate) | **POST** /bank/accounts/{bankAccountId}/activate | 
 *BankAccountsApi* | [**bank_accounts_controller_create_or_update**](docs/BankAccountsApi.md#bank_accounts_controller_create_or_update) | **PUT** /bank/accounts | 
+*BankAccountsApi* | [**bank_accounts_controller_create_workspace_balance_report**](docs/BankAccountsApi.md#bank_accounts_controller_create_workspace_balance_report) | **POST** /bank/workspaces/{workspaceId}/accounts/balance-report | 
 *BankAccountsApi* | [**bank_accounts_controller_disable**](docs/BankAccountsApi.md#bank_accounts_controller_disable) | **POST** /bank/accounts/{bankAccountId}/disable | 
 *BankAccountsApi* | [**bank_accounts_controller_get_by_id**](docs/BankAccountsApi.md#bank_accounts_controller_get_by_id) | **GET** /bank/accounts/{bankAccountId} | 
 *BankAccountsApi* | [**bank_accounts_controller_list_by_bank_connection_id**](docs/BankAccountsApi.md#bank_accounts_controller_list_by_bank_connection_id) | **GET** /bank/connections/{bankConnectionId}/accounts | 
@@ -148,6 +149,8 @@ Class | Method | HTTP request | Description
  - [AssignLegalNatureForBankTransactionsPageRequestDto](docs/AssignLegalNatureForBankTransactionsPageRequestDto.md)
  - [BalancePointResultEntity](docs/BalancePointResultEntity.md)
  - [BankAccountEntity](docs/BankAccountEntity.md)
+ - [BankAccountsBalanceReportEntity](docs/BankAccountsBalanceReportEntity.md)
+ - [BankAccountsBalanceReportEntityItemsInner](docs/BankAccountsBalanceReportEntityItemsInner.md)
  - [BankConnectionEntity](docs/BankConnectionEntity.md)
  - [BankConnectionEntityAccountsInner](docs/BankConnectionEntityAccountsInner.md)
  - [BankConnectionEntityConnector](docs/BankConnectionEntityConnector.md)

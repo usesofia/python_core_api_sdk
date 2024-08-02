@@ -17,20 +17,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
-from python_core_api_sdk.models.bank_accounts_balance_report_entity_items_inner import BankAccountsBalanceReportEntityItemsInner
-from python_core_api_sdk.models.bank_connection_entity_accounts_inner import BankConnectionEntityAccountsInner
 from typing import Optional, Set
 from typing_extensions import Self
 
-class BankAccountsBalanceReportEntity(BaseModel):
+class BankAccountsBalanceReportEntityItemsInner(BaseModel):
     """
-    BankAccountsBalanceReportEntity
+    BankAccountsBalanceReportEntityItemsInner
     """ # noqa: E501
-    items: List[BankAccountsBalanceReportEntityItemsInner]
-    bank_accounts: List[BankConnectionEntityAccountsInner] = Field(alias="bankAccounts")
-    __properties: ClassVar[List[str]] = ["items", "bankAccounts"]
+    total_balance: StrictInt = Field(alias="totalBalance")
+    currency_code: StrictStr = Field(alias="currencyCode")
+    __properties: ClassVar[List[str]] = ["totalBalance", "currencyCode"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +48,7 @@ class BankAccountsBalanceReportEntity(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of BankAccountsBalanceReportEntity from a JSON string"""
+        """Create an instance of BankAccountsBalanceReportEntityItemsInner from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,25 +69,11 @@ class BankAccountsBalanceReportEntity(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in items (list)
-        _items = []
-        if self.items:
-            for _item in self.items:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['items'] = _items
-        # override the default output from pydantic by calling `to_dict()` of each item in bank_accounts (list)
-        _items = []
-        if self.bank_accounts:
-            for _item in self.bank_accounts:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['bankAccounts'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of BankAccountsBalanceReportEntity from a dict"""
+        """Create an instance of BankAccountsBalanceReportEntityItemsInner from a dict"""
         if obj is None:
             return None
 
@@ -97,8 +81,8 @@ class BankAccountsBalanceReportEntity(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "items": [BankAccountsBalanceReportEntityItemsInner.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None,
-            "bankAccounts": [BankConnectionEntityAccountsInner.from_dict(_item) for _item in obj["bankAccounts"]] if obj.get("bankAccounts") is not None else None
+            "totalBalance": obj.get("totalBalance"),
+            "currencyCode": obj.get("currencyCode")
         })
         return _obj
 
