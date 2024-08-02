@@ -19,8 +19,8 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
+from python_core_api_sdk.models.bank_accounts_balance_report_entity_bank_accounts_inner import BankAccountsBalanceReportEntityBankAccountsInner
 from python_core_api_sdk.models.bank_accounts_balance_report_entity_items_inner import BankAccountsBalanceReportEntityItemsInner
-from python_core_api_sdk.models.bank_connection_entity_accounts_inner import BankConnectionEntityAccountsInner
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +29,7 @@ class BankAccountsBalanceReportEntity(BaseModel):
     BankAccountsBalanceReportEntity
     """ # noqa: E501
     items: List[BankAccountsBalanceReportEntityItemsInner]
-    bank_accounts: List[BankConnectionEntityAccountsInner] = Field(alias="bankAccounts")
+    bank_accounts: List[BankAccountsBalanceReportEntityBankAccountsInner] = Field(alias="bankAccounts")
     __properties: ClassVar[List[str]] = ["items", "bankAccounts"]
 
     model_config = ConfigDict(
@@ -98,7 +98,7 @@ class BankAccountsBalanceReportEntity(BaseModel):
 
         _obj = cls.model_validate({
             "items": [BankAccountsBalanceReportEntityItemsInner.from_dict(_item) for _item in obj["items"]] if obj.get("items") is not None else None,
-            "bankAccounts": [BankConnectionEntityAccountsInner.from_dict(_item) for _item in obj["bankAccounts"]] if obj.get("bankAccounts") is not None else None
+            "bankAccounts": [BankAccountsBalanceReportEntityBankAccountsInner.from_dict(_item) for _item in obj["bankAccounts"]] if obj.get("bankAccounts") is not None else None
         })
         return _obj
 

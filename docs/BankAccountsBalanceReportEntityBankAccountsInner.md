@@ -1,4 +1,4 @@
-# BankAccountEntity
+# BankAccountsBalanceReportEntityBankAccountsInner
 
 
 ## Properties
@@ -22,19 +22,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from python_core_api_sdk.models.bank_account_entity import BankAccountEntity
+from python_core_api_sdk.models.bank_accounts_balance_report_entity_bank_accounts_inner import BankAccountsBalanceReportEntityBankAccountsInner
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of BankAccountEntity from a JSON string
-bank_account_entity_instance = BankAccountEntity.from_json(json)
+# create an instance of BankAccountsBalanceReportEntityBankAccountsInner from a JSON string
+bank_accounts_balance_report_entity_bank_accounts_inner_instance = BankAccountsBalanceReportEntityBankAccountsInner.from_json(json)
 # print the JSON string representation of the object
-print(BankAccountEntity.to_json())
+print(BankAccountsBalanceReportEntityBankAccountsInner.to_json())
 
 # convert the object into a dict
-bank_account_entity_dict = bank_account_entity_instance.to_dict()
-# create an instance of BankAccountEntity from a dict
-bank_account_entity_from_dict = BankAccountEntity.from_dict(bank_account_entity_dict)
+bank_accounts_balance_report_entity_bank_accounts_inner_dict = bank_accounts_balance_report_entity_bank_accounts_inner_instance.to_dict()
+# create an instance of BankAccountsBalanceReportEntityBankAccountsInner from a dict
+bank_accounts_balance_report_entity_bank_accounts_inner_from_dict = BankAccountsBalanceReportEntityBankAccountsInner.from_dict(bank_accounts_balance_report_entity_bank_accounts_inner_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
