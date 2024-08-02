@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **provider_transaction_id** | **str** |  | 
 **original_description** | **str** |  | 
 **description** | **str** |  | 
-**posted_date** | **object** |  | 
-**competency_date** | **object** |  | 
+**posted_date** | **datetime** |  | 
+**competency_date** | **datetime** |  | 
 **amount** | **int** |  | 
 **direction_nature** | **str** |  | 
 **status** | **str** |  | 
@@ -28,10 +28,10 @@ Name | Type | Description | Notes
 **payment_data** | [**BankTransactionEntityPaymentData**](BankTransactionEntityPaymentData.md) |  | [optional] 
 **credit_card_metadata_id** | **str** |  | [optional] 
 **credit_card_metadata** | [**BankTransactionEntityCreditCardMetadata**](BankTransactionEntityCreditCardMetadata.md) |  | [optional] 
-**ignored_at** | **object** |  | [optional] 
-**verified_at** | **object** |  | [optional] 
-**created_at** | **object** |  | 
-**updated_at** | **object** |  | 
+**ignored_at** | **datetime** |  | [optional] 
+**verified_at** | **datetime** |  | [optional] 
+**created_at** | **datetime** |  | 
+**updated_at** | **datetime** |  | 
 
 ## Example
 

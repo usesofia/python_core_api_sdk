@@ -17,6 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
@@ -39,7 +40,7 @@ class WorkspaceEntity(BaseModel):
     hybrid_settings: Optional[UserEntityWorkspacesInnerHybridSettings] = Field(default=None, alias="hybridSettings")
     business_settings: Optional[UserEntityWorkspacesInnerHybridSettings] = Field(default=None, alias="businessSettings")
     personal_settings: Optional[UserEntityWorkspacesInnerPersonalSettings] = Field(default=None, alias="personalSettings")
-    created_at: Optional[Any] = Field(alias="createdAt")
+    created_at: datetime = Field(alias="createdAt")
     __properties: ClassVar[List[str]] = ["id", "prettyId", "name", "type", "creatorUserId", "selectedPersonalCategoryTreeId", "selectedBusinessCategoryTreeId", "hybridSettings", "businessSettings", "personalSettings", "createdAt"]
 
     @field_validator('pretty_id')
@@ -128,11 +129,6 @@ class WorkspaceEntity(BaseModel):
         # and model_fields_set contains the field
         if self.personal_settings is None and "personal_settings" in self.model_fields_set:
             _dict['personalSettings'] = None
-
-        # set to None if created_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.created_at is None and "created_at" in self.model_fields_set:
-            _dict['createdAt'] = None
 
         return _dict
 

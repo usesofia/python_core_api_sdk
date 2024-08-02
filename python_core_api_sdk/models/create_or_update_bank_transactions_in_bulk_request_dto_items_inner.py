@@ -17,6 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from python_core_api_sdk.models.create_or_update_bank_transactions_in_bulk_request_dto_items_inner_category_guesses_inner import CreateOrUpdateBankTransactionsInBulkRequestDtoItemsInnerCategoryGuessesInner
@@ -35,8 +36,8 @@ class CreateOrUpdateBankTransactionsInBulkRequestDtoItemsInner(BaseModel):
     workspace_id: StrictStr = Field(alias="workspaceId")
     provider_transaction_id: StrictStr = Field(alias="providerTransactionId")
     description: StrictStr
-    posted_date: Optional[Any] = Field(alias="postedDate")
-    competency_date: Optional[Any] = Field(alias="competencyDate")
+    posted_date: datetime = Field(alias="postedDate")
+    competency_date: datetime = Field(alias="competencyDate")
     amount: Union[StrictFloat, StrictInt]
     direction_nature: StrictStr = Field(alias="directionNature")
     status: StrictStr
@@ -137,16 +138,6 @@ class CreateOrUpdateBankTransactionsInBulkRequestDtoItemsInner(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['legalNatureGuesses'] = _items
-        # set to None if posted_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.posted_date is None and "posted_date" in self.model_fields_set:
-            _dict['postedDate'] = None
-
-        # set to None if competency_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.competency_date is None and "competency_date" in self.model_fields_set:
-            _dict['competencyDate'] = None
-
         return _dict
 
     @classmethod

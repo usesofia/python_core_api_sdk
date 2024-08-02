@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **primary_color** | **str** |  | 
 **type** | **str** |  | 
 **country** | **str** |  | 
-**created_at** | **object** |  | 
-**updated_at** | **object** |  | 
+**created_at** | **datetime** |  | 
+**updated_at** | **datetime** |  | 
 
 ## Example
 

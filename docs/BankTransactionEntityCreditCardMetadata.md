@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **payee_mcc** | **float** |  | [optional] 
 **card_number** | **str** |  | [optional] 
 **bill_id** | **str** |  | [optional] 
-**created_at** | **object** |  | 
-**updated_at** | **object** |  | 
+**created_at** | **datetime** |  | 
+**updated_at** | **datetime** |  | 
 
 ## Example
 

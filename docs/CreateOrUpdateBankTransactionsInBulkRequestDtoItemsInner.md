@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **workspace_id** | **str** |  | 
 **provider_transaction_id** | **str** |  | 
 **description** | **str** |  | 
-**posted_date** | **object** |  | 
-**competency_date** | **object** |  | 
+**posted_date** | **datetime** |  | 
+**competency_date** | **datetime** |  | 
 **amount** | **float** |  | 
 **direction_nature** | **str** |  | 
 **status** | **str** |  | 

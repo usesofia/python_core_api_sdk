@@ -17,6 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
@@ -34,8 +35,8 @@ class BankTransactionEntityCreditCardMetadata(BaseModel):
     payee_mcc: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, alias="payeeMCC")
     card_number: Optional[StrictStr] = Field(default=None, alias="cardNumber")
     bill_id: Optional[StrictStr] = Field(default=None, alias="billId")
-    created_at: Optional[Any] = Field(alias="createdAt")
-    updated_at: Optional[Any] = Field(alias="updatedAt")
+    created_at: datetime = Field(alias="createdAt")
+    updated_at: datetime = Field(alias="updatedAt")
     __properties: ClassVar[List[str]] = ["id", "transactionId", "installmentNumber", "totalInstallments", "totalAmount", "payeeMCC", "cardNumber", "billId", "createdAt", "updatedAt"]
 
     model_config = ConfigDict(
@@ -106,16 +107,6 @@ class BankTransactionEntityCreditCardMetadata(BaseModel):
         # and model_fields_set contains the field
         if self.bill_id is None and "bill_id" in self.model_fields_set:
             _dict['billId'] = None
-
-        # set to None if created_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.created_at is None and "created_at" in self.model_fields_set:
-            _dict['createdAt'] = None
-
-        # set to None if updated_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.updated_at is None and "updated_at" in self.model_fields_set:
-            _dict['updatedAt'] = None
 
         return _dict
 

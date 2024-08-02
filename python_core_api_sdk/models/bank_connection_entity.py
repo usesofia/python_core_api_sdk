@@ -17,6 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from python_core_api_sdk.models.bank_connection_entity_accounts_inner import BankConnectionEntityAccountsInner
@@ -38,8 +39,8 @@ class BankConnectionEntity(BaseModel):
     history_range: StrictStr = Field(alias="historyRange")
     connector_id: StrictStr = Field(alias="connectorId")
     connector: Optional[BankConnectionEntityConnector] = None
-    created_at: Optional[Any] = Field(alias="createdAt")
-    updated_at: Optional[Any] = Field(alias="updatedAt")
+    created_at: datetime = Field(alias="createdAt")
+    updated_at: datetime = Field(alias="updatedAt")
     __properties: ClassVar[List[str]] = ["id", "createdByUserId", "workspaceId", "accounts", "enabled", "provider", "providerItemId", "historyRange", "connectorId", "connector", "createdAt", "updatedAt"]
 
     @field_validator('provider')
@@ -114,16 +115,6 @@ class BankConnectionEntity(BaseModel):
         # and model_fields_set contains the field
         if self.connector is None and "connector" in self.model_fields_set:
             _dict['connector'] = None
-
-        # set to None if created_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.created_at is None and "created_at" in self.model_fields_set:
-            _dict['createdAt'] = None
-
-        # set to None if updated_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.updated_at is None and "updated_at" in self.model_fields_set:
-            _dict['updatedAt'] = None
 
         return _dict
 

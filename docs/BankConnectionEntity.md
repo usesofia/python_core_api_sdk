@@ -15,8 +15,8 @@ Name | Type | Description | Notes
 **history_range** | **str** |  | 
 **connector_id** | **str** |  | 
 **connector** | [**BankConnectionEntityConnector**](BankConnectionEntityConnector.md) |  | [optional] 
-**created_at** | **object** |  | 
-**updated_at** | **object** |  | 
+**created_at** | **datetime** |  | 
+**updated_at** | **datetime** |  | 
 
 ## Example
 

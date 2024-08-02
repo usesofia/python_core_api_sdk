@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **password_hash** | **str** |  | [optional] 
 **is_root** | **bool** |  | 
 **workspaces** | [**List[UserEntityWorkspacesInner]**](UserEntityWorkspacesInner.md) |  | [optional] 
-**created_at** | **object** |  | 
+**created_at** | **datetime** |  | 
 
 ## Example
 

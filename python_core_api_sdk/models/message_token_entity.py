@@ -17,6 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from python_core_api_sdk.models.message_token_entity_user import MessageTokenEntityUser
@@ -37,8 +38,8 @@ class MessageTokenEntity(BaseModel):
     platform: StrictStr
     device_id: StrictStr = Field(alias="deviceId")
     token: StrictStr
-    created_at: Optional[Any] = Field(alias="createdAt")
-    updated_at: Optional[Any] = Field(alias="updatedAt")
+    created_at: datetime = Field(alias="createdAt")
+    updated_at: datetime = Field(alias="updatedAt")
     __properties: ClassVar[List[str]] = ["id", "workspaceId", "worksapce", "userId", "user", "provider", "platform", "deviceId", "token", "createdAt", "updatedAt"]
 
     @field_validator('provider')
@@ -109,16 +110,6 @@ class MessageTokenEntity(BaseModel):
         # and model_fields_set contains the field
         if self.user is None and "user" in self.model_fields_set:
             _dict['user'] = None
-
-        # set to None if created_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.created_at is None and "created_at" in self.model_fields_set:
-            _dict['createdAt'] = None
-
-        # set to None if updated_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.updated_at is None and "updated_at" in self.model_fields_set:
-            _dict['updatedAt'] = None
 
         return _dict
 

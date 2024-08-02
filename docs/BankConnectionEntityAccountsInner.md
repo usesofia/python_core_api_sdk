@@ -15,8 +15,8 @@ Name | Type | Description | Notes
 **balance** | **int** |  | 
 **currency_code** | **str** |  | 
 **name** | **str** |  | 
-**created_at** | **object** |  | 
-**updated_at** | **object** |  | 
+**created_at** | **datetime** |  | 
+**updated_at** | **datetime** |  | 
 
 ## Example
 

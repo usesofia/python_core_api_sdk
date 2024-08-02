@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** |  | 
 **description** | **str** |  | 
-**posted_date** | **object** |  | 
+**posted_date** | **datetime** |  | 
 **amount** | **int** |  | 
 **direction_nature** | **str** |  | 
 **status** | **str** |  | 

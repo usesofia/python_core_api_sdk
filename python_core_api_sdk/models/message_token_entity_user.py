@@ -17,6 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from python_core_api_sdk.models.user_entity_workspaces_inner import UserEntityWorkspacesInner
@@ -33,7 +34,7 @@ class MessageTokenEntityUser(BaseModel):
     password_hash: Optional[StrictStr] = Field(default=None, alias="passwordHash")
     is_root: StrictBool = Field(alias="isRoot")
     workspaces: Optional[List[UserEntityWorkspacesInner]] = None
-    created_at: Optional[Any] = Field(alias="createdAt")
+    created_at: datetime = Field(alias="createdAt")
     __properties: ClassVar[List[str]] = ["id", "email", "phone", "passwordHash", "isRoot", "workspaces", "createdAt"]
 
     model_config = ConfigDict(
@@ -91,11 +92,6 @@ class MessageTokenEntityUser(BaseModel):
         # and model_fields_set contains the field
         if self.workspaces is None and "workspaces" in self.model_fields_set:
             _dict['workspaces'] = None
-
-        # set to None if created_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.created_at is None and "created_at" in self.model_fields_set:
-            _dict['createdAt'] = None
 
         return _dict
 

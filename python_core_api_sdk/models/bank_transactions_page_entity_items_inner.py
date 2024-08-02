@@ -17,6 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from python_core_api_sdk.models.bank_connection_entity_accounts_inner import BankConnectionEntityAccountsInner
@@ -39,8 +40,8 @@ class BankTransactionsPageEntityItemsInner(BaseModel):
     provider_transaction_id: StrictStr = Field(alias="providerTransactionId")
     original_description: StrictStr = Field(alias="originalDescription")
     description: StrictStr
-    posted_date: Optional[Any] = Field(alias="postedDate")
-    competency_date: Optional[Any] = Field(alias="competencyDate")
+    posted_date: datetime = Field(alias="postedDate")
+    competency_date: datetime = Field(alias="competencyDate")
     amount: StrictInt
     direction_nature: StrictStr = Field(alias="directionNature")
     status: StrictStr
@@ -54,10 +55,10 @@ class BankTransactionsPageEntityItemsInner(BaseModel):
     payment_data: Optional[BankTransactionEntityPaymentData] = Field(default=None, alias="paymentData")
     credit_card_metadata_id: Optional[StrictStr] = Field(default=None, alias="creditCardMetadataId")
     credit_card_metadata: Optional[BankTransactionEntityCreditCardMetadata] = Field(default=None, alias="creditCardMetadata")
-    ignored_at: Optional[Any] = Field(default=None, alias="ignoredAt")
-    verified_at: Optional[Any] = Field(default=None, alias="verifiedAt")
-    created_at: Optional[Any] = Field(alias="createdAt")
-    updated_at: Optional[Any] = Field(alias="updatedAt")
+    ignored_at: Optional[datetime] = Field(default=None, alias="ignoredAt")
+    verified_at: Optional[datetime] = Field(default=None, alias="verifiedAt")
+    created_at: datetime = Field(alias="createdAt")
+    updated_at: datetime = Field(alias="updatedAt")
     __properties: ClassVar[List[str]] = ["id", "accountId", "account", "workspaceId", "provider", "providerTransactionId", "originalDescription", "description", "postedDate", "competencyDate", "amount", "directionNature", "status", "legalNature", "providerCategoryId", "providerCategoryName", "categoryId", "category", "tags", "paymentDataId", "paymentData", "creditCardMetadataId", "creditCardMetadata", "ignoredAt", "verifiedAt", "createdAt", "updatedAt"]
 
     @field_validator('provider')
@@ -146,16 +147,6 @@ class BankTransactionsPageEntityItemsInner(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of credit_card_metadata
         if self.credit_card_metadata:
             _dict['creditCardMetadata'] = self.credit_card_metadata.to_dict()
-        # set to None if posted_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.posted_date is None and "posted_date" in self.model_fields_set:
-            _dict['postedDate'] = None
-
-        # set to None if competency_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.competency_date is None and "competency_date" in self.model_fields_set:
-            _dict['competencyDate'] = None
-
         # set to None if provider_category_id (nullable) is None
         # and model_fields_set contains the field
         if self.provider_category_id is None and "provider_category_id" in self.model_fields_set:
@@ -205,16 +196,6 @@ class BankTransactionsPageEntityItemsInner(BaseModel):
         # and model_fields_set contains the field
         if self.verified_at is None and "verified_at" in self.model_fields_set:
             _dict['verifiedAt'] = None
-
-        # set to None if created_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.created_at is None and "created_at" in self.model_fields_set:
-            _dict['createdAt'] = None
-
-        # set to None if updated_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.updated_at is None and "updated_at" in self.model_fields_set:
-            _dict['updatedAt'] = None
 
         return _dict
 

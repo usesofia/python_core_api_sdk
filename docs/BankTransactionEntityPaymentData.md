@@ -25,8 +25,8 @@ Name | Type | Description | Notes
 **payment_method** | **str** |  | [optional] 
 **reference_number** | **str** |  | [optional] 
 **receiver_reference_id** | **str** |  | [optional] 
-**created_at** | **object** |  | 
-**updated_at** | **object** |  | 
+**created_at** | **datetime** |  | 
+**updated_at** | **datetime** |  | 
 
 ## Example
 

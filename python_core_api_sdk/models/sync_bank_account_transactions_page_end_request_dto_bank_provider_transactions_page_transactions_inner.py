@@ -17,6 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from python_core_api_sdk.models.sync_bank_account_transactions_page_end_request_dto_bank_provider_transactions_page_transactions_inner_credit_card_metadata import SyncBankAccountTransactionsPageEndRequestDtoBankProviderTransactionsPageTransactionsInnerCreditCardMetadata
@@ -30,7 +31,7 @@ class SyncBankAccountTransactionsPageEndRequestDtoBankProviderTransactionsPageTr
     """ # noqa: E501
     id: StrictStr
     description: StrictStr
-    posted_date: Optional[Any] = Field(alias="postedDate")
+    posted_date: datetime = Field(alias="postedDate")
     amount: StrictInt
     direction_nature: StrictStr = Field(alias="directionNature")
     status: StrictStr
@@ -99,11 +100,6 @@ class SyncBankAccountTransactionsPageEndRequestDtoBankProviderTransactionsPageTr
         # override the default output from pydantic by calling `to_dict()` of credit_card_metadata
         if self.credit_card_metadata:
             _dict['creditCardMetadata'] = self.credit_card_metadata.to_dict()
-        # set to None if posted_date (nullable) is None
-        # and model_fields_set contains the field
-        if self.posted_date is None and "posted_date" in self.model_fields_set:
-            _dict['postedDate'] = None
-
         # set to None if category_id (nullable) is None
         # and model_fields_set contains the field
         if self.category_id is None and "category_id" in self.model_fields_set:

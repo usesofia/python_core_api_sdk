@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
+from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -36,8 +37,8 @@ class BankAccountEntity(BaseModel):
     balance: StrictInt
     currency_code: StrictStr = Field(alias="currencyCode")
     name: StrictStr
-    created_at: Optional[Any] = Field(alias="createdAt")
-    updated_at: Optional[Any] = Field(alias="updatedAt")
+    created_at: datetime = Field(alias="createdAt")
+    updated_at: datetime = Field(alias="updatedAt")
     __properties: ClassVar[List[str]] = ["id", "bankConnectionId", "provider", "providerAccountId", "type", "enabled", "number", "balance", "currencyCode", "name", "createdAt", "updatedAt"]
 
     @field_validator('provider')
@@ -93,16 +94,6 @@ class BankAccountEntity(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if created_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.created_at is None and "created_at" in self.model_fields_set:
-            _dict['createdAt'] = None
-
-        # set to None if updated_at (nullable) is None
-        # and model_fields_set contains the field
-        if self.updated_at is None and "updated_at" in self.model_fields_set:
-            _dict['updatedAt'] = None
-
         return _dict
 
     @classmethod

@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **hybrid_settings** | [**UserEntityWorkspacesInnerHybridSettings**](UserEntityWorkspacesInnerHybridSettings.md) |  | [optional] 
 **business_settings** | [**UserEntityWorkspacesInnerHybridSettings**](UserEntityWorkspacesInnerHybridSettings.md) |  | [optional] 
 **personal_settings** | [**UserEntityWorkspacesInnerPersonalSettings**](UserEntityWorkspacesInnerPersonalSettings.md) |  | [optional] 
-**created_at** | **object** |  | 
+**created_at** | **datetime** |  | 
 
 ## Example
 
