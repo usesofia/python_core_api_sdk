@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "python_core_api_sdk"
-version = "1.0.10"
+version = "1.0.11"
 description = "Sofia Api"
 authors = ["OpenAPI Generator Community <team@openapitools.org>"]
 license = "NoLicense"
