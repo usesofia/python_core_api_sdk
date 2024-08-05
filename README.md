@@ -90,8 +90,8 @@ Class | Method | HTTP request | Description
 *AuthApi* | [**auth_controller_refresh**](docs/AuthApi.md#auth_controller_refresh) | **POST** /iam/auth/refresh | 
 *AuthApi* | [**auth_controller_sign_in_with_email**](docs/AuthApi.md#auth_controller_sign_in_with_email) | **POST** /iam/auth/sign-in/email | 
 *AuthApi* | [**auth_controller_sign_up_with_email**](docs/AuthApi.md#auth_controller_sign_up_with_email) | **POST** /iam/auth/sign-up/email | 
-*AuthApi* | [**auth_controller_verify_email_verification_code**](docs/AuthApi.md#auth_controller_verify_email_verification_code) | **GET** /iam/auth/email-verification-code/verify | 
-*AuthApi* | [**auth_controller_verify_phone_verification_code**](docs/AuthApi.md#auth_controller_verify_phone_verification_code) | **GET** /iam/auth/phone-verification-code/verify | 
+*AuthApi* | [**auth_controller_verify_email_verification_code**](docs/AuthApi.md#auth_controller_verify_email_verification_code) | **POST** /iam/auth/email-verification-code/verify | 
+*AuthApi* | [**auth_controller_verify_phone_verification_code**](docs/AuthApi.md#auth_controller_verify_phone_verification_code) | **POST** /iam/auth/phone-verification-code/verify | 
 *BankAccountsApi* | [**bank_accounts_controller_activate**](docs/BankAccountsApi.md#bank_accounts_controller_activate) | **POST** /bank/accounts/{bankAccountId}/activate | 
 *BankAccountsApi* | [**bank_accounts_controller_create_or_update**](docs/BankAccountsApi.md#bank_accounts_controller_create_or_update) | **PUT** /bank/accounts | 
 *BankAccountsApi* | [**bank_accounts_controller_create_workspace_balance_report**](docs/BankAccountsApi.md#bank_accounts_controller_create_workspace_balance_report) | **POST** /bank/workspaces/{workspaceId}/accounts/balance-report | 

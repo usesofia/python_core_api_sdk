@@ -233,6 +233,4 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_bank_transaction_entity_account.py
-test/test_bank_transaction_entity_account_bank_connection.py
 tox.ini

@@ -12,8 +12,8 @@ Method | HTTP request | Description
 [**auth_controller_refresh**](AuthApi.md#auth_controller_refresh) | **POST** /iam/auth/refresh | 
 [**auth_controller_sign_in_with_email**](AuthApi.md#auth_controller_sign_in_with_email) | **POST** /iam/auth/sign-in/email | 
 [**auth_controller_sign_up_with_email**](AuthApi.md#auth_controller_sign_up_with_email) | **POST** /iam/auth/sign-up/email | 
-[**auth_controller_verify_email_verification_code**](AuthApi.md#auth_controller_verify_email_verification_code) | **GET** /iam/auth/email-verification-code/verify | 
-[**auth_controller_verify_phone_verification_code**](AuthApi.md#auth_controller_verify_phone_verification_code) | **GET** /iam/auth/phone-verification-code/verify | 
+[**auth_controller_verify_email_verification_code**](AuthApi.md#auth_controller_verify_email_verification_code) | **POST** /iam/auth/email-verification-code/verify | 
+[**auth_controller_verify_phone_verification_code**](AuthApi.md#auth_controller_verify_phone_verification_code) | **POST** /iam/auth/phone-verification-code/verify | 
 
 
 # **auth_controller_generate_and_send_email_verification_code**
