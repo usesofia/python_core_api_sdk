@@ -2216,7 +2216,7 @@ class AuthApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
+            '201': None,
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -2282,7 +2282,7 @@ class AuthApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
+            '201': None,
         }
         response_data = await self.api_client.call_api(
             *_param,
@@ -2348,7 +2348,7 @@ class AuthApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': None,
+            '201': None,
         }
         response_data = await self.api_client.call_api(
             *_param,
