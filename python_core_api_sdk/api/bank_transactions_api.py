@@ -869,7 +869,7 @@ class BankTransactionsApi:
         consider_ignored: Optional[StrictBool] = None,
         consider_automatic_application_related: Optional[StrictBool] = None,
         consider_internal_transfers: Optional[StrictBool] = None,
-        consider_invoice_related: Optional[StrictStr] = None,
+        consider_invoice_related: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -913,7 +913,7 @@ class BankTransactionsApi:
         :param consider_internal_transfers:
         :type consider_internal_transfers: bool
         :param consider_invoice_related:
-        :type consider_invoice_related: str
+        :type consider_invoice_related: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -987,7 +987,7 @@ class BankTransactionsApi:
         consider_ignored: Optional[StrictBool] = None,
         consider_automatic_application_related: Optional[StrictBool] = None,
         consider_internal_transfers: Optional[StrictBool] = None,
-        consider_invoice_related: Optional[StrictStr] = None,
+        consider_invoice_related: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1031,7 +1031,7 @@ class BankTransactionsApi:
         :param consider_internal_transfers:
         :type consider_internal_transfers: bool
         :param consider_invoice_related:
-        :type consider_invoice_related: str
+        :type consider_invoice_related: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1105,7 +1105,7 @@ class BankTransactionsApi:
         consider_ignored: Optional[StrictBool] = None,
         consider_automatic_application_related: Optional[StrictBool] = None,
         consider_internal_transfers: Optional[StrictBool] = None,
-        consider_invoice_related: Optional[StrictStr] = None,
+        consider_invoice_related: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1149,7 +1149,7 @@ class BankTransactionsApi:
         :param consider_internal_transfers:
         :type consider_internal_transfers: bool
         :param consider_invoice_related:
-        :type consider_invoice_related: str
+        :type consider_invoice_related: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1347,7 +1347,7 @@ class BankTransactionsApi:
         consider_ignored: Optional[StrictBool] = None,
         consider_automatic_application_related: Optional[StrictBool] = None,
         consider_internal_transfers: Optional[StrictBool] = None,
-        consider_invoice_related: Optional[StrictStr] = None,
+        consider_invoice_related: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1395,7 +1395,7 @@ class BankTransactionsApi:
         :param consider_internal_transfers:
         :type consider_internal_transfers: bool
         :param consider_invoice_related:
-        :type consider_invoice_related: str
+        :type consider_invoice_related: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1473,7 +1473,7 @@ class BankTransactionsApi:
         consider_ignored: Optional[StrictBool] = None,
         consider_automatic_application_related: Optional[StrictBool] = None,
         consider_internal_transfers: Optional[StrictBool] = None,
-        consider_invoice_related: Optional[StrictStr] = None,
+        consider_invoice_related: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1521,7 +1521,7 @@ class BankTransactionsApi:
         :param consider_internal_transfers:
         :type consider_internal_transfers: bool
         :param consider_invoice_related:
-        :type consider_invoice_related: str
+        :type consider_invoice_related: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1599,7 +1599,7 @@ class BankTransactionsApi:
         consider_ignored: Optional[StrictBool] = None,
         consider_automatic_application_related: Optional[StrictBool] = None,
         consider_internal_transfers: Optional[StrictBool] = None,
-        consider_invoice_related: Optional[StrictStr] = None,
+        consider_invoice_related: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1647,7 +1647,7 @@ class BankTransactionsApi:
         :param consider_internal_transfers:
         :type consider_internal_transfers: bool
         :param consider_invoice_related:
-        :type consider_invoice_related: str
+        :type consider_invoice_related: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of

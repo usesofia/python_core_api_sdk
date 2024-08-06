@@ -256,7 +256,7 @@ async with python_core_api_sdk.ApiClient(configuration) as api_client:
     consider_ignored = True # bool |  (optional)
     consider_automatic_application_related = True # bool |  (optional)
     consider_internal_transfers = True # bool |  (optional)
-    consider_invoice_related = 'consider_invoice_related_example' # str |  (optional)
+    consider_invoice_related = True # bool |  (optional)
 
     try:
         api_response = await api_instance.bank_transactions_controller_get_totals(workspace_id, account_ids=account_ids, category_ids=category_ids, tag_ids=tag_ids, legal_natures=legal_natures, direction_natures=direction_natures, min_posted_datetime=min_posted_datetime, max_posted_datetime=max_posted_datetime, min_competency_datetime=min_competency_datetime, max_competency_datetime=max_competency_datetime, consider_ignored=consider_ignored, consider_automatic_application_related=consider_automatic_application_related, consider_internal_transfers=consider_internal_transfers, consider_invoice_related=consider_invoice_related)
@@ -286,7 +286,7 @@ Name | Type | Description  | Notes
  **consider_ignored** | **bool**|  | [optional] 
  **consider_automatic_application_related** | **bool**|  | [optional] 
  **consider_internal_transfers** | **bool**|  | [optional] 
- **consider_invoice_related** | **str**|  | [optional] 
+ **consider_invoice_related** | **bool**|  | [optional] 
 
 ### Return type
 
@@ -350,7 +350,7 @@ async with python_core_api_sdk.ApiClient(configuration) as api_client:
     consider_ignored = True # bool |  (optional)
     consider_automatic_application_related = True # bool |  (optional)
     consider_internal_transfers = True # bool |  (optional)
-    consider_invoice_related = 'consider_invoice_related_example' # str |  (optional)
+    consider_invoice_related = True # bool |  (optional)
 
     try:
         api_response = await api_instance.bank_transactions_controller_list(workspace_id, page_index=page_index, page_size=page_size, account_ids=account_ids, category_ids=category_ids, tag_ids=tag_ids, legal_natures=legal_natures, direction_natures=direction_natures, min_posted_datetime=min_posted_datetime, max_posted_datetime=max_posted_datetime, min_competency_datetime=min_competency_datetime, max_competency_datetime=max_competency_datetime, consider_ignored=consider_ignored, consider_automatic_application_related=consider_automatic_application_related, consider_internal_transfers=consider_internal_transfers, consider_invoice_related=consider_invoice_related)
@@ -382,7 +382,7 @@ Name | Type | Description  | Notes
  **consider_ignored** | **bool**|  | [optional] 
  **consider_automatic_application_related** | **bool**|  | [optional] 
  **consider_internal_transfers** | **bool**|  | [optional] 
- **consider_invoice_related** | **str**|  | [optional] 
+ **consider_invoice_related** | **bool**|  | [optional] 
 
 ### Return type
 
